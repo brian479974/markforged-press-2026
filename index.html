@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Markforged Greater China — News & Press</title>
+<title>Markforged Greater China — News & Insights</title>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Helvetica Neue', Arial, sans-serif; background: #f0f0f0; color: #222; }
@@ -12,64 +12,91 @@ body { font-family: 'Helvetica Neue', Arial, sans-serif; background: #f0f0f0; co
 .brand { color: #FFC500; font-size: 20px; font-weight: 900; letter-spacing: 2px; margin-bottom: 6px; }
 .brand-sub { color: #666; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; }
 .container { max-width: 760px; margin: 0 auto; padding: 36px 24px; }
-.section-title { font-size: 13px; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
-.card { background: #fff; border-radius: 3px; padding: 28px; margin-bottom: 16px; box-shadow: 0 1px 4px rgba(0,0,0,.08); display: flex; gap: 24px; align-items: flex-start; }
-.card-date-col { flex-shrink: 0; width: 64px; text-align: center; }
-.card-date-day { font-size: 28px; font-weight: 900; color: #FFC500; line-height: 1; }
-.card-date-month { font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+.section-title { font-size: 13px; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 2px; margin: 32px 0 16px; border-top: 1px solid #ddd; padding-top: 28px; }
+.section-title:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+.card { background: #fff; border-radius: 3px; padding: 24px 28px; margin-bottom: 12px; box-shadow: 0 1px 4px rgba(0,0,0,.08); display: flex; gap: 20px; align-items: flex-start; }
+.card-date-col { flex-shrink: 0; width: 56px; text-align: center; }
+.card-date-day { font-size: 26px; font-weight: 900; color: #FFC500; line-height: 1; }
+.card-date-month { font-size: 10px; color: #999; text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
 .card-body { flex: 1; }
-.card-tag { display: inline-block; background: #f0f0f0; color: #666; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 2px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
-.card-title { font-size: 17px; font-weight: 700; color: #111; line-height: 1.4; margin-bottom: 8px; }
-.card-desc { font-size: 13px; color: #888; line-height: 1.6; margin-bottom: 14px; }
-.btn { display: inline-block; background: #000; color: #FFC500; padding: 8px 18px; font-size: 12px; font-weight: 700; text-decoration: none; letter-spacing: 1px; text-transform: uppercase; }
+.card-tag { display: inline-block; background: #f0f0f0; color: #666; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 2px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 7px; }
+.card-tag.yellow { background: #FFC500; color: #000; }
+.card-title { font-size: 16px; font-weight: 700; color: #111; line-height: 1.4; margin-bottom: 7px; }
+.card-desc { font-size: 13px; color: #888; line-height: 1.6; margin-bottom: 12px; }
+.btn { display: inline-block; background: #000; color: #FFC500; padding: 7px 16px; font-size: 11px; font-weight: 700; text-decoration: none; letter-spacing: 1px; text-transform: uppercase; }
 .btn:hover { background: #222; }
-.footer { text-align: center; padding: 40px 24px; color: #bbb; font-size: 12px; }
+.btn.outline { background: transparent; color: #000; border: 1.5px solid #000; }
+.btn.outline:hover { background: #f5f5f5; }
+.footer { text-align: center; padding: 40px 24px; color: #bbb; font-size: 12px; border-top: 1px solid #e0e0e0; margin-top: 20px; }
 .footer a { color: #888; text-decoration: none; }
 </style>
 </head>
 <body>
-
 <div class="header-bar">
   <div class="header-inner">
     <div class="brand">MARKFORGED</div>
-    <div class="brand-sub">Greater China Region — News & Press Releases</div>
+    <div class="brand-sub">Greater China Region — News & Insights</div>
   </div>
 </div>
-
 <div class="container">
-  <div class="section-title">Latest Press Releases</div>
+
+  <div class="section-title">Press Releases — 新聞稿</div>
 
   <div class="card">
-    <div class="card-date-col">
-      <div class="card-date-day">20</div>
-      <div class="card-date-month">Mar 2026</div>
-    </div>
+    <div class="card-date-col"><div class="card-date-day">20</div><div class="card-date-month">Mar 2026</div></div>
     <div class="card-body">
-      <div class="card-tag">Taiwan · Event</div>
+      <div class="card-tag yellow">Taiwan · Event</div>
       <div class="card-title">Markforged 攜三大台灣合作夥伴出席 2026 無人載具商機媒合會</div>
-      <div class="card-desc">Markforged and three Taiwan partners showcase industrial AM capabilities at the Taiwan UAV Business Matching Expo 2026, hosted at National Changhua University of Education.</div>
-      <a href="uav-expo-2026.html" class="btn">Read Press Release →</a>
+      <div class="card-desc">Markforged and three Taiwan partners showcase industrial AM capabilities at the Taiwan UAV Business Matching Expo 2026, Changhua.</div>
+      <a href="uav-expo-2026.html" class="btn">Read →</a>
     </div>
   </div>
 
   <div class="card">
-    <div class="card-date-col">
-      <div class="card-date-day">19</div>
-      <div class="card-date-month">Mar 2026</div>
-    </div>
+    <div class="card-date-col"><div class="card-date-day">19</div><div class="card-date-month">Mar 2026</div></div>
     <div class="card-body">
-      <div class="card-tag">China · Exhibition</div>
+      <div class="card-tag yellow">China · Exhibition</div>
       <div class="card-title">Markforged 盛裝亮相 TCT Asia 2026</div>
-      <div class="card-desc">Markforged had an outstanding presence at TCT Asia 2026 in Shanghai, attracting engineers and decision-makers from manufacturing, aerospace, and automotive sectors.</div>
-      <a href="tct-asia-2026.html" class="btn">Read Press Release →</a>
+      <div class="card-desc">Markforged had an outstanding presence at TCT Asia 2026 in Shanghai, attracting engineers and decision-makers across sectors.</div>
+      <a href="tct-asia-2026.html" class="btn">Read →</a>
+    </div>
+  </div>
+
+  <div class="section-title">Market Insights — 市場洞察</div>
+
+  <div class="card">
+    <div class="card-date-col"><div class="card-date-day">18</div><div class="card-date-month">Mar 2026</div></div>
+    <div class="card-body">
+      <div class="card-tag">Strategic Report</div>
+      <div class="card-title">NVIDIA GTC 2026 × Markforged — 45頁策略影響分析報告</div>
+      <div class="card-desc">深度解析 NVIDIA GTC 2026 主題演講，分析 Physical AI 與機器人製造趨勢對工業積層製造市場的策略意涵。含可下載 PPTX。</div>
+      <a href="insights/nvidia-gtc-2026.html" class="btn">Read & Download →</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-date-col"><div class="card-date-day">17</div><div class="card-date-month">Mar 2026</div></div>
+    <div class="card-body">
+      <div class="card-tag">AM Industry</div>
+      <div class="card-title">AM 產業快訊 — 鎢供應危機・中國設備補貼・國防 AM</div>
+      <div class="card-desc">2026-03-17 産業動態：鎢供應危機對 AM 材料的影響、中國設備補貼政策解析、國防積層製造最新進展。</div>
+      <a href="insights/market-intel-2026-03-17.html" class="btn">Read →</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-date-col"><div class="card-date-day">15</div><div class="card-date-month">Mar 2026</div></div>
+    <div class="card-body">
+      <div class="card-tag">AM Industry</div>
+      <div class="card-title">AM 產業快訊 — Formlabs $20億・碳化鎢 AM 突破・RAPID+TCT</div>
+      <div class="card-desc">2026-03-15 産業動態：Formlabs 完成 $20億估值融資、碳化鎢熱絲雷射 AM 技術突破、RAPID+TCT 展覽倒數。</div>
+      <a href="insights/market-intel-2026-03-15.html" class="btn">Read →</a>
     </div>
   </div>
 
 </div>
-
 <div class="footer">
-  <p>© 2026 Markforged, Inc. &nbsp;·&nbsp; <a href="https://markforged.com">markforged.com</a></p>
+  © 2026 Markforged, Inc. &nbsp;·&nbsp; <a href="https://markforged.com">markforged.com</a>
 </div>
-
 </body>
 </html>
