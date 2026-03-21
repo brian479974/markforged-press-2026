@@ -1,746 +1,697 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Markforged Media Hub — Greater China Region</title>
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Markforged Media Hub — Greater China Region</title>
+  <meta name="description" content="Markforged Greater China Region — News, Insights & Press Releases">
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Helvetica, Arial, sans-serif;
+      background: #fff;
+      color: #000;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
 
-  :root {
-    --black: #000000;
-    --yellow: #FFC500;
-    --dark-gray: #111111;
-    --mid-gray: #1a1a1a;
-    --text-gray: #888888;
-    --light-gray: #f5f5f5;
-    --card-bg: #ffffff;
-    --border: #e8e8e8;
-    --font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  }
+    /* ===== STICKY NAV ===== */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #000;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    .nav-brand {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      color: #FFC500;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      color: rgba(255,255,255,0.75);
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #FFC500; }
 
-  body {
-    font-family: var(--font);
-    background: var(--light-gray);
-    color: #222;
-    line-height: 1.6;
-  }
+    @media (max-width: 480px) {
+      .nav { padding: 0 20px; }
+      .nav-brand { font-size: 13px; letter-spacing: 2px; }
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 11px; letter-spacing: 1px; }
+    }
 
-  /* ─── TOP NAV ─── */
-  .top-nav {
-    background: var(--black);
-    padding: 0 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 56px;
-    position: sticky;
-    top: 0;
-    z-index: 200;
-    border-bottom: 1px solid #222;
-  }
-  .top-nav .logo {
-    color: var(--yellow);
-    font-weight: 900;
-    font-size: 17px;
-    letter-spacing: 3px;
-    text-decoration: none;
-  }
-  .top-nav .nav-links {
-    display: flex;
-    gap: 32px;
-    list-style: none;
-  }
-  .top-nav .nav-links a {
-    color: #aaa;
-    font-size: 12px;
-    text-decoration: none;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
-  .top-nav .nav-links a:hover { color: var(--yellow); }
+    /* ===== HERO ===== */
+    .hero {
+      background: #000;
+      padding: 100px 32px 90px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(255,197,0,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      color: #FFC500;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      opacity: 0.9;
+    }
+    .hero-title {
+      font-size: 72px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -1px;
+      line-height: 1.05;
+      margin-bottom: 24px;
+    }
+    .hero-title span { color: #FFC500; }
+    .hero-subtitle {
+      font-size: 17px;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.3px;
+      margin-bottom: 36px;
+      font-weight: 400;
+    }
+    .hero-divider {
+      width: 60px;
+      height: 4px;
+      background: #FFC500;
+      margin: 0 auto;
+      border-radius: 2px;
+    }
 
-  /* ─── HERO ─── */
-  .hero {
-    background: var(--black);
-    padding: 80px 40px 72px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 50% 100%, rgba(255,197,0,0.12) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .hero-eyebrow {
-    display: inline-block;
-    background: var(--yellow);
-    color: var(--black);
-    font-size: 10px;
-    font-weight: 900;
-    letter-spacing: 3px;
-    padding: 4px 14px;
-    margin-bottom: 28px;
-    text-transform: uppercase;
-  }
-  .hero h1 {
-    color: #ffffff;
-    font-size: clamp(36px, 6vw, 72px);
-    font-weight: 900;
-    letter-spacing: -1px;
-    line-height: 1.05;
-    margin-bottom: 20px;
-  }
-  .hero h1 span { color: var(--yellow); }
-  .hero p {
-    color: #999;
-    font-size: 16px;
-    letter-spacing: 1px;
-    max-width: 560px;
-    margin: 0 auto 40px;
-    line-height: 1.7;
-  }
-  .hero-stats {
-    display: flex;
-    gap: 48px;
-    justify-content: center;
-    border-top: 1px solid #222;
-    padding-top: 36px;
-    margin-top: 40px;
-  }
-  .stat { text-align: center; }
-  .stat-num {
-    color: var(--yellow);
-    font-size: 28px;
-    font-weight: 900;
-    display: block;
-  }
-  .stat-label {
-    color: #666;
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-  }
+    @media (max-width: 768px) {
+      .hero { padding: 60px 24px 56px; }
+      .hero-title { font-size: 40px; letter-spacing: -0.5px; }
+      .hero-subtitle { font-size: 15px; }
+    }
+    @media (max-width: 480px) {
+      .hero { padding: 48px 20px 44px; }
+      .hero-title { font-size: 34px; }
+    }
 
-  /* ─── LAYOUT ─── */
-  .page-wrap {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
+    /* ===== SECTION WRAPPER ===== */
+    .section-wrapper {
+      padding: 72px 32px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    @media (max-width: 768px) {
+      .section-wrapper { padding: 44px 20px; }
+    }
 
-  /* ─── SECTION HEADER ─── */
-  .section-header {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    padding: 52px 0 28px;
-    border-bottom: 3px solid var(--black);
-    margin-bottom: 32px;
-  }
-  .section-header h2 {
-    font-size: 13px;
-    font-weight: 900;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--black);
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .section-header h2::before {
-    content: '';
-    display: block;
-    width: 18px;
-    height: 3px;
-    background: var(--yellow);
-  }
-  .section-header .count {
-    font-size: 11px;
-    color: var(--text-gray);
-    letter-spacing: 1px;
-  }
+    /* ===== SECTION LABEL ===== */
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #000;
+      margin-bottom: 8px;
+    }
+    .section-label-line {
+      width: 40px;
+      height: 3px;
+      background: #FFC500;
+      margin-bottom: 36px;
+      border-radius: 2px;
+    }
 
-  /* ─── PRESS RELEASE CARDS ─── */
-  .pr-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    margin-bottom: 64px;
-  }
+    /* ===== PRESS RELEASES SECTION ===== */
+    #news {
+      background: #fff;
+    }
 
-  .pr-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    overflow: hidden;
-    transition: transform 0.2s, box-shadow 0.2s;
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-    flex-direction: column;
-  }
-  .pr-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 48px rgba(0,0,0,0.14);
-  }
+    .press-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+    @media (max-width: 768px) {
+      .press-grid { grid-template-columns: 1fr; gap: 20px; }
+    }
 
-  .pr-card-banner {
-    height: 200px;
-    position: relative;
-    overflow: hidden;
-  }
-  .pr-card-banner.taiwan {
-    background: linear-gradient(135deg, #000000 0%, #1a1a00 30%, #3d2d00 60%, #FFC500 100%);
-  }
-  .pr-card-banner.china {
-    background: linear-gradient(135deg, #000000 0%, #0d0d1a 30%, #1a0d2e 60%, #4d1a8a 80%, #FFC500 100%);
-  }
-  .pr-banner-label {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background: var(--yellow);
-    color: var(--black);
-    font-size: 9px;
-    font-weight: 900;
-    letter-spacing: 2px;
-    padding: 4px 10px;
-    text-transform: uppercase;
-  }
-  .pr-banner-icon {
-    position: absolute;
-    bottom: 24px;
-    right: 28px;
-    font-size: 56px;
-    opacity: 0.25;
-    line-height: 1;
-  }
-  .pr-banner-date {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    color: rgba(255,255,255,0.5);
-    font-size: 11px;
-    letter-spacing: 1px;
-  }
+    /* ===== PRESS CARD ===== */
+    .press-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #eee;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .press-card:hover {
+      box-shadow: 0 16px 48px rgba(0,0,0,0.14);
+      transform: translateY(-2px);
+    }
+    .press-card-banner {
+      background: linear-gradient(135deg, #0a0a0a 0%, #1e1e1e 50%, #2a2a2a 100%);
+      height: 200px;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      padding: 16px 20px;
+      overflow: hidden;
+    }
+    .press-card-banner::before {
+      content: '';
+      position: absolute;
+      top: -20px; right: -20px;
+      width: 120px; height: 120px;
+      border: 2px solid rgba(255,197,0,0.12);
+      border-radius: 50%;
+    }
+    .press-card-banner::after {
+      content: '';
+      position: absolute;
+      bottom: -30px; left: -30px;
+      width: 160px; height: 160px;
+      border: 2px solid rgba(255,197,0,0.07);
+      border-radius: 50%;
+    }
+    .press-banner-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+    .press-tag {
+      background: #FFC500;
+      color: #000;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+    .press-date {
+      color: rgba(255,255,255,0.45);
+      font-size: 11px;
+      letter-spacing: 0.5px;
+    }
+    .press-card-body {
+      padding: 28px 24px 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .press-card-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #000;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+    .press-card-summary {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.65;
+      margin-bottom: 20px;
+      flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .press-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .press-location {
+      font-size: 11px;
+      color: #999;
+      letter-spacing: 0.3px;
+    }
+    .press-location svg {
+      width: 11px; height: 11px;
+      fill: #ccc;
+      vertical-align: middle;
+      margin-right: 3px;
+      margin-top: -1px;
+    }
+    .btn-readmore {
+      background: #000;
+      color: #FFC500;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 9px 18px;
+      border-radius: 6px;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-readmore:hover { background: #1a1a1a; transform: translateX(2px); }
+    .btn-readmore::after { content: '→'; }
 
-  .pr-card-body {
-    padding: 28px 28px 24px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-  .pr-card-body h3 {
-    font-size: 20px;
-    font-weight: 900;
-    line-height: 1.3;
-    margin-bottom: 14px;
-    color: var(--black);
-  }
-  .pr-card-body p {
-    font-size: 14px;
-    color: #555;
-    line-height: 1.7;
-    flex: 1;
-    margin-bottom: 20px;
-  }
+    /* ===== INSIGHTS SECTION ===== */
+    #insights {
+      background: #f8f8f8;
+    }
+    #insights .section-label { color: #000; }
 
-  .pr-card-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 16px;
-    border-top: 1px solid var(--border);
-  }
-  .pr-meta {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-  }
-  .pr-date {
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--text-gray);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-  .pr-location {
-    font-size: 11px;
-    color: #bbb;
-    letter-spacing: 0.5px;
-  }
-  .pr-btn {
-    background: var(--black);
-    color: var(--yellow);
-    font-size: 10px;
-    font-weight: 900;
-    letter-spacing: 2px;
-    padding: 8px 18px;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: background 0.2s;
-    white-space: nowrap;
-  }
-  .pr-btn:hover { background: #222; }
+    /* ===== FEATURED INSIGHT CARD ===== */
+    .featured-card {
+      background: #0a0a0a;
+      border-radius: 16px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 240px;
+      margin-bottom: 40px;
+      min-height: 240px;
+      position: relative;
+    }
+    @media (max-width: 768px) {
+      .featured-card { grid-template-columns: 1fr; }
+    }
+    .featured-card-content {
+      padding: 40px 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+    .featured-card-content::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 5px;
+      background: linear-gradient(180deg, #FFC500 0%, rgba(255,197,0,0.4) 100%);
+      border-radius: 0 3px 3px 0;
+    }
+    .featured-eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #FFC500;
+      margin-bottom: 12px;
+    }
+    .featured-tag {
+      display: inline-block;
+      background: rgba(255,197,0,0.15);
+      border: 1px solid rgba(255,197,0,0.3);
+      color: #FFC500;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+    .featured-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.3;
+      margin-bottom: 14px;
+      letter-spacing: -0.3px;
+    }
+    .featured-summary {
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.65;
+      margin-bottom: 24px;
+    }
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #FFC500;
+      color: #000;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 12px 22px;
+      border-radius: 8px;
+      width: fit-content;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-download:hover { background: #e6b000; transform: translateY(-1px); }
+    .btn-download svg { width: 14px; height: 14px; fill: #000; }
 
-  /* ─── INSIGHTS GRID ─── */
-  .insights-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-bottom: 64px;
-  }
+    @media (max-width: 768px) {
+      .featured-card-content { padding: 32px 28px; }
+      .featured-title { font-size: 22px; }
+    }
+    @media (max-width: 480px) {
+      .featured-card-content { padding: 28px 24px; }
+    }
 
-  .insight-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--yellow);
-    padding: 20px 22px;
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    text-decoration: none;
-    color: inherit;
-    transition: background 0.15s, box-shadow 0.15s;
-  }
-  .insight-card:hover {
-    background: #fffef5;
-    box-shadow: 0 4px 20px rgba(255,197,0,0.1);
-  }
-  .insight-card.featured {
-    grid-column: 1 / -1;
-    border-left: 4px solid var(--yellow);
-    background: linear-gradient(to right, #fffef0, #ffffff);
-  }
+    /* ===== GEOMETRIC DECORATION ===== */
+    .featured-card-deco {
+      background: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    @media (max-width: 768px) {
+      .featured-card-deco { display: none; }
+    }
+    .deco-inner {
+      position: relative;
+      width: 160px;
+      height: 160px;
+    }
+    .deco-arc {
+      position: absolute;
+      border-radius: 50%;
+      border: 3px solid #FFC500;
+    }
+    .deco-arc-1 { width: 160px; height: 160px; top: 0; left: 0; opacity: 0.6; clip-path: inset(0 50% 0 0); }
+    .deco-arc-2 { width: 110px; height: 110px; top: 25px; left: 25px; opacity: 0.3; clip-path: inset(50% 0 0 0); }
+    .deco-arc-3 { width: 60px; height: 60px; top: 50px; left: 50px; opacity: 0.8; }
+    .deco-dot {
+      position: absolute;
+      width: 10px; height: 10px;
+      background: #FFC500;
+      border-radius: 50%;
+      top: 75px; left: 75px;
+    }
 
-  .insight-content { flex: 1; min-width: 0; }
-  .insight-meta {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 8px;
-  }
-  .insight-date {
-    font-size: 10px;
-    color: var(--text-gray);
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-  .insight-tag {
-    font-size: 9px;
-    font-weight: 900;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 2px 8px;
-    background: var(--black);
-    color: var(--yellow);
-  }
-  .insight-tag.strategic {
-    background: #1a0a3d;
-    color: #c084fc;
-  }
-  .insight-card h4 {
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 1.4;
-    color: var(--black);
-    margin-bottom: 6px;
-  }
-  .insight-card.featured h4 {
-    font-size: 17px;
-  }
-  .insight-summary {
-    font-size: 12px;
-    color: #777;
-    line-height: 1.5;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .insight-arrow {
-    color: #ccc;
-    font-size: 16px;
-    align-self: center;
-    flex-shrink: 0;
-    transition: color 0.15s, transform 0.15s;
-  }
-  .insight-card:hover .insight-arrow {
-    color: var(--yellow);
-    transform: translateX(3px);
-  }
+    /* ===== INSIGHT CARDS GRID ===== */
+    .insights-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 1024px) {
+      .insights-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .insights-grid { grid-template-columns: 1fr; }
+    }
 
-  /* ─── TICKER / DIVIDER ─── */
-  .ticker-bar {
-    background: var(--yellow);
-    padding: 0;
-    overflow: hidden;
-    height: 36px;
-    display: flex;
-    align-items: center;
-  }
-  .ticker-track {
-    display: flex;
-    gap: 0;
-    animation: ticker 30s linear infinite;
-    white-space: nowrap;
-  }
-  .ticker-item {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--black);
-    padding: 0 32px;
-    border-right: 1px solid rgba(0,0,0,0.15);
-  }
-  @keyframes ticker {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
+    .insight-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 24px 22px;
+      border-top: 4px solid #FFC500;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .insight-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(0,0,0,0.1);
+    }
+    .insight-date {
+      font-size: 11px;
+      color: #999;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+    .insight-badge {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      background: #f0f0f0;
+      color: #444;
+      padding: 3px 8px;
+      border-radius: 3px;
+      margin-bottom: 12px;
+    }
+    .insight-badge.strategic {
+      background: rgba(255,197,0,0.15);
+      color: #a07800;
+    }
+    .insight-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #111;
+      line-height: 1.5;
+      margin-bottom: auto;
+      padding-bottom: 16px;
+    }
+    .insight-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-top: 12px;
+    }
+    .arrow-btn {
+      width: 32px; height: 32px;
+      background: #000;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .insight-card:hover .arrow-btn {
+      background: #FFC500;
+      transform: translateX(2px);
+    }
+    .arrow-btn svg { width: 14px; height: 14px; fill: #fff; }
+    .insight-card:hover .arrow-btn svg { fill: #000; }
 
-  /* ─── FOOTER ─── */
-  footer {
-    background: var(--black);
-    padding: 52px 40px 32px;
-    margin-top: 32px;
-  }
-  .footer-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  .footer-top {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin-bottom: 40px;
-    gap: 40px;
-  }
-  .footer-brand .logo-text {
-    color: var(--yellow);
-    font-size: 22px;
-    font-weight: 900;
-    letter-spacing: 4px;
-    display: block;
-    margin-bottom: 8px;
-  }
-  .footer-brand p {
-    color: #555;
-    font-size: 12px;
-    line-height: 1.7;
-    max-width: 300px;
-  }
-  .footer-links h5 {
-    color: #fff;
-    font-size: 10px;
-    font-weight: 900;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-  }
-  .footer-links ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .footer-links a {
-    color: #666;
-    font-size: 13px;
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  .footer-links a:hover { color: var(--yellow); }
-  .footer-bottom {
-    border-top: 1px solid #1a1a1a;
-    padding-top: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .footer-bottom p {
-    color: #444;
-    font-size: 11px;
-    letter-spacing: 0.5px;
-  }
-  .footer-bottom a {
-    color: var(--yellow);
-    text-decoration: none;
-    font-weight: 700;
-  }
+    /* ===== FOOTER ===== */
+    footer {
+      background: #000;
+      padding: 56px 32px 40px;
+      text-align: center;
+      border-top: 1px solid #1a1a1a;
+    }
+    .footer-brand {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      color: #FFC500;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .footer-copy {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 10px;
+      letter-spacing: 0.3px;
+    }
+    .footer-link a {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 1px;
+      transition: color 0.2s;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .footer-link a:hover { color: #FFC500; }
 
-  /* ─── RESPONSIVE ─── */
-  @media (max-width: 768px) {
-    .top-nav { padding: 0 20px; }
-    .top-nav .nav-links { display: none; }
-    .hero { padding: 52px 24px 48px; }
-    .hero-stats { gap: 24px; }
-    .page-wrap { padding: 0 16px; }
-    .pr-grid { grid-template-columns: 1fr; }
-    .insights-grid { grid-template-columns: 1fr; }
-    .insight-card.featured { grid-column: 1; }
-    .footer-top { flex-direction: column; }
-    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-  }
-</style>
+    @media (max-width: 480px) {
+      footer { padding: 44px 20px 32px; }
+      .footer-brand { font-size: 22px; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- TOP NAV -->
-<nav class="top-nav">
-  <a href="index.html" class="logo">MARKFORGED</a>
-  <ul class="nav-links">
-    <li><a href="#press-releases">Press Releases</a></li>
-    <li><a href="#insights">Market Insights</a></li>
-    <li><a href="https://markforged.com" target="_blank">markforged.com ↗</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-eyebrow">Greater China Region</div>
-  <h1>MARKFORGED<br><span>MEDIA HUB</span></h1>
-  <p>Greater China Region — News, Insights & Press Releases<br>Industrial Additive Manufacturing | Defense | Aerospace</p>
-  <div class="hero-stats">
-    <div class="stat">
-      <span class="stat-num">2</span>
-      <span class="stat-label">Press Releases</span>
+  <!-- ===== STICKY NAV ===== -->
+  <nav class="nav">
+    <a href="#" class="nav-brand">Markforged</a>
+    <div class="nav-links">
+      <a href="#news">News</a>
+      <a href="#insights">Insights</a>
     </div>
-    <div class="stat">
-      <span class="stat-num">8</span>
-      <span class="stat-label">Market Insights</span>
-    </div>
-    <div class="stat">
-      <span class="stat-num">2026</span>
-      <span class="stat-label">Q1 Coverage</span>
-    </div>
-  </div>
-</section>
+  </nav>
 
-<!-- TICKER -->
-<div class="ticker-bar">
-  <div class="ticker-track">
-    <span class="ticker-item">Markforged Greater China Region</span>
-    <span class="ticker-item">Industrial Additive Manufacturing</span>
-    <span class="ticker-item">TCT Asia 2026 · Shanghai</span>
-    <span class="ticker-item">UAV Expo 2026 · Changhua</span>
-    <span class="ticker-item">Defense Manufacturing</span>
-    <span class="ticker-item">NVIDIA GTC × AM Strategy</span>
-    <span class="ticker-item">Tungsten Supply Crisis</span>
-    <span class="ticker-item">Markforged Greater China Region</span>
-    <span class="ticker-item">Industrial Additive Manufacturing</span>
-    <span class="ticker-item">TCT Asia 2026 · Shanghai</span>
-    <span class="ticker-item">UAV Expo 2026 · Changhua</span>
-    <span class="ticker-item">Defense Manufacturing</span>
-    <span class="ticker-item">NVIDIA GTC × AM Strategy</span>
-    <span class="ticker-item">Tungsten Supply Crisis</span>
-  </div>
-</div>
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-eyebrow">Greater China Region</div>
+    <h1 class="hero-title">MARKFORGED<br><span>MEDIA HUB</span></h1>
+    <p class="hero-subtitle">Greater China Region — News, Insights &amp; Press Releases</p>
+    <div class="hero-divider"></div>
+  </section>
 
-<!-- MAIN CONTENT -->
-<div class="page-wrap">
+  <!-- ===== PRESS RELEASES ===== -->
+  <section id="news" style="background:#fff;">
+    <div class="section-wrapper">
+      <div class="section-label">Press Releases</div>
+      <div class="section-label-line"></div>
 
-  <!-- PRESS RELEASES -->
-  <div id="press-releases" class="section-header">
-    <h2>Press Releases</h2>
-    <span class="count">2 Articles</span>
-  </div>
+      <div class="press-grid">
 
-  <div class="pr-grid">
-
-    <!-- PR 1: Taiwan UAV -->
-    <a href="uav-expo-2026.html" class="pr-card">
-      <div class="pr-card-banner taiwan">
-        <span class="pr-banner-label">Taiwan Event</span>
-        <span class="pr-banner-icon">🚁</span>
-        <span class="pr-banner-date">2026 · 03 · 20</span>
-      </div>
-      <div class="pr-card-body">
-        <h3>Markforged 攜三大台灣合作夥伴出席 2026 無人載具商機媒合會</h3>
-        <p>Markforged 攜馬路科技、達運光電、實威國際三大合作夥伴，於彰化建國科技大學展示工業積層製造前沿技術，陳中欣發表「在國防製造中建立韌性」演講。</p>
-        <div class="pr-card-footer">
-          <div class="pr-meta">
-            <span class="pr-date">March 20, 2026</span>
-            <span class="pr-location">彰化 · 建國科技大學</span>
+        <!-- Card 1 -->
+        <a href="uav-expo-2026.html" class="press-card">
+          <div class="press-card-banner">
+            <div class="press-banner-meta">
+              <span class="press-tag">Taiwan Event</span>
+              <span class="press-date">2026.03.20</span>
+            </div>
           </div>
-          <span class="pr-btn">Read More →</span>
-        </div>
-      </div>
-    </a>
-
-    <!-- PR 2: TCT Asia -->
-    <a href="tct-asia-2026.html" class="pr-card">
-      <div class="pr-card-banner china">
-        <span class="pr-banner-label">China Exhibition</span>
-        <span class="pr-banner-icon">🏭</span>
-        <span class="pr-banner-date">2026 · 03 · 19</span>
-      </div>
-      <div class="pr-card-body">
-        <h3>Markforged 盛裝亮相 TCT Asia 2026</h3>
-        <p>Markforged 於上海 TCT Asia 2026 強勢亮相，展位人流不斷，吸引大批製造業、航太、汽車領域工程師與決策者深度交流。</p>
-        <div class="pr-card-footer">
-          <div class="pr-meta">
-            <span class="pr-date">March 19, 2026</span>
-            <span class="pr-location">上海 · TCT Asia 2026</span>
+          <div class="press-card-body">
+            <h2 class="press-card-title">Markforged 攜三大台灣合作夥伴出席 2026 無人載具商機媒合會</h2>
+            <p class="press-card-summary">Markforged 與馬路科技、達運光電、實威國際聯合參展，大中華區總經理陳中欣發表「在國防製造中建立韌性」演講，展現工業積層製造前沿技術。</p>
+            <div class="press-card-footer">
+              <span class="press-location">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                建國科技大學，彰化，台灣
+              </span>
+              <span class="btn-readmore">Read More</span>
+            </div>
           </div>
-          <span class="pr-btn">Read More →</span>
-        </div>
-      </div>
-    </a>
+        </a>
 
-  </div>
+        <!-- Card 2 -->
+        <a href="tct-asia-2026.html" class="press-card">
+          <div class="press-card-banner">
+            <div class="press-banner-meta">
+              <span class="press-tag">China Exhibition</span>
+              <span class="press-date">2026.03.19</span>
+            </div>
+          </div>
+          <div class="press-card-body">
+            <h2 class="press-card-title">Markforged 盛裝亮相 TCT Asia 2026</h2>
+            <p class="press-card-summary">Markforged 於上海 TCT Asia 2026 展現強勁實力，展位吸引製造業、航太、汽車等領域工程師與決策者熱烈交流。</p>
+            <div class="press-card-footer">
+              <span class="press-location">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                上海國家會展中心
+              </span>
+              <span class="btn-readmore">Read More</span>
+            </div>
+          </div>
+        </a>
 
-  <!-- MARKET INSIGHTS -->
-  <div id="insights" class="section-header">
-    <h2>Market Insights</h2>
-    <span class="count">8 Reports</span>
-  </div>
-
-  <div class="insights-grid">
-
-    <!-- Featured: NVIDIA GTC -->
-    <a href="insights/nvidia-gtc-2026.html" class="insight-card featured">
-      <div class="insight-content">
-        <div class="insight-meta">
-          <span class="insight-date">Mar 18, 2026</span>
-          <span class="insight-tag strategic">Strategic Report</span>
-        </div>
-        <h4>NVIDIA GTC 2026 × Markforged — 45 頁策略影響分析</h4>
-        <p class="insight-summary">深度解析 NVIDIA GTC 2026 對 Markforged 及工業 AM 產業的策略影響，涵蓋 AI 製造、供應鏈韌性與競爭格局全面分析。</p>
-      </div>
-      <span class="insight-arrow">→</span>
-    </a>
-
-    <!-- 2026-03-21 -->
-    <a href="insights/market-intel-2026-03-21.html" class="insight-card">
-      <div class="insight-content">
-        <div class="insight-meta">
-          <span class="insight-date">Mar 21, 2026</span>
-          <span class="insight-tag">AM Industry</span>
-        </div>
-        <h4>AM 產業快訊 — 台海局勢 · Quantica Series A · 美海軍 9 億美元自動化工廠</h4>
-        <p class="insight-summary">台海局勢最新動態對 AM 供應鏈影響、Quantica 完成 Series A 融資、美海軍 9 億美元自動化製造工廠計畫。</p>
-      </div>
-      <span class="insight-arrow">→</span>
-    </a>
-
-    <!-- 2026-03-20 -->
-    <a href="insights/market-intel-2026-03-20.html" class="insight-card">
-      <div class="insight-content">
-        <div class="insight-meta">
-          <span class="insight-date">Mar 20, 2026</span>
-          <span class="insight-tag">AM Industry</span>
-        </div>
-        <h4>AM 產業快訊 — TCT Asia 盛況回顧 · 中國 AM 設備補貼</h4>
-        <p class="insight-summary">TCT Asia 2026 展後盛況回顧、中國政府最新 AM 設備補貼政策解析及對市場的影響評估。</p>
-      </div>
-      <span class="insight-arrow">→</span>
-    </a>
-
-    <!-- 2026-03-19 -->
-    <a href="insights/market-intel-2026-03-19.html" class="insight-card">
-      <div class="insight-content">
-        <div class="insight-meta">
-          <span class="insight-date">Mar 19, 2026</span>
-          <span class="insight-tag">AM Industry</span>
-        </div>
-        <h4>AM 產業快訊 — 展會現場報導 · Markforged 通路擴展</h4>
-        <p class="insight-summary">TCT Asia 展會現場直擊報導，Markforged 大中華區通路擴展最新動態與合作夥伴進展。</p>
-      </div>
-      <span class="insight-arrow">→</span>
-    </a>
-
-    <!-- 2026-03-17 -->
-    <a href="insights/market-intel-2026-03-17.html" class="insight-card">
-      <div class="insight-content">
-        <div class="insight-meta">
-          <span class="insight-date">Mar 17, 2026</span>
-          <span class="insight-tag">AM Industry</span>
-        </div>
-        <h4>AM 產業快訊 — 鎢供應危機 · 中國設備補貼 · 國防 AM</h4>
-        <p class="insight-summary">全球鎢原料供應危機深度分析、中國 AM 設備補貼最新政策、國防工業積層製造應用前景。</p>
-      </div>
-      <span class="insight-arrow">→</span>
-    </a>
-
-    <!-- 2026-03-16 -->
-    <a href="insights/market-intel-2026-03-16.html" class="insight-card">
-      <div class="insight-content">
-        <div class="insight-meta">
-          <span class="insight-date">Mar 16, 2026</span>
-          <span class="insight-tag">AM Industry</span>
-        </div>
-        <h4>AM 產業快訊 — TCT Asia 明日開幕！展前特輯</h4>
-        <p class="insight-summary">TCT Asia 2026 開幕前夕特輯，重點展商預覽、Markforged 展位亮點及值得關注的技術趨勢。</p>
-      </div>
-      <span class="insight-arrow">→</span>
-    </a>
-
-    <!-- 2026-03-15 -->
-    <a href="insights/market-intel-2026-03-15.html" class="insight-card">
-      <div class="insight-content">
-        <div class="insight-meta">
-          <span class="insight-date">Mar 15, 2026</span>
-          <span class="insight-tag">AM Industry</span>
-        </div>
-        <h4>AM 產業快訊 — Formlabs $20 億 · 碳化鎢 AM 突破 · RAPID+TCT</h4>
-        <p class="insight-summary">Formlabs 完成 20 億美元估值融資、碳化鎢積層製造重大技術突破、RAPID+TCT 2026 議程亮點。</p>
-      </div>
-      <span class="insight-arrow">→</span>
-    </a>
-
-    <!-- 2026-03-14 -->
-    <a href="insights/market-intel-2026-03-14.html" class="insight-card">
-      <div class="insight-content">
-        <div class="insight-meta">
-          <span class="insight-date">Mar 14, 2026</span>
-          <span class="insight-tag">AM Industry</span>
-        </div>
-        <h4>AM 產業快訊 — Markforged 最新動態 · 全球 AM 市場分析</h4>
-        <p class="insight-summary">Markforged 產品線與業務最新動態、全球工業積層製造市場 2026 Q1 分析與競爭格局概覽。</p>
-      </div>
-      <span class="insight-arrow">→</span>
-    </a>
-
-  </div>
-
-</div><!-- /page-wrap -->
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <span class="logo-text">MARKFORGED</span>
-        <p>Markforged is a pioneer in industrial additive manufacturing, delivering metal and carbon fiber 3D printing solutions for the world's most demanding applications in aerospace, defense, and manufacturing.</p>
-      </div>
-      <div class="footer-links">
-        <h5>Quick Links</h5>
-        <ul>
-          <li><a href="#press-releases">Press Releases</a></li>
-          <li><a href="#insights">Market Insights</a></li>
-          <li><a href="https://markforged.com" target="_blank">markforged.com ↗</a></li>
-        </ul>
-      </div>
-      <div class="footer-links">
-        <h5>Coverage</h5>
-        <ul>
-          <li><a href="uav-expo-2026.html">UAV Expo 2026</a></li>
-          <li><a href="tct-asia-2026.html">TCT Asia 2026</a></li>
-          <li><a href="insights/nvidia-gtc-2026.html">NVIDIA GTC × AM</a></li>
-        </ul>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>© 2026 Markforged, Inc. All rights reserved. Greater China Region Media Hub.</p>
-      <p><a href="https://markforged.com" target="_blank">markforged.com</a></p>
+  </section>
+
+  <!-- ===== MARKET INSIGHTS ===== -->
+  <section id="insights" style="background:#f8f8f8;">
+    <div class="section-wrapper">
+      <div class="section-label">Market Insights</div>
+      <div class="section-label-line"></div>
+
+      <!-- FEATURED CARD: NVIDIA GTC -->
+      <a href="insights/nvidia-gtc-2026.html" class="featured-card">
+        <div class="featured-card-content">
+          <span class="featured-eyebrow">Featured Report</span>
+          <span class="featured-tag">Strategic Report</span>
+          <h2 class="featured-title">NVIDIA GTC 2026 × Markforged<br>策略影響分析</h2>
+          <p class="featured-summary">45頁深度策略報告：NVIDIA GTC 2026 對 Markforged 大中華區業務的影響分析，涵蓋 AI 與工業製造融合趨勢、市場機會矩陣與行動建議。</p>
+          <span class="btn-download">
+            <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+            下載報告 (PPTX)
+          </span>
+        </div>
+        <div class="featured-card-deco">
+          <div class="deco-inner">
+            <div class="deco-arc deco-arc-1"></div>
+            <div class="deco-arc deco-arc-2"></div>
+            <div class="deco-arc deco-arc-3"></div>
+            <div class="deco-dot"></div>
+          </div>
+        </div>
+      </a>
+
+      <!-- INSIGHTS GRID -->
+      <div class="insights-grid">
+
+        <a href="insights/market-intel-2026-03-21.html" class="insight-card">
+          <div class="insight-date">MAR 21, 2026</div>
+          <span class="insight-badge">AM Industry</span>
+          <div class="insight-title">AM 產業快訊 — 台海局勢 · Quantica Series A · 美海軍 9 億自動化工廠</div>
+          <div class="insight-arrow"><div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></div></div>
+        </a>
+
+        <a href="insights/market-intel-2026-03-20.html" class="insight-card">
+          <div class="insight-date">MAR 20, 2026</div>
+          <span class="insight-badge">AM Industry</span>
+          <div class="insight-title">AM 產業快訊 — TCT Asia 盛況回顧 · 中國 AM 設備補貼</div>
+          <div class="insight-arrow"><div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></div></div>
+        </a>
+
+        <a href="insights/market-intel-2026-03-19.html" class="insight-card">
+          <div class="insight-date">MAR 19, 2026</div>
+          <span class="insight-badge">AM Industry</span>
+          <div class="insight-title">AM 產業快訊 — 展會現場報導 · Markforged 通路擴展</div>
+          <div class="insight-arrow"><div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></div></div>
+        </a>
+
+        <a href="insights/market-intel-2026-03-17.html" class="insight-card">
+          <div class="insight-date">MAR 17, 2026</div>
+          <span class="insight-badge">AM Industry</span>
+          <div class="insight-title">AM 產業快訊 — 鎢供應危機 · 中國設備補貼 · 國防 AM</div>
+          <div class="insight-arrow"><div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></div></div>
+        </a>
+
+        <a href="insights/market-intel-2026-03-16.html" class="insight-card">
+          <div class="insight-date">MAR 16, 2026</div>
+          <span class="insight-badge">AM Industry</span>
+          <div class="insight-title">AM 產業快訊 — TCT Asia 明日開幕！展前特輯</div>
+          <div class="insight-arrow"><div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></div></div>
+        </a>
+
+        <a href="insights/market-intel-2026-03-15.html" class="insight-card">
+          <div class="insight-date">MAR 15, 2026</div>
+          <span class="insight-badge">AM Industry</span>
+          <div class="insight-title">AM 產業快訊 — Formlabs $20億 · 碳化鎢突破 · RAPID+TCT</div>
+          <div class="insight-arrow"><div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></div></div>
+        </a>
+
+        <a href="insights/market-intel-2026-03-14.html" class="insight-card">
+          <div class="insight-date">MAR 14, 2026</div>
+          <span class="insight-badge">AM Industry</span>
+          <div class="insight-title">AM 產業快訊 — Markforged 最新動態 · 全球 AM 市場分析</div>
+          <div class="insight-arrow"><div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></div></div>
+        </a>
+
+      </div>
     </div>
-  </div>
-</footer>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-brand">Markforged</div>
+    <p class="footer-copy">© 2026 Markforged, Inc. Greater China Region</p>
+    <div class="footer-link"><a href="https://markforged.com" target="_blank" rel="noopener">markforged.com</a></div>
+  </footer>
 
 </body>
 </html>
