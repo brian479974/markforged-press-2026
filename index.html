@@ -1,102 +1,401 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Markforged Greater China — News & Insights</title>
-<style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Helvetica Neue', Arial, sans-serif; background: #f0f0f0; color: #222; }
-.header-bar { background: #000; padding: 28px 0; }
-.header-inner { max-width: 760px; margin: 0 auto; padding: 0 24px; }
-.brand { color: #FFC500; font-size: 20px; font-weight: 900; letter-spacing: 2px; margin-bottom: 6px; }
-.brand-sub { color: #666; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; }
-.container { max-width: 760px; margin: 0 auto; padding: 36px 24px; }
-.section-title { font-size: 13px; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 2px; margin: 32px 0 16px; border-top: 1px solid #ddd; padding-top: 28px; }
-.section-title:first-child { border-top: none; padding-top: 0; margin-top: 0; }
-.card { background: #fff; border-radius: 3px; padding: 24px 28px; margin-bottom: 12px; box-shadow: 0 1px 4px rgba(0,0,0,.08); display: flex; gap: 20px; align-items: flex-start; }
-.card-date-col { flex-shrink: 0; width: 56px; text-align: center; }
-.card-date-day { font-size: 26px; font-weight: 900; color: #FFC500; line-height: 1; }
-.card-date-month { font-size: 10px; color: #999; text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
-.card-body { flex: 1; }
-.card-tag { display: inline-block; background: #f0f0f0; color: #666; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 2px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 7px; }
-.card-tag.yellow { background: #FFC500; color: #000; }
-.card-title { font-size: 16px; font-weight: 700; color: #111; line-height: 1.4; margin-bottom: 7px; }
-.card-desc { font-size: 13px; color: #888; line-height: 1.6; margin-bottom: 12px; }
-.btn { display: inline-block; background: #000; color: #FFC500; padding: 7px 16px; font-size: 11px; font-weight: 700; text-decoration: none; letter-spacing: 1px; text-transform: uppercase; }
-.btn:hover { background: #222; }
-.btn.outline { background: transparent; color: #000; border: 1.5px solid #000; }
-.btn.outline:hover { background: #f5f5f5; }
-.footer { text-align: center; padding: 40px 24px; color: #bbb; font-size: 12px; border-top: 1px solid #e0e0e0; margin-top: 20px; }
-.footer a { color: #888; text-decoration: none; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Markforged Greater China Media Hub</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f5; color: #111; }
+
+    /* Header */
+    header {
+      background: #000;
+      padding: 0 40px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      color: #FFC500;
+      font-weight: 900;
+      font-size: 20px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .hub-title {
+      color: #888;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* Hero */
+    .hero {
+      background: #000;
+      color: #fff;
+      padding: 64px 40px 56px;
+      border-bottom: 3px solid #FFC500;
+    }
+    .hero h1 {
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .hero h1 span { color: #FFC500; }
+    .hero p {
+      color: #888;
+      font-size: 15px;
+      max-width: 600px;
+    }
+
+    /* Main content */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+
+    /* Section */
+    .section { margin-bottom: 64px; }
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .section-label h2 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #444;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #ddd;
+    }
+
+    /* Cards grid */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    /* Card */
+    .card {
+      background: #fff;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .card:hover {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.14);
+      transform: translateY(-2px);
+    }
+    .card-accent {
+      height: 3px;
+      background: #FFC500;
+    }
+    .card-body {
+      padding: 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .card-date {
+      font-size: 11px;
+      color: #999;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    .card-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 2px;
+    }
+    .tag-press { background: #000; color: #FFC500; }
+    .tag-insight { background: #f0f0f0; color: #555; }
+    .tag-defense { background: #1a1a2e; color: #FFC500; }
+    .tag-industry { background: #f5f0e8; color: #7a5c00; }
+
+    .card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 10px;
+      color: #111;
+    }
+    .card p {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.6;
+      flex: 1;
+    }
+    .card-footer {
+      padding: 16px 24px;
+      border-top: 1px solid #f0f0f0;
+    }
+    .btn {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #000;
+      text-decoration: none;
+      padding: 8px 0;
+      border-bottom: 2px solid #FFC500;
+      transition: color 0.2s;
+    }
+    .btn:hover { color: #FFC500; }
+
+    /* Footer */
+    footer {
+      background: #000;
+      color: #555;
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+    footer span { color: #FFC500; }
+  </style>
 </head>
 <body>
-<div class="header-bar">
-  <div class="header-inner">
-    <div class="brand">MARKFORGED</div>
-    <div class="brand-sub">Greater China Region — News & Insights</div>
-  </div>
-</div>
-<div class="container">
 
-  <div class="section-title">Press Releases — 新聞稿</div>
+  <header>
+    <div class="logo">MARKFORGED</div>
+    <div class="hub-title">Greater China Media Hub</div>
+  </header>
 
-  <div class="card">
-    <div class="card-date-col"><div class="card-date-day">20</div><div class="card-date-month">Mar 2026</div></div>
-    <div class="card-body">
-      <div class="card-tag yellow">Taiwan · Event</div>
-      <div class="card-title">Markforged 攜三大台灣合作夥伴出席 2026 無人載具商機媒合會</div>
-      <div class="card-desc">Markforged and three Taiwan partners showcase industrial AM capabilities at the Taiwan UAV Business Matching Expo 2026, Changhua.</div>
-      <a href="uav-expo-2026.html" class="btn">Read →</a>
-    </div>
+  <div class="hero">
+    <h1>Greater China <span>Media Hub</span></h1>
+    <p>Official press releases, industry insights, and market intelligence from Markforged Greater China Region.</p>
   </div>
 
-  <div class="card">
-    <div class="card-date-col"><div class="card-date-day">19</div><div class="card-date-month">Mar 2026</div></div>
-    <div class="card-body">
-      <div class="card-tag yellow">China · Exhibition</div>
-      <div class="card-title">Markforged 盛裝亮相 TCT Asia 2026</div>
-      <div class="card-desc">Markforged had an outstanding presence at TCT Asia 2026 in Shanghai, attracting engineers and decision-makers across sectors.</div>
-      <a href="tct-asia-2026.html" class="btn">Read →</a>
-    </div>
-  </div>
+  <main>
 
-  <div class="section-title">Market Insights — 市場洞察</div>
+    <!-- Section 1: Press Releases -->
+    <section class="section">
+      <div class="section-label"><h2>Press Releases</h2></div>
+      <div class="cards">
 
-  <div class="card">
-    <div class="card-date-col"><div class="card-date-day">18</div><div class="card-date-month">Mar 2026</div></div>
-    <div class="card-body">
-      <div class="card-tag">Strategic Report</div>
-      <div class="card-title">NVIDIA GTC 2026 × Markforged — 45頁策略影響分析報告</div>
-      <div class="card-desc">深度解析 NVIDIA GTC 2026 主題演講，分析 Physical AI 與機器人製造趨勢對工業積層製造市場的策略意涵。含可下載 PPTX。</div>
-      <a href="insights/nvidia-gtc-2026.html" class="btn">Read & Download →</a>
-    </div>
-  </div>
+        <div class="card">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-date">2026-03-20</span>
+              <span class="card-tag tag-press">Press Release</span>
+            </div>
+            <h3>Markforged Showcases Industrial AM at UAV Expo 2026</h3>
+            <p>Markforged demonstrates advanced additive manufacturing solutions for unmanned aerial vehicle applications, highlighting lightweight composite parts and supply chain resilience for defense and commercial UAV sectors.</p>
+          </div>
+          <div class="card-footer">
+            <a class="btn" href="uav-expo-2026.html">Read Full Release →</a>
+          </div>
+        </div>
 
-  <div class="card">
-    <div class="card-date-col"><div class="card-date-day">17</div><div class="card-date-month">Mar 2026</div></div>
-    <div class="card-body">
-      <div class="card-tag">AM Industry</div>
-      <div class="card-title">AM 產業快訊 — 鎢供應危機・中國設備補貼・國防 AM</div>
-      <div class="card-desc">2026-03-17 産業動態：鎢供應危機對 AM 材料的影響、中國設備補貼政策解析、國防積層製造最新進展。</div>
-      <a href="insights/market-intel-2026-03-17.html" class="btn">Read →</a>
-    </div>
-  </div>
+        <div class="card">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-date">2026-03-19</span>
+              <span class="card-tag tag-press">Press Release</span>
+            </div>
+            <h3>Markforged at TCT Asia 2026：推動大中華區先進製造轉型</h3>
+            <p>Markforged participates in TCT Asia 2026 in Shanghai, showcasing next-generation metal and composite additive manufacturing platforms tailored for Greater China's aerospace, defense, and industrial manufacturing sectors.</p>
+          </div>
+          <div class="card-footer">
+            <a class="btn" href="tct-asia-2026.html">Read Full Release →</a>
+          </div>
+        </div>
 
-  <div class="card">
-    <div class="card-date-col"><div class="card-date-day">15</div><div class="card-date-month">Mar 2026</div></div>
-    <div class="card-body">
-      <div class="card-tag">AM Industry</div>
-      <div class="card-title">AM 產業快訊 — Formlabs $20億・碳化鎢 AM 突破・RAPID+TCT</div>
-      <div class="card-desc">2026-03-15 産業動態：Formlabs 完成 $20億估值融資、碳化鎢熱絲雷射 AM 技術突破、RAPID+TCT 展覽倒數。</div>
-      <a href="insights/market-intel-2026-03-15.html" class="btn">Read →</a>
-    </div>
-  </div>
+      </div>
+    </section>
 
-</div>
-<div class="footer">
-  © 2026 Markforged, Inc. &nbsp;·&nbsp; <a href="https://markforged.com">markforged.com</a>
-</div>
+    <!-- Section 2: Market Insights -->
+    <section class="section">
+      <div class="section-label"><h2>Market Insights</h2></div>
+      <div class="cards">
+
+        <div class="card">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-date">2026-03-21</span>
+              <span class="card-tag tag-insight">Market Intel</span>
+            </div>
+            <h3>AM 產業快訊：Quantica Series A、美海軍自動化工廠、台海局勢</h3>
+            <p>Quantica 完成 Series A 融資加速多材料噴射技術商業化；美海軍斥資 9 億美元建立自動化製造設施；台海局勢最新動態對供應鏈影響分析。</p>
+          </div>
+          <div class="card-footer">
+            <a class="btn" href="insights/market-intel-2026-03-21.html">Read More →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-date">2026-03-20</span>
+              <span class="card-tag tag-industry">Industry</span>
+            </div>
+            <h3>AM 產業動態：TCT Asia 盛況、中國設備補貼、全球市場</h3>
+            <p>TCT Asia 2026 展會盛況回顧，中國工業母機與 AM 設備補貼政策最新動向，全球積層製造市場規模預測與區域競爭格局分析。</p>
+          </div>
+          <div class="card-footer">
+            <a class="btn" href="insights/market-intel-2026-03-20.html">Read More →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-date">2026-03-19</span>
+              <span class="card-tag tag-industry">Industry</span>
+            </div>
+            <h3>AM 產業動態：展會現場報導、Markforged 通路擴展</h3>
+            <p>TCT Asia 2026 展會現場直擊報導，Markforged 大中華區通路夥伴擴展計畫，新合作夥伴加入強化在地服務能力與市場覆蓋率。</p>
+          </div>
+          <div class="card-footer">
+            <a class="btn" href="insights/market-intel-2026-03-19.html">Read More →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-date">2026-03-17</span>
+              <span class="card-tag tag-defense">Defense AM</span>
+            </div>
+            <h3>鎢供應危機 × 中國設備補貼 × 國防 AM 突破</h3>
+            <p>碳化鎢積層製造技術重大突破，顛覆傳統切削加工限制；中國製造業補貼政策持續擴大；全球鎢供應鏈緊張對精密製造產業的深遠影響。</p>
+          </div>
+          <div class="card-footer">
+            <a class="btn" href="insights/market-intel-2026-03-17.html">Read More →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-date">2026-03-16</span>
+              <span class="card-tag tag-insight">Market Intel</span>
+            </div>
+            <h3>TCT Asia 明日開幕！展前特輯</h3>
+            <p>TCT Asia 2026 上海展會開幕前特輯：重點參展商解析、必看展區導覽、積層製造產業最新趨勢預覽，掌握展會精華搶先看。</p>
+          </div>
+          <div class="card-footer">
+            <a class="btn" href="insights/market-intel-2026-03-16.html">Read More →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-date">2026-03-15</span>
+              <span class="card-tag tag-insight">Market Intel</span>
+            </div>
+            <h3>Formlabs 估值 $20 億 × 碳化鎢 AM 突破 × RAPID+TCT 倒數</h3>
+            <p>Formlabs 最新融資估值突破 20 億美元里程碑；碳化鎢金屬積層製造技術創新發展；北美 RAPID+TCT 2026 展前倒數，重要展商與技術亮點預告。</p>
+          </div>
+          <div class="card-footer">
+            <a class="btn" href="insights/market-intel-2026-03-15.html">Read More →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-date">2026-03-14</span>
+              <span class="card-tag tag-industry">Industry</span>
+            </div>
+            <h3>AM 產業 &amp; Markforged 最新動態</h3>
+            <p>本週積層製造產業重要新聞彙整，Markforged 大中華區業務推進最新進展，客戶應用案例分享與技術合作夥伴動態更新。</p>
+          </div>
+          <div class="card-footer">
+            <a class="btn" href="insights/market-intel-2026-03-14.html">Read More →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-date">2026-03-12</span>
+              <span class="card-tag tag-insight">Market Intel</span>
+            </div>
+            <h3>Daily Market Intelligence：全球 AM 市場動態</h3>
+            <p>全球積層製造市場動態週報，涵蓋金屬 AM、複合材料、生物列印等細分市場最新發展，以及主要廠商策略動向與投資趨勢分析。</p>
+          </div>
+          <div class="card-footer">
+            <a class="btn" href="insights/market-intel-2026-03-12.html">Read More →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-date">2026-03-11</span>
+              <span class="card-tag tag-industry">Industry</span>
+            </div>
+            <h3>AM 產業 &amp; Markforged 動態</h3>
+            <p>積層製造產業每週情報彙整，包含航太、國防、醫療、汽車等垂直市場應用進展，Markforged 解決方案在各產業的最新落地案例。</p>
+          </div>
+          <div class="card-footer">
+            <a class="btn" href="insights/market-intel-2026-03-11.html">Read More →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-date">2026-03-18</span>
+              <span class="card-tag tag-insight">Market Intel</span>
+            </div>
+            <h3>NVIDIA GTC 2026 × AM 產業觀察</h3>
+            <p>NVIDIA GTC 2026 大會重點回顧，AI 與積層製造技術融合趨勢，數位製造與 AI 驅動設計最佳化如何重塑下一代製造業競爭格局。</p>
+          </div>
+          <div class="card-footer">
+            <a class="btn" href="insights/nvidia-gtc-2026.html">Read More →</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    &copy; 2026 <span>MARKFORGED</span> — Greater China Media Hub. All rights reserved.
+  </footer>
+
 </body>
 </html>
