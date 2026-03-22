@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Markforged FX10 + Metal Kit — 一機雙料，碳纖維 + 金屬</title>
+  <meta name="description" content="FX10 + Metal Kit：全球首款同時支援碳纖維複合材料與金屬列印的工業級 3D 列印機。模組化快速切換，一台搞定工裝夾具與功能性金屬件。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --yellow: #FFC500;
+      --black: #000000;
+      --white: #ffffff;
+      --gray-dark: #111111;
+      --gray: #1a1a1a;
+      --gray2: #2a2a2a;
+      --gray3: #404040;
+      --gray4: #595959;
+      --gray5: #COCOCO;
+      --gray6: #E4E4E4;
+      --text: #fafafa;
+      --text2: #a0a0a0;
+      --muted: #666;
+      --border: rgba(255,255,255,0.08);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: 'Inter', "Noto Sans TC", system-ui, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-mark {
+      width: 28px; height: 28px;
+      background: var(--yellow);
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    }
+    .nav-logo-text { font-size: 0.9rem; font-weight: 800; color: var(--white); letter-spacing: -0.3px; }
+    .nav-right { display: flex; align-items: center; gap: 20px; }
+    .nav-link { font-size: 0.8rem; color: var(--text2); text-decoration: none; font-weight: 500; transition: color 0.15s; }
+    .nav-link:hover { color: var(--white); }
+    .nav-cta {
+      padding: 8px 20px; background: var(--yellow); color: var(--black);
+      font-size: 0.8rem; font-weight: 800; border-radius: 6px; text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 80px 80px 60px;
+      gap: 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 70% 50%, rgba(255,197,0,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,197,0,0.1); border: 1px solid rgba(255,197,0,0.3);
+      color: var(--yellow); font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 4px; margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      font-weight: 900; line-height: 1.0; letter-spacing: -2px;
+      margin-bottom: 8px; color: var(--white);
+    }
+    .hero h1 .accent { color: var(--yellow); }
+    .hero-sub {
+      font-size: 1.15rem; color: var(--text2); line-height: 1.7;
+      margin-bottom: 40px; max-width: 480px;
+    }
+    .hero-sub strong { color: var(--white); }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 48px; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 32px; background: var(--yellow); color: var(--black);
+      font-weight: 800; font-size: 0.95rem; border-radius: 6px;
+      text-decoration: none; transition: all 0.2s; letter-spacing: -0.2px;
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 32px rgba(255,197,0,0.35); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 32px; background: transparent; color: var(--white);
+      font-weight: 700; font-size: 0.95rem; border-radius: 6px;
+      text-decoration: none; border: 1px solid rgba(255,255,255,0.2);
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover { border-color: rgba(255,255,255,0.5); }
+    .hero-stats { display: flex; gap: 36px; }
+    .stat-item {}
+    .stat-num { font-size: 1.8rem; font-weight: 900; color: var(--yellow); line-height: 1; }
+    .stat-label { font-size: 0.72rem; color: var(--text2); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+
+    /* HERO IMAGE */
+    .hero-img { position: relative; }
+    .hero-img-wrap {
+      position: relative;
+      background: linear-gradient(145deg, #1a1a1a, #111);
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.06);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-img-badge {
+      position: absolute; top: 20px; right: 20px;
+      background: var(--yellow); color: var(--black);
+      font-size: 0.7rem; font-weight: 800; letter-spacing: 1px;
+      text-transform: uppercase; padding: 6px 14px; border-radius: 4px;
+    }
+    .hero-img-spec {
+      position: absolute; bottom: 20px; left: 20px; right: 20px;
+      background: rgba(0,0,0,0.75); backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px; padding: 14px 18px;
+      display: flex; justify-content: space-between;
+    }
+    .spec-mini { text-align: center; }
+    .spec-mini-val { font-size: 1rem; font-weight: 800; color: var(--white); }
+    .spec-mini-label { font-size: 0.65rem; color: var(--text2); text-transform: uppercase; letter-spacing: 0.8px; }
+
+    /* SECTION */
+    .section { padding: 100px 80px; }
+    .section-alt { background: #0a0a0a; }
+    .wrap { max-width: 1100px; margin: 0 auto; }
+    .section-tag { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+    .section-tag-line { width: 24px; height: 2px; background: var(--yellow); }
+    .section-tag-text { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--yellow); }
+    h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800; letter-spacing: -1px; line-height: 1.1; color: var(--white); margin-bottom: 14px; }
+    .section-lead { font-size: 1rem; color: var(--text2); line-height: 1.8; max-width: 600px; }
+
+    /* DUAL MODE */
+    .dual-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 48px; }
+    .mode-card {
+      background: #111;
+      border: 1px solid var(--border);
+      border-radius: 16px; padding: 36px;
+      position: relative; overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .mode-card:hover { border-color: rgba(255,197,0,0.3); }
+    .mode-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--yellow);
+    }
+    .mode-icon { font-size: 2.5rem; margin-bottom: 16px; }
+    .mode-title { font-size: 1.2rem; font-weight: 800; color: var(--white); margin-bottom: 8px; }
+    .mode-subtitle { font-size: 0.82rem; color: var(--yellow); font-weight: 600; margin-bottom: 16px; letter-spacing: 0.3px; }
+    .mode-desc { font-size: 0.88rem; color: var(--text2); line-height: 1.7; margin-bottom: 20px; }
+    .mode-specs { display: flex; flex-direction: column; gap: 8px; }
+    .mode-spec { display: flex; align-items: baseline; gap: 8px; font-size: 0.82rem; }
+    .mode-spec-key { color: var(--text2); min-width: 100px; flex-shrink: 0; }
+    .mode-spec-val { color: var(--white); font-weight: 600; }
+
+    /* FEATURES */
+    .feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px; }
+    .feat-card {
+      background: #111; border: 1px solid var(--border);
+      border-radius: 14px; padding: 28px;
+      transition: all 0.2s;
+    }
+    .feat-card:hover { border-color: rgba(255,197,0,0.25); transform: translateY(-2px); }
+    .feat-icon { font-size: 1.8rem; margin-bottom: 14px; }
+    .feat-title { font-size: 0.92rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+    .feat-desc { font-size: 0.8rem; color: var(--text2); line-height: 1.6; }
+    .feat-highlight { color: var(--yellow); font-weight: 600; }
+
+    /* SPECS TABLE */
+    .specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border-radius: 14px; overflow: hidden; margin-top: 48px; border: 1px solid var(--border); }
+    .spec-row { display: contents; }
+    .spec-key { background: #111; padding: 16px 24px; font-size: 0.82rem; color: var(--text2); font-weight: 500; }
+    .spec-val { background: #111; padding: 16px 24px; font-size: 0.88rem; color: var(--white); font-weight: 600; border-left: 1px solid var(--border); }
+    .spec-key:nth-child(4n+1), .spec-val:nth-child(4n+2) { background: #0d0d0d; }
+
+    /* USE CASES */
+    .cases-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 48px; }
+    .case-card {
+      background: #111; border: 1px solid var(--border);
+      border-radius: 14px; padding: 24px 20px;
+      transition: all 0.2s;
+    }
+    .case-card:hover { border-color: rgba(255,197,0,0.25); }
+    .case-icon { font-size: 2rem; margin-bottom: 12px; }
+    .case-title { font-size: 0.9rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+    .case-desc { font-size: 0.78rem; color: var(--text2); line-height: 1.6; }
+
+    /* MATERIALS */
+    .mat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 40px; }
+    .mat-card {
+      background: #111; border: 1px solid var(--border);
+      border-radius: 10px; padding: 18px 20px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .mat-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .mat-name { font-size: 0.85rem; font-weight: 600; color: var(--white); }
+    .mat-type { font-size: 0.72rem; color: var(--text2); margin-top: 2px; }
+
+    /* QUOTE */
+    .quote-block {
+      background: #111; border: 1px solid rgba(255,197,0,0.2);
+      border-radius: 16px; padding: 48px 52px; margin: 60px 0;
+      position: relative;
+    }
+    .quote-block::before {
+      content: '"';
+      position: absolute; top: -10px; left: 40px;
+      font-size: 6rem; color: rgba(255,197,0,0.1);
+      font-family: Georgia, serif; line-height: 1;
+    }
+    .quote-text { font-size: 1.3rem; font-weight: 600; color: var(--white); line-height: 1.6; margin-bottom: 20px; }
+    .quote-attr { font-size: 0.82rem; color: var(--text2); }
+    .quote-attr strong { color: var(--yellow); }
+
+    /* CTA */
+    .cta-section {
+      background: linear-gradient(135deg, #111 0%, #1a1500 100%);
+      border: 1px solid rgba(255,197,0,0.15);
+      border-radius: 24px; padding: 72px;
+      text-align: center; margin: 60px 0;
+      position: relative; overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 300px;
+      background: radial-gradient(ellipse, rgba(255,197,0,0.1) 0%, transparent 65%);
+    }
+    .cta-section h3 { font-size: 2.2rem; font-weight: 800; letter-spacing: -1px; color: var(--white); margin-bottom: 12px; position: relative; }
+    .cta-section p { font-size: 1rem; color: var(--text2); margin-bottom: 36px; position: relative; }
+    .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; position: relative; }
+
+    /* FOOTER */
+    footer {
+      padding: 40px 80px;
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .foot-brand { font-size: 0.82rem; color: var(--text2); }
+    .foot-brand strong { color: var(--yellow); }
+    .foot-links { display: flex; gap: 24px; }
+    .foot-links a { font-size: 0.75rem; color: var(--muted); text-decoration: none; transition: color 0.15s; }
+    .foot-links a:hover { color: var(--white); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding: 100px 28px 60px; gap: 40px; }
+      .section { padding: 72px 28px; }
+      .dual-grid, .feat-grid, .cases-grid, .mat-grid { grid-template-columns: 1fr; }
+      .specs-grid { grid-template-columns: 1fr; }
+      .spec-val { border-left: none; border-top: 1px solid var(--border); }
+      .cta-section { padding: 48px 28px; }
+      .cta-section h3 { font-size: 1.6rem; }
+      .hero-stats { flex-wrap: wrap; gap: 24px; }
+      footer { padding: 32px 28px; flex-direction: column; }
+      .nav { padding: 0 24px; }
+      .nav-right .nav-link { display: none; }
+    }
+    @media (min-width: 901px) {
+      .feat-grid { grid-template-columns: repeat(3, 1fr); }
+      .cases-grid { grid-template-columns: repeat(4, 1fr); }
+      .mat-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="https://www.markforged.com" class="nav-logo" target="_blank">
+    <div class="nav-logo-mark"></div>
+    <span class="nav-logo-text">Markforged</span>
+  </a>
+  <div class="nav-right">
+    <a href="#features" class="nav-link">功能特色</a>
+    <a href="#specs" class="nav-link">規格</a>
+    <a href="#usecases" class="nav-link">應用場景</a>
+    <a href="mailto:brian.chen@markforged.com" class="nav-cta">聯絡業務 →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span>★ 旗艦機種</span>
+      <span style="color:rgba(255,197,0,0.5)">|</span>
+      <span>一機雙料</span>
+    </div>
+    <h1>FX10<br>+ <span class="accent">Metal Kit</span></h1>
+    <p class="hero-sub">
+      全球首款同時支援<strong>碳纖維複合材料</strong>與<strong>金屬列印</strong>的工業級平台。<br>
+      模組化快速切換，一台搞定所有製造需求。
+    </p>
+    <div class="hero-actions">
+      <a href="mailto:brian.chen@markforged.com?subject=FX10%20%2B%20Metal%20Kit%20詢價" class="btn-primary">💬 申請報價 →</a>
+      <a href="mailto:brian.chen@markforged.com?subject=FX10%20Demo%20申請" class="btn-secondary">🎯 預約 Demo</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">375<span style="font-size:1rem">mm</span></div>
+        <div class="stat-label">最大列印長度</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">2</div>
+        <div class="stat-label">列印模式</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">1</div>
+        <div class="stat-label">台機器解決</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-img">
+    <div class="hero-img-wrap">
+      <img src="https://news.markforged.tw/images/fx10.jpg" alt="Markforged FX10">
+      <div class="hero-img-badge">FX10 + Metal Kit</div>
+      <div class="hero-img-spec">
+        <div class="spec-mini">
+          <div class="spec-mini-val">375×300×300</div>
+          <div class="spec-mini-label">列印空間 (mm)</div>
+        </div>
+        <div class="spec-mini" style="border-left:1px solid rgba(255,255,255,0.1);padding-left:16px;">
+          <div class="spec-mini-val">122 kg</div>
+          <div class="spec-mini-label">機器重量</div>
+        </div>
+        <div class="spec-mini" style="border-left:1px solid rgba(255,255,255,0.1);padding-left:16px;">
+          <div class="spec-mini-val">模組化</div>
+          <div class="spec-mini-label">快速切換</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DUAL MODE -->
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-tag"><div class="section-tag-line"></div><span class="section-tag-text">核心優勢</span></div>
+    <h2>一台機器，兩種材料</h2>
+    <p class="section-lead">FX10 + Metal Kit 讓你在同一個平台上完整覆蓋製造需求，無需購置兩台設備。</p>
+    <div class="dual-grid">
+      <div class="mode-card">
+        <div class="mode-icon">🧵</div>
+        <div class="mode-title">碳纖維複合材料列印</div>
+        <div class="mode-subtitle">連續碳纖維強化（CFR）</div>
+        <div class="mode-desc">採用 FFF + 連續碳纖維強化技術，製作強度媲美金屬但重量更輕的複合材料零件。適合工裝夾具、治具、結構件。</div>
+        <div class="mode-specs">
+          <div class="mode-spec"><span class="mode-spec-key">技術</span><span class="mode-spec-val">FFF + CFR</span></div>
+          <div class="mode-spec"><span class="mode-spec-key">代表材料</span><span class="mode-spec-val">Onyx™、HSHT、Kevlar®</span></div>
+          <div class="mode-spec"><span class="mode-spec-key">強化纖維</span><span class="mode-spec-val">碳纖維、玻璃纖維、芳綸</span></div>
+          <div class="mode-spec"><span class="mode-spec-key">最適場景</span><span class="mode-spec-val">工裝、夾具、輕量結構件</span></div>
+        </div>
+      </div>
+      <div class="mode-card">
+        <div class="mode-icon">⚙️</div>
+        <div class="mode-title">金屬列印（Metal Kit）</div>
+        <div class="mode-subtitle">ADAM 技術 — 金屬擠出燒結</div>
+        <div class="mode-desc">透過模組化 Metal Kit 快速切換為金屬列印模式，製作高密度功能性金屬零件，支援不鏽鋼、工具鋼等材料。</div>
+        <div class="mode-specs">
+          <div class="mode-spec"><span class="mode-spec-key">技術</span><span class="mode-spec-val">ADAM（擠出燒結）</span></div>
+          <div class="mode-spec"><span class="mode-spec-key">支援材料</span><span class="mode-spec-val">17-4 PH、316L、H13</span></div>
+          <div class="mode-spec"><span class="mode-spec-key">密度</span><span class="mode-spec-val">&gt; 99%（媲美鑄造件）</span></div>
+          <div class="mode-spec"><span class="mode-spec-key">最適場景</span><span class="mode-spec-val">功能性金屬件、原型、小批量</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section" id="features">
+  <div class="wrap">
+    <div class="section-tag"><div class="section-tag-line"></div><span class="section-tag-text">功能特色</span></div>
+    <h2>為製造現場設計的智能平台</h2>
+    <p class="section-lead">從光學感測到自動校準，FX10 的每一個設計都源自真實製造環境的需求。</p>
+    <div class="feat-grid">
+      <div class="feat-card">
+        <div class="feat-icon">🔁</div>
+        <div class="feat-title">模組化快速切換</div>
+        <div class="feat-desc">碳纖維與金屬列印模組可<span class="feat-highlight">快速切換</span>，無需購置兩台設備，一台 FX10 覆蓋完整材料需求。</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">👁️</div>
+        <div class="feat-title">列印頭光學感測</div>
+        <div class="feat-desc">內建尺寸驗證感測器，<span class="feat-highlight">自動校準列印頭</span>，確保每次列印精度一致，減少失敗率。</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🤖</div>
+        <div class="feat-title">低人工介入設計</div>
+        <div class="feat-desc"><span class="feat-highlight">自動材料切換</span>，無需專職操作員全程看守。適合製造現場班後或週末無人值守運作。</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🌐</div>
+        <div class="feat-title">Eiger 雲端軟體</div>
+        <div class="feat-desc">全中文化 Eiger 切片軟體，<span class="feat-highlight">瀏覽器直接操作</span>，無需安裝，支援多人協作管理列印佇列。</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">📊</div>
+        <div class="feat-title">Digital Forge 監控</div>
+        <div class="feat-desc">即時監控列印進度、機器狀態、材料用量，<span class="feat-highlight">全廠設備一鍵管理</span>，數據完整留存。</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🔧</div>
+        <div class="feat-title">工業級可靠性</div>
+        <div class="feat-desc">密閉加熱腔體設計，精密濕度控制，<span class="feat-highlight">7×24 小時穩定運行</span>，適合嚴苛製造環境。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECS -->
+<section class="section section-alt" id="specs">
+  <div class="wrap">
+    <div class="section-tag"><div class="section-tag-line"></div><span class="section-tag-text">技術規格</span></div>
+    <h2>FX10 核心規格</h2>
+    <p class="section-lead">工業級設計，每一個數字都為製造現場優化。</p>
+    <div class="specs-grid">
+      <div class="spec-key">列印空間</div>
+      <div class="spec-val">375 × 300 × 300 mm</div>
+      <div class="spec-key">機器重量</div>
+      <div class="spec-val">122 kg</div>
+      <div class="spec-key">列印技術</div>
+      <div class="spec-val">FFF + 連續碳纖維強化（CFR）</div>
+      <div class="spec-key">金屬技術</div>
+      <div class="spec-val">ADAM（Metal Kit 模組）</div>
+      <div class="spec-key">感測系統</div>
+      <div class="spec-val">列印頭光學尺寸驗證感測器</div>
+      <div class="spec-key">連接方式</div>
+      <div class="spec-val">Wi-Fi / 乙太網路</div>
+      <div class="spec-key">管理軟體</div>
+      <div class="spec-val">Eiger（雲端）/ Eiger Fleet</div>
+      <div class="spec-key">支援纖維</div>
+      <div class="spec-val">碳纖維、玻璃纖維、HSHT 玻纖、Kevlar®</div>
+      <div class="spec-key">支援金屬材料</div>
+      <div class="spec-val">17-4 PH 不鏽鋼、316L 不鏽鋼、H13 工具鋼</div>
+      <div class="spec-key">電源規格</div>
+      <div class="spec-val">100–240V AC, 50/60 Hz</div>
+    </div>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section class="section" id="usecases">
+  <div class="wrap">
+    <div class="section-tag"><div class="section-tag-line"></div><span class="section-tag-text">應用場景</span></div>
+    <h2>哪些場景最適合 FX10 + Metal Kit？</h2>
+    <p class="section-lead">從汽車到航太，FX10 正在改變製造業的工具製作方式。</p>
+    <div class="cases-grid">
+      <div class="case-card">
+        <div class="case-icon">🏭</div>
+        <div class="case-title">工裝夾具</div>
+        <div class="case-desc">快速製作生產線夾具、治具，導入時間從數週縮短至數日，成本降低 80%。</div>
+      </div>
+      <div class="case-card">
+        <div class="case-icon">⚙️</div>
+        <div class="case-title">功能性原型</div>
+        <div class="case-desc">碳纖維或金屬原型直接測試功能，無需等待傳統機加工，加速產品開發週期。</div>
+      </div>
+      <div class="case-card">
+        <div class="case-icon">🚗</div>
+        <div class="case-title">汽車製造</div>
+        <div class="case-desc">車身組裝夾具、焊接治具、小批量金屬支架，響應快速換模需求。</div>
+      </div>
+      <div class="case-card">
+        <div class="case-icon">✈️</div>
+        <div class="case-title">航太國防</div>
+        <div class="case-desc">輕量化複合材料結構件、金屬功能零件，滿足嚴格的強度與重量要求。</div>
+      </div>
+    </div>
+
+    <!-- QUOTE -->
+    <div class="quote-block">
+      <div class="quote-text">一台 FX10 + Metal Kit，等於同時擁有碳纖維打印機和金屬打印機。對製造業來說，這不只是成本優化，更是整個工作流程的重新設計。</div>
+      <div class="quote-attr">— <strong>Brian Chen（陳中欣）</strong>，Country Manager, Greater China Region · Markforged</div>
+    </div>
+  </div>
+</section>
+
+<!-- MATERIALS -->
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-tag"><div class="section-tag-line"></div><span class="section-tag-text">支援材料</span></div>
+    <h2>業界最廣泛的材料庫</h2>
+    <p class="section-lead">從工程熱塑性材料到航太等級金屬，Markforged 材料生態完整覆蓋工業需求。</p>
+    <div class="mat-grid">
+      <div class="mat-card"><div class="mat-dot" style="background:#1a1a1a;border:2px solid #555;"></div><div><div class="mat-name">Onyx™</div><div class="mat-type">碳纖填充尼龍，基礎材料</div></div></div>
+      <div class="mat-card"><div class="mat-dot" style="background:#2d2d2d;border:2px solid #888;"></div><div><div class="mat-name">碳纖維（CF）</div><div class="mat-type">連續碳纖維，最高強度</div></div></div>
+      <div class="mat-card"><div class="mat-dot" style="background:#e8e0d0;"></div><div><div class="mat-name">Kevlar®</div><div class="mat-type">連續芳綸，耐衝擊</div></div></div>
+      <div class="mat-card"><div class="mat-dot" style="background:#c0d4e8;"></div><div><div class="mat-name">HSHT 玻璃纖維</div><div class="mat-type">高強高溫，耐化學品</div></div></div>
+      <div class="mat-card"><div class="mat-dot" style="background:#c0c0c0;"></div><div><div class="mat-name">17-4 PH 不鏽鋼</div><div class="mat-type">金屬，高強度、航太級</div></div></div>
+      <div class="mat-card"><div class="mat-dot" style="background:#a8bcc8;"></div><div><div class="mat-name">316L 不鏽鋼</div><div class="mat-type">金屬，耐腐蝕、醫療級</div></div></div>
+      <div class="mat-card"><div class="mat-dot" style="background:#7a6a5a;"></div><div><div class="mat-name">H13 工具鋼</div><div class="mat-type">金屬，耐熱、模具應用</div></div></div>
+      <div class="mat-card"><div class="mat-dot" style="background:#d4a020;"></div><div><div class="mat-name">純銅（選配）</div><div class="mat-type">導電、導熱應用</div></div></div>
+      <div class="mat-card"><div class="mat-dot" style="background:#e8e8e8;"></div><div><div class="mat-name">Onyx ESD</div><div class="mat-type">防靜電，電子製造環境</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+  <div class="wrap">
+    <div class="cta-section">
+      <h3>準備好導入 FX10 + Metal Kit？</h3>
+      <p>聯絡大中華區業務團隊，取得完整報價與現場 Demo 安排。</p>
+      <div class="cta-btns">
+        <a href="mailto:brian.chen@markforged.com?subject=FX10%20%2B%20Metal%20Kit%20詢價申請&body=您好，我想了解 FX10 + Metal Kit 的詳細報價與規格。" class="btn-primary" style="font-size:1rem;padding:16px 36px;">💬 申請正式報價 →</a>
+        <a href="mailto:brian.chen@markforged.com?subject=FX10%20Demo%20預約" class="btn-secondary" style="font-size:1rem;padding:16px 36px;">🎯 預約現場 Demo</a>
+      </div>
+      <p style="margin-top:24px;font-size:0.8rem;color:#555;">
+        Brian Chen（陳中欣）· Country Manager, Greater China Region<br>
+        📱 TW: +886 927 479 974 &nbsp;|&nbsp; CN: +86 152 2127 9974 &nbsp;|&nbsp; ✉️ brian.chen@markforged.com
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-brand">
+    <strong>Markforged</strong> Greater China Region · The Digital Manufacturing Company<br>
+    <span style="font-size:0.7rem;color:#444;margin-top:4px;display:block;">⚠️ 本頁面資訊供業務參考，價格與規格以正式報價為準。</span>
+  </div>
+  <div class="foot-links">
+    <a href="https://www.markforged.com" target="_blank">markforged.com</a>
+    <a href="https://news.markforged.tw" target="_blank">news.markforged.tw</a>
+    <a href="mailto:brian.chen@markforged.com">聯絡業務</a>
+  </div>
+</footer>
+
+</body>
+</html>
