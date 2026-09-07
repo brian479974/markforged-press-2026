@@ -121,7 +121,10 @@ def render(lang):
     for L in LANGS:
         A(f'<link rel="alternate" hreflang="{META["lang_attr"][L]}" '
           f'href="https://news.markforged.tw/{META["file"][L]}">')
-    A(f"<style>{STYLE}</style>\n</head>\n<body>\n<div class=\"wrap\">\n")
+    A(f"<style>{STYLE}</style>")
+    # 瀏覽統計 beacon（供應商可換 · 不放 cookie · 尊重 DNT）
+    A('<script src="analytics.js" defer></script>')
+    A("</head>\n<body>\n<div class=\"wrap\">\n")
 
     A('  <div class="hdr">')
     A('    <a href="index.html" class="hdr-logo"><img src="images/markforged-logo-white.png" alt="Markforged"></a>')
