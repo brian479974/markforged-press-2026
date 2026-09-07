@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The next phase of AI competition: from compute to physical realisation — Markforged</title>
+<meta name="description" content="Beyond software, silicon and compute, what determines how far Physical AI can go is manufacturing. Brian Chen, Markforged Country Manager for Greater China and Vietnam, on the three structural constraints of physical realisation.">
+<meta property="og:title" content="The next phase of AI competition: from compute to physical realisation">
+<meta property="og:description" content="What determines how far Physical AI can go: manufacturability, iteration cycles and supply chain maturity.">
+<meta property="og:image" content="https://news.markforged.tw/images/hero-factory-floor.jpg">
+<meta property="og:type" content="article">
+<link rel="alternate" hreflang="zh-TW" href="https://news.markforged.tw/physical-ai-body.html">
+<link rel="alternate" hreflang="zh-CN" href="https://news.markforged.tw/physical-ai-body-sc.html">
+<link rel="alternate" hreflang="en" href="https://news.markforged.tw/physical-ai-body-en.html">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#e8e8e8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,'Noto Sans TC','Noto Sans SC',sans-serif;color:#1a1a1a}
+  .wrap{max-width:700px;margin:0 auto;background:#fff}
+  .hdr{background:#000;padding:20px 40px;display:flex;align-items:center;justify-content:space-between}
+  .hdr-logo{display:block;line-height:0}
+  .hdr-logo img{height:26px;width:auto;display:block}
+  .hdr-ev{color:rgba(255,255,255,.6);font-size:12px;text-align:right;line-height:1.6}
+  .langbar{background:#111;padding:8px 40px;display:flex;gap:6px;align-items:center;border-top:1px solid #222}
+  .langbar span{color:#666;font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-right:4px}
+  .langbar a{font-size:11.5px;font-weight:700;color:#888;text-decoration:none;padding:3px 10px;border-radius:20px;border:1px solid #333}
+  .langbar a:hover{color:#FFC500;border-color:#FFC500}
+  .langbar a.on{background:#FFC500;color:#000;border-color:#FFC500}
+  .hero{position:relative;overflow:hidden}
+  .hero img{width:100%;display:block}
+  .hero-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.68) 0%,rgba(0,0,0,.15) 50%,rgba(0,0,0,.72) 100%)}
+  .hero-top{position:absolute;top:0;left:0;right:0;padding:28px 38px}
+  .hero-kicker{color:#FFC500;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px}
+  .hero-title{color:#fff;font-size:26px;font-weight:900;line-height:1.28;max-width:540px;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+  .hero-btm{position:absolute;bottom:0;left:0;right:0;padding:16px 38px;background:linear-gradient(transparent,rgba(0,0,0,.75))}
+  .hero-meta{color:rgba(255,255,255,.85);font-size:12px;letter-spacing:.04em}
+  .ds{background:#FFC500;padding:10px 38px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}
+  .ds-l{font-size:12.5px;font-weight:700;color:#000}
+  .ds-r{font-size:11.5px;color:#333}
+  .body{padding:36px 38px 0}
+  .lead{font-size:16px;line-height:1.82;color:#222;margin-bottom:24px;padding-bottom:24px;border-bottom:2px solid #f0f0f0}
+  .qb{margin:6px 0 26px;padding:20px 24px;background:#000;border-radius:6px}
+  .qb p{color:#FFC500;font-size:18px;font-weight:800;line-height:1.45;margin-bottom:5px}
+  .qb small{color:rgba(255,255,255,.45);font-size:10.5px;letter-spacing:.07em}
+  .sec{margin-bottom:30px}
+  h2{font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#FFC500;margin-bottom:12px;padding-left:11px;border-left:4px solid #FFC500}
+  h3{font-size:18px;font-weight:800;color:#111;margin-bottom:12px;line-height:1.32}
+  p{font-size:14.5px;line-height:1.82;color:#333;margin-bottom:14px}
+  strong{color:#111}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
+  .tag{background:#111;color:#FFC500;font-size:10px;font-weight:700;letter-spacing:.07em;padding:4px 10px;border-radius:30px}
+  .tag.ol{background:#fff;color:#666;border:1.5px solid #ddd}
+  .ph-full img{width:100%;display:block}
+  .ph-2col{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+  .gi{width:100%;display:block;object-fit:cover}
+  .gi-43{aspect-ratio:4/3}
+  .cap{font-size:11px;color:#aaa;text-align:center;padding:8px 38px 22px;border-bottom:1px solid #eee;margin-bottom:26px;line-height:1.55}
+  .hl-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:30px}
+  .hl{background:#f7f7f7;border-left:4px solid #FFC500;padding:16px 18px}
+  .hl b{display:block;font-size:24px;font-weight:900;color:#111;line-height:1.1;margin-bottom:5px}
+  .hl span{font-size:11.5px;color:#777;line-height:1.5;display:block}
+  .prof{display:flex;gap:18px;align-items:center;background:#111;padding:22px 24px;border-radius:6px;margin:8px 0 28px}
+  .prof img{width:92px;height:92px;object-fit:cover;border-radius:50%;flex-shrink:0;border:3px solid #FFC500}
+  .prof-n{color:#fff;font-size:16px;font-weight:800;margin-bottom:4px}
+  .prof-t{color:#FFC500;font-size:11.5px;font-weight:700;margin-bottom:7px}
+  .prof-d{color:rgba(255,255,255,.6);font-size:11.5px;line-height:1.6}
+  .cta{background:#FFC500;padding:28px 32px;margin:6px 0 0}
+  .cta h4{font-size:17px;font-weight:900;color:#000;margin-bottom:8px}
+  .cta p{font-size:13px;color:#333;line-height:1.7;margin-bottom:16px}
+  .btn{display:inline-block;background:#000;color:#FFC500;padding:12px 26px;font-size:13.5px;font-weight:800;text-decoration:none;letter-spacing:.04em}
+  .btn:hover{background:#222}
+  .srcbox{background:#fafafa;border-top:3px solid #111;padding:22px 38px 26px}
+  .srcbox h5{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#888;margin-bottom:10px}
+  .srcbox li{font-size:11.5px;color:#777;line-height:1.75;margin-left:16px}
+  .ftr{background:#000;padding:24px 38px;color:rgba(255,255,255,.5);font-size:11.5px;line-height:1.7}
+  .ftr a{color:#FFC500;text-decoration:none}
+  @media(max-width:620px){.hero-title{font-size:21px}.body{padding:26px 22px 0}.hl-grid{grid-template-columns:1fr}.prof{flex-direction:column;text-align:center}.langbar{padding:8px 22px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hdr">
+    <a href="index.html" class="hdr-logo"><img src="images/markforged-logo-white.png" alt="Markforged"></a>
+    <div class="hdr-ev">Greater China Media Hub<br>News &amp; Insights</div>
+  </div>
+
+  <div class="langbar"><span>Language</span><a href="physical-ai-body.html">繁體中文</a><a href="physical-ai-body-sc.html">简体中文</a><a href="physical-ai-body-en.html" class="on">English</a></div>
+
+  <div class="hero">
+    <img src="images/hero-factory-floor.jpg" alt="A Markforged FX10 industrial additive manufacturing system on a production floor with industrial robots behind it">
+    <div class="hero-ov"></div>
+    <div class="hero-top">
+      <div class="hero-kicker">Industry Perspective · Physical AI</div>
+      <div class="hero-title">The next phase of AI competition:<br>from compute to physical realisation</div>
+    </div>
+    <div class="hero-btm"><div class="hero-meta">An interview with Brian Chen, Country Manager for Greater China and Vietnam, Markforged</div></div>
+  </div>
+
+  <div class="ds"><div class="ds-l">7 September 2026</div><div class="ds-r">Taiwan · China · Hong Kong · Vietnam</div></div>
+
+  <div class="body">
+
+    <div class="lead">From 19 to 22 August 2026, Automation Taipei and TAIROS ran at the Nangang Exhibition Center, with 886 exhibitors across 3,506 booths. The same week, the 2026 World Robot Conference convened in Yizhuang, Beijing. In September, Shenzhen released its Work Plan for High-Quality Development of the Intelligent Robotics Industry (2026–2028), naming humanoid robot bodies and self-sufficiency in core components as priority areas.<br><br>The three events sit in different markets but point to one structural question. As Physical AI moves from the laboratory into volume production, its pace is no longer set by models and compute alone, but by whether manufacturing can deliver structurally capable physical parts on schedule. Brian Chen, Markforged's Country Manager for Greater China and Vietnam, covers Taiwan, China, Hong Kong and Vietnam — spanning several links in that physical supply chain.</div>
+
+    <div class="qb"><p>“The current surge in AI is concentrated in software, silicon and compute. The decisive factor is being settled right now, and the single most important thing ahead is the physical realisation of AI.”</p><small>Brian Chen · Country Manager, Greater China and Vietnam, Markforged</small></div>
+
+    <div class="prof">
+      <img src="brian-chen.jpg" alt="Brian Chen">
+      <div><div class="prof-n">Brian Chen</div><div class="prof-t">Country Manager, Greater China and Vietnam, Markforged</div><div class="prof-d">Responsible for business development, channel structure and technical solutions across Taiwan, China, Hong Kong and Vietnam.</div></div>
+    </div>
+
+    <div class="tags"><span class="tag">Physical AI</span><span class="tag">Smart Manufacturing</span><span class="tag ol">Flexible Production</span><span class="tag ol">Line Optimisation</span><span class="tag ol">Supply Resilience</span></div>
+
+    <div class="sec">
+      <h2>A shift in focus</h2>
+      <h3>Investment has concentrated on software and compute; physical realisation has yet to build matching industrial capacity</h3>
+      <p>Over the past three years, capital and talent in AI have concentrated in three directions: models and software frameworks, semiconductor process and chip architecture, and data centre and compute infrastructure. The supply chains behind all three are comparatively mature, with established investment logic and valuation methods.</p>
+      <p>Physical AI demands a different capability. Where the output of artificial intelligence must exist in physical form — robot bodies, structural components, end effectors, sensor mounts — the rate of output is bounded by three constraints on the manufacturing side: manufacturability, iteration cycle, and supply chain maturity. None of the three has yet attracted industrial investment on a scale comparable to software.</p>
+    </div>
+
+    <div class="sec">
+      <h2>Constraint one · Manufacturability</h2>
+      <h3>Most geometry produced by generative design falls outside the reach of subtractive processes</h3>
+      <p>Topology optimisation and generative design have entered production engineering workflows. Their outputs share a characteristic: non-intuitive geometry driven by material distribution efficiency — continuous surfaces, internal lattice structures, channels enclosed within the part. The mechanical efficiency of such geometry derives precisely from the fact that it does not follow the forming logic of subtractive manufacturing.</p>
+      <p>Subtractive processes carry a physical limit on tool access. Where an algorithmic result cannot be formed by existing processes, engineering teams typically revert to a machinable version, and the design benefit is discounted at the process stage. That discount is rarely quantified or recorded, and seldom appears in assessments of the return on AI adoption.</p>
+      <p>In robotics the discount shows up directly in performance. Structural mass is amplified by the lever arm into actuator load, and carries through to runtime and positioning accuracy. Light weight here is not a design preference but a specification requirement.</p>
+    </div>
+
+    <div class="ph-2col">
+      <img class="gi gi-43" src="images/eoat-packaging.jpg" alt="Production end-of-arm tooling made in continuous carbon fibre composite">
+      <img class="gi gi-43" src="images/cobot-gripper.jpg" alt="Customised collaborative robot gripper">
+    </div>
+    <div class="cap">Left: end-of-arm tooling for a food packaging line (Onyx; FX10 / FX20 / X7). Right: Harvestance customised collaborative robot gripper (Onyx; FX20). Images: Markforged official Application Spotlight</div>
+
+    <div class="sec">
+      <h2>Constraint two · Iteration cycle</h2>
+      <h3>An asymmetry in cadence sets how many technical paths can be validated in a year</h3>
+      <p>The marginal cost of software iteration approaches zero and version cycles run in days. Hardware does not behave that way: every change to a structural component requires redesign, requoting and revalidation, on cycles measured in weeks or months. The difference in cadence has limited effect during prototyping, but becomes the dominant bottleneck once scenario validation begins.</p>
+      <p>Take the target set in Shenzhen's plan: at least ten real scenarios in routine operation by the end of 2026. Each scenario presents different environmental conditions, and each corresponding mechanical adjustment constitutes a round of hardware feedback. Ten scenarios imply at least ten rounds of mechanical iteration, and the total schedule depends directly on the lead time for physical parts.</p>
+      <p>A published case from US robotics company Haddington Dynamics offers a quantified reference. The company moved most structural components of its Dexter arm to additive production, reducing part count from 800 to under 70 and shortening full assembly to within a day. The arm's motion accuracy requirement is 50 micrometres. According to published material, the complete carbon fibre structural redesign was finished roughly three weeks after the equipment was installed.</p>
+      <div class="hl-grid">
+        <div class="hl"><b>800 → 70</b><span>Structural part count, Dexter arm<br>Full assembly within one day</span></div>
+        <div class="hl"><b>~3 weeks</b><span>From installation to completed<br>carbon fibre structural redesign</span></div>
+      </div>
+    </div>
+
+    <div class="ph-full"><img src="images/robotic-arm-7axis.jpg" alt="Seven-axis robot arm with structural components in continuous carbon fibre composite"></div>
+    <div class="cap">The Haddington Dynamics Dexter seven-axis arm, with most structural components moved to additive production. Image: Markforged official Application Spotlight</div>
+
+    <div class="sec">
+      <h2>Constraint three · Supply chain maturity</h2>
+      <h3>Prototype maturity and volume maturity are different engineering problems</h3>
+      <p>After the 2026 World Robot Conference, a broad assessment took hold: humanoid hardware is approaching maturity, and the remaining bottleneck is weak generalisation. The judgement holds at the algorithmic level, but requires a distinction at the manufacturing level.</p>
+      <p>Markforged's reading is that what has matured is the demonstration prototype, not the production supply chain. A mechanism a single engineering team can hand-build, and a mechanism produced at ten thousand units a year while holding motion accuracy unit by unit and supporting design revisions, are two different classes of engineering problem. The first turns on design and assembly capability; the second on the consistency and responsiveness of a supply chain.</p>
+      <p>The technical priorities in Shenzhen's plan offer a point of comparison. By naming humanoid robot bodies and self-sufficiency in core components as focus areas, the plan directs resources at physical manufacturing capability rather than model capability.</p>
+    </div>
+
+    <div class="sec">
+      <h2>Regional positioning</h2>
+      <h3>Precision machining and tooling supply form the most direct industrial base for physical realisation</h3>
+      <p>In August 2026 Taiwan's Chinese National Federation of Industries published its annual white paper under the theme “Turning Point.” Surveying 161 industry associations, it recorded labour shortage as the leading concern for a third consecutive year at 76.6%, with industrial transformation second at 75.7%, and recommended a review of policy weighted toward high technology at the expense of traditional industry.</p>
+      <p>Chen sees a direct correspondence between those figures and the industrial requirements of Physical AI. The capabilities physical realisation depends on — precision machining, structural component production, fixture and tooling supply, rapid changeover — are precisely what the region's machinery sector has built over decades. In positioning terms, machinery is not what artificial intelligence displaces; it is a necessary link in bringing Physical AI to volume.</p>
+      <p>He also states the precondition attached to that position: lead times must move from weeks to days, and the supply of non-standard parts from external outsourcing to on-site production. Until that is met, robotics companies will turn to suppliers who already meet it.</p>
+      <p>On labour shortage, the answer likewise does not sit on the supply side of labour. Raising output per existing worker depends on tooling and fixtures being available the same day, rather than queued behind external capacity.</p>
+      <div class="hl-grid">
+        <div class="hl"><b>76.6%</b><span>Labour shortage, top concern for a third year<br>(CNFI 2026 white paper, 161 associations)</span></div>
+        <div class="hl"><b>75.7%</b><span>Industrial transformation<br>second in the same survey</span></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <h2>In closing</h2>
+      <h3>Physical realisation is the largest unresolved challenge in AI today</h3>
+      <p>“Industry discussion right now is heavily concentrated on AI-assisted design, design support and the applications that extend from them,” Chen says. “But the real challenge is the physical realisation of AI — turning software into hardware, turning the virtual into the physical.”</p>
+    </div>
+
+    <div class="sec">
+      <h2>The approach</h2>
+      <h3>Placing structural part supply at the line</h3>
+      <p>Markforged's industrial additive manufacturing systems are built around continuous fibre composites, enabling manufacturers to produce structurally capable mechanical components, fixtures and tooling, end effectors and line aids on their own floor. The FX10 and FX20 are positioned for production-level applications; the X7 and X7 FE for design validation and high-frequency iteration. The FX10 accepts a Metal Kit, switching between composite and metal printing on a single equipment platform.</p>
+      <p>What this changes is not how a single part is sourced, but the lag between a design change and a delivered physical part. Only when that lag compresses from weeks to days can the hardware iteration cycle align with the software cycle.</p>
+    </div>
+
+  </div>
+
+  <div class="cta">
+    <h4>Making AI Physical — VIP Experience Day</h4>
+    <p>A live demonstration conducted by Markforged engineers, with solution assessment against your actual application. Sessions can be arranged in Taiwan, China, Hong Kong or Vietnam, by invitation and review.</p>
+    <a href="https://mfmk.markforged.tw" class="btn">Request a VIP session →</a>
+  </div>
+
+  <div class="srcbox">
+    <h5>Sources</h5>
+    <ul><li>Automation Taipei / TAIROS 2026: 19–22 August 2026, Taipei Nangang Exhibition Center Halls 1 and 2; 886 exhibitors, 3,506 booths</li><li>World Robot Conference 2026: 19–23 August 2026, Yizhuang, Beijing; theme “Human-Robot Coexistence”</li><li>Shenzhen, Work Plan for High-Quality Development of the Intelligent Robotics Industry (2026–2028), published September 2026</li><li>Chinese National Federation of Industries, 2026 White Paper, published August 2026; theme “Turning Point,” surveying 161 industry associations</li><li>Haddington Dynamics 7-Axis Robotic Arm; Production End-of-Arm-Tooling; Harvestance Customized Cobot Gripper — Markforged official Application Spotlights</li></ul>
+  </div>
+
+  <div class="ftr">
+    Markforged, Inc. supplies industrial additive manufacturing systems, using continuous fibre composite and metal solutions to enable manufacturers to produce functional parts, tooling and spares on their own floor.<br><br>
+    <a href="index.html">← Back to News &amp; Insights</a>　·　<a href="https://markforged.tw">markforged.tw</a>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 竞争的下一阶段：焦点正从算力移向实体化 — Markforged</title>
+<meta name="description" content="软件、芯片与算力之外，决定 Physical AI 能走多远的是制造端。Markforged 大中华区暨越南区总经理陈中欣谈 AI 实体化的三项结构限制。">
+<meta property="og:title" content="AI 竞争的下一阶段：焦点正从算力移向实体化">
+<meta property="og:description" content="决定 Physical AI 能走多远的，是制造端的可制造性、迭代周期与供应链成熟度。">
+<meta property="og:image" content="https://news.markforged.tw/images/hero-factory-floor.jpg">
+<meta property="og:type" content="article">
+<link rel="alternate" hreflang="zh-TW" href="https://news.markforged.tw/physical-ai-body.html">
+<link rel="alternate" hreflang="zh-CN" href="https://news.markforged.tw/physical-ai-body-sc.html">
+<link rel="alternate" hreflang="en" href="https://news.markforged.tw/physical-ai-body-en.html">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#e8e8e8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,'Noto Sans TC','Noto Sans SC',sans-serif;color:#1a1a1a}
+  .wrap{max-width:700px;margin:0 auto;background:#fff}
+  .hdr{background:#000;padding:20px 40px;display:flex;align-items:center;justify-content:space-between}
+  .hdr-logo{display:block;line-height:0}
+  .hdr-logo img{height:26px;width:auto;display:block}
+  .hdr-ev{color:rgba(255,255,255,.6);font-size:12px;text-align:right;line-height:1.6}
+  .langbar{background:#111;padding:8px 40px;display:flex;gap:6px;align-items:center;border-top:1px solid #222}
+  .langbar span{color:#666;font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-right:4px}
+  .langbar a{font-size:11.5px;font-weight:700;color:#888;text-decoration:none;padding:3px 10px;border-radius:20px;border:1px solid #333}
+  .langbar a:hover{color:#FFC500;border-color:#FFC500}
+  .langbar a.on{background:#FFC500;color:#000;border-color:#FFC500}
+  .hero{position:relative;overflow:hidden}
+  .hero img{width:100%;display:block}
+  .hero-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.68) 0%,rgba(0,0,0,.15) 50%,rgba(0,0,0,.72) 100%)}
+  .hero-top{position:absolute;top:0;left:0;right:0;padding:28px 38px}
+  .hero-kicker{color:#FFC500;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px}
+  .hero-title{color:#fff;font-size:26px;font-weight:900;line-height:1.28;max-width:540px;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+  .hero-btm{position:absolute;bottom:0;left:0;right:0;padding:16px 38px;background:linear-gradient(transparent,rgba(0,0,0,.75))}
+  .hero-meta{color:rgba(255,255,255,.85);font-size:12px;letter-spacing:.04em}
+  .ds{background:#FFC500;padding:10px 38px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}
+  .ds-l{font-size:12.5px;font-weight:700;color:#000}
+  .ds-r{font-size:11.5px;color:#333}
+  .body{padding:36px 38px 0}
+  .lead{font-size:16px;line-height:1.82;color:#222;margin-bottom:24px;padding-bottom:24px;border-bottom:2px solid #f0f0f0}
+  .qb{margin:6px 0 26px;padding:20px 24px;background:#000;border-radius:6px}
+  .qb p{color:#FFC500;font-size:18px;font-weight:800;line-height:1.45;margin-bottom:5px}
+  .qb small{color:rgba(255,255,255,.45);font-size:10.5px;letter-spacing:.07em}
+  .sec{margin-bottom:30px}
+  h2{font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#FFC500;margin-bottom:12px;padding-left:11px;border-left:4px solid #FFC500}
+  h3{font-size:18px;font-weight:800;color:#111;margin-bottom:12px;line-height:1.32}
+  p{font-size:14.5px;line-height:1.82;color:#333;margin-bottom:14px}
+  strong{color:#111}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
+  .tag{background:#111;color:#FFC500;font-size:10px;font-weight:700;letter-spacing:.07em;padding:4px 10px;border-radius:30px}
+  .tag.ol{background:#fff;color:#666;border:1.5px solid #ddd}
+  .ph-full img{width:100%;display:block}
+  .ph-2col{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+  .gi{width:100%;display:block;object-fit:cover}
+  .gi-43{aspect-ratio:4/3}
+  .cap{font-size:11px;color:#aaa;text-align:center;padding:8px 38px 22px;border-bottom:1px solid #eee;margin-bottom:26px;line-height:1.55}
+  .hl-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:30px}
+  .hl{background:#f7f7f7;border-left:4px solid #FFC500;padding:16px 18px}
+  .hl b{display:block;font-size:24px;font-weight:900;color:#111;line-height:1.1;margin-bottom:5px}
+  .hl span{font-size:11.5px;color:#777;line-height:1.5;display:block}
+  .prof{display:flex;gap:18px;align-items:center;background:#111;padding:22px 24px;border-radius:6px;margin:8px 0 28px}
+  .prof img{width:92px;height:92px;object-fit:cover;border-radius:50%;flex-shrink:0;border:3px solid #FFC500}
+  .prof-n{color:#fff;font-size:16px;font-weight:800;margin-bottom:4px}
+  .prof-t{color:#FFC500;font-size:11.5px;font-weight:700;margin-bottom:7px}
+  .prof-d{color:rgba(255,255,255,.6);font-size:11.5px;line-height:1.6}
+  .cta{background:#FFC500;padding:28px 32px;margin:6px 0 0}
+  .cta h4{font-size:17px;font-weight:900;color:#000;margin-bottom:8px}
+  .cta p{font-size:13px;color:#333;line-height:1.7;margin-bottom:16px}
+  .btn{display:inline-block;background:#000;color:#FFC500;padding:12px 26px;font-size:13.5px;font-weight:800;text-decoration:none;letter-spacing:.04em}
+  .btn:hover{background:#222}
+  .srcbox{background:#fafafa;border-top:3px solid #111;padding:22px 38px 26px}
+  .srcbox h5{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#888;margin-bottom:10px}
+  .srcbox li{font-size:11.5px;color:#777;line-height:1.75;margin-left:16px}
+  .ftr{background:#000;padding:24px 38px;color:rgba(255,255,255,.5);font-size:11.5px;line-height:1.7}
+  .ftr a{color:#FFC500;text-decoration:none}
+  @media(max-width:620px){.hero-title{font-size:21px}.body{padding:26px 22px 0}.hl-grid{grid-template-columns:1fr}.prof{flex-direction:column;text-align:center}.langbar{padding:8px 22px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hdr">
+    <a href="index.html" class="hdr-logo"><img src="images/markforged-logo-white.png" alt="Markforged"></a>
+    <div class="hdr-ev">大中华区媒体中心<br>News &amp; Insights</div>
+  </div>
+
+  <div class="langbar"><span>语言</span><a href="physical-ai-body.html">繁體中文</a><a href="physical-ai-body-sc.html" class="on">简体中文</a><a href="physical-ai-body-en.html">English</a></div>
+
+  <div class="hero">
+    <img src="images/hero-factory-floor.jpg" alt="Markforged FX10 工业级增材制造系统设置于产线现场，后方为工业机器人">
+    <div class="hero-ov"></div>
+    <div class="hero-top">
+      <div class="hero-kicker">产业观点 · Physical AI</div>
+      <div class="hero-title">AI 竞争的下一阶段：<br>焦点正从算力移向实体化</div>
+    </div>
+    <div class="hero-btm"><div class="hero-meta">专访 Markforged 大中华区暨越南区总经理　陈中欣 Brian Chen</div></div>
+  </div>
+
+  <div class="ds"><div class="ds-l">2026 年 9 月 7 日</div><div class="ds-r">台湾 · 中国 · 香港 · 越南</div></div>
+
+  <div class="body">
+
+    <div class="lead">2026 年 8 月 19 日至 22 日，台北国际自动化工业大展与 TAIROS 于南港展览馆举行，886 家厂商进驻 3,506 个展位。同一周，2026 世界机器人大会在北京亦庄召开。九月，深圳市发布《推动智能机器人产业高质量发展工作方案（2026—2028 年）》，将人形机器人本体与核心零部件自主化列为重点攻关方向。<br><br>三项事件分属不同市场，指向同一个结构命题：当 Physical AI 从实验室走向量产，决定其发展速度的不再只是模型与算力，而是制造端能否如期交付具备结构性能的实体。Markforged 大中华区暨越南区总经理陈中欣的职责范围涵盖台湾、中国、香港与越南，正好横跨这条实体供应链的多个环节。</div>
+
+    <div class="qb"><p>“AI 目前的蓬勃发展集中在软件、芯片与算力。真正的致胜关键此刻正在发生，而未来最重要的一件事，是 AI 的实体化。”</p><small>陈中欣 · Markforged 大中华区暨越南区总经理</small></div>
+
+    <div class="prof">
+      <img src="brian-chen.jpg" alt="陈中欣 Brian Chen">
+      <div><div class="prof-n">陈中欣 Brian Chen</div><div class="prof-t">Markforged 大中华区暨越南区总经理</div><div class="prof-d">负责台湾、中国、香港、越南四个市场的业务发展、渠道体系与技术方案。</div></div>
+    </div>
+
+    <div class="tags"><span class="tag">Physical AI</span><span class="tag">智能制造</span><span class="tag ol">柔性生产</span><span class="tag ol">产线优化</span><span class="tag ol">供应韧性</span></div>
+
+    <div class="sec">
+      <h2>产业焦点的位移</h2>
+      <h3>投资集中于软件与算力，实体化尚未形成对应的产业能力</h3>
+      <p>过去三年，AI 领域的资本与人才高度集中于三个方向：模型与软件框架、半导体工艺与芯片架构、数据中心与算力基础设施。三者的产业链已相对成熟，投资逻辑与评价方式也已建立。</p>
+      <p>Physical AI 的定义则要求另一种能力。当人工智能的输出必须以实体形式存在——机器人本体、机构件、末端执行器、传感器承载结构——其产出速度即受限于制造端的可制造性、迭代周期与供应链成熟度。这三项限制目前尚未获得与软件端相称的产业投入。</p>
+    </div>
+
+    <div class="sec">
+      <h2>限制一 · 可制造性</h2>
+      <h3>生成式设计输出的几何，多数超出减材工艺的加工范围</h3>
+      <p>拓扑优化与生成式设计已进入量产工程流程。其算法结果的共同特征，是以材料分布效率为目标所产生的非直觉几何：连续曲面、内部点阵结构、封闭于零件内部的流道。这类几何的力学效率来自于它并不遵循减材制造的成形逻辑。</p>
+      <p>减材工艺存在刀具可及性的物理限制。当算法结果无法以既有工艺成形，工程单位通常回退至可加工版本，于是设计效益在工艺阶段被折减。此一折减多数未被量化记录，亦未反映于 AI 导入的效益评估中。</p>
+      <p>对机器人应用而言，此一折减直接反映于性能。机构件质量经力臂放大后转为驱动负载，并影响续航与定位精度。轻量化在此并非设计偏好，而是规格条件。</p>
+    </div>
+
+    <div class="ph-2col">
+      <img class="gi gi-43" src="images/eoat-packaging.jpg" alt="以连续碳纤维复合材料制作的产线末端执行器">
+      <img class="gi gi-43" src="images/cobot-gripper.jpg" alt="定制化协作型机器人夹爪">
+    </div>
+    <div class="cap">左：食品包装产线之机器人末端执行器（材料 Onyx；FX10／FX20／X7）。右：Harvestance 定制化协作型机器人夹爪（材料 Onyx；FX20）。图片来源：Markforged 官方 Application Spotlight</div>
+
+    <div class="sec">
+      <h2>限制二 · 迭代周期</h2>
+      <h3>软硬件迭代节奏不对称，决定年度可验证的技术路线数量</h3>
+      <p>软件迭代的边际成本趋近于零，版本周期以日计。硬件则不然：机构件的每一次修改均需重新设计、重新发包、重新验证，周期以周或月计。此一节奏差异在原型阶段影响有限，进入场景验证阶段后则成为主要瓶颈。</p>
+      <p>以深圳方案设定的目标为例，2026 年底前需开放至少十个真实场景进入常态运行。每一个场景的环境条件不同，对应的机构调整即构成一轮硬件反馈。十个场景意味着至少十轮机构迭代，其总时程直接取决于实体件的交付周期。</p>
+      <p>美国机器人公司 Haddington Dynamics 的公开案例提供了量化参照。该公司将 Dexter 机械臂之多数结构件改以增材制造生产，零件数自 800 件降至 70 件以下，整机装配时程缩短至一日内完成。该机械臂之运动精度要求为 50 微米。依原厂公开资料，设备导入后约三周即完成整机碳纤维结构之重新设计。</p>
+      <div class="hl-grid">
+        <div class="hl"><b>800 → 70</b><span>Dexter 机械臂结构件数量<br>整机装配缩短至一日内</span></div>
+        <div class="hl"><b>约 3 周</b><span>自设备导入至完成<br>整机碳纤维结构重新设计</span></div>
+      </div>
+    </div>
+
+    <div class="ph-full"><img src="images/robotic-arm-7axis.jpg" alt="结构件以连续碳纤维复合材料制作之七轴机械臂"></div>
+    <div class="cap">Haddington Dynamics Dexter 七轴机械臂，多数结构件改以增材制造生产。图片来源：Markforged 官方 Application Spotlight</div>
+
+    <div class="sec">
+      <h2>限制三 · 供应链成熟度</h2>
+      <h3>样机成熟度与量产成熟度属于不同的工程问题</h3>
+      <p>2026 世界机器人大会后，产业界普遍形成一项评估：人形机器人的硬件已趋成熟，后续瓶颈在于泛化能力不足。此一判断在算法层面成立，但在制造层面需要区分。</p>
+      <p>Markforged 的观察是，目前达到成熟的是展示样机，而非量产供应链。单台可由工程团队以手工方式完成的机构，与年产万台、须逐台维持运动精度并支持改款的机构，属于两种不同性质的工程问题：前者取决于设计与装配能力，后者取决于供应链的一致性与响应速度。</p>
+      <p>深圳方案的技术攻关方向可作为对照。该方案将人形机器人本体与核心零部件自主化列为重点，其资源配置指向的是实体制造能力，而非模型能力。</p>
+    </div>
+
+    <div class="sec">
+      <h2>区域产业定位</h2>
+      <h3>精密机械与工装供应能力，是实体化最直接的产业基础</h3>
+      <p>2026 年 8 月，台湾全国工业总会发布年度白皮书，主题为“转折”。该白皮书调查 161 个产业公会，缺工以 76.6% 之关切度连续三年居首，产业转型以 75.7% 居次，并建议当局检讨“重科技、轻传产”之政策配置。</p>
+      <p>陈中欣认为，两项数据与 Physical AI 的产业需求存在直接对应。实体化所需的能力——精密机械加工、结构件制造、工装夹具供应、快速换线——正是区域内机械产业长期积累的基础。就产业定位而言，机械业并非人工智能的替代对象，而是 Physical AI 量产化过程中的必要环节。</p>
+      <p>他同时指出此一定位的前提条件：交付周期需自以周计缩短至以日计，非标件供应需自外部委外转为现场自主。前提未达成之前，机器人企业将转向具备该能力的供应者。</p>
+      <p>就人力短缺而言，其解方亦不在人力供给端。当既有人力的单位产出需提升，前提是工装与夹具能于当日到位，而非排入外部产能队列。</p>
+      <div class="hl-grid">
+        <div class="hl"><b>76.6%</b><span>缺工关切度，连续三年居首<br>（工总 2026 白皮书，161 个公会）</span></div>
+        <div class="hl"><b>75.7%</b><span>产业转型关切度<br>居同一调查第二位</span></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <h2>结语</h2>
+      <h3>实体化是目前 AI 产业最大的未解挑战</h3>
+      <p>“现阶段的产业讨论高度集中于 AI 辅助设计、协助设计及各类延伸应用。但真正最大的挑战是 AI 实体化——把软件变成硬件，把虚拟的东西变成实体。”陈中欣表示。</p>
+    </div>
+
+    <div class="sec">
+      <h2>解决方向</h2>
+      <h3>将结构件供应能力配置于产线端</h3>
+      <p>Markforged 之工业级增材制造系统以连续纤维复合材料为核心，供制造企业于生产现场自主生产具结构性能之机构件、工装夹具、末端执行器与产线辅具。FX10 与 FX20 定位于产线级应用，X7 与 X7 FE 定位于设计验证与高频迭代；FX10 可加装 Metal Kit，于同一设备平台切换复合材料与金属打印。</p>
+      <p>此一配置改变的并非单一零件的取得方式，而是设计变更与实体交付之间的时间差。当该时间差自以周计压缩至以日计，硬件迭代周期方能与软件周期对齐。</p>
+    </div>
+
+  </div>
+
+  <div class="cta">
+    <h4>AI 实体化・制造新纪元 — VIP 专属体验日</h4>
+    <p>由 Markforged 原厂工程师进行现场操作演示，并针对实际应用场景进行方案评估。场次可安排于台湾、中国、香港或越南，采邀请审核制。</p>
+    <a href="https://mfmk.markforged.tw" class="btn">申请 VIP 体验名额 →</a>
+  </div>
+
+  <div class="srcbox">
+    <h5>资料来源</h5>
+    <ul><li>2026 台北国际自动化工业大展／TAIROS：2026 年 8 月 19 至 22 日，台北南港展览馆一、二馆；886 家厂商、3,506 个展位</li><li>2026 世界机器人大会：2026 年 8 月 19 至 23 日，北京亦庄；主题“人机共生，产需共融”</li><li>深圳市《推动智能机器人产业高质量发展工作方案（2026—2028 年）》，2026 年 9 月发布</li><li>台湾全国工业总会《2026 工总白皮书》，2026 年 8 月发布；主题“转折”，调查 161 个产业公会</li><li>Haddington Dynamics 7-Axis Robotic Arm、Production End-of-Arm-Tooling、Harvestance Customized Cobot Gripper：Markforged 官方 Application Spotlight</li></ul>
+  </div>
+
+  <div class="ftr">
+    Markforged, Inc. 为工业级增材制造系统供应商，以连续纤维复合材料与金属解决方案，供制造企业于生产现场自主生产功能性零件、工装与备品。<br><br>
+    <a href="index.html">← 回到 News &amp; Insights</a>　·　<a href="https://markforged.tw">markforged.tw</a>
+  </div>
+
+</div>
+</body>
+</html>

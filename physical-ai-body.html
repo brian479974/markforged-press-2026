@@ -3,26 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Physical AI 的瓶頸不在腦，在身體造得多快 — Markforged 大中華區總經理陳中欣</title>
-<meta name="description" content="八月南港 3,506 個攤位、北京世界機器人大會、深圳三年產業方案，講的是同一件事：Physical AI 缺的不是模型，是做得出來的身體。Markforged 大中華區暨越南區總經理陳中欣談製造端的真正瓶頸。">
-<meta property="og:title" content="Physical AI 的瓶頸不在腦，在身體造得多快">
-<meta property="og:description" content="成熟的是展場上的樣機，不是量產的供應鏈。">
+<title>AI 競爭的下一階段：焦點正從算力移向實體化 — Markforged</title>
+<meta name="description" content="軟體、晶片與算力之外，決定 Physical AI 能走多遠的是製造端。Markforged 大中華區暨越南區總經理陳中欣談 AI 實體化的三項結構限制。">
+<meta property="og:title" content="AI 競爭的下一階段：焦點正從算力移向實體化">
+<meta property="og:description" content="決定 Physical AI 能走多遠的，是製造端的可製造性、迭代週期與供應鏈成熟度。">
 <meta property="og:image" content="https://news.markforged.tw/images/hero-factory-floor.jpg">
 <meta property="og:type" content="article">
+<link rel="alternate" hreflang="zh-TW" href="https://news.markforged.tw/physical-ai-body.html">
+<link rel="alternate" hreflang="zh-CN" href="https://news.markforged.tw/physical-ai-body-sc.html">
+<link rel="alternate" hreflang="en" href="https://news.markforged.tw/physical-ai-body-en.html">
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
-  body{background:#e8e8e8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,'Noto Sans TC',sans-serif;color:#1a1a1a}
+  body{background:#e8e8e8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,'Noto Sans TC','Noto Sans SC',sans-serif;color:#1a1a1a}
   .wrap{max-width:700px;margin:0 auto;background:#fff}
   .hdr{background:#000;padding:20px 40px;display:flex;align-items:center;justify-content:space-between}
   .hdr-logo{display:block;line-height:0}
   .hdr-logo img{height:26px;width:auto;display:block}
   .hdr-ev{color:rgba(255,255,255,.6);font-size:12px;text-align:right;line-height:1.6}
+  .langbar{background:#111;padding:8px 40px;display:flex;gap:6px;align-items:center;border-top:1px solid #222}
+  .langbar span{color:#666;font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-right:4px}
+  .langbar a{font-size:11.5px;font-weight:700;color:#888;text-decoration:none;padding:3px 10px;border-radius:20px;border:1px solid #333}
+  .langbar a:hover{color:#FFC500;border-color:#FFC500}
+  .langbar a.on{background:#FFC500;color:#000;border-color:#FFC500}
   .hero{position:relative;overflow:hidden}
   .hero img{width:100%;display:block}
   .hero-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.68) 0%,rgba(0,0,0,.15) 50%,rgba(0,0,0,.72) 100%)}
   .hero-top{position:absolute;top:0;left:0;right:0;padding:28px 38px}
   .hero-kicker{color:#FFC500;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px}
-  .hero-title{color:#fff;font-size:26px;font-weight:900;line-height:1.28;max-width:520px;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+  .hero-title{color:#fff;font-size:26px;font-weight:900;line-height:1.28;max-width:540px;text-shadow:0 2px 12px rgba(0,0,0,.5)}
   .hero-btm{position:absolute;bottom:0;left:0;right:0;padding:16px 38px;background:linear-gradient(transparent,rgba(0,0,0,.75))}
   .hero-meta{color:rgba(255,255,255,.85);font-size:12px;letter-spacing:.04em}
   .ds{background:#FFC500;padding:10px 38px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}
@@ -65,7 +73,7 @@
   .srcbox li{font-size:11.5px;color:#777;line-height:1.75;margin-left:16px}
   .ftr{background:#000;padding:24px 38px;color:rgba(255,255,255,.5);font-size:11.5px;line-height:1.7}
   .ftr a{color:#FFC500;text-decoration:none}
-  @media(max-width:620px){.hero-title{font-size:21px}.body{padding:26px 22px 0}.hl-grid{grid-template-columns:1fr}.prof{flex-direction:column;text-align:center}}
+  @media(max-width:620px){.hero-title{font-size:21px}.body{padding:26px 22px 0}.hl-grid{grid-template-columns:1fr}.prof{flex-direction:column;text-align:center}.langbar{padding:8px 22px}}
 </style>
 </head>
 <body>
@@ -76,147 +84,118 @@
     <div class="hdr-ev">大中華區媒體中心<br>News &amp; Insights</div>
   </div>
 
+  <div class="langbar"><span>語言</span><a href="physical-ai-body.html" class="on">繁體中文</a><a href="physical-ai-body-sc.html">简体中文</a><a href="physical-ai-body-en.html">English</a></div>
+
   <div class="hero">
-    <img src="images/hero-factory-floor.jpg" alt="Markforged FX10 與機器手臂並列於產線現場">
+    <img src="images/hero-factory-floor.jpg" alt="Markforged FX10 工業級積層製造系統設置於產線現場，後方為工業機器人">
     <div class="hero-ov"></div>
     <div class="hero-top">
-      <div class="hero-kicker">觀點 · Physical AI</div>
-      <div class="hero-title">Physical AI 的瓶頸不在腦，<br>在身體造得多快</div>
+      <div class="hero-kicker">產業觀點 · Physical AI</div>
+      <div class="hero-title">AI 競爭的下一階段：<br>焦點正從算力移向實體化</div>
     </div>
-    <div class="hero-btm">
-      <div class="hero-meta">陳中欣 Brian Chen ｜ Markforged 大中華區暨越南區總經理</div>
-    </div>
+    <div class="hero-btm"><div class="hero-meta">專訪 Markforged 大中華區暨越南區總經理　陳中欣 Brian Chen</div></div>
   </div>
 
-  <div class="ds">
-    <div class="ds-l">2026 年 9 月 7 日</div>
-    <div class="ds-r">台灣 · 中國 · 香港 · 越南</div>
-  </div>
+  <div class="ds"><div class="ds-l">2026 年 9 月 7 日</div><div class="ds-r">台灣 · 中國 · 香港 · 越南</div></div>
 
   <div class="body">
 
-    <div class="lead">
-      八月，台北南港展覽館有 886 家廠商、3,506 個攤位，主題是自動化與機器人。同一週，北京的世界機器人大會在談人機共生。九月，深圳把「人形機器人本體」與「核心零部件自主化」寫進三年產業方案。<br><br>
-      這三件事被分開報導。但 Markforged 大中華區暨越南區總經理陳中欣的責任範圍正好涵蓋台灣、中國、香港、越南——從他的位置看過去，它們是同一件事的三段。
-    </div>
+    <div class="lead">2026 年 8 月 19 日至 22 日，台北國際自動化工業大展與 TAIROS 於南港展覽館舉行，886 家廠商進駐 3,506 個攤位。同一週，2026 世界機器人大會在北京亦莊召開。九月，深圳市發布《推動智能機器人產業高質量發展工作方案（2026—2028 年）》，將人形機器人本體與核心零部件自主化列為重點攻關方向。<br><br>三項事件分屬不同市場，指向同一個結構命題：當 Physical AI 從實驗室走向量產，決定其發展速度的不再只是模型與算力，而是製造端能否如期交付具備結構性能的實體。Markforged 大中華區暨越南區總經理陳中欣的職責範圍涵蓋台灣、中國、香港與越南，正好橫跨這條實體供應鏈的多個環節。</div>
 
-    <div class="qb">
-      <p>「大家都在搶同一個東西。不是模型，是身體。」</p>
-      <small>陳中欣 · Markforged 大中華區暨越南區總經理</small>
-    </div>
+    <div class="qb"><p>「AI 目前的蓬勃發展集中在軟體、晶片與算力。真正的致勝關鍵此刻正在發生，而未來最重要的一件事，是 AI 的實體化。」</p><small>陳中欣 · Markforged 大中華區暨越南區總經理</small></div>
 
     <div class="prof">
       <img src="brian-chen.jpg" alt="陳中欣 Brian Chen">
-      <div>
-        <div class="prof-n">陳中欣 Brian Chen</div>
-        <div class="prof-t">Markforged 大中華區暨越南區總經理</div>
-        <div class="prof-d">負責台灣、中國、香港、越南四個市場的業務、夥伴體系與技術方案。</div>
-      </div>
+      <div><div class="prof-n">陳中欣 Brian Chen</div><div class="prof-t">Markforged 大中華區暨越南區總經理</div><div class="prof-d">負責台灣、中國、香港、越南四個市場的業務發展、通路體系與技術方案。</div></div>
     </div>
 
-    <div class="tags">
-      <span class="tag">Physical AI</span>
-      <span class="tag">智慧製造</span>
-      <span class="tag ol">彈性生產</span>
-      <span class="tag ol">產線優化</span>
-      <span class="tag ol">供應韌性</span>
+    <div class="tags"><span class="tag">Physical AI</span><span class="tag">智慧製造</span><span class="tag ol">彈性生產</span><span class="tag ol">產線優化</span><span class="tag ol">供應韌性</span></div>
+
+    <div class="sec">
+      <h2>產業焦點的位移</h2>
+      <h3>投資集中於軟體與算力，實體化尚未形成對應的產業能力</h3>
+      <p>過去三年，AI 領域的資本與人才高度集中於三個方向：模型與軟體框架、半導體製程與晶片架構、資料中心與算力基礎設施。三者的產業鏈已相對成熟，投資邏輯與評價方式也已建立。</p>
+      <p>Physical AI 的定義則要求另一種能力。當人工智慧的輸出必須以實體形式存在——機器人本體、機構件、末端執行器、感測器承載結構——其產出速度即受限於製造端的可製造性、迭代週期與供應鏈成熟度。這三項限制目前尚未獲得與軟體端相稱的產業投入。</p>
     </div>
 
     <div class="sec">
-      <h2>觀點一</h2>
-      <h3>大家都在講 AI 怎麼設計，沒有人在處理它怎麼變成東西</h3>
-      <p>這兩年談 AI 進製造，重心幾乎都壓在設計端：AI 輔助設計、協助設計、生成式設計、拓撲優化、數位孿生、模擬驗證。工具愈來愈強，工程師手上的選項愈來愈多。</p>
-      <p>但這些成果有一個共同狀態——<strong>它們都還在螢幕裡。</strong></p>
-      <p>「現在大家都在講 AI，輔助設計、協助設計、各種相關應用。但真正最大的挑戰是 <strong>AI 實體化</strong>——把軟體變成硬體，把虛擬的東西變成實體。」陳中欣說。</p>
-      <p>這一步沒有捷徑。模型可以複製、參數可以微調、版本可以回滾；實體不行。實體要有人做得出來，要有材料撐得住，還要在一個能重複的製程裡，做出一模一樣的第二件、第一百件。</p>
-      <p>「軟體的世界裡，『做出來』幾乎是免費的。實體的世界裡，<strong>『做出來』就是全部的成本，也是全部的時間</strong>。AI 這一波真正的關口，卡在從虛擬跨到實體的那一步。」</p>
-    </div>
-
-    <div class="sec">
-      <h2>觀點二</h2>
-      <h3>實體化的第一道牆：AI 畫得出來，刀具進不去</h3>
-      <p>實體化難在哪裡，第一道牆就在形狀。</p>
-      <p>拓撲優化與生成式設計已經是工程師桌上的工具。它們算出來的幾何有一個共同特徵：<strong>不是人會畫的形狀</strong>——有機曲面、內部晶格、藏在零件裡的流道。這些形狀之所以又輕又強，正因為它們違反減材製造的邏輯。</p>
-      <p>而減材有一條物理上的硬限制：刀具進得去，才做得出來。</p>
-      <p>「所以很多公司的 AI 設計流程是這樣結束的：演算法給出一個更輕、更強的方案，工程部門看完，改回一個銑得出來的版本。<strong>AI 的產出被製程折價，而且沒有人統計這件事發生過幾次。</strong>」</p>
-      <p>對機器人而言，這一刀砍在最痛的地方。機械臂的每一克質量都要乘上力臂、都要被馬達扛、都會吃掉續航與精度。輕量化不是好看，是規格。</p>
+      <h2>限制一 · 可製造性</h2>
+      <h3>生成式設計輸出的幾何，多數超出減材製程的加工範圍</h3>
+      <p>拓撲優化與生成式設計已進入量產工程流程。其演算結果的共同特徵，是以材料分布效率為目標所產生的非直覺幾何：連續曲面、內部點陣結構、封閉於零件內部的流道。這類幾何的力學效率來自於它並不遵循減材製造的成形邏輯。</p>
+      <p>減材製程存在刀具可及性的物理限制。當演算結果無法以既有製程成形，工程單位通常回退至可加工版本，於是設計效益在製程階段被折減。此一折減多數未被量化紀錄，亦未反映於 AI 導入的效益評估中。</p>
+      <p>對機器人應用而言，此一折減直接反映於性能。機構件質量經力臂放大後轉為驅動負載，並影響續航與定位精度。輕量化在此並非設計偏好，而是規格條件。</p>
     </div>
 
     <div class="ph-2col">
-      <img class="gi gi-43" src="images/eoat-packaging.jpg" alt="連續碳纖維列印的產線末端夾治具">
-      <img class="gi gi-43" src="images/cobot-gripper.jpg" alt="客製化協作機器人夾爪">
+      <img class="gi gi-43" src="images/eoat-packaging.jpg" alt="以連續碳纖維複合材料製作的產線末端執行器">
+      <img class="gi gi-43" src="images/cobot-gripper.jpg" alt="客製化協作型機器人夾爪">
     </div>
-    <div class="cap">左：食品包裝產線的機器人末端工具（Onyx，FX10／FX20／X7）。右：Harvestance 客製化協作機器人夾爪（Onyx，FX20）。圖片來源：Markforged 官方 Application Spotlight</div>
+    <div class="cap">左：食品包裝產線之機器人末端執行器（材料 Onyx；FX10／FX20／X7）。右：Harvestance 客製化協作型機器人夾爪（材料 Onyx；FX20）。圖片來源：Markforged 官方 Application Spotlight</div>
 
     <div class="sec">
-      <h2>觀點三</h2>
-      <h3>「硬體基本成熟」這句話有問題</h3>
-      <p>北京世界機器人大會結束後，產業界形成一個共識：人形機器人的硬體已經基本成熟，接下來的瓶頸是泛化能力不足——機器人學不會應付沒見過的狀況。</p>
-      <p>陳中欣同意前半段的難度，但不同意後半段的診斷。</p>
-      <p>「泛化確實是難題。但<strong>成熟的是展場上的樣機，不是量產的供應鏈</strong>。一台在展場走路的機器人，跟一年要出一萬台、每台都要維持運動精度、還要能改款的機器人，是兩種不同的工程問題。前者靠一組人手工做得出來，後者靠供應鏈。」</p>
-      <p>他認為深圳的方案講得比誰都直白：要攻的是<strong>本體</strong>與<strong>核心零部件自主化</strong>。「那是身體，不是腦。一個把產業看得很清楚的地方政府，把資源押在身體上。」</p>
-    </div>
-
-    <div class="sec">
-      <h2>觀點四</h2>
-      <h3>腦一週一版，身體一版要幾週</h3>
-      <p>Physical AI 與前一波 AI 有一個根本差別：它有實體。</p>
-      <p>軟體的迭代成本趨近於零，改一版模型、跑一次訓練、推一次更新，以天甚至小時計。但機器人的手臂、關節外殼、末端夾爪、感測器支架——每改一版，都要重新設計、重新發包、重新等待。</p>
-      <p>「<strong>腦以天演進，身體以週演進。</strong>這個落差不是效率問題，是結構問題。它決定一家公司一年能試幾個方向。」</p>
-      <p>而且愈到後期愈痛。早期做原型，慢一點無所謂；一旦進入場景驗證，每一個真實場景都會逼出一輪機構修改。深圳的方案要求 2026 年底前開出至少 10 個真實場景常態運行——那代表至少 10 輪硬體回饋。</p>
-      <p>這件事已經有可查證的樣本。美國機器人公司 Haddington Dynamics 把 Dexter 機械臂的大部分結構改為列印生產，零件數從 800 個降到 70 個以下，整機可在一天內組裝完成；這支機械臂必須維持 50 微米的運動精度。收到設備後約三週，整機的碳纖維重新設計就完成了。</p>
+      <h2>限制二 · 迭代週期</h2>
+      <h3>軟硬體迭代節奏不對稱，決定年度可驗證的技術路線數量</h3>
+      <p>軟體迭代的邊際成本趨近於零，版本週期以日計。硬體則不然：機構件的每一次修改均需重新設計、重新發包、重新驗證，週期以週或月計。此一節奏差異在原型階段影響有限，進入場景驗證階段後則成為主要瓶頸。</p>
+      <p>以深圳方案設定的目標為例，2026 年底前需開放至少十個真實場景進入常態運行。每一個場景的環境條件不同，對應的機構調整即構成一輪硬體回饋。十個場景意味著至少十輪機構迭代，其總時程直接取決於實體件的交付週期。</p>
+      <p>美國機器人公司 Haddington Dynamics 的公開案例提供了量化參照。該公司將 Dexter 機械臂之多數結構件改以積層製造生產，零件數自 800 件降至 70 件以下，整機組裝時程縮短至一日內完成。該機械臂之運動精度要求為 50 微米。依原廠公開資料，設備導入後約三週即完成整機碳纖維結構之重新設計。</p>
       <div class="hl-grid">
-        <div class="hl"><b>800 → 70</b><span>Dexter 機械臂零件數降幅<br>整機一天內可完成組裝</span></div>
-        <div class="hl"><b>約 3 週</b><span>從導入設備到完成<br>整機碳纖維重新設計</span></div>
+        <div class="hl"><b>800 → 70</b><span>Dexter 機械臂結構件數量<br>整機組裝縮短至一日內</span></div>
+        <div class="hl"><b>約 3 週</b><span>自設備導入至完成<br>整機碳纖維結構重新設計</span></div>
       </div>
-      <p>「三週，不是三個月。這是把身體的迭代週期拉到跟軟體同一個量級之後，一家機器人公司能得到的東西。」</p>
     </div>
 
-    <div class="ph-full"><img src="images/robotic-arm-7axis.jpg" alt="以連續碳纖維複合材料列印結構件的七軸機械臂"></div>
-    <div class="cap">Haddington Dynamics 的 Dexter 七軸機械臂，大部分結構改為列印生產。圖片來源：Markforged 官方 Application Spotlight</div>
+    <div class="ph-full"><img src="images/robotic-arm-7axis.jpg" alt="結構件以連續碳纖維複合材料製作之七軸機械臂"></div>
+    <div class="cap">Haddington Dynamics Dexter 七軸機械臂，多數結構件改以積層製造生產。圖片來源：Markforged 官方 Application Spotlight</div>
 
     <div class="sec">
-      <h2>觀點五</h2>
-      <h3>台灣的位置，比多數人以為的更前面</h3>
-      <p>八月，全國工業總會發布 2026 年白皮書，主題定為「轉折」。調查 161 個產業公會，缺工以 76.6% 連續三年高居關切度第一，產業轉型 75.7% 緊追在後。白皮書中並希望政府停止「重科技、輕傳產」的偏廢。</p>
-      <p>陳中欣把這兩件事接起來。</p>
-      <p>「<strong>Physical AI 需要的不是更多晶片，是更多做得出來的身體。</strong>而做身體這件事——精密機械、結構件、治具工裝、快速換線——正是台灣所謂『傳產』這幾十年在做的事。台灣機械業不是被 AI 取代的一方，它是 Physical AI 缺的那一塊。」</p>
-      <p>他也把前提條件講在明處。「這件事不會自己發生。台灣機械業要接上這個位置，得先把交期從『以週計』改成『以天計』，把非標準件的供應從外包排隊改成現場自主。做不到這一點，機器人公司會去找做得到的人。」</p>
-      <p>缺工也是同一個邏輯。「76.6% 的公司找不到人，答案不會是找到更多人。答案是每一個現有的人要能做更多事——那需要工裝能當天到位，而不是排在別人的產能後面。」</p>
+      <h2>限制三 · 供應鏈成熟度</h2>
+      <h3>樣機成熟度與量產成熟度屬於不同的工程問題</h3>
+      <p>2026 世界機器人大會後，產業界普遍形成一項評估：人形機器人的硬體已趨成熟，後續瓶頸在於泛化能力不足。此一判斷在演算法層面成立，但在製造層面需要區分。</p>
+      <p>Markforged 的觀察是，目前達到成熟的是展示樣機，而非量產供應鏈。單台可由工程團隊以手工方式完成的機構，與年產萬台、須逐台維持運動精度並支援改款的機構，屬於兩種不同性質的工程問題：前者取決於設計與組裝能力，後者取決於供應鏈的一致性與反應速度。</p>
+      <p>深圳方案的技術攻關方向可作為對照。該方案將人形機器人本體與核心零部件自主化列為重點，其資源配置指向的是實體製造能力，而非模型能力。</p>
+    </div>
+
+    <div class="sec">
+      <h2>區域產業定位</h2>
+      <h3>精密機械與工裝供應能力，是實體化最直接的產業基礎</h3>
+      <p>2026 年 8 月，中華民國全國工業總會發布年度白皮書，主題為「轉折」。該白皮書調查 161 個產業公會，缺工以 76.6% 之關切度連續三年居首，產業轉型以 75.7% 居次，並建議政府檢討「重科技、輕傳產」之政策配置。</p>
+      <p>陳中欣認為，兩項數據與 Physical AI 的產業需求存在直接對應。實體化所需的能力——精密機械加工、結構件製造、工裝夾具供應、快速換線——正是區域內機械產業長期累積的基礎。就產業定位而言，機械業並非人工智慧的替代對象，而是 Physical AI 量產化過程中的必要環節。</p>
+      <p>他同時指出此一定位的前提條件：交付週期需自以週計縮短至以日計，非標準件供應需自外部委外轉為現場自主。前提未達成之前，機器人企業將轉向具備該能力的供應者。</p>
+      <p>就人力短缺而言，其解方亦不在人力供給端。當既有人力的單位產出需提升，前提是工裝與治具能於當日到位，而非排入外部產能佇列。</p>
       <div class="hl-grid">
-        <div class="hl"><b>76.6%</b><span>缺工連續三年居台灣產業<br>關切度第一（工總 2026 白皮書）</span></div>
-        <div class="hl"><b>75.7%</b><span>產業轉型關切度<br>緊追缺工之後</span></div>
+        <div class="hl"><b>76.6%</b><span>缺工關切度，連續三年居首<br>（工總 2026 白皮書，161 個公會）</span></div>
+        <div class="hl"><b>75.7%</b><span>產業轉型關切度<br>居同一調查第二位</span></div>
       </div>
     </div>
 
     <div class="sec">
-      <h2>解方</h2>
-      <h3>把身體的供應放回產線旁邊</h3>
-      <p>Markforged 的工業級積層製造系統以連續纖維複合材料為核心，讓製造企業在生產現場自行生產具備結構強度的機構件、治具、夾爪與產線輔具。<strong>FX10</strong> 與 <strong>FX20</strong> 面向產線級應用，<strong>X7</strong> 與 <strong>X7 FE</strong> 面向設計驗證與高頻迭代；FX10 可加裝 Metal Kit，在同一台設備上切換複合材料與金屬列印。</p>
-      <p>改變的不是單一零件的取得方式，而是<strong>設計調整與實體落地之間的時間差</strong>。當這個時間差從「週」壓縮到「天」，Physical AI 的身體才追得上它的腦。</p>
+      <h2>結語</h2>
+      <h3>實體化是目前 AI 產業最大的未解挑戰</h3>
+      <p>「現階段的產業討論高度集中於 AI 輔助設計、協助設計及各類延伸應用。但真正最大的挑戰是 AI 實體化——把軟體變成硬體，把虛擬的東西變成實體。」陳中欣表示。</p>
+    </div>
+
+    <div class="sec">
+      <h2>解決方向</h2>
+      <h3>將結構件供應能力配置於產線端</h3>
+      <p>Markforged 之工業級積層製造系統以連續纖維複合材料為核心，供製造企業於生產現場自主生產具結構性能之機構件、治具夾具、末端執行器與產線輔具。FX10 與 FX20 定位於產線級應用，X7 與 X7 FE 定位於設計驗證與高頻迭代；FX10 可加裝 Metal Kit，於同一設備平台切換複合材料與金屬列印。</p>
+      <p>此一配置改變的並非單一零件的取得方式，而是設計變更與實體交付之間的時間差。當該時間差自以週計壓縮至以日計，硬體迭代週期方能與軟體週期對齊。</p>
     </div>
 
   </div>
 
   <div class="cta">
     <h4>AI 實體化・製造新紀元 — VIP 專屬體驗日</h4>
-    <p>由 Markforged 原廠工程師現場操作演示，針對您的實際應用場景客製化。展示地點可安排於台灣、中國、香港或越南。採邀請審核制。</p>
+    <p>由 Markforged 原廠工程師進行現場操作演示，並針對實際應用場景進行方案評估。場次可安排於台灣、中國、香港或越南，採邀請審核制。</p>
     <a href="https://mfmk.markforged.tw" class="btn">申請 VIP 體驗名額 →</a>
   </div>
 
   <div class="srcbox">
     <h5>資料來源</h5>
-    <ul>
-      <li>2026 台北國際自動化工業大展／TAIROS：2026 年 8 月 19–22 日，台北南港展覽館一、二館，886 家廠商、3,506 個攤位</li>
-      <li>2026 世界機器人大會：2026 年 8 月 19–23 日，北京亦莊，主題「人機共生，產需共融」</li>
-      <li>深圳市《推動智能機器人產業高質量發展工作方案（2026—2028 年）》，2026 年 9 月發布</li>
-      <li>中華民國全國工業總會《2026 工總白皮書》，2026 年 8 月發布，主題「轉折」，調查 161 個產業公會</li>
-      <li>Haddington Dynamics 7-Axis Robotic Arm、Production End-of-Arm-Tooling、Harvestance Customized Cobot Gripper：Markforged 官方 Application Spotlight</li>
-    </ul>
+    <ul><li>2026 台北國際自動化工業大展／TAIROS：2026 年 8 月 19 至 22 日，台北南港展覽館一、二館；886 家廠商、3,506 個攤位</li><li>2026 世界機器人大會：2026 年 8 月 19 至 23 日，北京亦莊；主題「人機共生，產需共融」</li><li>深圳市《推動智能機器人產業高質量發展工作方案（2026—2028 年）》，2026 年 9 月發布</li><li>中華民國全國工業總會《2026 工總白皮書》，2026 年 8 月發布；主題「轉折」，調查 161 個產業公會</li><li>Haddington Dynamics 7-Axis Robotic Arm、Production End-of-Arm-Tooling、Harvestance Customized Cobot Gripper：Markforged 官方 Application Spotlight</li></ul>
   </div>
 
   <div class="ftr">
-    Markforged, Inc. 為工業級積層製造系統供應商，以連續纖維複合材料與金屬解決方案，協助製造企業在生產現場自主生產功能性零件、工裝與備品。<br><br>
+    Markforged, Inc. 為工業級積層製造系統供應商，以連續纖維複合材料與金屬解決方案，供製造企業於生產現場自主生產功能性零件、工裝與備品。<br><br>
     <a href="index.html">← 回到 News &amp; Insights</a>　·　<a href="https://markforged.tw">markforged.tw</a>
   </div>
 
