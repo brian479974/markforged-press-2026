@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>備件斷料是國防技術保障最先卡住的環節：Markforged 於河內軍事技術學院研討會分享已部署應用</title>
+<meta name="description" content="2026 年 8 月 25 日，軍事技術學院與 Tân Tiến（AIE）偕同 VAMI 協會在河內舉辦國防技術保障 3D 數位製造研討會。Markforged 大中華區暨越南區總經理陳中欣分享六項已部署的國防應用，以及數位倉儲如何處理停產備件。">
+<meta property="og:title" content="當備件不再有供應商，維修單位要自己造得出來">
+<meta property="og:description" content="河內國防技術保障 3D 數位製造研討會：掃描、逆向工程、列印、檢驗，以及六項已在部隊服役的應用。">
+<meta property="og:image" content="https://news.markforged.tw/images/event-group-photo.jpg">
+<meta property="og:type" content="article">
+<link rel="alternate" hreflang="zh-TW" href="https://news.markforged.tw/vietnam-defense-seminar.html">
+<link rel="alternate" hreflang="zh-CN" href="https://news.markforged.tw/vietnam-defense-seminar-sc.html">
+<link rel="alternate" hreflang="en" href="https://news.markforged.tw/vietnam-defense-seminar-en.html">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#e8e8e8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,'Noto Sans TC','Noto Sans SC',sans-serif;color:#1a1a1a}
+  .wrap{max-width:700px;margin:0 auto;background:#fff}
+  .hdr{background:#000;padding:20px 40px;display:flex;align-items:center;justify-content:space-between}
+  .hdr-logo{display:block;line-height:0}
+  .hdr-logo img{height:26px;width:auto;display:block}
+  .hdr-ev{color:rgba(255,255,255,.6);font-size:12px;text-align:right;line-height:1.6}
+  .langbar{background:#111;padding:8px 40px;display:flex;gap:6px;align-items:center;border-top:1px solid #222}
+  .langbar span{color:#666;font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-right:4px}
+  .langbar a{font-size:11.5px;font-weight:700;color:#888;text-decoration:none;padding:3px 10px;border-radius:20px;border:1px solid #333}
+  .langbar a:hover{color:#FFC500;border-color:#FFC500}
+  .langbar a.on{background:#FFC500;color:#000;border-color:#FFC500}
+  .hero{position:relative;overflow:hidden}
+  .hero img{width:100%;display:block}
+  .hero-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.68) 0%,rgba(0,0,0,.15) 50%,rgba(0,0,0,.72) 100%)}
+  .hero-top{position:absolute;top:0;left:0;right:0;padding:28px 38px}
+  .hero-kicker{color:#FFC500;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px}
+  .hero-title{color:#fff;font-size:26px;font-weight:900;line-height:1.28;max-width:540px;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+  .hero-btm{position:absolute;bottom:0;left:0;right:0;padding:16px 38px;background:linear-gradient(transparent,rgba(0,0,0,.75))}
+  .hero-meta{color:rgba(255,255,255,.85);font-size:12px;letter-spacing:.04em}
+  .ds{background:#FFC500;padding:10px 38px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}
+  .ds-l{font-size:12.5px;font-weight:700;color:#000}
+  .ds-r{font-size:11.5px;color:#333}
+  .body{padding:36px 38px 0}
+  .lead{font-size:16px;line-height:1.82;color:#222;margin-bottom:24px;padding-bottom:24px;border-bottom:2px solid #f0f0f0}
+  .qb{margin:6px 0 26px;padding:20px 24px;background:#000;border-radius:6px}
+  .qb p{color:#FFC500;font-size:18px;font-weight:800;line-height:1.45;margin-bottom:5px}
+  .qb small{color:rgba(255,255,255,.45);font-size:10.5px;letter-spacing:.07em}
+  .sec{margin-bottom:30px}
+  h2{font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#FFC500;margin-bottom:12px;padding-left:11px;border-left:4px solid #FFC500}
+  h3{font-size:18px;font-weight:800;color:#111;margin-bottom:12px;line-height:1.32}
+  p{font-size:14.5px;line-height:1.82;color:#333;margin-bottom:14px}
+  strong{color:#111}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
+  .tag{background:#111;color:#FFC500;font-size:10px;font-weight:700;letter-spacing:.07em;padding:4px 10px;border-radius:30px}
+  .tag.ol{background:#fff;color:#666;border:1.5px solid #ddd}
+  .ph-full img{width:100%;display:block}
+  .ph-2col{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+  .gi{width:100%;display:block;object-fit:cover}
+  .gi-43{aspect-ratio:4/3}
+  .cap{font-size:11px;color:#aaa;text-align:center;padding:8px 38px 22px;border-bottom:1px solid #eee;margin-bottom:26px;line-height:1.55}
+  .hl-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:30px}
+  .hl{background:#f7f7f7;border-left:4px solid #FFC500;padding:16px 18px}
+  .hl b{display:block;font-size:24px;font-weight:900;color:#111;line-height:1.1;margin-bottom:5px}
+  .hl span{font-size:11.5px;color:#777;line-height:1.5;display:block}
+  .prof{display:flex;gap:18px;align-items:center;background:#111;padding:22px 24px;border-radius:6px;margin:8px 0 28px}
+  .prof img{width:92px;height:92px;object-fit:cover;border-radius:50%;flex-shrink:0;border:3px solid #FFC500}
+  .prof-n{color:#fff;font-size:16px;font-weight:800;margin-bottom:4px}
+  .prof-t{color:#FFC500;font-size:11.5px;font-weight:700;margin-bottom:7px}
+  .prof-d{color:rgba(255,255,255,.6);font-size:11.5px;line-height:1.6}
+  .cta{background:#FFC500;padding:28px 32px;margin:6px 0 0}
+  .cta h4{font-size:17px;font-weight:900;color:#000;margin-bottom:8px}
+  .cta p{font-size:13px;color:#333;line-height:1.7;margin-bottom:16px}
+  .btn{display:inline-block;background:#000;color:#FFC500;padding:12px 26px;font-size:13.5px;font-weight:800;text-decoration:none;letter-spacing:.04em}
+  .btn:hover{background:#222}
+  .srcbox{background:#fafafa;border-top:3px solid #111;padding:22px 38px 26px}
+  .srcbox h5{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#888;margin-bottom:10px}
+  .srcbox li{font-size:11.5px;color:#777;line-height:1.75;margin-left:16px}
+  .srcbox li a{color:#555;text-decoration:none;border-bottom:1px solid #ccc;word-break:break-all}
+  .srcbox li a:hover{color:#000;border-color:#FFC500}
+  .sec p a{color:#111;text-decoration:none;border-bottom:2px solid #FFC500;font-weight:600}
+  .sec p a:hover{background:#FFF6D6}
+  .ftr{background:#000;padding:24px 38px;color:rgba(255,255,255,.5);font-size:11.5px;line-height:1.7}
+  .ftr a{color:#FFC500;text-decoration:none}
+  @media(max-width:620px){.hero-title{font-size:21px}.body{padding:26px 22px 0}.hl-grid{grid-template-columns:1fr}.prof{flex-direction:column;text-align:center}.langbar{padding:8px 22px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hdr">
+    <a href="index.html" class="hdr-logo"><img src="images/markforged-logo-white.png" alt="Markforged"></a>
+    <div class="hdr-ev">大中華區暨越南　媒體中心<br>News &amp; Insights</div>
+  </div>
+
+  <div class="langbar"><span>語言</span><a href="vietnam-defense-seminar.html" class="on">繁體中文</a><a href="vietnam-defense-seminar-sc.html">简体中文</a><a href="vietnam-defense-seminar-en.html">English</a></div>
+
+  <div class="hero">
+    <img src="images/event-group-photo.jpg" alt="研討會與會代表於軍事技術學院禮堂合影，背板為當天活動主題">
+    <div class="hero-ov"></div>
+    <div class="hero-top">
+      <div class="hero-kicker">活動報導 · 河內 · 國防技術保障</div>
+      <div class="hero-title">當備件不再有供應商，<br>維修單位要自己造得出來</div>
+    </div>
+    <div class="hero-btm"><div class="hero-meta">2026 年 8 月 25 日 · 越南河內 · 軍事技術學院</div></div>
+  </div>
+
+  <div class="ds"><div class="ds-l">2026 年 9 月 7 日</div><div class="ds-r">越南 · 河內</div></div>
+
+  <div class="body">
+
+    <div class="lead">2026 年 8 月 25 日上午，軍事技術學院（黎貴惇技術大學）與 Tân Tiến 工業設備公司（AIE）偕同 VAMI 協會，於河內軍事技術學院禮堂舉辦「3D 數位製造技術於國防技術保障」研討會，主題涵蓋維修、保養、修復與備品供應，也就是 MRO 與技術保障。主辦方公布的與會對象為 40 至 50 位處長、副處長與部門主管，來自總後勤技術總局、所屬各國防工廠、各軍事院校與國防研究院所。<br><br>Markforged 大中華區暨越南區總經理陳中欣受邀擔任講者，場次題目為「數位製造解決方案與國防實務應用」，內容鎖定備品、無人機、治具夾具與前沿製造四類場景。他在會中把六個已經在部隊服役的應用攤開來講，並把問題定在同一個位置：零件停產之後，還在服役的平台要怎麼維運。</div>
+
+    <div class="qb"><p>「零件停產了，平台還要再服役，怎麼維運？」</p><small>陳中欣 · Markforged 大中華區暨越南區總經理 · 2026 年 8 月 25 日 於河內</small></div>
+
+    <div class="prof">
+      <img src="brian-chen.jpg" alt="陳中欣 Brian Chen">
+      <div><div class="prof-n">陳中欣 Brian Chen</div><div class="prof-t">Markforged 大中華區暨越南區總經理</div><div class="prof-d">負責台灣、中國、香港、越南四個市場的業務發展、通路體系與技術方案。</div></div>
+    </div>
+
+    <div class="tags"><span class="tag">國防技術保障</span><span class="tag">備品供應</span><span class="tag ol">數位倉儲</span><span class="tag ol">前沿製造</span><span class="tag ol">越南</span></div>
+
+    <div class="sec">
+      <h2>會議題目</h2>
+      <h3>議程從頭到尾對著同一件事：舊裝備的零件買不到了怎麼辦</h3>
+      <p>開場由軍事技術學院領導致詞，接著是 AIE 的 Hoàng Đức Bằng 講「現代情境下國防技術保障、維修與備品供應的挑戰與因應方案」。主辦方在這一場提出的問題很具體：舊式裝備的備件仍在缺料，外部來源會斷，採購流程繁複；為了不斷料只能大量囤積，於是儲備成本壓在維修準備度上。</p>
+      <p>主辦方提出的解方框架是「數位物資倉加上可用即造」，並把它畫成一條完整的流程鏈：掃描量測、逆向工程、最佳化、3D 列印、檢驗，然後投入使用。零件不再以實體形式囤在倉庫，而是以經過驗證的檔案形式保存，需要的當天才印。</p>
+      <p>接下來的三個場次分別由 AIE 介紹 Markforged 的複合材料與金屬技術、由陳中欣講應用實證，並在茶敘時段安排一小時的現場實作演示。演示分三站：3D 數位化站、以逆向工程建立數位備品庫、以及 Markforged 系統直接製造零件。掃描端使用 ATOS 5、ATOS Q 與 GOM Scan 1，列印端為 Markforged 複合材料系統。</p>
+    </div>
+
+    <div class="ph-2col">
+      <img class="gi gi-43" src="images/event-machines-onsite.jpg" alt="研討會現場運轉中的 FX10 與 X7 兩台系統">
+      <img class="gi gi-43" src="images/event-printed-parts.jpg" alt="現場展示的列印樣件，每件附材料與參數說明卡">
+    </div>
+    <div class="cap">左：現場運轉的兩台系統。右：展示桌上的列印樣件，每一件都附材料與參數說明卡，供與會單位當場對照自己的零件。（現場照片）</div>
+
+    <div class="sec">
+      <h2>五種能力</h2>
+      <h3>陳中欣把數位製造在技術保障裡的位置拆成五項，與當天的議程主題一一對上</h3>
+      <p>這五項不是產品功能，是補給線上的五個缺口。每一項在當天的演示與案例中都有對應的實例。</p>
+      <div class="hl-grid">
+        <div class="hl"><b>隨需製造</b><span>在需要零件的地點生產，可離網運作。</span></div>
+        <div class="hl"><b>小批量</b><span>沒有最小訂購量，不需開模具。</span></div>
+        <div class="hl"><b>加速研發</b><span>迭代以天計，不以月計。</span></div>
+        <div class="hl"><b>分散式製造</b><span>送出檔案，不送出貨運。</span></div>
+        <div class="hl"><b>數位倉儲</b><span>零件以經驗證的檔案保存，需要當天印。</span></div>
+      </div>
+      <p>第五項是整場研討會的交集點。主辦方講的數位物資倉、學院講的技術保障、Markforged 講的分散式部署，指的都是同一個轉換：把持有零件換成持有能力。</p>
+    </div>
+
+    <div class="sec">
+      <h2>已部署的證據</h2>
+      <h3>六個案例全部來自公開來源，沒有一個是內部估算</h3>
+      <p><a href='https://markforged.com/resources/case-studies/united-states-army' target='_blank' rel='noopener'>美國陸軍</a>在一處國家訓練中心遇到的是典型的停產件問題：夜間駕駛視覺系統的一顆艙蓋塞，傳統方式一顆一萬美元、等三個月。該單位把它從十個零件重新設計為四個，就地列印，一顆兩百三十美元；同類零件累計為該團節省二十四萬四千美元。</p>
+      <p><a href='https://markforged.com/resources/case-studies/u-s-air-force-cannon-air-force-base' target='_blank' rel='noopener'>美國空軍第二十七特種作戰支援中隊</a>把夜視鏡頭盔支架連同墊片印成單一零件，五美元以內、數小時完成，取代原本一百美元起跳、交期數週的商規件。對每一克裝備重量都要計較的單位，一個零件取代一組組件本身就是規格上的改善。</p>
+      <p><a href='https://www.tctmagazine.com/navsea-achieves-success-with-markforged-3d-printer/' target='_blank' rel='noopener'>美國海軍</a>走的是艦上製造。2022 年 7 月，一台 X7 Field Edition 裝上維吉尼亞級核動力攻擊潛艦；同年 10 月另一台上了兩棲攻擊艦，作為混合式製造單元的複材部分。目前有九艘水面艦艇配置增材設備，其中三艘為航空母艦。2026 年 7 月，<a href='https://www.tctmagazine.com/us-navy-deploys-12-phillips-hybrid-manufacturing-12-markforged-x7-systems-to-support-sailor-training/' target='_blank' rel='noopener'>另有十二台交付海軍訓練學校</a>，讓水兵在岸上就以海上要用的同一種設備受訓。</p>
+      <p>最接近前沿情境的是遠征製造。2026 年 7 月在<a href='https://www.dvidshub.net/news/570729/advanced-manufacturing-supports-joint-and-bilateral-readiness-cjlots-26-south-korea' target='_blank' rel='noopener'>韓國的一場聯合後勤演習</a>中，硬殼充氣艇的一具濾器故障，團隊在野戰製造方艙內掃描零件、重建幾何、以 X7 Field Edition 印出替換件，當天完成，該艇當天歸建。<a href='https://www.defence.gov.au/news-events/news/2025-08-08/navy-prints-solutions-operational-problems' target='_blank' rel='noopener'>澳洲皇家海軍</a>則在一次大型演習中以一個貨櫃裝載三台印表機進場，在現地印出通訊箱外骨架、無人機控制器支架與帳篷釘。</p>
+      <p>第六類是無人系統。一家<a href='https://markforged.com/resources/blog/3d-printed-drone-parts' target='_blank' rel='noopener'>監偵與載重投送無人機製造商</a>將機體結構件轉為列印生產，連續碳纖維取代了原本的鋁與鈦加工件，並把產線留在自家廠內，理由是設計檔不外流；<a href='https://markforged.com/resources/application-spotlights/how-markforged-parts-drive-more-reliable-and-robust-uav-designs-for-tsalla-aerospace' target='_blank' rel='noopener'>另一家無人機商</a>將尾翼組件改為連結件一體列印，交期由兩週縮短到兩天。</p>
+    </div>
+
+    <div class="ph-full"><img src="images/event-demo-area.jpg" alt="研討會演示區：列印設備與整桌實際列印件"></div>
+    <div class="cap">茶敘一小時的演示區。設備放在需要零件的地方，而不是放在供應鏈的另一端——這是六個案例的共同結構，也是當天反覆回到的那一點。（現場照片）</div>
+
+    <div class="sec">
+      <h2>零件為什麼敢裝上裝備</h2>
+      <h3>連續纖維沿受力路徑鋪進零件，這是它與一般塑膠列印的分界</h3>
+      <p>基材 Onyx 的抗拉強度為 40 MPa；作為對照，鋁合金 6061-T6 為 290 MPa；Onyx 加上連續碳纖維為 800 MPa。纖維可依受力方向選用碳纖、玻纖、耐高溫玻纖或克維拉。</p>
+      <p>金屬走列印、清洗、燒結三段流程，材料包含 17-4 PH 不鏽鋼與 316L；後者是海軍與海洋環境使用的等級。金屬能力在 FX10 上是外掛模組，單位可以先建立複材產能，再分階段補上金屬，不必一次到位。</p>
+      <p>三種系統對應三種位置。X7 Field Edition 是可部署的一台，運輸箱同時作為機台底座，兩人可搬運，耗電三百瓦以內，從打開到開始列印不到三分鐘。FX10 是工業平台。FX20 是大尺寸高溫機，處理最大的複材件與高階航太聚合物。</p>
+      <p>陳中欣在會中特別指出一個常被略過的類別：技術保障單位最安靜、也最大的一筆節省往往不是備件，而是工裝——那些過去要用金屬銑製的治具、夾具與檢具。他所舉的六個單位全部都在印工裝。</p>
+    </div>
+
+    <div class="ph-2col">
+      <img class="gi gi-43" src="images/event-materials.jpg" alt="現場陳列的 Markforged 材料，含 Onyx 與各式纖維">
+      <img class="gi gi-43" src="images/eiger-software.jpg" alt="Eiger 軟體介面，可於自有網路離線運行">
+    </div>
+    <div class="cap">左：現場陳列的材料，纖維依受力方向選用（現場照片）。右：從 CAD 檔到經驗證零件的同一套環境，可在自有網路上離線運行。</div>
+
+    <div class="ph-full"><img src="images/hero-x7fe.jpg" alt="Markforged X7 Field Edition，運輸箱同時作為機台底座"></div>
+    <div class="cap">X7 Field Edition 是可部署的一台：運輸箱就是機架，兩人可搬運，耗電三百瓦以內，從打開到開始列印不到三分鐘。</div>
+
+    <div class="sec">
+      <h2>資料主權</h2>
+      <h3>軍方場合一定會問的問題：檔案會不會離開場站</h3>
+      <p>Markforged 的軟體可在自有網路上運行，不需連接雲端，設計檔不必離開單位的場站。Markforged 是第一家取得 ISO 27001 資訊安全管理系統認證的增材製造公司，列印資料在儲存與傳輸過程中皆加密，設備運行對齊國防環境安全組態標準的加固作業系統。</p>
+      <p>這一段的結論在技術保障脈絡下是具體的：一顆原本要向國外訂購的零件，變成一份由單位自己持有、自己驗證、自己列印的檔案。連帶地，對外採購行為本身所揭露的資訊——在維持哪一種裝備、庫存有多少——也留在單位內部。</p>
+    </div>
+
+    <div class="sec">
+      <h2>越南的產業背景</h2>
+      <h3>供應來源多元化的另一面，是多條各自會斷的備件鏈</h3>
+      <p>美國商務部國際貿易署的越南國防產業指南記載，越南的軍用航空器來自俄羅斯、波蘭、法國與捷克等多個來源，政府正在降低對單一供應商的依賴，並希望強化本土國防工業基礎、推動共同組裝與共同生產。</p>
+      <p>制度面也在動。《國防與安全工業暨工業動員法》於 2025 年 7 月 1 日生效，共七章八十六條，為民間企業參與國防與安全工業建立了正式空間。而 2026 年 12 月 10 日至 13 日，越南國際防務展將於河內嘉林機場舉行，由國防部主辦。</p>
+      <p>研討會處理的正是這個結構的另一端。新裝備的取得有政策與預算的軌道，而既有裝備在服役期內的可維持性，取決於一顆一顆零件能不能拿得到。八月二十五日那個上午，在場的是後者。</p>
+    </div>
+
+    <div class="sec">
+      <h2>怎麼開始</h2>
+      <h3>陳中欣在結尾給的是一個很小的起手式，不是一套採購方案</h3>
+      <p>起步在越南已經有本地基礎。當天的主辦單位之一軍事技術學院，自 2026 年 5 月起經由 Tân Tiến 工業設備公司（AIE）供應，運行一台 FX20——這是越南國防體系內的第一台。也就是說，接下來要談的不是要不要引進一項未曾在本地落地的技術，而是既有的能力要用在哪一個零件上。</p>
+      <p>他的建議有三步：挑出單位裡最痛的那一個零件——等最久、或者已經買不到的那一個；把它印出來；用單位自己的允收標準去測。然後根據測試結果決定，不要根據型錄決定。</p>
+      <p>研討會當天的流程鏈，Markforged 承擔的是第四步。掃描量測、逆向工程與檢驗由現場的其他技術構成完整鏈條——這也是主辦方把三個演示站排在一起的原因。</p>
+      <p>「從一個零件開始，讓那個零件自己來說明。」這是他當天最後一句話。</p>
+    </div>
+
+  </div>
+
+  <div class="cta">
+    <h4>國防技術保障應用評估</h4>
+    <p>由 Markforged 工程團隊就實際零件與允收標準進行可行性評估，並可安排現場操作演示。場次可安排於台灣、中國、香港或越南。</p>
+    <a href="https://mfmk.markforged.tw" class="btn">與我們聯繫</a>
+  </div>
+
+  <div class="srcbox">
+    <h5>資料來源</h5>
+    <ul><li>主辦方公開活動頁與正式議程：「3D 數位製造技術於國防技術保障（維修、保養、修復、備品供應）」，2026 年 8 月 25 日，軍事技術學院禮堂，河內；主辦 軍事技術學院（黎貴惇技術大學）與 Tân Tiến 工業設備公司，協辦 VAMI 協會<br><a href="https://aie.com.vn/hoi-thao-cong-nghe-che-tao-so-3d-trong-cong-tac-bao-dam-ky-thuat-quoc-phong/" target="_blank" rel="noopener">https://aie.com.vn/hoi-thao-cong-nghe-che-tao-so-3d-trong-cong-tac-bao-dam-ky-thuat-quoc-phong/</a></li><li>美國陸軍：停產艙蓋塞由 10 件簡化為 4 件、$10,000／3 個月 對比 $230、累計節省 $244,000 —— Markforged 官方案例<br><a href="https://markforged.com/resources/case-studies/united-states-army" target="_blank" rel="noopener">https://markforged.com/resources/case-studies/united-states-army</a></li><li>美國空軍第 27 特種作戰支援中隊（Cannon AFB）：夜視鏡頭盔支架一體列印 —— Markforged 官方案例<br><a href="https://markforged.com/resources/case-studies/u-s-air-force-cannon-air-force-base" target="_blank" rel="noopener">https://markforged.com/resources/case-studies/u-s-air-force-cannon-air-force-base</a></li><li>美國海軍艦上製造：X7 Field Edition 於 2022 年 7 月裝上維吉尼亞級潛艦、九艘水面艦艇（含三艘航空母艦）—— 美國海軍海上系統司令部發布，經產業媒體報導<br><a href="https://www.tctmagazine.com/navsea-achieves-success-with-markforged-3d-printer/" target="_blank" rel="noopener">https://www.tctmagazine.com/navsea-achieves-success-with-markforged-3d-printer/</a></li><li>美國海軍訓練學校：2026 年 7 月交付十二台 Markforged X7 系統，供艦上訓練課程使用<br><a href="https://www.tctmagazine.com/us-navy-deploys-12-phillips-hybrid-manufacturing-12-markforged-x7-systems-to-support-sailor-training/" target="_blank" rel="noopener">https://www.tctmagazine.com/us-navy-deploys-12-phillips-hybrid-manufacturing-12-markforged-x7-systems-to-support-sailor-training/</a></li><li>韓國聯合後勤演習 CJLOTS 26（2026 年 7 月）：野戰製造方艙內掃描、重建、當日列印硬殼充氣艇濾器 —— 美國國防部 DVIDS 發布<br><a href="https://www.dvidshub.net/news/570729/advanced-manufacturing-supports-joint-and-bilateral-readiness-cjlots-26-south-korea" target="_blank" rel="noopener">https://www.dvidshub.net/news/570729/advanced-manufacturing-supports-joint-and-bilateral-readiness-cjlots-26-south-korea</a></li><li>澳洲皇家海軍可部署增材製造與維修貨櫃（Talisman Sabre 2025）：三台印表機，其中一台為 Markforged X7 —— 澳洲國防部發布<br><a href="https://www.defence.gov.au/news-events/news/2025-08-08/navy-prints-solutions-operational-problems" target="_blank" rel="noopener">https://www.defence.gov.au/news-events/news/2025-08-08/navy-prints-solutions-operational-problems</a></li><li>無人機機體結構件轉列印生產、設計檔留在廠內 —— Markforged 官方<br><a href="https://markforged.com/resources/blog/3d-printed-drone-parts" target="_blank" rel="noopener">https://markforged.com/resources/blog/3d-printed-drone-parts</a></li><li>Tsalla Aerospace：尾翼組件以連結件一體列印，交期兩週縮短至兩天 —— Markforged 官方案例<br><a href="https://markforged.com/resources/application-spotlights/how-markforged-parts-drive-more-reliable-and-robust-uav-designs-for-tsalla-aerospace" target="_blank" rel="noopener">https://markforged.com/resources/application-spotlights/how-markforged-parts-drive-more-reliable-and-robust-uav-designs-for-tsalla-aerospace</a></li><li>資訊安全與 ISO 27001 認證、加密與加固作業系統 —— Markforged 官方<br><a href="https://markforged.com/security" target="_blank" rel="noopener">https://markforged.com/security</a></li><li>越南國防產業結構（軍機來源、降低單一供應商依賴、本土工業基礎與共同生產）—— 美國商務部國際貿易署越南國別商務指南<br><a href="https://www.trade.gov/country-commercial-guides/vietnam-defense-and-security-sector" target="_blank" rel="noopener">https://www.trade.gov/country-commercial-guides/vietnam-defense-and-security-sector</a></li><li>《國防與安全工業暨工業動員法》2024 年 6 月 27 日通過、2025 年 7 月 1 日生效，七章八十六條<br><a href="https://lawnet.vn/thong-tin-phap-luat/en/thong-bao-van-ban-moi/vietnam-s-law-on-national-defense-and-security-industry-and-industrial-mobilization-2024-effective-as-of-july-1-2025-168544.html" target="_blank" rel="noopener">https://lawnet.vn/thong-tin-phap-luat/en/thong-bao-van-ban-moi/vietnam-s-law-on-national-defense-and-security-industry-and-industrial-mobilization-2024-effective-as-of-july-1-2025-168544.html</a></li><li>越南國際防務展：2026 年 12 月 10 至 13 日，河內嘉林機場，越南國防部主辦<br><a href="https://vovworld.vn/news/international-defence-expo-2026-to-be-held-in-december-promoting-vietnams-defence-diplomacy-2431464.vov5" target="_blank" rel="noopener">https://vovworld.vn/news/international-defence-expo-2026-to-be-held-in-december-promoting-vietnams-defence-diplomacy-2431464.vov5</a></li></ul>
+  </div>
+
+  <div class="ftr">
+    Markforged, Inc. 為工業級積層製造系統供應商，以連續纖維複合材料與金屬解決方案，協助製造與技術保障單位於使用現場自主生產功能性零件、工裝與備品。<br><br>
+    <a href="index.html">回到媒體中心</a>　·　<a href="https://markforged.tw">markforged.tw</a>
+  </div>
+
+</div>
+</body>
+</html>
