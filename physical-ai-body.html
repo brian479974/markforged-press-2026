@@ -14,7 +14,8 @@
   body{background:#e8e8e8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,'Noto Sans TC',sans-serif;color:#1a1a1a}
   .wrap{max-width:700px;margin:0 auto;background:#fff}
   .hdr{background:#000;padding:20px 40px;display:flex;align-items:center;justify-content:space-between}
-  .hdr-logo{color:#FFC500;font-size:24px;font-weight:900;letter-spacing:.04em;text-decoration:none}
+  .hdr-logo{display:block;line-height:0}
+  .hdr-logo img{height:26px;width:auto;display:block}
   .hdr-ev{color:rgba(255,255,255,.6);font-size:12px;text-align:right;line-height:1.6}
   .hero{position:relative;overflow:hidden}
   .hero img{width:100%;display:block}
@@ -71,7 +72,7 @@
 <div class="wrap">
 
   <div class="hdr">
-    <a href="index.html" class="hdr-logo">MARKFORGED</a>
+    <a href="index.html" class="hdr-logo"><img src="images/markforged-logo-white.png" alt="Markforged"></a>
     <div class="hdr-ev">大中華區媒體中心<br>News &amp; Insights</div>
   </div>
 
@@ -104,6 +105,15 @@
       <small>陳中欣 · Markforged 大中華區暨越南區總經理</small>
     </div>
 
+    <div class="prof">
+      <img src="brian-chen.jpg" alt="陳中欣 Brian Chen">
+      <div>
+        <div class="prof-n">陳中欣 Brian Chen</div>
+        <div class="prof-t">Markforged 大中華區暨越南區總經理</div>
+        <div class="prof-d">負責台灣、中國、香港、越南四個市場的業務、夥伴體系與技術方案。</div>
+      </div>
+    </div>
+
     <div class="tags">
       <span class="tag">Physical AI</span>
       <span class="tag">智慧製造</span>
@@ -114,6 +124,32 @@
 
     <div class="sec">
       <h2>觀點一</h2>
+      <h3>大家都在講 AI 怎麼設計，沒有人在處理它怎麼變成東西</h3>
+      <p>這兩年談 AI 進製造，重心幾乎都壓在設計端：AI 輔助設計、協助設計、生成式設計、拓撲優化、數位孿生、模擬驗證。工具愈來愈強，工程師手上的選項愈來愈多。</p>
+      <p>但這些成果有一個共同狀態——<strong>它們都還在螢幕裡。</strong></p>
+      <p>「現在大家都在講 AI，輔助設計、協助設計、各種相關應用。但真正最大的挑戰是 <strong>AI 實體化</strong>——把軟體變成硬體，把虛擬的東西變成實體。」陳中欣說。</p>
+      <p>這一步沒有捷徑。模型可以複製、參數可以微調、版本可以回滾；實體不行。實體要有人做得出來，要有材料撐得住，還要在一個能重複的製程裡，做出一模一樣的第二件、第一百件。</p>
+      <p>「軟體的世界裡，『做出來』幾乎是免費的。實體的世界裡，<strong>『做出來』就是全部的成本，也是全部的時間</strong>。AI 這一波真正的關口，卡在從虛擬跨到實體的那一步。」</p>
+    </div>
+
+    <div class="sec">
+      <h2>觀點二</h2>
+      <h3>實體化的第一道牆：AI 畫得出來，刀具進不去</h3>
+      <p>實體化難在哪裡，第一道牆就在形狀。</p>
+      <p>拓撲優化與生成式設計已經是工程師桌上的工具。它們算出來的幾何有一個共同特徵：<strong>不是人會畫的形狀</strong>——有機曲面、內部晶格、藏在零件裡的流道。這些形狀之所以又輕又強，正因為它們違反減材製造的邏輯。</p>
+      <p>而減材有一條物理上的硬限制：刀具進得去，才做得出來。</p>
+      <p>「所以很多公司的 AI 設計流程是這樣結束的：演算法給出一個更輕、更強的方案，工程部門看完，改回一個銑得出來的版本。<strong>AI 的產出被製程折價，而且沒有人統計這件事發生過幾次。</strong>」</p>
+      <p>對機器人而言，這一刀砍在最痛的地方。機械臂的每一克質量都要乘上力臂、都要被馬達扛、都會吃掉續航與精度。輕量化不是好看，是規格。</p>
+    </div>
+
+    <div class="ph-2col">
+      <img class="gi gi-43" src="images/eoat-packaging.jpg" alt="連續碳纖維列印的產線末端夾治具">
+      <img class="gi gi-43" src="images/cobot-gripper.jpg" alt="客製化協作機器人夾爪">
+    </div>
+    <div class="cap">左：食品包裝產線的機器人末端工具（Onyx，FX10／FX20／X7）。右：Harvestance 客製化協作機器人夾爪（Onyx，FX20）。圖片來源：Markforged 官方 Application Spotlight</div>
+
+    <div class="sec">
+      <h2>觀點三</h2>
       <h3>「硬體基本成熟」這句話有問題</h3>
       <p>北京世界機器人大會結束後，產業界形成一個共識：人形機器人的硬體已經基本成熟，接下來的瓶頸是泛化能力不足——機器人學不會應付沒見過的狀況。</p>
       <p>陳中欣同意前半段的難度，但不同意後半段的診斷。</p>
@@ -121,11 +157,8 @@
       <p>他認為深圳的方案講得比誰都直白：要攻的是<strong>本體</strong>與<strong>核心零部件自主化</strong>。「那是身體，不是腦。一個把產業看得很清楚的地方政府，把資源押在身體上。」</p>
     </div>
 
-    <div class="ph-full"><img src="images/robotic-arm-7axis.jpg" alt="以連續碳纖維複合材料列印結構件的七軸機械臂"></div>
-    <div class="cap">Haddington Dynamics 的 Dexter 七軸機械臂，大部分結構改為列印生產。圖片來源：Markforged 官方 Application Spotlight</div>
-
     <div class="sec">
-      <h2>觀點二</h2>
+      <h2>觀點四</h2>
       <h3>腦一週一版，身體一版要幾週</h3>
       <p>Physical AI 與前一波 AI 有一個根本差別：它有實體。</p>
       <p>軟體的迭代成本趨近於零，改一版模型、跑一次訓練、推一次更新，以天甚至小時計。但機器人的手臂、關節外殼、末端夾爪、感測器支架——每改一版，都要重新設計、重新發包、重新等待。</p>
@@ -139,24 +172,11 @@
       <p>「三週，不是三個月。這是把身體的迭代週期拉到跟軟體同一個量級之後，一家機器人公司能得到的東西。」</p>
     </div>
 
-    <div class="ph-2col">
-      <img class="gi gi-43" src="images/eoat-packaging.jpg" alt="連續碳纖維列印的產線末端夾治具">
-      <img class="gi gi-43" src="images/cobot-gripper.jpg" alt="客製化協作機器人夾爪">
-    </div>
-    <div class="cap">左：食品包裝產線的機器人末端工具（Onyx，FX10／FX20／X7）。右：Harvestance 客製化協作機器人夾爪（Onyx，FX20）。圖片來源：Markforged 官方 Application Spotlight</div>
+    <div class="ph-full"><img src="images/robotic-arm-7axis.jpg" alt="以連續碳纖維複合材料列印結構件的七軸機械臂"></div>
+    <div class="cap">Haddington Dynamics 的 Dexter 七軸機械臂，大部分結構改為列印生產。圖片來源：Markforged 官方 Application Spotlight</div>
 
     <div class="sec">
-      <h2>觀點三</h2>
-      <h3>AI 設計得出來的形狀，刀具進不去</h3>
-      <p>還有一層更早的卡點。</p>
-      <p>拓撲優化與生成式設計已經是工程師桌上的工具。它們算出來的幾何有一個共同特徵：<strong>不是人會畫的形狀</strong>——有機曲面、內部晶格、藏在零件裡的流道。這些形狀之所以又輕又強，正因為它們違反減材製造的邏輯。</p>
-      <p>而減材有一條物理上的硬限制：刀具進得去，才做得出來。</p>
-      <p>「所以很多公司的 AI 設計流程是這樣結束的：演算法給出一個更輕、更強的方案，工程部門看完，改回一個銑得出來的版本。<strong>AI 的產出被製程折價，而且沒有人統計這件事發生過幾次。</strong>」</p>
-      <p>對機器人而言，這一刀砍在最痛的地方。機械臂的每一克質量都要乘上力臂、都要被馬達扛、都會吃掉續航與精度。輕量化不是好看，是規格。</p>
-    </div>
-
-    <div class="sec">
-      <h2>觀點四</h2>
+      <h2>觀點五</h2>
       <h3>台灣的位置，比多數人以為的更前面</h3>
       <p>八月，全國工業總會發布 2026 年白皮書，主題定為「轉折」。調查 161 個產業公會，缺工以 76.6% 連續三年高居關切度第一，產業轉型 75.7% 緊追在後。白皮書中並希望政府停止「重科技、輕傳產」的偏廢。</p>
       <p>陳中欣把這兩件事接起來。</p>
@@ -167,21 +187,6 @@
         <div class="hl"><b>76.6%</b><span>缺工連續三年居台灣產業<br>關切度第一（工總 2026 白皮書）</span></div>
         <div class="hl"><b>75.7%</b><span>產業轉型關切度<br>緊追缺工之後</span></div>
       </div>
-    </div>
-
-    <div class="sec">
-      <h2>觀點五</h2>
-      <h3>他自己也在做同一件事</h3>
-      <div class="prof">
-        <img src="brian-chen.jpg" alt="陳中欣 Brian Chen">
-        <div>
-          <div class="prof-n">陳中欣 Brian Chen</div>
-          <div class="prof-t">Markforged 大中華區暨越南區總經理</div>
-          <div class="prof-d">負責台灣、中國、香港、越南四個市場的業務、夥伴體系與技術方案。</div>
-        </div>
-      </div>
-      <p>陳中欣把 AI 整合進自己的日常營運。跨四個市場的建議書、報價、會議紀錄與多語客戶素材，跑在他自己設計並親自把關的流程上，重複性文件的投入時間降到原本的五分之一。</p>
-      <p>「我在辦公室學到的那一課，跟工廠是同一課：<strong>效率會一路衝到某個實體瓶頸前面停下來。</strong>在辦公室，瓶頸是資料進不進系統、格式一不一致、動作有沒有留痕。在工廠，瓶頸是東西做不做得出來。兩邊的解法都不是把速度再加上去，是先把基礎補起來，速度才有地方去。」</p>
     </div>
 
     <div class="sec">
