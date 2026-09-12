@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 的企業導入與數位員工治理：從三個各自為政的實驗，到一套可稽核的系統 — Markforged</title>
+<meta name="description" content="同一個單位裡每個人都在用 AI，但各用各的，能力停在個人沒有變成組織的。Markforged 大中華區暨越南區總經理陳中欣以自身團隊為案例，談五層 AI 系統與把治理寫成程式碼。">
+<meta property="og:title" content="AI 的企業導入與數位員工治理：從三個各自為政的實驗，到一套可稽核的系統">
+<meta property="og:description" content="治理不是寫規定，是寫成會直接擋下動作的程式碼。一段 Markforged APAC 的實作對談。">
+<meta property="og:image" content="https://news.markforged.tw/images/robotic-arm-7axis.jpg">
+<meta property="og:type" content="video.other">
+<meta property="og:video" content="https://www.youtube.com/watch?v=B_mamlvZ2eM">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#e8e8e8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,'Noto Sans TC','Noto Sans SC',sans-serif;color:#1a1a1a}
+  .wrap{max-width:700px;margin:0 auto;background:#fff}
+  .hdr{background:#000;padding:20px 40px;display:flex;align-items:center;justify-content:space-between}
+  .hdr-logo{display:block;line-height:0}
+  .hdr-logo img{height:26px;width:auto;display:block}
+  .hdr-ev{color:rgba(255,255,255,.6);font-size:12px;text-align:right;line-height:1.6}
+  .hero{position:relative;overflow:hidden}
+  .hero img{width:100%;display:block}
+  .hero-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.25) 50%,rgba(0,0,0,.78) 100%)}
+  .hero-top{position:absolute;top:0;left:0;right:0;padding:28px 38px}
+  .hero-kicker{color:#FFC500;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px}
+  .hero-title{color:#fff;font-size:26px;font-weight:900;line-height:1.28;max-width:560px;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+  .hero-btm{position:absolute;bottom:0;left:0;right:0;padding:16px 38px;background:linear-gradient(transparent,rgba(0,0,0,.75))}
+  .hero-meta{color:rgba(255,255,255,.85);font-size:12px;letter-spacing:.04em}
+  .ds{background:#FFC500;padding:10px 38px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}
+  .ds-l{font-size:12.5px;font-weight:700;color:#000}
+  .ds-r{font-size:11.5px;color:#333}
+  .vidwrap{background:#000;padding:0}
+  .vid{position:relative;width:100%;padding-top:56.25%}
+  .vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+  .vidcap{background:#111;color:rgba(255,255,255,.55);font-size:11px;padding:10px 38px 14px;line-height:1.6}
+  .vidcap a{color:#FFC500;text-decoration:none}
+  .body{padding:36px 38px 0}
+  .lead{font-size:16px;line-height:1.82;color:#222;margin-bottom:24px;padding-bottom:24px;border-bottom:2px solid #f0f0f0}
+  .qb{margin:6px 0 26px;padding:20px 24px;background:#000;border-radius:6px}
+  .qb p{color:#FFC500;font-size:18px;font-weight:800;line-height:1.45;margin-bottom:5px}
+  .qb small{color:rgba(255,255,255,.45);font-size:10.5px;letter-spacing:.07em}
+  .sec{margin-bottom:30px}
+  h2{font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#FFC500;margin-bottom:12px;padding-left:11px;border-left:4px solid #FFC500}
+  h3{font-size:18px;font-weight:800;color:#111;margin-bottom:12px;line-height:1.32}
+  p{font-size:14.5px;line-height:1.82;color:#333;margin-bottom:14px}
+  strong{color:#111}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
+  .tag{background:#111;color:#FFC500;font-size:10px;font-weight:700;letter-spacing:.07em;padding:4px 10px;border-radius:30px}
+  .tag.ol{background:#fff;color:#666;border:1.5px solid #ddd}
+  .hl-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:30px}
+  .hl{background:#f7f7f7;border-left:4px solid #FFC500;padding:16px 18px}
+  .hl b{display:block;font-size:22px;font-weight:900;color:#111;line-height:1.15;margin-bottom:5px}
+  .hl span{font-size:11.5px;color:#777;line-height:1.5;display:block}
+  .prof{display:flex;gap:18px;align-items:center;background:#111;padding:22px 24px;border-radius:6px;margin:8px 0 28px}
+  .prof img{width:92px;height:92px;object-fit:cover;border-radius:50%;flex-shrink:0;border:3px solid #FFC500}
+  .prof-n{color:#fff;font-size:16px;font-weight:800;margin-bottom:4px}
+  .prof-t{color:#FFC500;font-size:11.5px;font-weight:700;margin-bottom:7px}
+  .prof-d{color:rgba(255,255,255,.6);font-size:11.5px;line-height:1.6}
+  .cta{background:#FFC500;padding:28px 32px;margin:6px 0 0}
+  .cta h4{font-size:17px;font-weight:900;color:#000;margin-bottom:8px}
+  .cta p{font-size:13px;color:#333;line-height:1.7;margin-bottom:16px}
+  .btn{display:inline-block;background:#000;color:#FFC500;padding:12px 26px;font-size:13.5px;font-weight:800;text-decoration:none;letter-spacing:.04em}
+  .btn:hover{background:#222}
+  .srcbox{background:#fafafa;border-top:3px solid #111;padding:22px 38px 26px}
+  .srcbox h5{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#888;margin-bottom:10px}
+  .srcbox li{font-size:11.5px;color:#777;line-height:1.75;margin-left:16px}
+  .srcbox a{color:#777}
+  .ftr{background:#000;padding:24px 38px;color:rgba(255,255,255,.5);font-size:11.5px;line-height:1.7}
+  .ftr a{color:#FFC500;text-decoration:none}
+  @media(max-width:620px){.hero-title{font-size:21px}.body{padding:26px 22px 0}.hl-grid{grid-template-columns:1fr}.prof{flex-direction:column;text-align:center}.vidcap{padding:10px 22px 14px}}
+</style>
+<script src="analytics.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hdr">
+    <a href="index.html" class="hdr-logo"><img src="images/markforged-logo-white.png" alt="Markforged"></a>
+    <div class="hdr-ev">大中華區媒體中心<br>News &amp; Insights</div>
+  </div>
+
+  <div class="hero">
+    <img src="images/robotic-arm-7axis.jpg" alt="工業機器手臂於產線作業，末端夾具為積層製造件">
+    <div class="hero-ov"></div>
+    <div class="hero-top">
+      <div class="hero-kicker">數位員工治理 · Markforged APAC Case</div>
+      <div class="hero-title">從三個各自為政的實驗，<br>到一套可稽核的系統</div>
+    </div>
+    <div class="hero-btm"><div class="hero-meta">對談 Markforged 大中華區暨越南區總經理　陳中欣 Brian Chen</div></div>
+  </div>
+
+  <div class="ds"><div class="ds-l">2026 年 9 月 12 日</div><div class="ds-r">影片對談 · 約 15 分鐘</div></div>
+
+  <div class="vidwrap">
+    <div class="vid">
+      <iframe src="https://www.youtube-nocookie.com/embed/B_mamlvZ2eM"
+              title="AI 的企業導入與數位員工治理 — Markforged APAC Case"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+    </div>
+  </div>
+  <div class="vidcap">影片以對談形式呈現：由報告人與其日常使用的 AI 助理一問一答。
+  無法播放請至 <a href="https://www.youtube.com/watch?v=B_mamlvZ2eM" target="_blank" rel="noopener">YouTube 觀看</a>。</div>
+
+  <div class="body">
+
+    <p class="lead">多數企業談 AI 導入時，問的是「要不要用」。但在一個每個人都已經在用 AI 的單位裡，
+    真正的問題換成另一個：<strong>這些能力停在個人身上，要怎麼變成組織的？</strong>
+    這段對談以 Markforged 亞太區的實際運作為案例，談一個團隊如何把三組各自為政的私下實驗，
+    收斂成一套有介面、有核心、有接口、有產出、也有治理的系統。</p>
+
+    <div class="qb">
+      <p>治理不是寫規定，是寫成會直接擋下動作的程式碼。</p>
+      <small>THE GOVERNANCE LAYER</small>
+    </div>
+
+    <div class="sec">
+      <h2>The Problem</h2>
+      <h3>每個人都在用，但各用各的</h3>
+      <p>這個單位的起點不是「沒有人用 AI」，而是相反——整條線上每個人都在用，
+      而且用得不錯。問題出在它從來沒有被收斂：同一件事有三種做法，
+      成果散在各自的電腦裡，離職或換人就歸零。</p>
+      <p>組織準備度盤點出來的形狀是<strong>兩頭高、中間低</strong>：
+      個人使用意願高、高層支持度高，中間的流程、標準與可稽核性幾乎是空的。
+      這也是多數企業導入 AI 時真正卡住的地方，不是工具不夠，是中間那層沒有人建。</p>
+    </div>
+
+    <div class="sec">
+      <h2>The System</h2>
+      <h3>五層架構：介面 · 核心 · 系統接口 · 內容產出 · 治理</h3>
+      <p>核心層刻意<strong>不押單一模型</strong>：主判斷走一家、第二意見與生圖走另一家、
+      查外部即時資訊走搜尋端、敏感資料走本機模型不出機。這個安排不是為了炫技，
+      是為了讓任何一家供應商出事的時候，整條線不會停。</p>
+      <p>系統接口層把 AI 接進真正在用的系統——郵件、行事曆、CRM、知識庫。
+      這一層決定了它是「一個會聊天的工具」還是「一個會做事的同事」。</p>
+    </div>
+
+    <div class="sec">
+      <h2>The Governance</h2>
+      <h3>把紅線寫成擋得下動作的程式</h3>
+      <p>治理層是這套系統最不好做、但最關鍵的一層。規定寫在文件裡沒有用，
+      因為沒有人會在每次動作前回頭查文件。這個團隊的做法是把每一條紅線寫成程式：
+      對外寄信沒有取得授權會被擋、產品照用了非原廠素材會被擋、
+      對外文件夾帶不該出現的內容會被擋。</p>
+      <p>每一道閘都來自一次真實踩過的錯，而且都要能用當初出錯的那份資料回測——
+      <strong>擋不下當初那個錯的閘，不算數。</strong></p>
+    </div>
+
+    <div class="hl-grid">
+      <div class="hl"><b>5 層</b><span>介面、核心、系統接口、內容產出、治理</span></div>
+      <div class="hl"><b>多模型</b><span>主判斷、第二意見、外部查詢、本機敏感資料分流</span></div>
+      <div class="hl"><b>治理即程式</b><span>紅線寫成會擋下動作的程式碼，不是寫成規定</span></div>
+      <div class="hl"><b>可稽核</b><span>每道閘都要能用當初出錯的資料回測</span></div>
+    </div>
+
+    <div class="tags">
+      <span class="tag">AI 導入</span>
+      <span class="tag">數位員工治理</span>
+      <span class="tag">組織準備度</span>
+      <span class="tag ol">Markforged APAC</span>
+      <span class="tag ol">積層製造</span>
+    </div>
+
+    <div class="prof">
+      <img src="brian-chen.jpg" alt="陳中欣 Brian Chen">
+      <div>
+        <div class="prof-n">陳中欣　Brian Chen</div>
+        <div class="prof-t">Markforged 大中華區暨越南區總經理</div>
+        <div class="prof-d">負責台灣、中國、香港與越南市場的業務與通路發展，
+        並在自身團隊內推動 AI 工作流與治理機制的實作。</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="cta">
+    <h4>想談談你們單位的 AI 導入？</h4>
+    <p>從工裝治具到金屬零件，從設計到可稽核的生產流程——
+    如果你正在處理同一個問題，歡迎與大中華區團隊聯繫。</p>
+    <a class="btn" href="index.html">回媒體中心</a>
+  </div>
+
+  <div class="srcbox">
+    <h5>關於本片 / About this talk</h5>
+    <ul>
+      <li>本片為國立臺灣大學 EMBA「數位科技與企業創新」課程期末小組報告的對談版簡報影片，
+      主題為 AI 的企業導入與數位員工治理，案例取自 Markforged 亞太區團隊的實際運作。</li>
+      <li>影片連結：<a href="https://www.youtube.com/watch?v=B_mamlvZ2eM" target="_blank" rel="noopener">youtube.com/watch?v=B_mamlvZ2eM</a></li>
+      <li>片中所述之系統架構、治理機制與盤點數字，為該團隊於 2026 年 9 月的實機狀態，
+      不構成對其他組織導入成效的承諾。</li>
+    </ul>
+  </div>
+
+  <div class="ftr">
+    Markforged 大中華區媒體中心　·　<a href="https://news.markforged.tw">news.markforged.tw</a><br>
+    Markforged, Inc.　·　<a href="https://markforged.com">markforged.com</a>
+  </div>
+
+</div>
+</body>
+</html>
