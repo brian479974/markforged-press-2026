@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>設計按天迭代，Markforged 以製造與驗證讓 Physical AI 落地 — Markforged</title>
+<meta name="description" content="生成式 AI 讓複雜幾何在數位端按天迭代，瓶頸落在實體端。Markforged 大中華區總經理陳中欣談連續纖維、治具分流與數位庫存，如何把設計走向量產的週期壓縮到以天計算。">
+<meta property="og:title" content="設計按天迭代，Markforged 以製造與驗證讓 Physical AI 落地">
+<meta property="og:description" content="生成式 AI 讓複雜幾何在數位端按天迭代，瓶頸落在實體端。Markforged 大中華區總經理陳中欣談連續纖維、治具分流與數位庫存，如何把設計走向量產的週期壓縮到以天計算。">
+<meta property="og:image" content="https://news.markforged.tw/images/ithome-physical-ai-hero.jpg">
+<meta property="og:type" content="article">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#e8e8e8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,'Noto Sans TC','Noto Sans SC',sans-serif;color:#1a1a1a}
+  .wrap{max-width:700px;margin:0 auto;background:#fff}
+  .hdr{background:#000;padding:20px 40px;display:flex;align-items:center;justify-content:space-between}
+  .hdr-logo{display:block;line-height:0}
+  .hdr-logo img{height:26px;width:auto;display:block}
+  .hdr-ev{color:rgba(255,255,255,.6);font-size:12px;text-align:right;line-height:1.6}
+  .langbar{background:#111;padding:8px 40px;display:flex;gap:6px;align-items:center;border-top:1px solid #222}
+  .langbar span{color:#666;font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-right:4px}
+  .langbar a{font-size:11.5px;font-weight:700;color:#888;text-decoration:none;padding:3px 10px;border-radius:20px;border:1px solid #333}
+  .langbar a:hover{color:#FFC500;border-color:#FFC500}
+  .langbar a.on{background:#FFC500;color:#000;border-color:#FFC500}
+  .hero{position:relative;overflow:hidden}
+  .hero img{width:100%;display:block}
+  .hero-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.68) 0%,rgba(0,0,0,.15) 50%,rgba(0,0,0,.72) 100%)}
+  .hero-top{position:absolute;top:0;left:0;right:0;padding:28px 38px}
+  .hero-kicker{color:#FFC500;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px}
+  .hero-title{color:#fff;font-size:26px;font-weight:900;line-height:1.28;max-width:540px;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+  .hero-btm{position:absolute;bottom:0;left:0;right:0;padding:16px 38px;background:linear-gradient(transparent,rgba(0,0,0,.75))}
+  .hero-meta{color:rgba(255,255,255,.85);font-size:12px;letter-spacing:.04em}
+  .ds{background:#FFC500;padding:10px 38px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}
+  .ds-l{font-size:12.5px;font-weight:700;color:#000}
+  .ds-r{font-size:11.5px;color:#333}
+  .body{padding:36px 38px 0}
+  .lead{font-size:16px;line-height:1.82;color:#222;margin-bottom:24px;padding-bottom:24px;border-bottom:2px solid #f0f0f0}
+  .qb{margin:6px 0 26px;padding:20px 24px;background:#000;border-radius:6px}
+  .qb p{color:#FFC500;font-size:18px;font-weight:800;line-height:1.45;margin-bottom:5px}
+  .qb small{color:rgba(255,255,255,.45);font-size:10.5px;letter-spacing:.07em}
+  .sec{margin-bottom:30px}
+  h2{font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#FFC500;margin-bottom:12px;padding-left:11px;border-left:4px solid #FFC500}
+  h3{font-size:18px;font-weight:800;color:#111;margin-bottom:12px;line-height:1.32}
+  p{font-size:14.5px;line-height:1.82;color:#333;margin-bottom:14px}
+  strong{color:#111}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
+  .tag{background:#111;color:#FFC500;font-size:10px;font-weight:700;letter-spacing:.07em;padding:4px 10px;border-radius:30px}
+  .tag.ol{background:#fff;color:#666;border:1.5px solid #ddd}
+  .ph-full img{width:100%;display:block}
+  .ph-2col{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+  .gi{width:100%;display:block;object-fit:cover}
+  .gi-43{aspect-ratio:4/3}
+  .cap{font-size:11px;color:#aaa;text-align:center;padding:8px 38px 22px;border-bottom:1px solid #eee;margin-bottom:26px;line-height:1.55}
+  .hl-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:30px}
+  .hl{background:#f7f7f7;border-left:4px solid #FFC500;padding:16px 18px}
+  .hl b{display:block;font-size:24px;font-weight:900;color:#111;line-height:1.1;margin-bottom:5px}
+  .hl span{font-size:11.5px;color:#777;line-height:1.5;display:block}
+  .prof{display:flex;gap:18px;align-items:center;background:#111;padding:22px 24px;border-radius:6px;margin:8px 0 28px}
+  .prof img{width:92px;height:92px;object-fit:cover;border-radius:50%;flex-shrink:0;border:3px solid #FFC500}
+  .prof-n{color:#fff;font-size:16px;font-weight:800;margin-bottom:4px}
+  .prof-t{color:#FFC500;font-size:11.5px;font-weight:700;margin-bottom:7px}
+  .prof-d{color:rgba(255,255,255,.6);font-size:11.5px;line-height:1.6}
+  .cta{background:#FFC500;padding:28px 32px;margin:6px 0 0}
+  .cta h4{font-size:17px;font-weight:900;color:#000;margin-bottom:8px}
+  .cta p{font-size:13px;color:#333;line-height:1.7;margin-bottom:16px}
+  .btn{display:inline-block;background:#000;color:#FFC500;padding:12px 26px;font-size:13.5px;font-weight:800;text-decoration:none;letter-spacing:.04em}
+  .btn:hover{background:#222}
+  .srcbox{background:#fafafa;border-top:3px solid #111;padding:22px 38px 26px}
+  .srcbox h5{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#888;margin-bottom:10px}
+  .srcbox li{font-size:11.5px;color:#777;line-height:1.75;margin-left:16px}
+  .ftr{background:#000;padding:24px 38px;color:rgba(255,255,255,.5);font-size:11.5px;line-height:1.7}
+  .ftr a{color:#FFC500;text-decoration:none}
+  @media(max-width:620px){.hero-title{font-size:21px}.body{padding:26px 22px 0}.hl-grid{grid-template-columns:1fr}.prof{flex-direction:column;text-align:center}.langbar{padding:8px 22px}}
+
+</style>
+<script src="analytics.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hdr">
+    <a href="index.html" class="hdr-logo"><img src="images/markforged-logo-white.png" alt="Markforged"></a>
+    <div class="hdr-ev">大中華區媒體中心<br>News &amp; Insights</div>
+  </div>
+
+  <div class="hero">
+    <img src="images/ithome-physical-ai-hero.jpg" alt="Markforged 大中華區總經理陳中欣，攝於 Markforged 設備前">
+    <div class="hero-ov"></div>
+    <div class="hero-top">
+      <div class="hero-kicker">產業專訪 · Physical AI</div>
+      <div class="hero-title">設計按天迭代，Markforged 以製造與驗證讓 Physical AI 落地</div>
+    </div>
+    <div class="hero-btm"><div class="hero-meta">專訪 Markforged 大中華區總經理　陳中欣 Brian Chen　<span style="opacity:.6">（圖 _MG_9647）</span></div></div>
+  </div>
+
+  <div class="ds"><div class="ds-l">2026 年 9 月</div><div class="ds-r">原載 iThome · 專訪拍攝 2026 年 9 月 8 日</div></div>
+
+  <div class="body">
+
+    <div class="lead">生成式 AI 與拓撲優化，讓複雜幾何在數位端按天迭代；瓶頸在實體端：受限於減材加工，打樣得等兩週。競爭焦點已位移，不再看單位成本，而是誰能越快從設計走向量產。<br><br>Physical AI 核心不在模型堆得多高，而在設計能否落地並驅動機械運轉。Markforged 大中華區總經理陳中欣認為，積層製造是設計走向量產的橋樑，關鍵在幾何輸出與迭代節奏對齊，製程不受刀具限制，且兼具結構強度，跟得上軟體迭代。</div>
+
+    <div class="qb"><p>積層製造是設計走向量產的橋樑，關鍵在幾何輸出與迭代節奏對齊。</p><small>文中陳中欣的觀點 · Markforged 大中華區總經理</small></div>
+
+    <div class="prof">
+      <img src="brian-chen.jpg" alt="陳中欣 Brian Chen">
+      <div><div class="prof-n">陳中欣 Brian Chen</div><div class="prof-t">Markforged 大中華區總經理</div><div class="prof-d">負責大中華區與越南市場的業務發展、通路體系與技術方案。</div></div>
+    </div>
+
+    <div class="tags"><span class="tag">Physical AI</span><span class="tag">積層製造</span><span class="tag ol">連續纖維</span><span class="tag ol">治具與夾具</span><span class="tag ol">數位庫存</span></div>
+
+    <div class="hl-grid"><div class="hl"><b>800 → 70 件以下</b><span>Haddington Dynamics 七軸機械臂 Dexter 零件數；組裝時間縮短至一天</span></div><div class="hl"><b>144 → 6 小時</b><span>Hugard Inc. 車床接料器加工時間；成本 400 → 25.06 美元</span></div><div class="hl"><b>14 → 1 天</b><span>Vestas 逾 2,000 個零件納入雲端數位庫存後的停機時間</span></div><div class="hl"><b>25%</b><span>Farason Corporation 末端快換板成本僅為 CNC 加工的四分之一</span></div></div>
+
+    <div class="sec">
+      <h2>材料與驗證</h2>
+      <h3>以連續纖維建立強度，以工程驗證建立信任</h3>
+      <p>「積層製造只能做原型」是 2015 年因材料受限留下的舊標籤。陳中欣說，Markforged 以連續纖維複材強化技術（CFR）突破此限制：列印時將連續碳纖維、Kevlar 或玻璃纖維鋪設於 Onyx 內，由纖維承擔載荷，兼具輕量與高剛性，部分結構件強度甚至超過鋁合金。旗艦機種 FX10 加裝 Metal Kit 後，可在複材與金屬間切換；金屬模式支援 17-4 PH、316L 與 H13 工具鋼。</p><p>導入阻礙不在塑膠強度而在責任，換料者須為失效負責。解法是把信任轉為可驗證規格，先劃清不適用情境：若公差嚴於 ±0.05 mm 且無法二次加工，或屬高溫、長期承載、可攤提開模成本的標準件，以及長期接觸強溶劑的零件，則不宜以積層製造取代；其他應用以可追溯數據判斷。半導體、食品與航太等高規範場域，另有抗靜電、食品接觸級與阻燃材料，讓備件直接裝上產線，不再停留原型。</p><p>Canon 半導體曝光機曾以列印治具取代金屬件，降低刮傷晶圓風險；依公開資料，這是目前唯一可見的半導體曝光機 OEM 案例。Haddington Dynamics 七軸機械臂 Dexter 零件數由 800 件降至 70 件以下，組裝時間縮短至一天，速度提升 70%、成本降低 58%。導入上，Markforged 建立材料認證與培訓機制，讓設計、製程與品保共用語言，把經驗轉為組織能力。</p>
+    </div>
+
+    <div class="sec">
+      <h2>產能配置</h2>
+      <h3>分流治具與工件精度，四階段釋放 CNC 產能</h3>
+      <p>隨需製造對加工廠的價值，不在超越 CNC 精度，而在把不需精密配合的軟爪、防呆板移出排程，讓 CNC 工時回歸高價值訂單。關鍵在分清工件與治具的精度需求：以 ±20 µm 為例，屬工件加工面要求，治具本體不需同等精度；襯套與嵌件的作用在於耐磨與鎖固，而非彌補公差。</p><p>四階段藍圖：首月挑選 3 至 5 件不需精密配合的應用驗證；第 2 至 3 月導入嵌件工法；第 4 至 6 月走向近淨形加工，大件異形件先印再精修；再將重複性治具建成數位庫存。陳中欣指出，此路徑可有效釋放機台產能。</p><p>Hugard Inc. 車床接料器加工時間由 144 小時縮短至列印 6 小時，成本從 400 美元降到 25.06 美元，每日接料 3,000 件。Farason Corporation 末端快換板成本僅為 CNC 加工的 25%，可支援每分鐘 80 件、行程逾 26 英寸的應用。Roman Design Solutions 使用 5 台 X7 列印 Onyx，單批 30–60 件。Project DIAMOnD 動員數百台設備列印數千條止血帶；COVID-19 期間以複材製作醫療防護夾具。</p>
+    </div>
+
+    <div class="sec">
+      <h2>流程與庫存</h2>
+      <h3>從邊印邊檢走向全檢，數位庫存降低停機風險</h3>
+      <p>Physical AI 工具須滿足四項條件：可重複；具備製程留痕；無需新增專家；清楚界定應用範圍。導入 Digital Forge 後，差異不在設備，而在能否嵌入日常流程。</p><p>將試錯週期從兩週壓縮到隔夜，工程師就能從一次只做一版，變成一次測試三版，透過累積嘗試，一年內可探索更多方向，是製造迭代時代的優勢。Markforged 以 Eiger 作為 Digital Forge 引擎，每週更新，整合 Simulation、Inspection（前身為 Blacksmith）與 Management and Integration 三模組。</p><p>數位庫存瞄準品項多、單項用量少、停機成本高的零件。Markforged 以 Digital Source 實現：OEM 上傳設計並鎖定製程後，授權端只能依規範列印，無法下載設計檔或進行逆向工程，凸顯工廠設備、人員與經驗難以直接複製。要把工廠能力納入管理流程，需管好三類資料：設計上雲並具備版本權限、製程參數鎖定、驗證報告隨件保存。Vestas 將逾 2,000 個零件納入雲端數位庫存，停機時間從 14 天縮短至 1 天，推廣到 23 個據點。</p>
+    </div>
+
+    <div class="sec">
+      <h2>在地落點</h2>
+      <h3>中臺灣製造聚落：把交期壓縮到以天為單位</h3>
+      <p>2025 年 12 月 Markforged 與彰化市公所簽署 MOU，定位「無人載具＋數位鍛造示範城市」，由臺灣授權夥伴達運光電、實威國際與馬路科技提供設備導入、CAD 整合及逆向工程支援，協助臺中與彰化業者把交期壓縮到以天為單位。陳中欣強調，臺灣本有精密機械與資通訊聚落的底子，若能整合設計、製造與檢測資料，將可提升供應鏈韌性與競爭力。</p><p>Physical AI 能否落地，關鍵在於誰能把試產與驗證週期壓縮到以天計算，將設計定義、製程參數與品質稽核資料，轉化為跨廠複製的製造網路。若臺灣能減少外包排隊與備料積壓，透過隨需製造與關燈工廠實現自主生產，有望在全球智慧製造重構中，從代工聚落轉型為具自主製造能力的高附加價值環節。</p>
+    </div>
+
+  </div>
+
+  <div class="ph-full"><img src="images/ithome-physical-ai-parts.jpg" alt="Markforged 大中華區總經理陳中欣展示積層製造應用零件" class="gi"></div>
+  <div class="cap">Markforged 大中華區總經理陳中欣展示積層製造應用零件　（圖 _MG_9817）</div>
+
+  <div class="cta">
+    <h4>想知道這條路徑在你的產線怎麼落？</h4>
+    <p>從 3 至 5 件不需精密配合的治具開始驗證，是多數工廠風險最低的起點。歡迎與 Markforged 大中華區團隊聯繫，我們可以一起看你手上最占用交期的那一件。</p>
+    <a class="btn" href="https://www.markforged.tw/" target="_blank" rel="noopener">了解 Digital Forge 解決方案</a>
+  </div>
+
+  <div class="srcbox">
+    <h5>來源與說明</h5>
+    <ul><li>本文由 iThome 採訪撰稿，Markforged 大中華區提供受訪內容與案例資料。</li><li>文中案例與數據均取自 Markforged 官方公開案例，可於 markforged.com 查證。</li><li>專訪拍攝：2026 年 9 月 8 日。</li></ul>
+  </div>
+
+  <div class="ftr">
+    Markforged — The Digital Manufacturing Company<br>
+    <a href="https://news.markforged.tw/">news.markforged.tw</a>　·　<a href="https://www.markforged.tw/">www.markforged.tw</a>
+  </div>
+
+</div>
+</body>
+</html>
