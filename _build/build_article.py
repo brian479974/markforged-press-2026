@@ -185,7 +185,8 @@ def render(lang):
             A(f'    <div class="ph-full"><img src="{b["img"]}" alt="{t(b["alt"], lang, f"blk{i}.alt")}"></div>')
             A(f'    <div class="cap">{t(b["cap"], lang, f"blk{i}.cap")}</div>\n')
         elif b["kind"] == "video":
-            A('    <div class="vid"><iframe src="' + b["src"] + '" '
+            _src = b["src"][lang] if isinstance(b["src"], dict) else b["src"]
+            A('    <div class="vid"><iframe src="' + _src + '" '
               f'title="{t(b["alt"], lang, f"blk{i}.alt")}" loading="lazy" '
               'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; '
               'picture-in-picture" allowfullscreen></iframe></div>')
