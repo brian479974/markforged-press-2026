@@ -13,8 +13,12 @@ import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from content import (META, UI, LEAD, QUOTE, PROF, TAGS, BLOCKS, CTA, SRC, FTR, LANGS,
-                     APPROVED_QUOTES, DOC_TERMS)  # noqa: E402
+import importlib  # noqa: E402
+# 一支產生器服務多篇文章：ARTICLE_CONTENT 指定內容源，預設 content（既有廣編稿）
+_C = importlib.import_module(os.environ.get("ARTICLE_CONTENT", "content"))
+META, UI, LEAD, QUOTE, PROF = _C.META, _C.UI, _C.LEAD, _C.QUOTE, _C.PROF
+TAGS, BLOCKS, CTA, SRC, FTR = _C.TAGS, _C.BLOCKS, _C.CTA, _C.SRC, _C.FTR
+LANGS, APPROVED_QUOTES, DOC_TERMS = _C.LANGS, _C.APPROVED_QUOTES, _C.DOC_TERMS
 
 OUT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -80,6 +84,8 @@ STYLE = """
   .cta p{font-size:13px;color:#333;line-height:1.7;margin-bottom:16px}
   .btn{display:inline-block;background:#000;color:#FFC500;padding:12px 26px;font-size:13.5px;font-weight:800;text-decoration:none;letter-spacing:.04em}
   .btn:hover{background:#222}
+  .vid{position:relative;width:100%;padding-top:56.25%;background:#000}
+  .vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
   .srcbox{background:#fafafa;border-top:3px solid #111;padding:22px 38px 26px}
   .srcbox h5{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#888;margin-bottom:10px}
   .srcbox li{font-size:11.5px;color:#777;line-height:1.75;margin-left:16px}
@@ -116,7 +122,7 @@ def render(lang):
     A(f'<meta name="description" content="{t(META["desc"], lang, "desc")}">')
     A(f'<meta property="og:title" content="{t(META["og_title"], lang, "og_title")}">')
     A(f'<meta property="og:description" content="{t(META["og_desc"], lang, "og_desc")}">')
-    A('<meta property="og:image" content="https://news.markforged.tw/images/hero-factory-floor.jpg">')
+    A(f'<meta property="og:image" content="{META.get("og_image", "https://news.markforged.tw/images/hero-factory-floor.jpg")}">')
     A('<meta property="og:type" content="article">')
     for L in LANGS:
         A(f'<link rel="alternate" hreflang="{META["lang_attr"][L]}" '
@@ -133,7 +139,7 @@ def render(lang):
     A(langbar(lang))
 
     A('  <div class="hero">')
-    A(f'    <img src="images/hero-factory-floor.jpg" alt="{t(UI["hero_alt"], lang, "hero_alt")}">')
+    A(f'    <img src="{META.get("hero", "images/hero-factory-floor.jpg")}" alt="{t(UI["hero_alt"], lang, "hero_alt")}">')
     A('    <div class="hero-ov"></div>')
     A('    <div class="hero-top">')
     A(f'      <div class="hero-kicker">{t(UI["hero_kicker"], lang, "hero_kicker")}</div>')
@@ -178,6 +184,12 @@ def render(lang):
         elif b["kind"] == "img_full":
             A(f'    <div class="ph-full"><img src="{b["img"]}" alt="{t(b["alt"], lang, f"blk{i}.alt")}"></div>')
             A(f'    <div class="cap">{t(b["cap"], lang, f"blk{i}.cap")}</div>\n')
+        elif b["kind"] == "video":
+            A('    <div class="vid"><iframe src="' + b["src"] + '" '
+              f'title="{t(b["alt"], lang, f"blk{i}.alt")}" loading="lazy" '
+              'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; '
+              'picture-in-picture" allowfullscreen></iframe></div>')
+            A(f'    <div class="cap">{t(b["cap"], lang, f"blk{i}.cap")}</div>\n')
         elif b["kind"] == "img_2col":
             A('    <div class="ph-2col">')
             for k, src in enumerate(b["imgs"]):
@@ -189,7 +201,8 @@ def render(lang):
     A('  <div class="cta">')
     A(f'    <h4>{t(CTA["h"], lang, "cta.h")}</h4>')
     A(f'    <p>{t(CTA["p"], lang, "cta.p")}</p>')
-    A(f'    <a href="https://mfmk.markforged.tw" class="btn">{t(CTA["btn"], lang, "cta.btn")}</a>')
+    A(f'    <a href="{CTA.get("href", "https://mfmk.markforged.tw")}" class="btn">'
+      f'{t(CTA["btn"], lang, "cta.btn")}</a>')
     A('  </div>\n')
     A('  <div class="srcbox">')
     A(f'    <h5>{t(SRC["h"], lang, "src.h")}</h5>')
