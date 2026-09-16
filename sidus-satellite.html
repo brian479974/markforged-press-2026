@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>低軌衛星的結構是印出來的：Sidus Space 與 Markforged 的 LizzieSat — Markforged</title>
+<meta name="description" content="三顆 LizzieSat 已在低軌運行。Sidus Space 用連續碳纖維與 Onyx 印出整顆衛星的結構，材料先在國際太空站外部掛了一年、零劣化。附繁中／簡中／英文字幕精華影片。">
+<meta property="og:title" content="低軌衛星的結構是印出來的：Sidus Space 的 LizzieSat">
+<meta property="og:description" content="材料在國際太空站外部掛了一年，取回後與剛下機台的件看不出差別。">
+<meta property="og:image" content="https://news.markforged.tw/images/sidus-leo-orbit.jpg">
+<meta property="og:type" content="article">
+<link rel="alternate" hreflang="zh-TW" href="https://news.markforged.tw/sidus-satellite.html">
+<link rel="alternate" hreflang="zh-CN" href="https://news.markforged.tw/sidus-satellite-sc.html">
+<link rel="alternate" hreflang="en" href="https://news.markforged.tw/sidus-satellite-en.html">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#e8e8e8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,'Noto Sans TC','Noto Sans SC',sans-serif;color:#1a1a1a}
+  .wrap{max-width:700px;margin:0 auto;background:#fff}
+  .hdr{background:#000;padding:20px 40px;display:flex;align-items:center;justify-content:space-between}
+  .hdr-logo{display:block;line-height:0}
+  .hdr-logo img{height:26px;width:auto;display:block}
+  .hdr-ev{color:rgba(255,255,255,.6);font-size:12px;text-align:right;line-height:1.6}
+  .langbar{background:#111;padding:8px 40px;display:flex;gap:6px;align-items:center;border-top:1px solid #222}
+  .langbar span{color:#666;font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-right:4px}
+  .langbar a{font-size:11.5px;font-weight:700;color:#888;text-decoration:none;padding:3px 10px;border-radius:20px;border:1px solid #333}
+  .langbar a:hover{color:#FFC500;border-color:#FFC500}
+  .langbar a.on{background:#FFC500;color:#000;border-color:#FFC500}
+  .hero{position:relative;overflow:hidden}
+  .hero img{width:100%;display:block}
+  .hero-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.68) 0%,rgba(0,0,0,.15) 50%,rgba(0,0,0,.72) 100%)}
+  .hero-top{position:absolute;top:0;left:0;right:0;padding:28px 38px}
+  .hero-kicker{color:#FFC500;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px}
+  .hero-title{color:#fff;font-size:26px;font-weight:900;line-height:1.28;max-width:540px;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+  .hero-btm{position:absolute;bottom:0;left:0;right:0;padding:16px 38px;background:linear-gradient(transparent,rgba(0,0,0,.75))}
+  .hero-meta{color:rgba(255,255,255,.85);font-size:12px;letter-spacing:.04em}
+  .ds{background:#FFC500;padding:10px 38px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}
+  .ds-l{font-size:12.5px;font-weight:700;color:#000}
+  .ds-r{font-size:11.5px;color:#333}
+  .body{padding:36px 38px 0}
+  .lead{font-size:16px;line-height:1.82;color:#222;margin-bottom:24px;padding-bottom:24px;border-bottom:2px solid #f0f0f0}
+  .qb{margin:6px 0 26px;padding:20px 24px;background:#000;border-radius:6px}
+  .qb p{color:#FFC500;font-size:18px;font-weight:800;line-height:1.45;margin-bottom:5px}
+  .qb small{color:rgba(255,255,255,.45);font-size:10.5px;letter-spacing:.07em}
+  .sec{margin-bottom:30px}
+  h2{font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#FFC500;margin-bottom:12px;padding-left:11px;border-left:4px solid #FFC500}
+  h3{font-size:18px;font-weight:800;color:#111;margin-bottom:12px;line-height:1.32}
+  p{font-size:14.5px;line-height:1.82;color:#333;margin-bottom:14px}
+  strong{color:#111}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
+  .tag{background:#111;color:#FFC500;font-size:10px;font-weight:700;letter-spacing:.07em;padding:4px 10px;border-radius:30px}
+  .tag.ol{background:#fff;color:#666;border:1.5px solid #ddd}
+  .ph-full img{width:100%;display:block}
+  .ph-2col{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+  .gi{width:100%;display:block;object-fit:cover}
+  .gi-43{aspect-ratio:4/3}
+  .cap{font-size:11px;color:#aaa;text-align:center;padding:8px 38px 22px;border-bottom:1px solid #eee;margin-bottom:26px;line-height:1.55}
+  .hl-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:30px}
+  .hl{background:#f7f7f7;border-left:4px solid #FFC500;padding:16px 18px}
+  .hl b{display:block;font-size:24px;font-weight:900;color:#111;line-height:1.1;margin-bottom:5px}
+  .hl span{font-size:11.5px;color:#777;line-height:1.5;display:block}
+  .prof{display:flex;gap:18px;align-items:center;background:#111;padding:22px 24px;border-radius:6px;margin:8px 0 28px}
+  .prof img{width:92px;height:92px;object-fit:cover;border-radius:50%;flex-shrink:0;border:3px solid #FFC500}
+  .prof-n{color:#fff;font-size:16px;font-weight:800;margin-bottom:4px}
+  .prof-t{color:#FFC500;font-size:11.5px;font-weight:700;margin-bottom:7px}
+  .prof-d{color:rgba(255,255,255,.6);font-size:11.5px;line-height:1.6}
+  .cta{background:#FFC500;padding:28px 32px;margin:6px 0 0}
+  .cta h4{font-size:17px;font-weight:900;color:#000;margin-bottom:8px}
+  .cta p{font-size:13px;color:#333;line-height:1.7;margin-bottom:16px}
+  .btn{display:inline-block;background:#000;color:#FFC500;padding:12px 26px;font-size:13.5px;font-weight:800;text-decoration:none;letter-spacing:.04em}
+  .btn:hover{background:#222}
+  .vid{position:relative;width:100%;padding-top:56.25%;background:#000}
+  .vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .srcbox{background:#fafafa;border-top:3px solid #111;padding:22px 38px 26px}
+  .srcbox h5{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#888;margin-bottom:10px}
+  .srcbox li{font-size:11.5px;color:#777;line-height:1.75;margin-left:16px}
+  .ftr{background:#000;padding:24px 38px;color:rgba(255,255,255,.5);font-size:11.5px;line-height:1.7}
+  .ftr a{color:#FFC500;text-decoration:none}
+  @media(max-width:620px){.hero-title{font-size:21px}.body{padding:26px 22px 0}.hl-grid{grid-template-columns:1fr}.prof{flex-direction:column;text-align:center}.langbar{padding:8px 22px}}
+</style>
+<script src="analytics.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hdr">
+    <a href="index.html" class="hdr-logo"><img src="images/markforged-logo-white.png" alt="Markforged"></a>
+    <div class="hdr-ev">大中華區媒體中心<br>News &amp; Insights</div>
+  </div>
+
+  <div class="langbar"><span>語言</span><a href="sidus-satellite.html" class="on">繁體中文</a><a href="sidus-satellite-sc.html">简体中文</a><a href="sidus-satellite-en.html">English</a></div>
+
+  <div class="hero">
+    <img src="images/sidus-leo-orbit.jpg" alt="地球低軌道上運行中的衛星群示意畫面">
+    <div class="hero-ov"></div>
+    <div class="hero-top">
+      <div class="hero-kicker">產業案例 · 低軌衛星</div>
+      <div class="hero-title">低軌衛星的結構，是印出來的</div>
+    </div>
+    <div class="hero-btm"><div class="hero-meta">Sidus Space × Markforged ｜ LizzieSat ｜ 2026.09.16</div></div>
+  </div>
+
+  <div class="ds"><div class="ds-l">三顆 LizzieSat 已在低軌運行</div><div class="ds-r">下一顆排 SpaceX Transporter-18，最快 2026 年 10 月</div></div>
+
+  <div class="body">
+
+    <div class="lead">低軌衛星是這兩年製造業最擁擠的賽道之一。台灣、中國與越南都在組供應鏈，但多數討論停在通訊酬載與地面設備，很少有人談<strong>衛星本體的結構要怎麼造</strong>。<br><br>美國衛星製造商 Sidus Space 給了一個具體答案：整顆衛星的結構用連續碳纖維與 Onyx 列印，而且不是實驗品 —— LizzieSat-1、-2、-3 已經在低軌道上運行。</div>
+
+    <div class="qb"><p>「老實說，如果沒有 Markforged，我不認為我們會在做這件事。」</p><small>Carol Craig ｜ Sidus Space 創辦人暨執行長</small></div>
+
+    <div class="prof">
+      <img src="brian-chen.jpg" alt="陳中欣">
+      <div><div class="prof-n">陳中欣 Brian Chen</div><div class="prof-t">Markforged 大中華區暨越南區總經理</div><div class="prof-d">負責 Markforged 在台灣、中國、香港與越南的市場，長期與航太、國防與精密製造領域的製造商合作。</div></div>
+    </div>
+
+    <div class="tags"><span class="tag">低軌衛星</span><span class="tag">連續碳纖維</span><span class="tag ol">Onyx FR-A</span><span class="tag ol">航太</span><span class="tag ol">輕量化</span></div>
+
+    <div class="sec">
+      <h2>為什麼衛星結構特別難</h2>
+      <h3>整顆衛星不能超過 100 公斤，而結構每減一公克，酬載就多一公克</h3>
+      <p>衛星的重量上限是硬的。電池、電腦與各種必要元件本來就吃掉大部分配額，留給結構的空間很窄。Sidus Space 的設計工程師在片中說明，他們的作法不只是把零件做輕，而是連結構本身的設計一起改 —— 減下來的每一分重量，直接換成可以多裝的酬載。</p>
+      <p>而發射與在軌環境並不寬容：發射瞬間要承受 5G 負載，入軌後要面對太陽輻射，以及向陽面與背陽面之間的劇烈溫差。</p>
+      <div class="hl-grid">
+        <div class="hl"><b>3 顆在軌</b><span>LizzieSat-1、-2、-3 已在低軌運行；下一顆排 SpaceX Transporter-18，最快 2026 年 10 月自 Vandenberg 發射</span></div>
+        <div class="hl"><b>強度接近鋁</b><span>連續碳纖維貫穿整個衛星結構，片中原話是 strength similar to aluminum</span></div>
+      </div>
+    </div>
+
+    <div class="ph-full"><img src="images/sidus-onyx-iss-experiment.jpg" alt="以 Onyx 列印的樣品固定架，裝載於送上國際太空站的材料曝露實驗模組"></div>
+    <div class="cap">以 Onyx 快速打樣的樣品固定架，隨材料曝露實驗送上國際太空站。畫面：Markforged</div>
+
+    <div class="sec">
+      <h2>先有證據，才有衛星</h2>
+      <h3>材料在國際太空站外部掛了一年，取回後與剛下機台的件看不出差別</h3>
+      <p>LizzieSat 之前，Sidus Space 先做了一個飛行測試平台：用 Onyx 快速打樣出樣品固定架，隨材料曝露實驗送上國際太空站，再取回地面檢視。</p>
+      <p>原訂曝露期約 15 週，實際在外面待了整整一年。同一批的白色對照件被太陽曬到明顯劣化，Onyx 件則沒有出現任何劣化。</p>
+      <p>Sidus Space 首席設計審查 Tony Boschi 在片中形容取回的狀態：「剛從機台下來的件，跟在太空待了一年的件，沒有差別。」</p>
+      <div class="hl-grid">
+        <div class="hl"><b>365 天</b><span>原訂約 15 週的曝露期，實際在國際太空站外部待了一年</span></div>
+        <div class="hl"><b>零劣化</b><span>同批白色對照件明顯劣化，Onyx 件未出現任何劣化</span></div>
+      </div>
+      <p>這份結果才是 LizzieSat 把 Markforged 當成結構基礎的理由 —— 順序是先有飛行驗證，才有衛星。</p>
+    </div>
+
+    <div class="ph-2col">
+      <img class="gi gi-43" src="images/sidus-satellite-assembly.jpg" alt="衛星酬載模組組裝中，framework 採列印件">
+      <img class="gi gi-43" src="images/sidus-printed-structure.jpg" alt="列印結構件上的金屬嵌入孔特寫">
+    </div>
+    <div class="cap">左：酬載模組組裝。右：列印結構件的嵌入孔特寫。畫面：Markforged</div>
+
+    <div class="sec">
+      <h2>為什麼是列印，不是機加工</h2>
+      <h3>有些幾何機加工做不出來，而設計一改，隔天就有新零件</h3>
+      <p>為了拿掉螺絲的重量，Sidus Space 把扣合特徵直接設計進結構件裡：零件落進槽位後自行鎖定，鎖上之後就再也拉不開。片中說明，這個特徵的一端可以機加工，另一端則完全做不出來，而列印件每一次都能穩定達到需要的公差。</p>
+      <p>速度是第二個理由。用鋁的話，一個設計變更要走完變更、製造與組裝；改用列印，變更當天重印，隔天就有全新零件。</p>
+      <div class="hl-grid">
+        <div class="hl"><b>比一張紙薄</b><span>內部鎖固設計的公差裕度：差幾千分之一吋就會鬆脫</span></div>
+        <div class="hl"><b>一天</b><span>設計變更到拿到全新零件所需的時間</span></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <h2>材料可追溯性</h2>
+      <h3>航太與國防採購要的不只是強度，還要能追回到材料是怎麼做出來的</h3>
+      <p>Sidus Space 目前以 Onyx FR 阻燃材料列印，並採用 Onyx FR-A。FR-A 的 A 代表材料具備完整可追溯性 —— 片中直言，這是許多公司的硬性要求。萬一出現分析預期之外的裂紋或剪切，可以一路追回材料的製造過程、找出問題並修正。</p>
+      <p>值得一併留意的是，Onyx FR-A 與 Carbon Fiber FR-A 已在 Markforged X7 上通過 NCAMP 認證，對走航太資格認證流程的製造商而言，這條路徑是現成的。</p>
+    </div>
+
+    <div class="vid"><iframe src="https://www.youtube.com/embed/QQLlK5pETtA" title="Markforged 官方影片：與 Sidus Space 一起 3D 列印一顆衛星" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+    <div class="cap">Markforged 官方影片（英語發音，7:50）。我們另製作 4 分 12 秒精華版，附燒錄字幕：<a href="https://drive.google.com/file/d/1aqlqCfCoqD32d3k1uVY8gv0qMUa_Cw5D/view">繁體中文</a>　·　<a href="https://drive.google.com/file/d/173ImdF_fv3M1Kpm6f4tBT2iC5IM80Igx/view">簡體中文</a>　·　<a href="https://drive.google.com/file/d/1GkDlACC91STyimQfGBwiboOnvXc-xPF9/view">English</a></div>
+
+  </div>
+
+  <div class="cta">
+    <h4>把這條路徑帶進你的專案</h4>
+    <p>低軌衛星、無人機或任何有嚴格重量與環境限制的結構件，我們可以就材料選擇、認證路徑與導入方式與你的團隊討論。</p>
+    <a href="https://mfmk.markforged.tw" class="btn">聯絡我們</a>
+  </div>
+
+  <div class="srcbox">
+    <h5>資料來源</h5>
+    <ul><li>Markforged 官方影片《We 3D Printed a Satellite with Sidus Space.》（2023 年發布）。本文引用的兩處直接引言均逐字取自該片。</li><li>在軌狀態與後續發射時程取自 Sidus Space 投資人公告（2026 年 9 月查證）：LizzieSat-1 於 2024 年 3 月、LizzieSat-2 於 2024 年 12 月、LizzieSat-3 於 2025 年 3 月 14 日隨 SpaceX Transporter-13 自 Vandenberg 進入低軌；下一顆排定 SpaceX Transporter-18，最快 2026 年 10 月。</li><li>原片中提到的發射時程為發布當時資訊，已非現況；本文一律以上述在軌狀態為準。</li><li>Onyx FR-A 與 Carbon Fiber FR-A 的 NCAMP 認證狀態取自 Markforged 材料資料。</li><li>文中圖片均為 Markforged 官方影片畫格。</li></ul>
+  </div>
+
+  <div class="ftr">
+    Markforged 提供工業級積層製造系統與連續纖維複合材料，應用於航太、國防、汽車與精密製造。本頁由 Markforged 大中華區媒體中心發布。<br><br>
+    <a href="index.html">返回媒體中心</a>　·　<a href="https://markforged.tw">markforged.tw</a>
+  </div>
+
+</div>
+</body>
+</html>
