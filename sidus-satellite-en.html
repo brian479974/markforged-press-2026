@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A LEO satellite with a 3D printed structure: Sidus Space's LizzieSat — Markforged</title>
+<meta name="description" content="Three LizzieSats are already operating in low Earth orbit. Sidus Space printed the satellite's structure in continuous carbon fiber and Onyx — after the material spent a year outside the International Space Station with no degradation.">
+<meta property="og:title" content="A LEO satellite with a 3D printed structure: Sidus Space's LizzieSat">
+<meta property="og:description" content="The material spent a year outside the ISS and came back indistinguishable from a part fresh off the machine.">
+<meta property="og:image" content="https://news.markforged.tw/images/sidus-leo-orbit.jpg">
+<meta property="og:type" content="article">
+<link rel="alternate" hreflang="zh-TW" href="https://news.markforged.tw/sidus-satellite.html">
+<link rel="alternate" hreflang="zh-CN" href="https://news.markforged.tw/sidus-satellite-sc.html">
+<link rel="alternate" hreflang="en" href="https://news.markforged.tw/sidus-satellite-en.html">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#e8e8e8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,'Noto Sans TC','Noto Sans SC',sans-serif;color:#1a1a1a}
+  .wrap{max-width:700px;margin:0 auto;background:#fff}
+  .hdr{background:#000;padding:20px 40px;display:flex;align-items:center;justify-content:space-between}
+  .hdr-logo{display:block;line-height:0}
+  .hdr-logo img{height:26px;width:auto;display:block}
+  .hdr-ev{color:rgba(255,255,255,.6);font-size:12px;text-align:right;line-height:1.6}
+  .langbar{background:#111;padding:8px 40px;display:flex;gap:6px;align-items:center;border-top:1px solid #222}
+  .langbar span{color:#666;font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-right:4px}
+  .langbar a{font-size:11.5px;font-weight:700;color:#888;text-decoration:none;padding:3px 10px;border-radius:20px;border:1px solid #333}
+  .langbar a:hover{color:#FFC500;border-color:#FFC500}
+  .langbar a.on{background:#FFC500;color:#000;border-color:#FFC500}
+  .hero{position:relative;overflow:hidden}
+  .hero img{width:100%;display:block}
+  .hero-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.68) 0%,rgba(0,0,0,.15) 50%,rgba(0,0,0,.72) 100%)}
+  .hero-top{position:absolute;top:0;left:0;right:0;padding:28px 38px}
+  .hero-kicker{color:#FFC500;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px}
+  .hero-title{color:#fff;font-size:26px;font-weight:900;line-height:1.28;max-width:540px;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+  .hero-btm{position:absolute;bottom:0;left:0;right:0;padding:16px 38px;background:linear-gradient(transparent,rgba(0,0,0,.75))}
+  .hero-meta{color:rgba(255,255,255,.85);font-size:12px;letter-spacing:.04em}
+  .ds{background:#FFC500;padding:10px 38px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}
+  .ds-l{font-size:12.5px;font-weight:700;color:#000}
+  .ds-r{font-size:11.5px;color:#333}
+  .body{padding:36px 38px 0}
+  .lead{font-size:16px;line-height:1.82;color:#222;margin-bottom:24px;padding-bottom:24px;border-bottom:2px solid #f0f0f0}
+  .qb{margin:6px 0 26px;padding:20px 24px;background:#000;border-radius:6px}
+  .qb p{color:#FFC500;font-size:18px;font-weight:800;line-height:1.45;margin-bottom:5px}
+  .qb small{color:rgba(255,255,255,.45);font-size:10.5px;letter-spacing:.07em}
+  .sec{margin-bottom:30px}
+  h2{font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#FFC500;margin-bottom:12px;padding-left:11px;border-left:4px solid #FFC500}
+  h3{font-size:18px;font-weight:800;color:#111;margin-bottom:12px;line-height:1.32}
+  p{font-size:14.5px;line-height:1.82;color:#333;margin-bottom:14px}
+  strong{color:#111}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
+  .tag{background:#111;color:#FFC500;font-size:10px;font-weight:700;letter-spacing:.07em;padding:4px 10px;border-radius:30px}
+  .tag.ol{background:#fff;color:#666;border:1.5px solid #ddd}
+  .ph-full img{width:100%;display:block}
+  .ph-2col{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+  .gi{width:100%;display:block;object-fit:cover}
+  .gi-43{aspect-ratio:4/3}
+  .cap{font-size:11px;color:#aaa;text-align:center;padding:8px 38px 22px;border-bottom:1px solid #eee;margin-bottom:26px;line-height:1.55}
+  .hl-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:30px}
+  .hl{background:#f7f7f7;border-left:4px solid #FFC500;padding:16px 18px}
+  .hl b{display:block;font-size:24px;font-weight:900;color:#111;line-height:1.1;margin-bottom:5px}
+  .hl span{font-size:11.5px;color:#777;line-height:1.5;display:block}
+  .prof{display:flex;gap:18px;align-items:center;background:#111;padding:22px 24px;border-radius:6px;margin:8px 0 28px}
+  .prof img{width:92px;height:92px;object-fit:cover;border-radius:50%;flex-shrink:0;border:3px solid #FFC500}
+  .prof-n{color:#fff;font-size:16px;font-weight:800;margin-bottom:4px}
+  .prof-t{color:#FFC500;font-size:11.5px;font-weight:700;margin-bottom:7px}
+  .prof-d{color:rgba(255,255,255,.6);font-size:11.5px;line-height:1.6}
+  .cta{background:#FFC500;padding:28px 32px;margin:6px 0 0}
+  .cta h4{font-size:17px;font-weight:900;color:#000;margin-bottom:8px}
+  .cta p{font-size:13px;color:#333;line-height:1.7;margin-bottom:16px}
+  .btn{display:inline-block;background:#000;color:#FFC500;padding:12px 26px;font-size:13.5px;font-weight:800;text-decoration:none;letter-spacing:.04em}
+  .btn:hover{background:#222}
+  .vid{position:relative;width:100%;padding-top:56.25%;background:#000}
+  .vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .srcbox{background:#fafafa;border-top:3px solid #111;padding:22px 38px 26px}
+  .srcbox h5{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#888;margin-bottom:10px}
+  .srcbox li{font-size:11.5px;color:#777;line-height:1.75;margin-left:16px}
+  .ftr{background:#000;padding:24px 38px;color:rgba(255,255,255,.5);font-size:11.5px;line-height:1.7}
+  .ftr a{color:#FFC500;text-decoration:none}
+  @media(max-width:620px){.hero-title{font-size:21px}.body{padding:26px 22px 0}.hl-grid{grid-template-columns:1fr}.prof{flex-direction:column;text-align:center}.langbar{padding:8px 22px}}
+</style>
+<script src="analytics.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hdr">
+    <a href="index.html" class="hdr-logo"><img src="images/markforged-logo-white.png" alt="Markforged"></a>
+    <div class="hdr-ev">Greater China Media Hub<br>News &amp; Insights</div>
+  </div>
+
+  <div class="langbar"><span>Language</span><a href="sidus-satellite.html">繁體中文</a><a href="sidus-satellite-sc.html">简体中文</a><a href="sidus-satellite-en.html" class="on">English</a></div>
+
+  <div class="hero">
+    <img src="images/sidus-leo-orbit.jpg" alt="Satellites operating in low Earth orbit">
+    <div class="hero-ov"></div>
+    <div class="hero-top">
+      <div class="hero-kicker">Case Study · LEO Satellites</div>
+      <div class="hero-title">The structure of this LEO satellite was 3D printed</div>
+    </div>
+    <div class="hero-btm"><div class="hero-meta">Sidus Space × Markforged | LizzieSat | 2026.09.16</div></div>
+  </div>
+
+  <div class="ds"><div class="ds-l">Three LizzieSats already operating in LEO</div><div class="ds-r">Next on SpaceX Transporter-18, no earlier than October 2026</div></div>
+
+  <div class="body">
+
+    <div class="lead">LEO satellites are one of the most crowded races in manufacturing right now. Supply chains are forming across Taiwan, China and Vietnam, but most of the conversation stops at communications payloads and ground equipment. Far less of it asks <strong>how the satellite's own structure gets built</strong>.<br><br>US satellite manufacturer Sidus Space has a concrete answer: print the entire structure in continuous carbon fiber and Onyx. And it is not an experiment — LizzieSat-1, -2 and -3 are already operating in low Earth orbit.</div>
+
+    <div class="qb"><p>“I don't think we would be doing this if it wasn't for Markforged, honestly.”</p><small>Carol Craig | Founder and CEO, Sidus Space</small></div>
+
+    <div class="prof">
+      <img src="brian-chen.jpg" alt="Brian Chen">
+      <div><div class="prof-n">Brian Chen</div><div class="prof-t">Country Manager, Greater China and Vietnam, Markforged</div><div class="prof-d">Responsible for Markforged across Taiwan, China, Hong Kong and Vietnam, working with manufacturers in aerospace, defence and precision manufacturing.</div></div>
+    </div>
+
+    <div class="tags"><span class="tag">LEO Satellites</span><span class="tag">Continuous Carbon Fiber</span><span class="tag ol">Onyx FR-A</span><span class="tag ol">Aerospace</span><span class="tag ol">Lightweighting</span></div>
+
+    <div class="sec">
+      <h2>Why satellite structures are hard</h2>
+      <h3>The whole satellite must stay under 100 kg — and every gram out of the structure is a gram of payload in</h3>
+      <p>The mass budget is hard-capped. Batteries, computers and the rest of the bus already consume most of it, leaving very little for structure. Sidus Space's design engineer explains in the film that their approach is not only to make parts lighter but to change the structure itself — every gram taken out becomes a gram of payload.</p>
+      <p>And neither launch nor orbit is forgiving: 5 g of load at launch, then solar radiation and severe temperature swings between the sunlit and shadowed sides.</p>
+      <div class="hl-grid">
+        <div class="hl"><b>3 IN ORBIT</b><span>LizzieSat-1, -2 and -3 are operating in LEO; the next is on SpaceX Transporter-18, NET October 2026 from Vandenberg</span></div>
+        <div class="hl"><b>STRENGTH ≈ ALUMINIUM</b><span>Continuous carbon fiber runs through the entire structure — their words: strength similar to aluminum</span></div>
+      </div>
+    </div>
+
+    <div class="ph-full"><img src="images/sidus-onyx-iss-experiment.jpg" alt="Sample holders printed in Onyx, mounted in the materials exposure experiment flown to the International Space Station"></div>
+    <div class="cap">Sample holders rapid-prototyped in Onyx, flown on a materials exposure experiment to the ISS. Image: Markforged</div>
+
+    <div class="sec">
+      <h2>The evidence came first</h2>
+      <h3>A year outside the ISS — and the parts came back indistinguishable from new</h3>
+      <p>Before LizzieSat, Sidus Space built a flight test platform: sample holders rapid-prototyped in Onyx, flown on a materials exposure experiment to the ISS, then brought back down and inspected.</p>
+      <p>The exposure was planned for about 15 weeks; it ran a full year. White control parts in the same batch degraded visibly under the sun. The Onyx parts showed no degradation at all.</p>
+      <p>Tony Boschi, Sidus Space's Lead Design Checker, describes what came back: “There's no difference between a part that's just come off the machine and what's been out in space for a year.”</p>
+      <div class="hl-grid">
+        <div class="hl"><b>365 DAYS</b><span>An exposure planned for roughly 15 weeks ran a full year outside the ISS</span></div>
+        <div class="hl"><b>NO DEGRADATION</b><span>White control parts in the same batch degraded visibly; the Onyx parts did not</span></div>
+      </div>
+      <p>That result is why LizzieSat uses Markforged as its structural base. The order matters: flight evidence first, satellite second.</p>
+    </div>
+
+    <div class="ph-2col">
+      <img class="gi gi-43" src="images/sidus-satellite-assembly.jpg" alt="A satellite payload module during assembly, built on printed structure">
+      <img class="gi gi-43" src="images/sidus-printed-structure.jpg" alt="Close-up of a metal insert in a printed structural part">
+    </div>
+    <div class="cap">Left: payload module assembly. Right: a metal insert in a printed structural part. Images: Markforged</div>
+
+    <div class="sec">
+      <h2>Why printing, not machining</h2>
+      <h3>Some geometry cannot be machined — and a design change turns into parts the next day</h3>
+      <p>To take the weight of screws out of the assembly, Sidus Space designed the fastening feature into the structure itself: the part drops into a slot, locks in place, and cannot be pulled apart afterwards. As explained in the film, one end of that feature could be machined — the other end could never be — and the printed parts hit the required tolerance every time.</p>
+      <p>Speed is the second reason. In aluminium, one design change has to pass through redesign, machining and assembly. Printed, the change is reprinted the same day and there are brand-new parts the next.</p>
+      <div class="hl-grid">
+        <div class="hl"><b>THINNER THAN PAPER</b><span>The locking design's tolerance window: a few thousandths of an inch off and it comes apart</span></div>
+        <div class="hl"><b>ONE DAY</b><span>From design change to brand-new parts in hand</span></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <h2>Material traceability</h2>
+      <h3>Aerospace and defence buyers need more than strength — they need to trace the material back</h3>
+      <p>Sidus Space now prints with Onyx FR, a fire retardant material, and also uses Onyx FR-A. The A designation carries full material traceability — stated plainly in the film as a hard requirement at many companies. If a crack or shear appears where the analysis said it should not, the material's production history can be traced back, the cause found and corrected.</p>
+      <p>Worth noting alongside this: Onyx FR-A and Carbon Fiber FR-A are NCAMP qualified on the Markforged X7, which gives manufacturers working through aerospace qualification an existing path.</p>
+    </div>
+
+    <div class="vid"><iframe src="https://www.youtube.com/embed/QQLlK5pETtA" title="Markforged official film: We 3D Printed a Satellite with Sidus Space" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+    <div class="cap">The official Markforged film (7:50). We have also produced a 4:12 highlights cut with burned-in subtitles: <a href="https://drive.google.com/file/d/1aqlqCfCoqD32d3k1uVY8gv0qMUa_Cw5D/view">Traditional Chinese</a> · <a href="https://drive.google.com/file/d/173ImdF_fv3M1Kpm6f4tBT2iC5IM80Igx/view">Simplified Chinese</a> · <a href="https://drive.google.com/file/d/1GkDlACC91STyimQfGBwiboOnvXc-xPF9/view">English</a></div>
+
+  </div>
+
+  <div class="cta">
+    <h4>Bring this path into your programme</h4>
+    <p>For LEO satellites, UAVs or any structure under hard mass and environmental constraints, we can walk your team through material selection, qualification paths and adoption.</p>
+    <a href="https://mfmk.markforged.tw" class="btn">Contact us</a>
+  </div>
+
+  <div class="srcbox">
+    <h5>Sources</h5>
+    <ul><li>Markforged official film, We 3D Printed a Satellite with Sidus Space. (published 2023). Both direct quotations in this article are verbatim from that film.</li><li>In-orbit status and the upcoming launch are from Sidus Space investor announcements (verified September 2026): LizzieSat-1 in March 2024, LizzieSat-2 in December 2024 and LizzieSat-3 on 14 March 2025 aboard SpaceX Transporter-13 from Vandenberg; the next is manifested on SpaceX Transporter-18, no earlier than October 2026.</li><li>The launch timing mentioned in the film reflects information at the time of publication and is superseded by the in-orbit status above.</li><li>NCAMP qualification status for Onyx FR-A and Carbon Fiber FR-A is from Markforged material documentation.</li><li>All images in this article are frames from the official Markforged film.</li></ul>
+  </div>
+
+  <div class="ftr">
+    Markforged builds industrial additive manufacturing systems and continuous fiber composites for aerospace, defence, automotive and precision manufacturing. Published by the Markforged Greater China Media Hub.<br><br>
+    <a href="index.html">Back to the Media Hub</a>　·　<a href="https://markforged.tw">markforged.tw</a>
+  </div>
+
+</div>
+</body>
+</html>
