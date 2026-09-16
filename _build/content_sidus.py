@@ -27,7 +27,11 @@ LANGS = ("tw", "cn", "en")
 V_TW = "https://drive.google.com/file/d/1aqlqCfCoqD32d3k1uVY8gv0qMUa_Cw5D/view"
 V_SC = "https://drive.google.com/file/d/173ImdF_fv3M1Kpm6f4tBT2iC5IM80Igx/view"
 V_EN = "https://drive.google.com/file/d/1GkDlACC91STyimQfGBwiboOnvXc-xPF9/view"
-YT = "https://www.youtube.com/embed/QQLlK5pETtA"
+YT_WATCH = "https://youtu.be/QQLlK5pETtA"
+# Drive 內嵌播放器（檔案已設 anyone/reader，可直接在頁面播放）
+E_TW = "https://drive.google.com/file/d/1aqlqCfCoqD32d3k1uVY8gv0qMUa_Cw5D/preview"
+E_SC = "https://drive.google.com/file/d/173ImdF_fv3M1Kpm6f4tBT2iC5IM80Igx/preview"
+E_EN = "https://drive.google.com/file/d/1GkDlACC91STyimQfGBwiboOnvXc-xPF9/preview"
 
 META = {
     "lang_attr": {"tw": "zh-TW", "cn": "zh-CN", "en": "en"},
@@ -37,9 +41,9 @@ META = {
     "hero": "images/sidus-leo-orbit.jpg",
     "og_image": "https://news.markforged.tw/images/sidus-leo-orbit.jpg",
     "title": {
-        "tw": "低軌衛星的結構是印出來的：Sidus Space 與 Markforged 的 LizzieSat — Markforged",
-        "cn": "低轨卫星的结构是打印出来的：Sidus Space 与 Markforged 的 LizzieSat — Markforged",
-        "en": "A LEO satellite with a 3D printed structure: Sidus Space's LizzieSat — Markforged",
+        "tw": "我們 3D 列印了一顆衛星：Sidus Space 的低軌衛星 LizzieSat — Markforged",
+        "cn": "我们 3D 打印了一颗卫星：Sidus Space 的低轨卫星 LizzieSat — Markforged",
+        "en": "We 3D Printed a Satellite: Sidus Space's LEO satellite LizzieSat — Markforged",
     },
     "desc": {
         "tw": "三顆 LizzieSat 已在低軌運行。Sidus Space 用連續碳纖維與 Onyx 印出整顆衛星的結構，"
@@ -51,9 +55,9 @@ META = {
               "a year outside the International Space Station with no degradation.",
     },
     "og_title": {
-        "tw": "低軌衛星的結構是印出來的：Sidus Space 的 LizzieSat",
-        "cn": "低轨卫星的结构是打印出来的：Sidus Space 的 LizzieSat",
-        "en": "A LEO satellite with a 3D printed structure: Sidus Space's LizzieSat",
+        "tw": "我們 3D 列印了一顆衛星：Sidus Space 的低軌衛星 LizzieSat",
+        "cn": "我们 3D 打印了一颗卫星：Sidus Space 的低轨卫星 LizzieSat",
+        "en": "We 3D Printed a Satellite: Sidus Space's LEO satellite LizzieSat",
     },
     "og_desc": {
         "tw": "材料在國際太空站外部掛了一年，取回後與剛下機台的件看不出差別。",
@@ -75,9 +79,9 @@ UI = {
     "hero_kicker": {"tw": "產業案例 · 低軌衛星", "cn": "产业案例 · 低轨卫星",
                     "en": "Case Study · LEO Satellites"},
     "hero_title": {
-        "tw": "低軌衛星的結構，是印出來的",
-        "cn": "低轨卫星的结构，是打印出来的",
-        "en": "The structure of this LEO satellite was 3D printed"},
+        "tw": "我們 3D 列印了一顆衛星",
+        "cn": "我们 3D 打印了一颗卫星",
+        "en": "We 3D Printed a Satellite"},
     "hero_meta": {
         "tw": "Sidus Space × Markforged ｜ LizzieSat ｜ 2026.09.16",
         "cn": "Sidus Space × Markforged ｜ LizzieSat ｜ 2026.09.16",
@@ -340,20 +344,22 @@ BLOCKS = [
     },
     {
         "kind": "video",
-        "src": YT,
-        "alt": {"tw": "Markforged 官方影片：與 Sidus Space 一起 3D 列印一顆衛星",
-                "cn": "Markforged 官方视频：与 Sidus Space 一起 3D 打印一颗卫星",
-                "en": "Markforged official film: We 3D Printed a Satellite with Sidus Space"},
+        # 主播放器＝我方三語字幕精華版，每個語言頁播自己那一支
+        "src": {"tw": E_TW, "cn": E_SC, "en": E_EN},
+        "alt": {"tw": "Markforged × Sidus Space 精華版影片，繁體中文字幕",
+                "cn": "Markforged × Sidus Space 精华版视频，简体中文字幕",
+                "en": "Markforged × Sidus Space highlights film with English subtitles"},
         "cap": {
-            "tw": "Markforged 官方影片（英語發音，7:50）。我們另製作 4 分 12 秒精華版，"
-                  f"附燒錄字幕：<a href=\"{V_TW}\">繁體中文</a>　·　"
-                  f"<a href=\"{V_SC}\">簡體中文</a>　·　<a href=\"{V_EN}\">English</a>",
-            "cn": "Markforged 官方视频（英语发音，7:50）。我们另制作 4 分 12 秒精华版，"
-                  f"附烧录字幕：<a href=\"{V_TW}\">繁体中文</a>　·　"
-                  f"<a href=\"{V_SC}\">简体中文</a>　·　<a href=\"{V_EN}\">English</a>",
-            "en": "The official Markforged film (7:50). We have also produced a 4:12 highlights cut "
-                  f"with burned-in subtitles: <a href=\"{V_TW}\">Traditional Chinese</a> · "
-                  f"<a href=\"{V_SC}\">Simplified Chinese</a> · <a href=\"{V_EN}\">English</a>",
+            "tw": "精華版 4 分 12 秒，繁體中文字幕（本頁版本）。"
+                  f"其他語言：<a href=\"{V_SC}\">簡體中文</a>　·　<a href=\"{V_EN}\">English</a>　"
+                  f"｜　原始完整影片 7 分 50 秒（英語）：<a href=\"{YT_WATCH}\">Markforged 官方頻道</a>",
+            "cn": "精华版 4 分 12 秒，简体中文字幕（本页版本）。"
+                  f"其他语言：<a href=\"{V_TW}\">繁体中文</a>　·　<a href=\"{V_EN}\">English</a>　"
+                  f"｜　原始完整视频 7 分 50 秒（英语）：<a href=\"{YT_WATCH}\">Markforged 官方频道</a>",
+            "en": "The 4:12 highlights cut with English subtitles (this page's version). "
+                  f"Other languages: <a href=\"{V_TW}\">Traditional Chinese</a> · "
+                  f"<a href=\"{V_SC}\">Simplified Chinese</a> | "
+                  f"Full original film, 7:50: <a href=\"{YT_WATCH}\">Markforged official channel</a>",
         },
     },
 ]
