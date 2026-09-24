@@ -9,6 +9,7 @@
   G4 簡繁殘留 簡中版不得出現繁體專用字（用對照表偵測）
   G5 冒名引言 引號內每一段必須在核准白名單裡
   G6 原稿覆蓋 來源 md 的硬 token 必須全數落地，刻意不落地須具名豁免＋理由
+  G7 照片重複 感知雜湊比對，同一個畫面的不同版本不得同頁並用
 """
 import os
 import re
@@ -99,6 +100,8 @@ STYLE = """
   .quotes{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:4px 0 30px}
   .qc{background:#111;padding:22px 22px 20px;border-top:4px solid #FFFF00;display:flex;flex-direction:column}
   .qc p{color:#fff;font-size:13.5px;line-height:1.78;margin:0 0 16px;flex:1}
+  .qc-who{display:flex;gap:12px;align-items:center}
+  .qc-who img{width:54px;height:54px;object-fit:cover;border-radius:50%;flex-shrink:0;border:2px solid #FFFF00}
   .qc-n{color:#FFFF00;font-size:12.5px;font-weight:800;line-height:1.4;margin-bottom:3px}
   .qc-t{color:rgba(255,255,255,.5);font-size:10.5px;line-height:1.55}
   /* ── 活動資料 fact sheet ── */
@@ -181,15 +184,19 @@ def render(lang):
       f'<div class="ds-r">{t(UI["ds_r"], lang, "ds_r")}</div></div>\n')
 
     A('  <div class="body">\n')
-    A(f'    <div class="lead">{t(LEAD["p1"], lang, "lead.p1")}<br><br>{t(LEAD["p2"], lang, "lead.p2")}</div>\n')
+    _lead = [t(LEAD["p1"], lang, "lead.p1")]
+    if LEAD.get("p2"):
+        _lead.append(t(LEAD["p2"], lang, "lead.p2"))
+    A('    <div class="lead">' + "<br><br>".join(_lead) + '</div>\n')
     A(f'    <div class="qb"><p>{t(QUOTE["text"], lang, "quote")}</p>'
       f'<small>{t(QUOTE["attr"], lang, "quote.attr")}</small></div>\n')
-    A('    <div class="prof">')
-    A(f'      <img src="brian-chen.jpg" alt="{t(PROF["alt"], lang, "prof.alt")}">')
-    A(f'      <div><div class="prof-n">{t(PROF["name"], lang, "prof.name")}</div>'
-      f'<div class="prof-t">{t(PROF["title"], lang, "prof.title")}</div>'
-      f'<div class="prof-d">{t(PROF["desc"], lang, "prof.desc")}</div></div>')
-    A('    </div>\n')
+    if PROF:   # 具名觀點文才掛作者卡；活動報導裡 Brian 是消息來源，不是作者
+        A('    <div class="prof">')
+        A(f'      <img src="brian-chen.jpg" alt="{t(PROF["alt"], lang, "prof.alt")}">')
+        A(f'      <div><div class="prof-n">{t(PROF["name"], lang, "prof.name")}</div>'
+          f'<div class="prof-t">{t(PROF["title"], lang, "prof.title")}</div>'
+          f'<div class="prof-d">{t(PROF["desc"], lang, "prof.desc")}</div></div>')
+        A('    </div>\n')
     A('    <div class="tags">' + "".join(
         f'<span class="tag{"" if g["solid"] else " ol"}">{t(g, lang, "tag")}</span>' for g in TAGS)
       + '</div>\n')
@@ -225,8 +232,12 @@ def render(lang):
             for k, q in enumerate(b["items"]):
                 A('      <div class="qc">')
                 A(f'        <p>{t(q["text"], lang, f"blk{i}.q{k}.text")}</p>')
-                A(f'        <div class="qc-n">{t(q["name"], lang, f"blk{i}.q{k}.name")}</div>')
-                A(f'        <div class="qc-t">{t(q["title"], lang, f"blk{i}.q{k}.title")}</div>')
+                A('        <div class="qc-who">')
+                if q.get("img"):
+                    A(f'          <img src="{q["img"]}" alt="{t(q["alt"], lang, f"blk{i}.q{k}.alt")}">')
+                A(f'          <div><div class="qc-n">{t(q["name"], lang, f"blk{i}.q{k}.name")}</div>'
+                  f'<div class="qc-t">{t(q["title"], lang, f"blk{i}.q{k}.title")}</div></div>')
+                A('        </div>')
                 A('      </div>')
             A('    </div>\n')
         elif b["kind"] == "factsheet":
@@ -304,13 +315,14 @@ def main():
                  out[L].count('class="hl"'), out[L].count("<li>"),
                  out[L].count('class="cap"'), out[L].count('class="qc"'),
                  out[L].count('class="fs-row"'), out[L].count('class="ab"'),
-                 out[L].count('class="mc"'), out[L].count('class="endmark"'))
+                 out[L].count('class="mc"'), out[L].count('class="endmark"'),
+                 out[L].count('class="qc-who"'))
              for L in LANGS}
     if len(set(shape.values())) != 1:
         for L in LANGS:
-            print(f"   {L}: sec/img/hl/li/cap/qc/fs/ab/mc/end = {shape[L]}")
+            print(f"   {L}: sec/img/hl/li/cap/qc/fs/ab/mc/end/who = {shape[L]}")
         sys.exit("✗ G2 結構同形閘：三版結構不一致")
-    print(f"  ✅ G2 結構同形：sec/img/hl/li/cap/qc/fs/ab/mc/end = {shape['tw']}（三版一致）")
+    print(f"  ✅ G2 結構同形：sec/img/hl/li/cap/qc/fs/ab/mc/end/who = {shape['tw']}（三版一致）")
 
     # G3 英文純度
     cjk = re.findall(r"[一-鿿　-〿＀-￯]", text_of(out["en"]))
@@ -373,7 +385,45 @@ def main():
         print(f"  ✅ G6 原稿覆蓋率：來源 {len(tokens)} 項硬 token 全數落在繁中版"
               + (f"（豁免 {len(COVERAGE_EXEMPT)} 項，已具名列出理由）" if COVERAGE_EXEMPT else ""))
 
-    print("\n✅ 六道閘全綠")
+    # ── G7 照片重複閘 ───────────────────────────────────────────────────────
+    # 2026-09-24 Brian 親糾：「照片你重複用了你知道嗎？」—— 同一場大合照的「專業版」與
+    # 「現場版」是兩個檔名、兩個 md5，但肉眼就是同一個畫面。檔名去重擋不住這種重複，
+    # 所以用感知雜湊（16x16 平均雜湊 · 256 bit）量「看起來像不像」。
+    # 閾值 60：實測同一畫面 1 與 41，最近的不同畫面 91 —— 中間留了 30 bit 的餘裕。
+    try:
+        from PIL import Image
+    except ImportError:
+        sys.exit("✗ G7 照片重複閘：缺 Pillow，無法驗證照片是否重複（閘壞掉一律紅燈，不跳過）")
+
+    def _ahash(path, n=16):
+        im = Image.open(path).convert("L").resize((n, n), Image.LANCZOS)
+        px = list(im.getdata()); avg = sum(px) / len(px)
+        return sum(1 << i for i, v in enumerate(px) if v > avg)
+
+    srcs = [m for m in re.findall(r'<img[^>]+src="([^"]+)"', out["tw"])
+            if "logo" not in m.lower()]
+    dupes = [x for x in set(srcs) if srcs.count(x) > 1]
+    if dupes:
+        sys.exit(f"✗ G7 照片重複閘：同一個檔在頁面上出現多次 —— {' | '.join(dupes)}")
+    hashes = {}
+    for rel in srcs:
+        f = os.path.join(OUT_DIR, rel)
+        if not os.path.exists(f):
+            sys.exit(f"✗ G7 照片重複閘：圖檔不存在 {rel}（圖掉了不會有錯誤訊息，所以在這裡擋）")
+        hashes[rel] = _ahash(f)
+    near = []
+    keys = list(hashes)
+    for i2 in range(len(keys)):
+        for j2 in range(i2 + 1, len(keys)):
+            d = bin(hashes[keys[i2]] ^ hashes[keys[j2]]).count("1")
+            if d <= 60:
+                near.append(f"{keys[i2]} ≈ {keys[j2]}（距離 {d}）")
+    if near:
+        sys.exit("✗ G7 照片重複閘：以下是同一個畫面的不同版本，不得同頁並用 —— "
+                 + " | ".join(near))
+    print(f"  ✅ G7 照片重複：{len(srcs)} 張內容照片，互不重複（最近感知距離已驗 > 60）")
+
+    print("\n✅ 七道閘全綠")
 
 
 if __name__ == "__main__":
