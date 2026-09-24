@@ -628,3 +628,17 @@ DOC_TERMS = ["Markforged", "Unotech", "壹科技", "壹科技有限公司", "Uno
              "Onyx", "FX10", "Eiger", "Kevlar", "CFR", "Continuous Fiber Reinforcement",
              "HKPC", "Inno Network", "PolyU", "U3DP", "Red Dot", "spacer fabric",
              "Design Concept", "STL", "NDA", "6061-T6", "ABS"]
+
+# ── G6 原稿覆蓋率閘的兩個宣告 ────────────────────────────────────────────────
+# 2026-09-24 事故：網頁版靜默砍掉原稿五個段落（含壹科技唯一一段引言、傳媒查詢），
+# 而五道閘全綠 —— 因為它們量的是「三個語版彼此對齊」，沒有一道量「對齊事實來源」。
+SOURCE_MD = ("/Users/brian/Library/Mobile Documents/iCloud~md~obsidian/Documents/MF-GCR/"
+             "84_Media-PR/Unotech-HK-Launch-2026-09/"
+             "Markforged-Unotech-HK發布會_活動報導稿_繁中_v1_2026-09-24.md")
+
+# 來源稿有、網頁版刻意不出現的 token —— 每一條都要寫得出理由，否則就是漏稿。
+COVERAGE_EXEMPT = {
+    "Additive Manufacturing": "繁中版依 Brian 2026-09-24 指示走台灣專業用語「積層製造」，不附英文對照；"
+                              "英文版本身即為 additive manufacturing。",
+    "Red Dot": "繁中版寫「德國紅點設計獎」（台灣通用譯名）；英文版保留 Red Dot Award。",
+}
