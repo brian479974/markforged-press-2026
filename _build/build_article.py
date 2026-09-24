@@ -7,6 +7,8 @@
   G2 結構同形 三版的區塊數、圖片數、highlight 數必須一致（GATE-9 的 HTML 版）
   G3 英文純度 英文版文字層不得出現任何 CJK（品牌名例外由白名單控管）
   G4 簡繁殘留 簡中版不得出現繁體專用字（用對照表偵測）
+  G5 冒名引言 引號內每一段必須在核准白名單裡
+  G6 原稿覆蓋 來源 md 的硬 token 必須全數落地，刻意不落地須具名豁免＋理由
 """
 import os
 import re
@@ -17,6 +19,8 @@ import importlib  # noqa: E402
 # 一支產生器服務多篇文章：ARTICLE_CONTENT 指定內容源，預設 content（既有廣編稿）
 _C = importlib.import_module(os.environ.get("ARTICLE_CONTENT", "content"))
 META, UI, LEAD, QUOTE, PROF = _C.META, _C.UI, _C.LEAD, _C.QUOTE, _C.PROF
+SOURCE_MD = getattr(_C, "SOURCE_MD", None)
+COVERAGE_EXEMPT = getattr(_C, "COVERAGE_EXEMPT", {})
 TAGS, BLOCKS, CTA, SRC, FTR = _C.TAGS, _C.BLOCKS, _C.CTA, _C.SRC, _C.FTR
 LANGS, APPROVED_QUOTES, DOC_TERMS = _C.LANGS, _C.APPROVED_QUOTES, _C.DOC_TERMS
 
@@ -39,31 +43,31 @@ STYLE = """
   .langbar{background:#111;padding:8px 40px;display:flex;gap:6px;align-items:center;border-top:1px solid #222}
   .langbar span{color:#666;font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-right:4px}
   .langbar a{font-size:11.5px;font-weight:700;color:#888;text-decoration:none;padding:3px 10px;border-radius:20px;border:1px solid #333}
-  .langbar a:hover{color:#FFC500;border-color:#FFC500}
-  .langbar a.on{background:#FFC500;color:#000;border-color:#FFC500}
+  .langbar a:hover{color:#FFFF00;border-color:#FFFF00}
+  .langbar a.on{background:#FFFF00;color:#000;border-color:#FFFF00}
   .hero{position:relative;overflow:hidden}
   .hero img{width:100%;display:block}
   .hero-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.68) 0%,rgba(0,0,0,.15) 50%,rgba(0,0,0,.72) 100%)}
   .hero-top{position:absolute;top:0;left:0;right:0;padding:28px 38px}
-  .hero-kicker{color:#FFC500;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px}
+  .hero-kicker{color:#FFFF00;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px}
   .hero-title{color:#fff;font-size:26px;font-weight:900;line-height:1.28;max-width:540px;text-shadow:0 2px 12px rgba(0,0,0,.5)}
   .hero-btm{position:absolute;bottom:0;left:0;right:0;padding:16px 38px;background:linear-gradient(transparent,rgba(0,0,0,.75))}
   .hero-meta{color:rgba(255,255,255,.85);font-size:12px;letter-spacing:.04em}
-  .ds{background:#FFC500;padding:10px 38px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}
+  .ds{background:#FFFF00;padding:10px 38px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}
   .ds-l{font-size:12.5px;font-weight:700;color:#000}
   .ds-r{font-size:11.5px;color:#333}
   .body{padding:36px 38px 0}
   .lead{font-size:16px;line-height:1.82;color:#222;margin-bottom:24px;padding-bottom:24px;border-bottom:2px solid #f0f0f0}
   .qb{margin:6px 0 26px;padding:20px 24px;background:#000;border-radius:6px}
-  .qb p{color:#FFC500;font-size:18px;font-weight:800;line-height:1.45;margin-bottom:5px}
+  .qb p{color:#FFFF00;font-size:18px;font-weight:800;line-height:1.45;margin-bottom:5px}
   .qb small{color:rgba(255,255,255,.45);font-size:10.5px;letter-spacing:.07em}
   .sec{margin-bottom:30px}
-  h2{font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#FFC500;margin-bottom:12px;padding-left:11px;border-left:4px solid #FFC500}
+  h2{font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#111;margin-bottom:12px;padding-left:11px;border-left:4px solid #FFFF00}
   h3{font-size:18px;font-weight:800;color:#111;margin-bottom:12px;line-height:1.32}
   p{font-size:14.5px;line-height:1.82;color:#333;margin-bottom:14px}
   strong{color:#111}
   .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
-  .tag{background:#111;color:#FFC500;font-size:10px;font-weight:700;letter-spacing:.07em;padding:4px 10px;border-radius:30px}
+  .tag{background:#111;color:#FFFF00;font-size:10px;font-weight:700;letter-spacing:.07em;padding:4px 10px;border-radius:30px}
   .tag.ol{background:#fff;color:#666;border:1.5px solid #ddd}
   .ph-full img{width:100%;display:block}
   .ph-2col{display:grid;grid-template-columns:1fr 1fr;gap:3px}
@@ -71,18 +75,18 @@ STYLE = """
   .gi-43{aspect-ratio:4/3}
   .cap{font-size:11px;color:#aaa;text-align:center;padding:8px 38px 22px;border-bottom:1px solid #eee;margin-bottom:26px;line-height:1.55}
   .hl-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:30px}
-  .hl{background:#f7f7f7;border-left:4px solid #FFC500;padding:16px 18px}
+  .hl{background:#f7f7f7;border-left:4px solid #FFFF00;padding:16px 18px}
   .hl b{display:block;font-size:24px;font-weight:900;color:#111;line-height:1.1;margin-bottom:5px}
   .hl span{font-size:11.5px;color:#777;line-height:1.5;display:block}
   .prof{display:flex;gap:18px;align-items:center;background:#111;padding:22px 24px;border-radius:6px;margin:8px 0 28px}
-  .prof img{width:92px;height:92px;object-fit:cover;border-radius:50%;flex-shrink:0;border:3px solid #FFC500}
+  .prof img{width:92px;height:92px;object-fit:cover;border-radius:50%;flex-shrink:0;border:3px solid #FFFF00}
   .prof-n{color:#fff;font-size:16px;font-weight:800;margin-bottom:4px}
-  .prof-t{color:#FFC500;font-size:11.5px;font-weight:700;margin-bottom:7px}
+  .prof-t{color:#FFFF00;font-size:11.5px;font-weight:700;margin-bottom:7px}
   .prof-d{color:rgba(255,255,255,.6);font-size:11.5px;line-height:1.6}
-  .cta{background:#FFC500;padding:28px 32px;margin:6px 0 0}
+  .cta{background:#FFFF00;padding:28px 32px;margin:6px 0 0}
   .cta h4{font-size:17px;font-weight:900;color:#000;margin-bottom:8px}
   .cta p{font-size:13px;color:#333;line-height:1.7;margin-bottom:16px}
-  .btn{display:inline-block;background:#000;color:#FFC500;padding:12px 26px;font-size:13.5px;font-weight:800;text-decoration:none;letter-spacing:.04em}
+  .btn{display:inline-block;background:#000;color:#FFFF00;padding:12px 26px;font-size:13.5px;font-weight:800;text-decoration:none;letter-spacing:.04em}
   .btn:hover{background:#222}
   .vid{position:relative;width:100%;padding-top:56.25%;background:#000}
   .vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
@@ -90,8 +94,33 @@ STYLE = """
   .srcbox h5{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#888;margin-bottom:10px}
   .srcbox li{font-size:11.5px;color:#777;line-height:1.75;margin-left:16px}
   .ftr{background:#000;padding:24px 38px;color:rgba(255,255,255,.5);font-size:11.5px;line-height:1.7}
-  .ftr a{color:#FFC500;text-decoration:none}
-  @media(max-width:620px){.hero-title{font-size:21px}.body{padding:26px 22px 0}.hl-grid{grid-template-columns:1fr}.prof{flex-direction:column;text-align:center}.langbar{padding:8px 22px}}
+  .ftr a{color:#FFFF00;text-decoration:none}
+  /* ── 雙方表述：官方引言雙卡 ── */
+  .quotes{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:4px 0 30px}
+  .qc{background:#111;padding:22px 22px 20px;border-top:4px solid #FFFF00;display:flex;flex-direction:column}
+  .qc p{color:#fff;font-size:13.5px;line-height:1.78;margin:0 0 16px;flex:1}
+  .qc-n{color:#FFFF00;font-size:12.5px;font-weight:800;line-height:1.4;margin-bottom:3px}
+  .qc-t{color:rgba(255,255,255,.5);font-size:10.5px;line-height:1.55}
+  /* ── 活動資料 fact sheet ── */
+  .fs{border-top:3px solid #111;margin:4px 0 8px}
+  .fs-h{font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#111;padding:14px 0 10px}
+  .fs-row{display:flex;gap:18px;padding:10px 0;border-top:1px solid #f0f0f0}
+  .fs-k{flex:0 0 92px;font-size:11px;font-weight:700;color:#999;letter-spacing:.05em;line-height:1.75;text-transform:uppercase}
+  .fs-v{font-size:13.5px;color:#222;line-height:1.75}
+  /* ── 完稿記號（通訊社慣例）── */
+  .endmark{text-align:center;letter-spacing:.4em;color:#c4c4c4;font-size:11px;font-weight:700;padding:22px 0 24px}
+  /* ── 關於雙方 ── */
+  .about{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 14px}
+  .ab{background:#fafafa;border-top:4px solid #111;padding:18px 20px}
+  .ab h6{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#999;margin-bottom:9px}
+  .ab p{font-size:11.5px;line-height:1.8;color:#555;margin:0}
+  /* ── 傳媒查詢 ── */
+  .mc{background:#111;padding:20px 24px;margin:0 0 4px}
+  .mc h6{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#FFFF00;margin-bottom:10px}
+  .mc-o{color:#fff;font-size:13px;font-weight:800;margin-bottom:7px}
+  .mc p{color:rgba(255,255,255,.6);font-size:11.5px;line-height:1.9;margin:0}
+  .mc a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.28)}
+  @media(max-width:620px){.hero-title{font-size:21px}.body{padding:26px 22px 0}.hl-grid{grid-template-columns:1fr}.quotes{grid-template-columns:1fr}.about{grid-template-columns:1fr}.prof{flex-direction:column;text-align:center}.langbar{padding:8px 22px}}
 """
 
 LANG_NAMES = {"tw": "繁體中文", "cn": "简体中文", "en": "English"}
@@ -191,6 +220,38 @@ def render(lang):
               'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; '
               'picture-in-picture" allowfullscreen></iframe></div>')
             A(f'    <div class="cap">{t(b["cap"], lang, f"blk{i}.cap")}</div>\n')
+        elif b["kind"] == "quotes":
+            A('    <div class="quotes">')
+            for k, q in enumerate(b["items"]):
+                A('      <div class="qc">')
+                A(f'        <p>{t(q["text"], lang, f"blk{i}.q{k}.text")}</p>')
+                A(f'        <div class="qc-n">{t(q["name"], lang, f"blk{i}.q{k}.name")}</div>')
+                A(f'        <div class="qc-t">{t(q["title"], lang, f"blk{i}.q{k}.title")}</div>')
+                A('      </div>')
+            A('    </div>\n')
+        elif b["kind"] == "factsheet":
+            A('    <div class="fs">')
+            A(f'      <div class="fs-h">{t(b["h"], lang, f"blk{i}.fs.h")}</div>')
+            for k, r in enumerate(b["rows"]):
+                A('      <div class="fs-row">'
+                  f'<div class="fs-k">{t(r["k"], lang, f"blk{i}.fs.k{k}")}</div>'
+                  f'<div class="fs-v">{t(r["v"], lang, f"blk{i}.fs.v{k}")}</div></div>')
+            A('    </div>\n')
+        elif b["kind"] == "endmark":
+            A(f'    <div class="endmark">{t(b["text"], lang, f"blk{i}.endmark")}</div>\n')
+        elif b["kind"] == "about":
+            A('    <div class="about">')
+            for k, c in enumerate(b["cols"]):
+                A('      <div class="ab">'
+                  f'<h6>{t(c["h"], lang, f"blk{i}.ab{k}.h")}</h6>'
+                  f'<p>{t(c["p"], lang, f"blk{i}.ab{k}.p")}</p></div>')
+            A('    </div>\n')
+        elif b["kind"] == "contact":
+            A('    <div class="mc">')
+            A(f'      <h6>{t(b["h"], lang, f"blk{i}.mc.h")}</h6>')
+            A(f'      <div class="mc-o">{t(b["org"], lang, f"blk{i}.mc.org")}</div>')
+            A(f'      <p>{t(b["lines"], lang, f"blk{i}.mc.lines")}</p>')
+            A('    </div>\n')
         elif b["kind"] == "img_2col":
             A('    <div class="ph-2col">')
             for k, src in enumerate(b["imgs"]):
@@ -241,12 +302,15 @@ def main():
     # G2 結構同形
     shape = {L: (out[L].count('class="sec"'), out[L].count("<img "),
                  out[L].count('class="hl"'), out[L].count("<li>"),
-                 out[L].count('class="cap"')) for L in LANGS}
+                 out[L].count('class="cap"'), out[L].count('class="qc"'),
+                 out[L].count('class="fs-row"'), out[L].count('class="ab"'),
+                 out[L].count('class="mc"'), out[L].count('class="endmark"'))
+             for L in LANGS}
     if len(set(shape.values())) != 1:
         for L in LANGS:
-            print(f"   {L}: sec/img/hl/li/cap = {shape[L]}")
+            print(f"   {L}: sec/img/hl/li/cap/qc/fs/ab/mc/end = {shape[L]}")
         sys.exit("✗ G2 結構同形閘：三版結構不一致")
-    print(f"  ✅ G2 結構同形：sec/img/hl/li/cap = {shape['tw']}（三版一致）")
+    print(f"  ✅ G2 結構同形：sec/img/hl/li/cap/qc/fs/ab/mc/end = {shape['tw']}（三版一致）")
 
     # G3 英文純度
     cjk = re.findall(r"[一-鿿　-〿＀-￯]", text_of(out["en"]))
@@ -279,7 +343,37 @@ def main():
             sys.exit("\u2717 G5 \u5192\u540d\u5f15\u8a00\u9598\uff1a" + L + " \u7248\u6709\u4e0d\u5728\u767d\u540d\u55ae\u7684\u5f15\u8a00\uff1a" + " | ".join(bad))
         print(f"  \u2705 G5 \u5192\u540d\u5f15\u8a00\uff1a{L} \u7248 {len(spans)} \u7d44\u5f15\u865f\u5168\u6578\u6bd4\u5c0d\u767d\u540d\u55ae\u901a\u904e")
 
-    print("\n✅ 五道閘全綠")
+    # ── G6 原稿覆蓋率閘 ─────────────────────────────────────────────────────
+    # 2026-09-24 事故：網頁版靜默砍掉原稿的 Ivan Siu 引言／活動資料／關於雙方／傳媒查詢／完稿記號，
+    # G1-G5 全綠 —— 因為那五道量的都是「三個語版彼此對齊」，沒有一道量「對齊事實來源」。
+    # 本閘從來源 md 抽出**改寫後也必須倖存**的硬 token（數值+單位／時間／email／網域／電話／
+    # 門牌／英數專名），逐一確認落在繁中版裡。刻意不落地的必須列進 COVERAGE_EXEMPT 並寫理由。
+    if SOURCE_MD:
+        import pathlib
+        src = pathlib.Path(SOURCE_MD)
+        if not src.exists():                       # fail-closed：宣告了卻讀不到 = 紅燈，不是跳過
+            sys.exit(f"✗ G6 覆蓋率閘：宣告的來源稿讀不到 {SOURCE_MD}")
+        mdtxt = src.read_text("utf-8")
+        mdtxt = re.sub(r"\A---\n.*?\n---\n", "", mdtxt, flags=re.S)   # 前言＝內部核稿欄位
+        mdtxt = re.sub(r"^.*\.jpg\s*\|.*$", "", mdtxt, flags=re.M)      # ::: figure 的 vault 圖路徑
+        TOKEN_PAT = (r"[\d][\d,\.]*\s*(?:MPa|磅|公斤|公里|公克|克)"
+                     r"|\b\d{1,2}:\d{2}\b"
+                     r"|[\w\.\-]+@[\w\.\-]+\.\w+"
+                     r"|www\.[\w\.\-]+"
+                     r"|\b\d{4}\s\d{4}\b"
+                     r"|[\u4e00-\u9fff]{2,4}路\s?\d+\s?號"
+                     r"|\b[A-Z][A-Za-z0-9]{2,}(?:\s[A-Z][A-Za-z0-9]+)?\b")
+        tokens = sorted(set(re.findall(TOKEN_PAT, mdtxt)))
+        tw_body = text_of(out["tw"])
+        missing = [x for x in tokens if x not in tw_body and x not in COVERAGE_EXEMPT]
+        if missing:
+            sys.exit("✗ G6 覆蓋率閘：來源稿有、繁中版沒有的 %d 項 —— %s\n"
+                     "   （若為刻意不落地，寫進 content 的 COVERAGE_EXEMPT 並註明理由）"
+                     % (len(missing), " | ".join(missing)))
+        print(f"  ✅ G6 原稿覆蓋率：來源 {len(tokens)} 項硬 token 全數落在繁中版"
+              + (f"（豁免 {len(COVERAGE_EXEMPT)} 項，已具名列出理由）" if COVERAGE_EXEMPT else ""))
+
+    print("\n✅ 六道閘全綠")
 
 
 if __name__ == "__main__":
