@@ -290,11 +290,16 @@ def render(lang):
     A(f'    <a href="{CTA.get("href", "https://mfmk.markforged.tw")}" class="btn">'
       f'{t(CTA["btn"], lang, "cta.btn")}</a>')
     A('  </div>\n')
-    A('  <div class="srcbox">')
-    A(f'    <h5>{t(SRC["h"], lang, "src.h")}</h5>')
-    A('    <ul>' + "".join(f'<li>{t(it, lang, f"src.item{n}")}</li>'
-                           for n, it in enumerate(SRC["items"])) + '</ul>')
-    A('  </div>\n')
+    # 2026-09-24 Brian：資料來源段不對外顯示。
+    # 做成條件式而非刪除 —— sidus / physical-ai 等既有文章仍在用這段，
+    # 直接拿掉會讓它們的取材聲明一起消失（病根：same-root-cause 反面，別誤傷旁人）。
+    # 關法＝該篇 content_*.py 設 SHOW_SOURCES = False，或 SRC["items"] 留空。
+    if getattr(_C, "SHOW_SOURCES", True) and SRC.get("items"):
+        A('  <div class="srcbox">')
+        A(f'    <h5>{t(SRC["h"], lang, "src.h")}</h5>')
+        A('    <ul>' + "".join(f'<li>{t(it, lang, f"src.item{n}")}</li>'
+                               for n, it in enumerate(SRC["items"])) + '</ul>')
+        A('  </div>\n')
     A('  <div class="ftr">')
     A(f'    {t(FTR["about"], lang, "ftr.about")}<br><br>')
     A(f'    <a href="index.html">{t(FTR["back"], lang, "ftr.back")}</a>　·　'
