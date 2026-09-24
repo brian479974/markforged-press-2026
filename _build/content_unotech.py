@@ -348,11 +348,11 @@ BLOCKS = [
     },
     {
         "kind": "sec",
-        "h2": {"tw": "為什麼是香港，為什麼是現在",
-               "cn": "为什么是香港，为什么是现在",
-               "en": "Why Hong Kong, why now"},
-        "h3": {"tw": "把最不划算的那一段產能移回廠內",
-               "cn": "把最不划算的那一段产能移回厂内",
+        "h2": {"tw": "市場背景",
+               "cn": "市场背景",
+               "en": "Market context"},
+        "h3": {"tw": "工裝與小批量零件：交期與改版壓力最集中的一段",
+               "cn": "工装与小批量零件：交期与改版压力最集中的一段",
                "en": "Bringing the least economic segment back in-house"},
         "paras": [
             {"tw": "本地製造與工程單位近年同時面對交期壓縮、以及小批量多規格訂單比重上升兩項壓力，"
@@ -552,18 +552,27 @@ BLOCKS = [
 ]
 
 CTA = {
-    "h": {"tw": "香港的客戶想從一個零件開始試",
-          "cn": "香港的客户想从一个零件开始试",
-          "en": "Starting with a single part in Hong Kong"},
-    "p": {"tw": "航空維修、電子製造、醫療器材或精密工程的零件，"
-                "如果交期長、成本高又改得頻繁，可以交給壹科技的工程團隊評估可行性與導入方式。",
-          "cn": "航空维修、电子制造、医疗器材或精密工程的零件，"
-                "如果交期长、成本高又改得频繁，可以交给壹科技的工程团队评估可行性与导入方式。",
-          "en": "If a part in aviation MRO, electronics, medical devices or precision engineering "
-                "has a long lead time, high cost and frequent revisions, Unotech's engineering "
-                "team can assess feasibility and the adoption path."},
-    "btn": {"tw": "聯絡我們", "cn": "联系我们", "en": "Contact us"},
+    # 2026-09-24 Brian：「結尾寫得不好，重寫要人看得懂的專業文字」。
+    # 原稿「香港的客戶想從一個零件開始試」是口語自語，且條件句堆疊。改為直述句：
+    # 先講事實（誰負責什麼），再講讀者能做什麼。
+    "href": "https://www.uno-tech.com.hk",
+    "h": {"tw": "香港的服務窗口",
+          "cn": "香港的服务窗口",
+          "en": "Point of contact in Hong Kong"},
+    "p": {"tw": "即日起，Markforged 產品在香港的銷售、技術支援與應用開發由壹科技有限公司負責，"
+                "並由其本地工程團隊提供安裝、教育訓練與應用開發。"
+                "需要評估零件可行性、安排實機測試或索取技術資料，可直接與壹科技聯繫。",
+          "cn": "即日起，Markforged 产品在香港的销售、技术支持与应用开发由壹科技有限公司负责，"
+                "并由其本地工程团队提供安装、培训与应用开发。"
+                "需要评估零件可行性、安排实机测试或索取技术资料，可直接与壹科技联系。",
+          "en": "Markforged's sales, technical support and application development in Hong Kong "
+                "are now handled by Unotech Limited, whose local engineering team covers "
+                "installation, training and application development. For a feasibility assessment "
+                "on a specific part, a machine trial or technical documentation, contact Unotech "
+                "directly."},
+    "btn": {"tw": "前往壹科技", "cn": "前往壹科技", "en": "Visit Unotech"},
 }
+
 
 SRC = {
     "h": {"tw": "資料來源", "cn": "资料来源", "en": "Sources"},
