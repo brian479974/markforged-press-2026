@@ -79,6 +79,8 @@
   .quotes{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:4px 0 30px}
   .qc{background:#111;padding:22px 22px 20px;border-top:4px solid #FFFF00;display:flex;flex-direction:column}
   .qc p{color:#fff;font-size:13.5px;line-height:1.78;margin:0 0 16px;flex:1}
+  .qc-who{display:flex;gap:12px;align-items:center}
+  .qc-who img{width:54px;height:54px;object-fit:cover;border-radius:50%;flex-shrink:0;border:2px solid #FFFF00}
   .qc-n{color:#FFFF00;font-size:12.5px;font-weight:800;line-height:1.4;margin-bottom:3px}
   .qc-t{color:rgba(255,255,255,.5);font-size:10.5px;line-height:1.55}
   /* ── 活動資料 fact sheet ── */
@@ -128,14 +130,9 @@
 
   <div class="body">
 
-    <div class="lead">香港的製造業版圖這些年往北移，留在本地的是研發、工程服務與小批量製造。這類需求有一個共同特徵：交期壓得很短、規格一直改、數量卻很少 —— 正好是傳統 CNC 外發與開模最不划算的一段。<br><br>2026 年 9 月 24 日，Markforged 於香港生產力促進局（HKPC）Inno Network 舉行發布會，宣布委任<strong>壹科技有限公司（Unotech Limited）</strong>為香港獨家代理，由壹科技負責 Markforged 產品在香港的銷售、技術支援與應用開發。發布會由雙方管理層主持開幕及剪綵儀式，並設技術簡報、實機示範、用家案例分享與問答環節。</div>
+    <div class="lead"><strong>【香港，2026 年 9 月 24 日】</strong>工業級積層製造企業 Markforged 今日宣布，正式委任<strong>壹科技有限公司（Unotech Limited）</strong>為其香港獨家代理商，由壹科技全面承接 Markforged 工業級 3D 列印產品在香港的銷售、技術支援與應用開發服務。委任發布會同日於香港生產力促進局（HKPC）Inno Network 舉行，由雙方管理層主持開幕及剪綵儀式，並設技術簡報、實機示範、用家案例分享與問答環節。</div>
 
-    <div class="qb"><p>「AI 工具已經讓產品設計的迭代速度大幅提升，但如果硬體的打樣與生產跟不上，整體開發週期仍然卡在原地。」</p><small>陳中欣 ｜ Markforged 大中華區暨越南區總經理</small></div>
-
-    <div class="prof">
-      <img src="brian-chen.jpg" alt="陳中欣">
-      <div><div class="prof-n">陳中欣 Brian Chen</div><div class="prof-t">Markforged 大中華區暨越南區總經理</div><div class="prof-d">負責 Markforged 在台灣、中國、香港與越南的市場，長期與航太、國防與精密製造領域的製造商合作。</div></div>
-    </div>
+    <div class="qb"><p>「香港作為大灣區的科技與貿易樞紐，客戶結構橫跨多個高端製造領域。我們選擇壹科技作為獨家合作夥伴，正是看中其深厚的本地技術能量與優異的售後服務覆蓋範圍。」</p><small>陳中欣 ｜ Markforged 大中華區暨越南區總經理</small></div>
 
     <div class="tags"><span class="tag">香港</span><span class="tag">連續纖維增強</span><span class="tag ol">獨家代理</span><span class="tag ol">FX10</span><span class="tag ol">航空維修</span></div>
 
@@ -153,10 +150,10 @@
     </div>
 
     <div class="ph-2col">
-      <img class="gi gi-43" src="images/unotech-hk-launch-ribbon.jpg" alt="剪綵揭幕前，覆有紅絨布的 FX10 系統置於會場中央">
-      <img class="gi gi-43" src="images/unotech-hk-launch-audience.jpg" alt="發布會與會者於 FX10 系統前合影">
+      <img class="gi gi-43" src="images/unotech-hk-launch-fx10-printing.jpg" alt="FX10 系統於發布會現場列印中，可見連續纖維鋪放過程">
+      <img class="gi gi-43" src="images/unotech-hk-launch-demo-watching.jpg" alt="與會者於機台前觀看實機列印">
     </div>
-    <div class="cap">左：剪綵揭幕前，FX10 系統置於會場中央。右：與會者於 FX10 前合影。壹科技將負責 Markforged 產品在香港的銷售、技術支援與應用開發，並設有本地技術團隊負責安裝、教育訓練及應用開發。</div>
+    <div class="cap">發布會上首度示範 Markforged 專利的連續纖維增強技術，以 Onyx 材料當場列印加入與未加入連續碳纖維的兩件樣品供比較。</div>
 
     <div class="sec">
       <h2>現場實機示範：FX10 與 Eiger 雲端平台</h2>
@@ -185,21 +182,25 @@
     <div class="sec">
       <h2>為什麼是香港，為什麼是現在</h2>
       <h3>把最不划算的那一段產能移回廠內</h3>
-      <p>本地製造與工程單位近年同時面對交期壓縮、以及小批量多規格訂單比重上升兩項壓力，其中受影響最直接的是工裝 —— 夾具、治具、檢具與自動化夾爪。這類零件多為單件或極小批量，規格隨產品改版而變動，外發加工的交期通常以週計算。</p>
+      <p>本地製造與工程單位近年同時面對交期壓縮、以及小批量多規格訂單比重上升兩項壓力，其中受影響最直接的是工裝 —— 夾具、治具、檢具與自動化夾爪。這類零件多為單件或極小批量，規格隨產品改版而變動。會上指出，CNC 外發加工的交期通常以週計算，開模則以月計算，任何修改都要從頭再來一次。</p>
       <p>積層製造的作用在於把這一段產能移回廠內：設計改完就重新列印，不必重新開模或排隊等外發加工；零件也可以用數位檔案形式保存，按需列印，取代實體備件庫存。對廠房面積有限、人力成本偏高、交期要求緊湊的香港製造環境，這個差異相對明顯。</p>
       <p>壹科技表示已投入示範設備並完成人員訓練，重點行業鎖定航空維修、電子製造、醫療器材與精密工程。會上說明的導入方式是：客戶挑出交期最長、成本最高的零件，簽署保密協議後交由壹科技評估，把零件數位化並列印出實體件，直接上線驗證是否符合需求。</p>
     </div>
 
     <div class="quotes">
       <div class="qc">
-        <p>「壹科技選擇與 Markforged 合作，原因是他們在這個領域擁有其他廠商目前仍未能做到的獨有技術。我們已經投入示範設備並完成人員訓練，接下來會協助客戶把這項技術應用在生產線與研發上，以至開發新的業務。」</p>
-        <div class="qc-n">Ivan Siu</div>
-        <div class="qc-t">壹科技有限公司　銷售總監</div>
+        <p>「我們非常榮幸能與工業 3D 打印領先品牌 Markforged 建立獨家合作關係。憑藉 Markforged 在增材製造領域的技術優勢，我們有信心為香港市場帶來更具成本效益、可靠且創新的製造選擇。壹科技的本地技術團隊將主攻航空維修、電子製造、醫療器材與精密工程等重點行業，這與連續纖維技術對強度與即時交付的高要求完美契合。我們將持續強化本地技術能量，全力支援香港智能製造市場的長遠發展。」</p>
+        <div class="qc-who">
+          <img src="images/unotech-hk-launch-ivan-speaking.jpg" alt="壹科技有限公司銷售總監 Ivan Siu 於發布會發言">
+          <div><div class="qc-n">Ivan Siu</div><div class="qc-t">壹科技有限公司　銷售總監</div></div>
+        </div>
       </div>
       <div class="qc">
-        <p>「AI 工具已經讓產品設計的迭代速度大幅提升，但如果硬體的打樣與生產跟不上，整體開發週期仍然卡在原地——CNC 外發加工以週計算，開模則以月計算，任何修改都要重來一次。我們在香港與壹科技合作，要補的正是這一段。」</p>
-        <div class="qc-n">陳中欣 Brian Chen</div>
-        <div class="qc-t">Markforged　大中華區暨越南區總經理</div>
+        <p>「香港作為大灣區的科技與貿易樞紐，客戶結構橫跨多個高端製造領域。我們選擇壹科技作為獨家合作夥伴，正是看中其深厚的本地技術能量與優異的售後服務覆蓋範圍。獨家代理將使責任更為集中，客戶只需對接單一窗口，便能獲得全方位的專業保障。Markforged 在大中華區累積的豐富應用案例與材料驗證資料，亦將直接賦能香港團隊，共同協助本地醫療機構、航空與精密工程客戶提升運作效率。」</p>
+        <div class="qc-who">
+          <img src="images/unotech-hk-launch-brian-speaking.jpg" alt="Markforged 大中華區暨越南區總經理陳中欣於發布會發言">
+          <div><div class="qc-n">陳中欣 Brian Chen</div><div class="qc-t">Markforged　大中華區暨越南區總經理</div></div>
+        </div>
       </div>
     </div>
 
@@ -212,17 +213,15 @@
       <div class="fs-row"><div class="fs-k">流程</div><div class="fs-v">嘉賓簽到｜開幕及剪綵儀式｜工業 3D 列印技術簡報｜實機示範｜用家案例分享｜問答環節｜交流酒會</div></div>
     </div>
 
-    <div class="endmark">－ 完 －</div>
-
     <div class="about">
       <div class="ab"><h6>關於 Markforged</h6><p>Markforged 為工業級積層製造企業，成立於 2013 年，透過 Digital Forge 數位製造平台及連續纖維增強（CFR）技術，讓製造業在生產現場直接製造高強度終端零件、夾治具與備品，以縮短供應鏈、降低庫存並提升產能韌性。產品線涵蓋工業級複合材料及金屬積層製造系統，應用範圍包括航太、汽車、電子、醫療器材及精密工程。</p></div>
       <div class="ab"><h6>關於壹科技有限公司</h6><p>壹科技有限公司（Unotech Limited）為香港的工業技術方案供應商，引進智慧製造與 3D 列印技術，向本地科研、教育及製造機構提供設備供應、應用開發及技術支援服務。</p></div>
     </div>
 
     <div class="mc">
-      <h6>傳媒查詢及索取高解析度圖片</h6>
+      <h6>媒體聯絡</h6>
       <div class="mc-o">壹科技有限公司　Unotech Limited</div>
-      <p>電郵：<a href="mailto:dery.chen@uno-tech.com.hk">dery.chen@uno-tech.com.hk</a><br>電話：5532 1843<br>網址：<a href="https://www.uno-tech.com.hk">www.uno-tech.com.hk</a></p>
+      <p>電郵：<a href="mailto:dery.chen@uno-tech.com.hk">dery.chen@uno-tech.com.hk</a><br>電話：5532 1843</p>
     </div>
 
   </div>
@@ -235,7 +234,7 @@
 
   <div class="srcbox">
     <h5>資料來源</h5>
-    <ul><li>活動事實、技術說明與材料數據，取自 2026 年 9 月 24 日發布會現場全程錄音（1 小時 52 分）。</li><li>文中兩段具名直接引語（Ivan Siu、陳中欣）為現場發言的書面整理，非逐字轉錄；原始錄音存檔可查。</li><li>紅點設計獎（Design Concept 組別）得獎年份、專利狀態、測試方法與里程數據，由香港理工大學研究團隊於會上提出。</li><li>文中照片為 2026 年 9 月 24 日活動現場攝影。</li></ul>
+    <ul><li>活動事實、技術說明與材料數據，取自 2026 年 9 月 24 日發布會現場全程錄音（1 小時 52 分）。</li><li>文中兩段具名直接引語（Ivan Siu、陳中欣）取自壹科技 2026 年 9 月 24 日發布的官方新聞稿，引號內未經改寫；簡體中文與英文版為譯文。</li><li>紅點設計獎（Design Concept 組別）得獎年份、專利狀態、測試方法與里程數據，由香港理工大學研究團隊於會上提出。</li><li>文中照片為 2026 年 9 月 24 日活動現場攝影。</li></ul>
   </div>
 
   <div class="ftr">
