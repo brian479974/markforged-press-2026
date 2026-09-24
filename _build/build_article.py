@@ -78,6 +78,7 @@ STYLE = """
   .ph-2col{display:grid;grid-template-columns:1fr 1fr;gap:3px}
   .gi{width:100%;display:block;object-fit:cover}
   .gi-43{aspect-ratio:4/3}
+  .gi-34{aspect-ratio:3/4}
   .cap{font-size:11px;color:#aaa;text-align:center;padding:8px 38px 22px;border-bottom:1px solid #eee;margin-bottom:26px;line-height:1.55}
   .hl-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:30px}
   .hl{background:#f7f7f7;border-left:4px solid #FFFF00;padding:16px 18px}
@@ -276,8 +277,9 @@ def render(lang):
             A('    </div>\n')
         elif b["kind"] == "img_2col":
             A('    <div class="ph-2col">')
+            _r = b.get("ratio", "43")   # 43=橫式 · 34=直式（直式硬套 4:3 會把主體切掉）
             for k, src in enumerate(b["imgs"]):
-                A(f'      <img class="gi gi-43" src="{src}" alt="{t(b["alts"][k], lang, f"blk{i}.alt{k}")}">')
+                A(f'      <img class="gi gi-{_r}" src="{src}" alt="{t(b["alts"][k], lang, f"blk{i}.alt{k}")}">')
             A('    </div>')
             A(f'    <div class="cap">{t(b["cap"], lang, f"blk{i}.cap")}</div>\n')
 
