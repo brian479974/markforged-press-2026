@@ -50,6 +50,10 @@
   .tag{background:#111;color:#FFFF00;font-size:10px;font-weight:700;letter-spacing:.07em;padding:4px 10px;border-radius:30px}
   .tag.ol{background:#fff;color:#666;border:1.5px solid #ddd}
   .ph-full img{width:100%;display:block}
+  /* 直式照片滿版會把整個視窗撐掉（2026-09-24 FX10 轉正後實測 624→937px 高）→ 收窄置中 */
+  .ph-port{background:#f4f4f4;padding:22px 0;display:flex;justify-content:center}
+  .ph-port img{width:auto;max-width:62%;max-height:620px;display:block}
+  @media(max-width:620px){.ph-port img{max-width:82%}}
   .ph-2col{display:grid;grid-template-columns:1fr 1fr;gap:3px}
   .gi{width:100%;display:block;object-fit:cover}
   .gi-43{aspect-ratio:4/3}
@@ -152,7 +156,7 @@
     <div class="ph-full"><img src="images/unotech-hk-launch-briefing-room.jpg" alt="发布会技术简报环节，台上为 Markforged 大中华区暨越南区总经理陈中欣"></div>
     <div class="cap">技术简报环节，业界、学研及传媒代表出席。</div>
 
-    <div class="ph-full"><img src="images/unotech-hk-launch-fx10-printing.jpg" alt="发布会演示区的 FX10 系统，机壳开启可见打印床与龙门"></div>
+    <div class="ph-full ph-port"><img src="images/unotech-hk-launch-fx10-printing.jpg" alt="发布会演示区的 FX10 系统，机壳开启可见打印床与龙门"></div>
     <div class="cap">演示区的 FX10 系统。壹科技的系统工程师于会上演示实机操作，以 Onyx 材料当场打印加入与未加入连续碳纤维的两件样品供与会者比较。</div>
 
     <div class="sec">
@@ -180,8 +184,8 @@
     <div class="cap">发布会设交流环节，业界、学研及传媒代表出席。</div>
 
     <div class="sec">
-      <h2>为什么是香港，为什么是现在</h2>
-      <h3>把最不划算的那一段产能移回厂内</h3>
+      <h2>市场背景</h2>
+      <h3>工装与小批量零件：交期与改版压力最集中的一段</h3>
       <p>本地制造与工程单位近年同时面对交期压缩、以及小批量多规格订单比重上升两项压力，其中受影响最直接的是工装 —— 夹具、治具、检具与自动化夹爪。这类零件多为单件或极小批量，规格随产品改版而变动。会上指出，CNC 外发加工的交期通常以周计算，开模则以月计算，任何修改都要从头再来一次。</p>
       <p>增材制造的作用在于把这一段产能移回厂内：设计改完就重新打印，不必重新开模或排队等外发加工；零件也可以用数字文件形式保存，按需打印，取代实体备件库存。对厂房面积有限、人力成本偏高、交期要求紧凑的香港制造环境，这个差异相对明显。</p>
       <p>壹科技表示已投入示范设备并完成人员培训，重点行业锁定航空维修、电子制造、医疗器材与精密工程。会上说明的导入方式是：客户挑出交期最长、成本最高的零件，签署保密协议后交由壹科技评估，把零件数字化并打印出实体件，直接上线验证是否符合需求。</p>
@@ -227,9 +231,9 @@
   </div>
 
   <div class="cta">
-    <h4>香港的客户想从一个零件开始试</h4>
-    <p>航空维修、电子制造、医疗器材或精密工程的零件，如果交期长、成本高又改得频繁，可以交给壹科技的工程团队评估可行性与导入方式。</p>
-    <a href="https://mfmk.markforged.tw" class="btn">联系我们</a>
+    <h4>香港的服务窗口</h4>
+    <p>即日起，Markforged 产品在香港的销售、技术支持与应用开发由壹科技有限公司负责，并由其本地工程团队提供安装、培训与应用开发。需要评估零件可行性、安排实机测试或索取技术资料，可直接与壹科技联系。</p>
+    <a href="https://www.uno-tech.com.hk" class="btn">前往壹科技</a>
   </div>
 
   <div class="srcbox">
