@@ -197,6 +197,18 @@ BLOCKS = [
         ],
     },
     {
+        # Brian 2026-09-24 21:07 補傳：技術簡報環節全場照 —— 比擺拍大合照更能交代活動規模。
+        "kind": "img_full",
+        "img": "images/unotech-hk-launch-briefing-room.jpg",
+        "alt": {"tw": "發布會技術簡報環節，台上為 Markforged 大中華區暨越南區總經理陳中欣",
+                "cn": "发布会技术简报环节，台上为 Markforged 大中华区暨越南区总经理陈中欣",
+                "en": "The technical briefing, with Markforged's Country Manager for Greater China "
+                      "and Vietnam, Brian Chen, presenting"},
+        "cap": {"tw": "技術簡報環節，業界、學研及傳媒代表出席。",
+                "cn": "技术简报环节，业界、学研及传媒代表出席。",
+                "en": "The technical briefing, attended by industry, academic and media representatives."},
+    },
+    {
         # 2026-09-24 Brian 親糾：原本用了同一場大合照的「專業版」與「現場版」＝同一張放兩次。
         # 改用壹科技官方新聞稿內附的實機示範照（圖說沿用官方稿）。
         "kind": "img_2col",
