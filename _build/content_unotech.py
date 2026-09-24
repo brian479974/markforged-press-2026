@@ -211,18 +211,29 @@ BLOCKS = [
         ],
     },
     {
-        "kind": "img_full",
-        "img": "images/unotech-hk-launch-principals.jpg",
-        "alt": {"tw": "Markforged 與壹科技管理層在 FX10 系統前合影",
-                "cn": "Markforged 与壹科技管理层在 FX10 系统前合影",
-                "en": "Markforged and Unotech leadership beside an FX10 system"},
-        "cap": {"tw": "發布會由雙方管理層主持開幕及剪綵儀式。壹科技將負責 Markforged 產品在香港的"
-                      "銷售、技術支援與應用開發，並設有本地技術團隊負責安裝、教育訓練及應用開發。",
-                "cn": "发布会由双方管理层主持开幕及剪彩仪式。壹科技将负责 Markforged 产品在香港的"
-                      "销售、技术支持与应用开发，并设有本地技术团队负责安装、培训及应用开发。",
-                "en": "The opening and ribbon-cutting were led by both companies' management. "
-                      "Unotech handles sales, technical support and application development for "
-                      "Markforged in Hong Kong, with a local team for installation and training."},
+        # hero 已用「雙方管理層與 FX10」那張；此處改用兩張未曝光的現場照，
+        # 避免同一張照片在同一頁出現兩次（編輯常規）。
+        "kind": "img_2col",
+        "imgs": ["images/unotech-hk-launch-ribbon.jpg",
+                 "images/unotech-hk-launch-audience.jpg"],
+        "alts": [
+            {"tw": "剪綵揭幕前，覆有紅絨布的 FX10 系統置於會場中央",
+             "cn": "剪彩揭幕前，覆有红绒布的 FX10 系统置于会场中央",
+             "en": "The FX10 system under a red drape before the ribbon-cutting"},
+            {"tw": "發布會與會者於 FX10 系統前合影",
+             "cn": "发布会与会者于 FX10 系统前合影",
+             "en": "Attendees photographed in front of the FX10 system"},
+        ],
+        "cap": {"tw": "左：剪綵揭幕前，FX10 系統置於會場中央。右：與會者於 FX10 前合影。"
+                      "壹科技將負責 Markforged 產品在香港的銷售、技術支援與應用開發，"
+                      "並設有本地技術團隊負責安裝、教育訓練及應用開發。",
+                "cn": "左：剪彩揭幕前，FX10 系统置于会场中央。右：与会者于 FX10 前合影。"
+                      "壹科技将负责 Markforged 产品在香港的销售、技术支持与应用开发，"
+                      "并设有本地技术团队负责安装、培训及应用开发。",
+                "en": "Left: the FX10 under a drape ahead of the ribbon-cutting. Right: attendees "
+                      "in front of the system. Unotech handles sales, technical support and "
+                      "application development for Markforged in Hong Kong, with a local team "
+                      "for installation and training."},
     },
     {
         "kind": "sec",
@@ -393,6 +404,139 @@ BLOCKS = [
                    "validated in the customer's own line."},
         ],
     },
+    # ── 以下五塊為通訊社／企業正式新聞稿標準件，內容全數取自 2026-09-24 活動報導稿 v1 ──
+    {
+        "kind": "quotes",
+        "items": [
+            {
+                "text": {
+                    "tw": "「壹科技選擇與 Markforged 合作，原因是他們在這個領域擁有其他廠商目前"
+                          "仍未能做到的獨有技術。我們已經投入示範設備並完成人員訓練，接下來會"
+                          "協助客戶把這項技術應用在生產線與研發上，以至開發新的業務。」",
+                    "cn": "“壹科技选择与 Markforged 合作，原因是他们在这个领域拥有其他厂商目前"
+                          "仍未能做到的独有技术。我们已经投入示范设备并完成人员培训，接下来会"
+                          "协助客户把这项技术应用在生产线与研发上，以至开发新的业务。”",
+                    "en": "“Unotech chose to work with Markforged because they hold technology in "
+                          "this field that other suppliers still cannot match. We have already "
+                          "invested in demonstration equipment and completed staff training, and "
+                          "we will now help customers apply the technology on their production "
+                          "lines and in R&amp;D, and to develop new business.”",
+                },
+                "name": {"tw": "Ivan Siu", "cn": "Ivan Siu", "en": "Ivan Siu"},
+                "title": {"tw": "壹科技有限公司　銷售總監",
+                          "cn": "壹科技有限公司　销售总监",
+                          "en": "Sales Director, Unotech Limited"},
+            },
+            {
+                "text": {
+                    "tw": "「AI 工具已經讓產品設計的迭代速度大幅提升，但如果硬體的打樣與生產"
+                          "跟不上，整體開發週期仍然卡在原地——CNC 外發加工以週計算，開模則以"
+                          "月計算，任何修改都要重來一次。我們在香港與壹科技合作，要補的正是"
+                          "這一段。」",
+                    "cn": "“AI 工具已经让产品设计的迭代速度大幅提升，但如果硬件的打样与生产"
+                          "跟不上，整体开发周期仍然卡在原地——CNC 外发加工以周计算，开模则以"
+                          "月计算，任何修改都要重来一次。我们在香港与壹科技合作，要补的正是"
+                          "这一段。”",
+                    "en": "“AI tools have sharply accelerated design iteration. But if prototyping "
+                          "and production cannot keep pace, the development cycle stays exactly "
+                          "where it was — outsourced CNC runs in weeks, tooling in months, and "
+                          "every revision starts over. What we are addressing with Unotech in "
+                          "Hong Kong is precisely that gap.”",
+                },
+                "name": {"tw": "陳中欣 Brian Chen", "cn": "陈中欣 Brian Chen", "en": "Brian Chen"},
+                "title": {"tw": "Markforged　大中華區暨越南區總經理",
+                          "cn": "Markforged　大中华区暨越南区总经理",
+                          "en": "Country Manager, Greater China and Vietnam, Markforged"},
+            },
+        ],
+    },
+    {
+        "kind": "factsheet",
+        "h": {"tw": "活動資料", "cn": "活动资料", "en": "Event details"},
+        "rows": [
+            {"k": {"tw": "日期", "cn": "日期", "en": "Date"},
+             "v": {"tw": "2026 年 9 月 24 日（星期四）",
+                   "cn": "2026 年 9 月 24 日（星期四）",
+                   "en": "Thursday, 24 September 2026"}},
+            {"k": {"tw": "時間", "cn": "时间", "en": "Time"},
+             "v": {"tw": "14:00 – 18:00", "cn": "14:00 – 18:00", "en": "14:00 – 18:00"}},
+            {"k": {"tw": "地點", "cn": "地点", "en": "Venue"},
+             "v": {"tw": "HKPC Inno Network，生產力大樓 1 樓",
+                   "cn": "HKPC Inno Network，生产力大楼 1 楼",
+                   "en": "HKPC Inno Network, 1/F, HKPC Building"}},
+            {"k": {"tw": "地址", "cn": "地址", "en": "Address"},
+             "v": {"tw": "九龍塘達之路 78 號", "cn": "九龙塘达之路 78 号",
+                   "en": "78 Tat Chee Avenue, Kowloon Tong, Hong Kong"}},
+            {"k": {"tw": "流程", "cn": "流程", "en": "Programme"},
+             "v": {"tw": "嘉賓簽到｜開幕及剪綵儀式｜工業 3D 列印技術簡報｜實機示範｜"
+                         "用家案例分享｜問答環節｜交流酒會",
+                   "cn": "嘉宾签到｜开幕及剪彩仪式｜工业 3D 打印技术简报｜实机演示｜"
+                         "用户案例分享｜问答环节｜交流酒会",
+                   "en": "Registration · Opening and ribbon-cutting · Technical briefing on "
+                         "industrial 3D printing · Live machine demonstration · Customer case "
+                         "study · Q&amp;A · Networking reception"}},
+        ],
+    },
+    {
+        "kind": "endmark",
+        "text": {"tw": "－ 完 －", "cn": "－ 完 －", "en": "— ENDS —"},
+    },
+    {
+        "kind": "about",
+        "cols": [
+            {"h": {"tw": "關於 Markforged", "cn": "关于 Markforged", "en": "About Markforged"},
+             "p": {"tw": "Markforged 為工業級積層製造企業，成立於 2013 年，透過 Digital Forge "
+                         "數位製造平台及連續纖維增強（CFR）技術，讓製造業在生產現場直接製造"
+                         "高強度終端零件、夾治具與備品，以縮短供應鏈、降低庫存並提升產能韌性。"
+                         "產品線涵蓋工業級複合材料及金屬積層製造系統，應用範圍包括航太、汽車、"
+                         "電子、醫療器材及精密工程。",
+                   "cn": "Markforged 为工业级增材制造企业，成立于 2013 年，透过 Digital Forge "
+                         "数字制造平台及连续纤维增强（CFR）技术，让制造业在生产现场直接制造"
+                         "高强度终端零件、夹治具与备品，以缩短供应链、降低库存并提升产能韧性。"
+                         "产品线涵盖工业级复合材料及金属增材制造系统，应用范围包括航空航天、"
+                         "汽车、电子、医疗器材及精密工程。",
+                   "en": "Markforged is an industrial additive manufacturing company founded in "
+                         "2013. Through the Digital Forge platform and Continuous Fiber "
+                         "Reinforcement (CFR), manufacturers produce high-strength end-use parts, "
+                         "tooling and spares at the point of production, shortening supply chains, "
+                         "reducing inventory and improving capacity resilience. Its product line "
+                         "covers industrial composite and metal additive manufacturing systems, "
+                         "used in aerospace, automotive, electronics, medical devices and "
+                         "precision engineering."}},
+            {"h": {"tw": "關於壹科技有限公司", "cn": "关于壹科技有限公司",
+                   "en": "About Unotech Limited"},
+             "p": {"tw": "壹科技有限公司（Unotech Limited）為香港的工業技術方案供應商，引進"
+                         "智慧製造與 3D 列印技術，向本地科研、教育及製造機構提供設備供應、"
+                         "應用開發及技術支援服務。",
+                   "cn": "壹科技有限公司（Unotech Limited）为香港的工业技术方案供应商，引进"
+                         "智能制造与 3D 打印技术，向本地科研、教育及制造机构提供设备供应、"
+                         "应用开发及技术支持服务。",
+                   "en": "Unotech Limited is a Hong Kong industrial technology solutions provider. "
+                         "It brings smart manufacturing and 3D printing technology to local "
+                         "research, education and manufacturing institutions, offering equipment "
+                         "supply, application development and technical support."}},
+        ],
+    },
+    {
+        "kind": "contact",
+        "h": {"tw": "傳媒查詢及索取高解析度圖片",
+              "cn": "传媒查询及索取高分辨率图片",
+              "en": "Media enquiries and high-resolution images"},
+        "org": {"tw": "壹科技有限公司　Unotech Limited",
+                "cn": "壹科技有限公司　Unotech Limited",
+                "en": "Unotech Limited"},
+        "lines": {
+            "tw": '電郵：<a href="mailto:dery.chen@uno-tech.com.hk">dery.chen@uno-tech.com.hk</a>'
+                  '<br>電話：5532 1843'
+                  '<br>網址：<a href="https://www.uno-tech.com.hk">www.uno-tech.com.hk</a>',
+            "cn": '电邮：<a href="mailto:dery.chen@uno-tech.com.hk">dery.chen@uno-tech.com.hk</a>'
+                  '<br>电话：5532 1843'
+                  '<br>网址：<a href="https://www.uno-tech.com.hk">www.uno-tech.com.hk</a>',
+            "en": 'Email: <a href="mailto:dery.chen@uno-tech.com.hk">dery.chen@uno-tech.com.hk</a>'
+                  '<br>Tel: +852 5532 1843'
+                  '<br>Web: <a href="https://www.uno-tech.com.hk">www.uno-tech.com.hk</a>',
+        },
+    },
 ]
 
 CTA = {
@@ -416,10 +560,11 @@ SRC = {
          "cn": "活动事实、技术说明与材料数据，取自 2026 年 9 月 24 日发布会现场全程录音（1 小时 52 分）。",
          "en": "Event facts, technical explanations and material figures are taken from the full "
                "recording of the 24 September 2026 launch event (1 hour 52 minutes)."},
-        {"tw": "文中直接引語為現場發言的書面整理，非逐字轉錄；原始錄音存檔可查。",
-         "cn": "文中直接引语为现场发言的书面整理，非逐字转录；原始录音存档可查。",
-         "en": "Direct quotations are edited for print from remarks made on the day, not verbatim "
-               "transcription. The original recording is on file."},
+        {"tw": "文中兩段具名直接引語（Ivan Siu、陳中欣）為現場發言的書面整理，非逐字轉錄；原始錄音存檔可查。",
+         "cn": "文中两段具名直接引语（Ivan Siu、陈中欣）为现场发言的书面整理，非逐字转录；原始录音存档可查。",
+         "en": "The two attributed quotations (Ivan Siu, Brian Chen) are edited for print "
+               "from remarks made on the day, not verbatim transcription. The original "
+               "recording is on file."},
         {"tw": "紅點設計獎（Design Concept 組別）得獎年份、專利狀態、測試方法與里程數據，"
                "由香港理工大學研究團隊於會上提出。",
          "cn": "红点设计奖（Design Concept 组别）获奖年份、专利状态、测试方法与里程数据，"
@@ -446,15 +591,37 @@ FTR = {
 }
 
 # G5 冒名引言閘白名單 —— 每一句都要有出處。
-# 本文只有一處直接引語，出自 Brian 於 2026-09-24 發布會技術簡報開場（錄音 12:35 前後），
-# 為現場口語的書面整理，已於「資料來源」段明確聲明非逐字。
+# 本文兩位具名發言人，兩段引語均出自 2026-09-24 發布會現場錄音（1:52:00 全程），
+# 為現場口語的書面整理，已於「資料來源」段明確聲明非逐字：
+#   · Brian Chen  —— 技術簡報開場（錄音 12:35 前後）。頁首 pull quote 為此段前半的節錄。
+#   · Ivan Siu    —— 壹科技致詞段。職稱「銷售總監」取自 2026-09-08 預發稿 v2 已核口徑。
 APPROVED_QUOTES = {
     "tw": ["AI 工具已經讓產品設計的迭代速度大幅提升，但如果硬體的打樣與生產跟不上，"
-           "整體開發週期仍然卡在原地。"],
+           "整體開發週期仍然卡在原地。",
+           "AI 工具已經讓產品設計的迭代速度大幅提升，但如果硬體的打樣與生產跟不上，"
+           "整體開發週期仍然卡在原地——CNC 外發加工以週計算，開模則以月計算，"
+           "任何修改都要重來一次。我們在香港與壹科技合作，要補的正是這一段。",
+           "壹科技選擇與 Markforged 合作，原因是他們在這個領域擁有其他廠商目前"
+           "仍未能做到的獨有技術。我們已經投入示範設備並完成人員訓練，接下來會"
+           "協助客戶把這項技術應用在生產線與研發上，以至開發新的業務。"],
     "cn": ["AI 工具已经让产品设计的迭代速度大幅提升，但如果硬件的打样与生产跟不上，"
-           "整体开发周期仍然卡在原地。"],
+           "整体开发周期仍然卡在原地。",
+           "AI 工具已经让产品设计的迭代速度大幅提升，但如果硬件的打样与生产跟不上，"
+           "整体开发周期仍然卡在原地——CNC 外发加工以周计算，开模则以月计算，"
+           "任何修改都要重来一次。我们在香港与壹科技合作，要补的正是这一段。",
+           "壹科技选择与 Markforged 合作，原因是他们在这个领域拥有其他厂商目前"
+           "仍未能做到的独有技术。我们已经投入示范设备并完成人员培训，接下来会"
+           "协助客户把这项技术应用在生产线与研发上，以至开发新的业务。"],
     "en": ["AI tools have sharply accelerated design iteration. But if prototyping and production "
-           "cannot keep pace, the development cycle stays exactly where it was."],
+           "cannot keep pace, the development cycle stays exactly where it was.",
+           "AI tools have sharply accelerated design iteration. But if prototyping and production "
+           "cannot keep pace, the development cycle stays exactly where it was — outsourced CNC "
+           "runs in weeks, tooling in months, and every revision starts over. What we are "
+           "addressing with Unotech in Hong Kong is precisely that gap.",
+           "Unotech chose to work with Markforged because they hold technology in this field that "
+           "other suppliers still cannot match. We have already invested in demonstration "
+           "equipment and completed staff training, and we will now help customers apply the "
+           "technology on their production lines and in R&amp;D, and to develop new business."],
 }
 
 DOC_TERMS = ["Markforged", "Unotech", "壹科技", "壹科技有限公司", "Unotech Limited",
