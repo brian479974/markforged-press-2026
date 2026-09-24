@@ -209,26 +209,22 @@ BLOCKS = [
                 "en": "The technical briefing, attended by industry, academic and media representatives."},
     },
     {
-        # 2026-09-24 Brian 親糾：原本用了同一場大合照的「專業版」與「現場版」＝同一張放兩次。
-        # 改用壹科技官方新聞稿內附的實機示範照（圖說沿用官方稿）。
-        "kind": "img_2col",
-        "imgs": ["images/unotech-hk-launch-fx10-printing.jpg",
-                 "images/unotech-hk-launch-demo-watching.jpg"],
-        "alts": [
-            {"tw": "FX10 系統於發布會現場列印中，可見連續纖維鋪放過程",
-             "cn": "FX10 系统于发布会现场打印中，可见连续纤维铺放过程",
-             "en": "An FX10 printing during the event, with fiber being laid into the part"},
-            {"tw": "與會者於機台前觀看實機列印",
-             "cn": "与会者于机台前观看实机打印",
-             "en": "Attendees watching the live print at the machine"},
-        ],
-        "cap": {"tw": "發布會上首度示範 Markforged 專利的連續纖維增強技術，"
-                      "以 Onyx 材料當場列印加入與未加入連續碳纖維的兩件樣品供比較。",
-                "cn": "发布会上首度演示 Markforged 专利的连续纤维增强技术，"
-                      "以 Onyx 材料当场打印加入与未加入连续碳纤维的两件样品供比较。",
-                "en": "The event featured the first local demonstration of Markforged's patented "
-                      "Continuous Fiber Reinforcement, printing two Onyx samples side by side — "
-                      "one with continuous carbon fiber, one without."},
+        # 2026-09-24 Brian「你確定你要選這兩張？」—— 原本是雙圖：
+        #   · 左（FX10 特寫）圖說寫「示範連續纖維增強技術」，但畫面看不到纖維也看不到零件＝圖說超賣
+        #   · 右（與會者觀看）主體被切在畫面右緣，前景是背影＝撐不住，移除
+        # 改為滿版單圖，圖說只寫畫面上真的有的東西。
+        "kind": "img_full",
+        "img": "images/unotech-hk-launch-fx10-printing.jpg",
+        "alt": {"tw": "發布會示範區的 FX10 系統，機殼開啟可見列印床與龍門",
+                "cn": "发布会演示区的 FX10 系统，机壳开启可见打印床与龙门",
+                "en": "The FX10 on the demonstration bench, hood open, print bed and gantry visible"},
+        "cap": {"tw": "示範區的 FX10 系統。壹科技的系統工程師於會上示範實機操作，"
+                      "以 Onyx 材料當場列印加入與未加入連續碳纖維的兩件樣品供與會者比較。",
+                "cn": "演示区的 FX10 系统。壹科技的系统工程师于会上演示实机操作，"
+                      "以 Onyx 材料当场打印加入与未加入连续碳纤维的两件样品供与会者比较。",
+                "en": "The FX10 on the demonstration bench. Unotech's systems engineers ran a live "
+                      "print during the event, producing two Onyx samples for comparison — one with "
+                      "continuous carbon fiber, one without."},
     },
     {
         "kind": "sec",
