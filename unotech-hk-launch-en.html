@@ -50,6 +50,10 @@
   .tag{background:#111;color:#FFFF00;font-size:10px;font-weight:700;letter-spacing:.07em;padding:4px 10px;border-radius:30px}
   .tag.ol{background:#fff;color:#666;border:1.5px solid #ddd}
   .ph-full img{width:100%;display:block}
+  /* 直式照片滿版會把整個視窗撐掉（2026-09-24 FX10 轉正後實測 624→937px 高）→ 收窄置中 */
+  .ph-port{background:#f4f4f4;padding:22px 0;display:flex;justify-content:center}
+  .ph-port img{width:auto;max-width:62%;max-height:620px;display:block}
+  @media(max-width:620px){.ph-port img{max-width:82%}}
   .ph-2col{display:grid;grid-template-columns:1fr 1fr;gap:3px}
   .gi{width:100%;display:block;object-fit:cover}
   .gi-43{aspect-ratio:4/3}
@@ -152,7 +156,7 @@
     <div class="ph-full"><img src="images/unotech-hk-launch-briefing-room.jpg" alt="The technical briefing, with Markforged's Country Manager for Greater China and Vietnam, Brian Chen, presenting"></div>
     <div class="cap">The technical briefing, attended by industry, academic and media representatives.</div>
 
-    <div class="ph-full"><img src="images/unotech-hk-launch-fx10-printing.jpg" alt="The FX10 on the demonstration bench, hood open, print bed and gantry visible"></div>
+    <div class="ph-full ph-port"><img src="images/unotech-hk-launch-fx10-printing.jpg" alt="The FX10 on the demonstration bench, hood open, print bed and gantry visible"></div>
     <div class="cap">The FX10 on the demonstration bench. Unotech's systems engineers ran a live print during the event, producing two Onyx samples for comparison — one with continuous carbon fiber, one without.</div>
 
     <div class="sec">
@@ -180,7 +184,7 @@
     <div class="cap">The event closed with a networking session attended by industry, academic and media representatives.</div>
 
     <div class="sec">
-      <h2>Why Hong Kong, why now</h2>
+      <h2>Market context</h2>
       <h3>Bringing the least economic segment back in-house</h3>
       <p>Local manufacturers and engineering units face two pressures at once: compressed lead times, and a rising share of small-batch, multi-specification orders. Tooling takes the brunt — fixtures, jigs, gauges and robotic grippers. These are usually one-offs or very small batches whose specifications change with each product revision, and outsourced machining is quoted in weeks.</p>
       <p>Additive manufacturing moves that segment back inside the plant: revise the design and print again, with no new tooling and no queue at an outside shop. Parts can also be held as digital files and printed on demand, replacing physical spares inventory. For Hong Kong — limited floor space, high labour cost, tight delivery requirements — the difference is pronounced.</p>
@@ -227,9 +231,9 @@
   </div>
 
   <div class="cta">
-    <h4>Starting with a single part in Hong Kong</h4>
-    <p>If a part in aviation MRO, electronics, medical devices or precision engineering has a long lead time, high cost and frequent revisions, Unotech's engineering team can assess feasibility and the adoption path.</p>
-    <a href="https://mfmk.markforged.tw" class="btn">Contact us</a>
+    <h4>Point of contact in Hong Kong</h4>
+    <p>Markforged's sales, technical support and application development in Hong Kong are now handled by Unotech Limited, whose local engineering team covers installation, training and application development. For a feasibility assessment on a specific part, a machine trial or technical documentation, contact Unotech directly.</p>
+    <a href="https://www.uno-tech.com.hk" class="btn">Visit Unotech</a>
   </div>
 
   <div class="srcbox">
