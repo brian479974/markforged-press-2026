@@ -135,11 +135,11 @@ TAGS = [
 BLOCKS = [
     {
         "kind": "sec",
-        "h2": {"tw": "連續纖維增強：用複合材料零件取代金屬加工件",
-               "cn": "连续纤维增强：用复合材料零件取代金属加工件",
-               "en": "Continuous fiber: composite parts in place of machined metal"},
-        "h3": {"tw": "現場公布的材料數據", "cn": "现场公布的材料数据",
-               "en": "The material numbers presented on the day"},
+        "h2": {"tw": "連續纖維增強",
+               "cn": "连续纤维增强",
+               "en": "Continuous Fiber Reinforcement"},
+        "h3": {"tw": "連續纖維，不是短切纖維", "cn": "连续纤维，不是短切纤维",
+               "en": "Continuous fiber, not chopped fiber"},
         "paras": [
             {"tw": "發布會技術環節聚焦 Markforged 的連續纖維增強（Continuous Fiber Reinforcement，CFR）技術。"
                    "它在列印過程中把連續的碳纖維、Kevlar 或高強度高溫玻璃纖維鋪放到零件內部，"
@@ -209,31 +209,36 @@ BLOCKS = [
                 "en": "The technical briefing, attended by industry, academic and media representatives."},
     },
     {
-        # 2026-09-24 Brian「你確定你要選這兩張？」—— 原本是雙圖：
-        #   · 左（FX10 特寫）圖說寫「示範連續纖維增強技術」，但畫面看不到纖維也看不到零件＝圖說超賣
-        #   · 右（與會者觀看）主體被切在畫面右緣，前景是背影＝撐不住，移除
-        # 改為滿版單圖，圖說只寫畫面上真的有的東西。
-        "kind": "img_full",
-        "img": "images/unotech-hk-launch-fx10-printing.jpg",
-        "alt": {"tw": "發布會示範區的 FX10 系統，機殼開啟可見列印床與龍門",
-                "cn": "发布会演示区的 FX10 系统，机壳开启可见打印床与龙门",
-                "en": "The FX10 on the demonstration bench, hood open, print bed and gantry visible"},
-        "cap": {"tw": "示範區的 FX10 系統。壹科技的系統工程師於會上示範實機操作，"
+        # 2026-09-24 Brian：「這一張跟打開的一張合在一起不就好了」——揭幕前／揭幕後對照。
+        # 兩張都是直式，用 3:4 配對；直式硬套 4:3 會把蝴蝶結與機台頂部切掉。
+        "kind": "img_2col",
+        "ratio": "34",
+        "imgs": ["images/unotech-hk-launch-ribbon.jpg",
+                 "images/unotech-hk-launch-fx10-printing.jpg"],
+        "alts": [
+            {"tw": "剪綵揭幕前，FX10 系統以紅絨布覆蓋置於會場中央",
+             "cn": "剪彩揭幕前，FX10 系统以红绒布覆盖置于会场中央",
+             "en": "Before the unveiling: the FX10 under a red drape at the centre of the room"},
+            {"tw": "揭幕後的 FX10 系統，機殼開啟可見列印床與龍門",
+             "cn": "揭幕后的 FX10 系统，机壳开启可见打印床与龙门",
+             "en": "After the unveiling: the FX10 with its hood open, print bed and gantry visible"},
+        ],
+        "cap": {"tw": "揭幕前後的 FX10。壹科技的系統工程師於會上示範實機操作，"
                       "以 Onyx 材料當場列印加入與未加入連續碳纖維的兩件樣品供與會者比較。",
-                "cn": "演示区的 FX10 系统。壹科技的系统工程师于会上演示实机操作，"
+                "cn": "揭幕前后的 FX10。壹科技的系统工程师于会上演示实机操作，"
                       "以 Onyx 材料当场打印加入与未加入连续碳纤维的两件样品供与会者比较。",
-                "en": "The FX10 on the demonstration bench. Unotech's systems engineers ran a live "
-                      "print during the event, producing two Onyx samples for comparison — one with "
-                      "continuous carbon fiber, one without."},
+                "en": "The FX10 before and after the unveiling. Unotech's systems engineers ran a "
+                      "live print during the event, producing two Onyx samples for comparison — "
+                      "one with continuous carbon fiber, one without."},
     },
     {
         "kind": "sec",
-        "h2": {"tw": "現場實機示範：FX10 與 Eiger 雲端平台",
-               "cn": "现场实机演示：FX10 与 Eiger 云端平台",
-               "en": "Live demonstration: FX10 and the Eiger cloud platform"},
-        "h3": {"tw": "上傳檔案就看得到時間、材料與成本",
-               "cn": "上传文件就看得到时间、材料与成本",
-               "en": "Upload a file and the time, material and cost are already there"},
+        "h2": {"tw": "實機示範",
+               "cn": "实机演示",
+               "en": "Live demonstration"},
+        "h3": {"tw": "工程師拿得到數字去做判斷，不是拿一句「很結實」去說服人",
+               "cn": "工程师拿得到数字去做判断，不是拿一句“很结实”去说服人",
+               "en": "Engineers decide on numbers, not on being told a part is strong"},
         "paras": [
             {"tw": "壹科技的系統工程師在會上示範 FX10 的實際操作，用 Onyx 材料當場列印兩件樣品 —— "
                    "一件加入連續碳纖維增強、一件不加，讓與會者直接比較。",
@@ -263,12 +268,12 @@ BLOCKS = [
     },
     {
         "kind": "sec",
-        "h2": {"tw": "用家案例：香港理工大學的一體成型自行車座墊",
-               "cn": "用户案例：香港理工大学的一体成型自行车座垫",
-               "en": "Customer case: a one-piece printed bicycle saddle from PolyU"},
-        "h3": {"tw": "從紡織結構出發，用連續碳纖維解決安全問題",
-               "cn": "从纺织结构出发，用连续碳纤维解决安全问题",
-               "en": "Starting from a textile structure, solved with continuous carbon fiber"},
+        "h2": {"tw": "用家案例 · 香港理工大學",
+               "cn": "用户案例 · 香港理工大学",
+               "en": "Customer case: PolyU"},
+        "h3": {"tw": "一體成型的座墊：舒適度未必是第一優先，安全才是",
+               "cn": "一体成型的座垫：舒适度未必是第一优先，安全才是",
+               "en": "A saddle printed in one piece: comfort is not the first priority, safety is"},
         "paras": [
             {"tw": "發布會邀請香港理工大學時裝及紡織學院的研究團隊，分享以 Markforged 連續纖維技術"
                    "開發自行車座墊的過程。該座墊於 2024 年獲德國紅點設計獎（Design Concept 組別）認可，"
@@ -351,9 +356,9 @@ BLOCKS = [
         "h2": {"tw": "市場背景",
                "cn": "市场背景",
                "en": "Market context"},
-        "h3": {"tw": "工裝與小批量零件：交期與改版壓力最集中的一段",
-               "cn": "工装与小批量零件：交期与改版压力最集中的一段",
-               "en": "Bringing the least economic segment back in-house"},
+        "h3": {"tw": "訂單來了，卡住的不是機器，是等外發的那一批零件",
+               "cn": "订单来了，卡住的不是机器，是等外发的那一批零件",
+               "en": "When the orders arrive, the bottleneck is not the machines \u2014 it is the parts out for subcontract"},
         "paras": [
             {"tw": "本地製造與工程單位近年同時面對交期壓縮、以及小批量多規格訂單比重上升兩項壓力，"
                    "其中受影響最直接的是工裝 —— 夾具、治具、檢具與自動化夾爪。"
@@ -619,7 +624,9 @@ FTR = {
 # 原先用的是我從現場錄音改寫的版本 —— 有出處但非官方核可口徑，已退場。
 # 引號內一字未改；簡中為 OpenCC 轉換，英文為翻譯（頁面「資料來源」段已聲明）。
 APPROVED_QUOTES = {
-    "tw": [
+    # 「很結實」＝ Brian 當天簡報 p13 原話（「工程師拿得到數字去做判斷，而不是拿一句『很結實』
+    # 去說服人」），本文用作段落標題，出處＝`72_Decks/2026-09-24_Unotech-HK-Launch` 繁中 31p。
+    "tw": ["很結實",
         "我們非常榮幸能與工業 3D 打印領先品牌 Markforged 建立獨家合作關係。憑藉 Markforged 在增材製造"
         "領域的技術優勢，我們有信心為香港市場帶來更具成本效益、可靠且創新的製造選擇。壹科技的本地技術"
         "團隊將主攻航空維修、電子製造、醫療器材與精密工程等重點行業，這與連續纖維技術對強度與即時交付"
@@ -629,7 +636,7 @@ APPROVED_QUOTES = {
         "單一窗口，便能獲得全方位的專業保障。Markforged 在大中華區累積的豐富應用案例與材料驗證資料，"
         "亦將直接賦能香港團隊，共同協助本地醫療機構、航空與精密工程客戶提升運作效率。",
     ],
-    "cn": [
+    "cn": ["很结实",
         "我们非常荣幸能与工业 3D 打印领先品牌 Markforged 建立独家合作关系。凭借 Markforged 在增材制造"
         "领域的技术优势，我们有信心为香港市场带来更具成本效益、可靠且创新的制造选择。壹科技的本地技术"
         "团队将主攻航空维修、电子制造、医疗器材与精密工程等重点行业，这与连续纤维技术对强度与即时交付"
