@@ -84,12 +84,12 @@ LEAD = {
               "正式委任<strong>壹科技有限公司（Unotech Limited）</strong>為其香港獨家代理商，"
               "由壹科技全面承接 Markforged 工業級 3D 列印產品在香港的銷售、技術支援與應用開發服務。"
               "委任發布會同日於香港生產力促進局（HKPC）Inno Network 舉行，"
-              "由雙方管理層主持開幕及剪綵儀式，並設技術簡報、實機示範、用家案例分享與問答環節。",
+              "由雙方管理層主持開幕及剪綵儀式，並設技術簡報、實機示範、客戶案例分享與問答環節。",
         "cn": "<strong>【香港，2026 年 9 月 24 日】</strong>工业级增材制造企业 Markforged 今日宣布，"
               "正式委任<strong>壹科技有限公司（Unotech Limited）</strong>为其香港独家代理商，"
               "由壹科技全面承接 Markforged 工业级 3D 打印产品在香港的销售、技术支持与应用开发服务。"
               "委任发布会同日于香港生产力促进局（HKPC）Inno Network 举行，"
-              "由双方管理层主持开幕及剪彩仪式，并设技术简报、实机演示、用户案例分享与问答环节。",
+              "由双方管理层主持开幕及剪彩仪式，并设技术简报、实机演示、客户案例分享与问答环节。",
         "en": "<strong>HONG KONG, 24 September 2026</strong> — Markforged, the industrial additive "
               "manufacturing company, today appointed <strong>Unotech Limited</strong> as its "
               "exclusive distributor in Hong Kong. Unotech takes on sales, technical support and "
@@ -268,8 +268,8 @@ BLOCKS = [
     },
     {
         "kind": "sec",
-        "h2": {"tw": "用家案例 · 香港理工大學",
-               "cn": "用户案例 · 香港理工大学",
+        "h2": {"tw": "客戶案例 · 香港理工大學",
+               "cn": "客户案例 · 香港理工大学",
                "en": "Customer case: PolyU"},
         "h3": {"tw": "一體成型的座墊：舒適度未必是第一優先，安全才是",
                "cn": "一体成型的座垫：舒适度未必是第一优先，安全才是",
@@ -493,9 +493,9 @@ BLOCKS = [
                    "en": "78 Tat Chee Avenue, Kowloon Tong, Hong Kong"}},
             {"k": {"tw": "流程", "cn": "流程", "en": "Programme"},
              "v": {"tw": "嘉賓簽到｜開幕及剪綵儀式｜工業 3D 列印技術簡報｜實機示範｜"
-                         "用家案例分享｜問答環節｜交流酒會",
+                         "客戶案例分享｜問答環節｜交流酒會",
                    "cn": "嘉宾签到｜开幕及剪彩仪式｜工业 3D 打印技术简报｜实机演示｜"
-                         "用户案例分享｜问答环节｜交流酒会",
+                         "客户案例分享｜问答环节｜交流酒会",
                    "en": "Registration · Opening and ribbon-cutting · Technical briefing on "
                          "industrial 3D printing · Live machine demonstration · Customer case "
                          "study · Q&amp;A · Networking reception"}},
