@@ -71,6 +71,10 @@ STYLE = """
   .tag{background:#111;color:#FFFF00;font-size:10px;font-weight:700;letter-spacing:.07em;padding:4px 10px;border-radius:30px}
   .tag.ol{background:#fff;color:#666;border:1.5px solid #ddd}
   .ph-full img{width:100%;display:block}
+  /* 直式照片滿版會把整個視窗撐掉（2026-09-24 FX10 轉正後實測 624→937px 高）→ 收窄置中 */
+  .ph-port{background:#f4f4f4;padding:22px 0;display:flex;justify-content:center}
+  .ph-port img{width:auto;max-width:62%;max-height:620px;display:block}
+  @media(max-width:620px){.ph-port img{max-width:82%}}
   .ph-2col{display:grid;grid-template-columns:1fr 1fr;gap:3px}
   .gi{width:100%;display:block;object-fit:cover}
   .gi-43{aspect-ratio:4/3}
@@ -218,7 +222,14 @@ def render(lang):
                 A(f'      <p>{t(p, lang, f"blk{i}.pa{j}")}</p>')
             A('    </div>\n')
         elif b["kind"] == "img_full":
-            A(f'    <div class="ph-full"><img src="{b["img"]}" alt="{t(b["alt"], lang, f"blk{i}.alt")}"></div>')
+            # 直式／橫式自動分流：直式走 .ph-port 收窄置中，不讓它撐掉一整屏
+            try:
+                from PIL import Image as _Im
+                with _Im.open(os.path.join(OUT_DIR, b["img"])) as _i:
+                    _cls = "ph-full ph-port" if _i.height > _i.width else "ph-full"
+            except Exception:
+                _cls = "ph-full"
+            A(f'    <div class="{_cls}"><img src="{b["img"]}" alt="{t(b["alt"], lang, f"blk{i}.alt")}"></div>')
             A(f'    <div class="cap">{t(b["cap"], lang, f"blk{i}.cap")}</div>\n')
         elif b["kind"] == "video":
             _src = b["src"][lang] if isinstance(b["src"], dict) else b["src"]
