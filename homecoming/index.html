@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>老朋友，回娘家｜Markforged 设备健诊 · 工业级 3D 打印机旧换新 × 上海睿淮 Intellengine</title>
+<meta name="description" content="Markforged 老客户回娘家设备健诊，以及不限品牌的工业级 3D 打印机旧换新。由 Markforged 金牌授权合作伙伴上海睿淮工业装备有限公司执行。">
+<!--
+  Design v2 · 设计概念：「设备体检中心」
+  - 视觉语言：工业精密仪器的检测界面（扫描线、检测点、等宽读数、细线网格），对应「健诊」
+  - 品牌：Markforged VIS 黑 / 白 / Manufacturing Yellow，只用一种强调色
+  - 网页原生交互：机台检测点 · 支持期查询 · 旧机快速评估 · 等比例空间对比 · 横向机型展台
+  - 产品与公司图片：原厂实拍与伙伴官网原档；只有活动情境插图为生成图
+-->
+<style>
+@font-face{font-family:"MFLatin";src:url("assets/fonts/Rubik-Regular.ttf") format("truetype");font-weight:100 900;font-display:swap}
+:root{
+  --y:#FFFF00;--k:#000000;--w:#FFFFFF;--g1:#F4F4F4;--g2:#CCCCCC;--g3:#999999;--g4:#666666;
+  --hair:rgba(255,255,255,.12);--hair-k:rgba(0,0,0,.14);
+  --disp:"MFLatin","PingFang SC","Noto Sans SC","Microsoft YaHei",sans-serif;
+  --body:"Helvetica Neue",Arial,"PingFang SC","Noto Sans SC","Microsoft YaHei",sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,"PingFang SC",monospace;
+  --pad:clamp(20px,4vw,64px);
+  --ease:cubic-bezier(.2,.7,.1,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--k);color:var(--w);font-family:var(--body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+::selection{background:var(--y);color:var(--k)}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.disp{font-family:var(--disp);font-weight:600;letter-spacing:-.025em;line-height:1.02;text-wrap:balance}
+.y{color:var(--y)}
+.wrap{padding:0 var(--pad)}
+
+/* ── 顶栏 ─────────────────────────────── */
+.bar{position:fixed;inset:0 0 auto 0;z-index:60;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:64px;padding:0 var(--pad);transition:background .35s,border-color .35s;border-bottom:1px solid transparent}
+.bar.solid{background:rgba(0,0,0,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--hair)}
+.bar .mf{height:20px;width:auto}
+.bar nav{display:flex;gap:28px}
+.bar nav a{font-size:14px;color:var(--g2);position:relative}
+.bar nav a::after{content:"";position:absolute;left:0;right:100%;bottom:-6px;height:1px;background:var(--y);transition:right .3s var(--ease)}
+.bar nav a:hover{color:var(--w)}
+.bar nav a:hover::after{right:0}
+.bar .rt{display:flex;justify-content:flex-end;align-items:center;gap:14px}
+.chip{background:var(--w);display:inline-flex;align-items:center;padding:5px 9px;border-radius:2px}
+.chip img{height:22px;width:auto}
+.btn{display:inline-flex;align-items:center;gap:12px;white-space:nowrap;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;transition:transform .25s var(--ease),background .25s,color .25s}
+.btn-y{background:var(--y);color:var(--k)}
+.btn-y:hover{transform:translateY(-2px)}
+.btn-line{border:1px solid rgba(255,255,255,.55)}
+.btn-line:hover{background:var(--w);color:var(--k)}
+.btn-k{background:var(--k);color:var(--y)}
+.bar .btn{padding:9px 16px;font-size:13px}
+.arrow{font-family:var(--disp);transition:transform .25s var(--ease)}
+.btn:hover .arrow{transform:translateX(4px)}
+
+/* ── HERO ─────────────────────────────── */
+.hero{position:relative;height:100svh;min-height:680px;overflow:hidden;display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;padding:0 var(--pad)}
+.hero .grid-lines{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(to right,rgba(255,255,255,.05) 1px,transparent 1px);background-size:calc((100% - 2*var(--pad))/12) 100%;background-position:var(--pad) 0;mask-image:linear-gradient(to bottom,transparent,#000000 30%,#000000 70%,transparent)}
+.hero .machine{position:absolute;right:-4vw;top:50%;transform:translateY(-46%);width:min(64vw,980px);aspect-ratio:1/1;z-index:1}
+.hero .machine img{width:100%;height:100%;object-fit:cover;-webkit-mask-image:radial-gradient(ellipse 58% 60% at 50% 50%,#000000 62%,transparent 100%);mask-image:radial-gradient(ellipse 58% 60% at 50% 50%,#000000 62%,transparent 100%)}
+.scan{position:absolute;left:24%;right:24%;top:12%;height:2px;background:var(--y);box-shadow:0 0 18px 4px rgba(255,255,0,.45);animation:scan 5.5s var(--ease) infinite;z-index:2;opacity:.9}
+@keyframes scan{0%{top:12%;opacity:0}8%{opacity:.95}50%{top:86%;opacity:.95}58%{opacity:0}100%{top:86%;opacity:0}}
+.readout{position:absolute;z-index:3;display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--w);opacity:0;animation:r1 5.5s infinite}
+.readout i{width:9px;height:9px;border:1.5px solid var(--y);border-radius:50%;flex:none;box-shadow:0 0 0 4px rgba(255,255,0,.12)}
+.readout b{color:var(--y);font-weight:400}
+.readout span{background:rgba(0,0,0,.72);padding:3px 7px;border:1px solid rgba(255,255,255,.18);white-space:nowrap}
+.r1{left:49%;top:24%;animation-name:r1}.r2{left:31%;top:39%;animation-name:r2}.r3{left:42%;top:49.5%;animation-name:r3}.r4{left:49%;top:61.5%;animation-name:r4}
+@keyframes r1{0%,9%{opacity:0;transform:translateY(4px)}13%,92%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes r2{0%,19%{opacity:0;transform:translateY(4px)}23%,92%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes r3{0%,27%{opacity:0;transform:translateY(4px)}31%,92%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes r4{0%,36%{opacity:0;transform:translateY(4px)}40%,92%{opacity:1;transform:none}100%{opacity:0}}
+.hero .copy{grid-column:1 / span 7;align-self:center;position:relative;z-index:4;padding-top:40px}
+.hero .kicker{display:flex;gap:14px;align-items:center;color:var(--g2);margin-bottom:28px}
+.hero .kicker em{font-style:normal;width:28px;height:1px;background:var(--y)}
+.hero h1{font-size:clamp(64px,11.2vw,184px)}
+.hero h1 .l2{display:block;color:var(--y);margin-left:.06em}
+.hero .lead{max-width:30em;font-size:clamp(16px,1.35vw,19px);color:var(--g2);margin:30px 0 36px}
+.hero .lead b{color:var(--w);font-weight:600}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.hero .foot{position:absolute;left:var(--pad);right:var(--pad);bottom:0;z-index:4;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--hair)}
+.hero .foot div{padding:18px 0 22px;display:flex;flex-direction:column;gap:6px}
+.hero .foot div+div{padding-left:22px;border-left:1px solid var(--hair)}
+.hero .foot .mono{color:var(--g3);font-size:11px}
+.hero .foot b{font-weight:500;font-size:15px}
+.hero .foot .down{color:var(--y)}
+
+/* ── 跑马灯 ─────────────────────────────── */
+.marquee{background:var(--y);color:var(--k);overflow:hidden;border-block:1px solid var(--k);white-space:nowrap}
+.marquee .track{display:inline-flex;animation:mq 38s linear infinite;padding:18px 0}
+.marquee span{font-family:var(--disp);font-weight:600;font-size:clamp(28px,4.2vw,64px);letter-spacing:-.02em;padding-right:.6em}
+.marquee span i{font-style:normal;display:inline-block;width:.32em;height:.32em;background:var(--k);margin:0 .5em;vertical-align:.18em;transform:rotate(45deg)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ── 通用区块头 ─────────────────────────────── */
+.sec{position:relative;padding:clamp(96px,12vw,180px) 0}
+.sec-head{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;align-items:end;margin-bottom:clamp(48px,6vw,88px)}
+.sec-head .tag{grid-column:1 / span 3;display:flex;gap:12px;align-items:center;color:var(--g3);align-self:start;padding-top:14px}
+.sec-head .tag b{color:var(--y);font-weight:400}
+.sec-head h2{grid-column:4 / span 9;font-size:clamp(40px,6vw,96px)}
+.sec-head p{grid-column:4 / span 6;color:var(--g2);font-size:18px;margin-top:22px}
+.light{background:var(--w);color:var(--k)}
+.light .sec-head .tag{color:var(--g4)}
+.light .sec-head .tag b{color:var(--k);background:var(--y);padding:0 6px}
+.light .sec-head p{color:var(--g4)}
+
+/* ── 两条路 ─────────────────────────────── */
+.paths{display:flex;height:min(86vh,820px);gap:2px;background:var(--k)}
+.path{position:relative;flex:1;overflow:hidden;transition:flex .8s var(--ease);display:flex;align-items:flex-end;color:var(--w)}
+.path:hover{flex:1.55}
+.path img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease),filter .6s}
+.path::before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.92) 8%,rgba(0,0,0,.25) 60%,rgba(0,0,0,.35));z-index:1}
+.path:hover img{transform:scale(1.04)}
+.path .inner{position:relative;z-index:2;padding:clamp(28px,3.5vw,56px);width:100%}
+.path .num{font-family:var(--disp);font-size:clamp(80px,10vw,160px);line-height:.8;color:transparent;-webkit-text-stroke:1.5px var(--y);margin-bottom:24px}
+.path h3{font-size:clamp(30px,3.4vw,52px)}
+.path p{max-width:26em;color:var(--g2);margin:14px 0 22px}
+.path ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.path li{font-size:13px;border:1px solid rgba(255,255,255,.35);padding:6px 12px;border-radius:999px}
+.path .go{display:inline-flex;gap:10px;align-items:center;color:var(--y);font-weight:600}
+.path .go .arrow{transition:transform .3s var(--ease)}
+.path:hover .go .arrow{transform:translateX(6px)}
+
+/* ── 检测点 ─────────────────────────────── */
+.diag{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;align-items:center}
+.diag .list{grid-column:1 / span 5;list-style:none;counter-reset:c;border-top:1px solid var(--hair-k)}
+.diag .item{border-bottom:1px solid var(--hair-k);cursor:pointer;position:relative;padding:22px 0 22px 64px;transition:padding .4s var(--ease)}
+.diag .item::before{content:"0" counter(c);counter-increment:c;position:absolute;left:0;top:24px;font-family:var(--mono);font-size:13px;color:var(--g3);letter-spacing:.1em}
+.diag .item h3{font-size:22px;font-family:var(--disp);font-weight:600;letter-spacing:-.01em;display:flex;justify-content:space-between;align-items:center}
+.diag .item h3::after{content:"+";font-family:var(--mono);font-weight:400;color:var(--g3);transition:transform .3s}
+.diag .item p{max-height:0;overflow:hidden;color:var(--g4);font-size:15px;transition:max-height .5s var(--ease),margin .5s var(--ease)}
+.diag .item.on{padding-left:76px}
+.diag .item.on::before{color:var(--k);background:var(--y);padding:2px 6px;left:0}
+.diag .item.on h3::after{content:"−"}
+.diag .item.on p{max-height:120px;margin-top:10px}
+.diag .item .bar-t{position:absolute;left:0;bottom:-1px;height:2px;width:0;background:var(--k)}
+.diag .item.on .bar-t{animation:fill 5s linear forwards}
+@keyframes fill{to{width:100%}}
+.diag .stage{grid-column:7 / span 6;position:relative;aspect-ratio:1/1;background:var(--k);overflow:hidden}
+.diag .stage img{width:100%;height:100%;object-fit:cover}
+.diag .stage .frame{position:absolute;inset:14px;border:1px solid rgba(255,255,255,.14);pointer-events:none}
+.diag .stage .frame::before,.diag .stage .frame::after{content:"";position:absolute;width:22px;height:22px;border-color:var(--y);border-style:solid}
+.diag .stage .frame::before{top:-1px;left:-1px;border-width:2px 0 0 2px}
+.diag .stage .frame::after{bottom:-1px;right:-1px;border-width:0 2px 2px 0}
+.diag .stage .meta{position:absolute;left:28px;top:26px;color:var(--g3);font-size:11px}
+.diag .stage .meta b{color:var(--y);font-weight:400}
+.hot{position:absolute;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;display:grid;place-items:center;cursor:pointer;z-index:3}
+.hot::before{content:"";position:absolute;inset:0;border-radius:50%;border:1.5px solid var(--y);background:rgba(0,0,0,.55)}
+.hot span{position:relative;font-family:var(--mono);font-size:11px;color:var(--y)}
+.hot::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:1px solid var(--y);opacity:0}
+.hot.on::before{background:var(--y)}
+.hot.on span{color:var(--k)}
+.hot.on::after{animation:ping 1.6s var(--ease) infinite}
+@keyframes ping{0%{opacity:.9;transform:scale(.8)}100%{opacity:0;transform:scale(2.2)}}
+.callout{color:var(--w);position:absolute;z-index:4;left:28px;right:28px;bottom:26px;background:rgba(0,0,0,.78);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.16);padding:16px 18px;display:grid;grid-template-columns:auto 1fr;gap:6px 14px;align-items:baseline}
+.callout .mono{color:var(--y);font-size:11px}
+.callout b{font-size:17px;font-weight:600}
+.callout p{grid-column:1 / -1;color:var(--g2);font-size:14px}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);margin-top:clamp(64px,8vw,120px);position:relative}
+.flow::before{content:"";position:absolute;left:0;right:0;top:27px;height:1px;background:var(--hair-k)}
+.flow .rail{position:absolute;left:0;top:26px;height:3px;background:var(--y);width:var(--p,0%);transition:width .2s linear}
+.flow div{position:relative;padding-right:28px}
+.flow .n{display:inline-grid;place-items:center;width:56px;height:56px;border-radius:50%;background:var(--w);border:1px solid var(--k);font-family:var(--disp);font-size:20px;position:relative;z-index:1;transition:background .4s}
+.flow .done .n{background:var(--y)}
+.flow h4{font-size:19px;margin:20px 0 6px}
+.flow p{color:var(--g4);font-size:15px}
+.note{font-size:13px;color:var(--g4);margin-top:40px;font-family:var(--body)}
+
+/* ── 支持期查询 ─────────────────────────────── */
+.ldos{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;row-gap:40px}
+.picker{grid-column:1 / span 5}
+.picker .mono{color:var(--g3);margin-bottom:16px;display:block}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{border:1px solid rgba(255,255,255,.3);padding:11px 16px;font-size:15px;border-radius:2px;transition:all .2s}
+.opt:hover{border-color:var(--w)}
+.opt.on{background:var(--y);color:var(--k);border-color:var(--y);font-weight:600}
+.dial{grid-column:7 / span 6;border:1px solid var(--hair);padding:clamp(24px,3vw,44px);position:relative;min-height:420px;display:flex;flex-direction:column}
+.dial .mono{color:var(--g3)}
+.dial .big{display:flex;align-items:baseline;gap:14px;margin:18px 0 6px}
+.dial .big .n{font-family:var(--disp);font-size:clamp(96px,12vw,200px);line-height:.82;letter-spacing:-.05em;color:var(--y);font-variant-numeric:tabular-nums}
+.dial .big .u{font-size:clamp(20px,2vw,28px);color:var(--w)}
+.dial .big.na .n{font-size:clamp(56px,6vw,96px);color:var(--w)}
+.dial .when{color:var(--g2);font-size:15px}
+.dial .track{margin:28px 0 10px;height:8px;background:rgba(255,255,255,.1);position:relative}
+.dial .track i{position:absolute;left:0;top:0;bottom:0;background:var(--y);transition:width .9s var(--ease)}
+.dial .ticks{display:flex;justify-content:space-between;color:var(--g4);font-size:11px}
+.dial .advice{flex-wrap:wrap;margin-top:auto;padding-top:28px;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;border-top:1px solid var(--hair)}
+.dial .advice p{font-size:17px;max-width:22em}
+.dial .advice p b{color:var(--y);font-weight:600}
+.allbars{grid-column:1 / -1;border-top:1px solid var(--hair);padding-top:28px}
+.allbars .row{display:grid;grid-template-columns:200px 1fr 110px;align-items:center;gap:20px;padding:9px 0;cursor:pointer}
+.allbars .row:hover .lab{color:var(--y)}
+.allbars .lab{font-size:15px;color:var(--g2);transition:color .2s}
+.allbars .bg{height:6px;background:rgba(255,255,255,.08);position:relative}
+.allbars .bg i{position:absolute;left:0;top:0;bottom:0;background:var(--g2)}
+.allbars .row.on .bg i{background:var(--y)}
+.allbars .row.on .lab{color:var(--w)}
+.allbars .dt{font-family:var(--mono);font-size:12px;color:var(--g3);text-align:right}
+.src{font-size:12px;color:var(--g4);margin-top:18px;line-height:1.7}
+
+/* ── 旧换新 ─────────────────────────────── */
+.ti-hero{position:relative;height:min(92vh,880px);overflow:hidden;display:flex;align-items:flex-end}
+.ti-hero img{position:absolute;inset:-8% 0 0 0;width:100%;height:116%;object-fit:cover;will-change:transform}
+.ti-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(to top,#000000 6%,rgba(0,0,0,.2) 55%,rgba(0,0,0,.45));z-index:1}
+.ti-hero .inner{position:relative;z-index:2;padding:0 var(--pad) clamp(48px,6vw,96px);width:100%;display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px}
+.ti-hero .tag{grid-column:1 / -1;color:var(--g2);margin-bottom:22px;display:flex;gap:12px}
+.ti-hero .tag b{color:var(--y);font-weight:400}
+.ti-hero h2{grid-column:1 / span 9;font-size:clamp(52px,8.4vw,140px)}
+.ti-hero h2 s{text-decoration:none;color:transparent;-webkit-text-stroke:1.5px var(--w)}
+.ti-hero p{grid-column:1 / span 6;color:var(--g2);font-size:18px;margin-top:26px}
+.quiz{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;row-gap:32px}
+.quiz .qs{grid-column:1 / span 7;display:flex;flex-direction:column;gap:30px}
+.q .mono{color:var(--g3);display:flex;gap:10px;margin-bottom:12px}
+.q .mono b{color:var(--y);font-weight:400}
+.q h4{font-size:22px;font-weight:600;margin-bottom:14px}
+.result{grid-column:9 / span 4;align-self:start;position:sticky;top:96px;background:var(--y);color:var(--k);padding:30px 28px 28px}
+.result .mono{font-size:11px}
+.result h3{font-family:var(--disp);font-size:34px;letter-spacing:-.02em;margin:14px 0 10px;line-height:1.1}
+.result p{font-size:15px;margin-bottom:22px}
+.result ol{list-style:none;counter-reset:s;margin-bottom:24px;border-top:1px solid rgba(0,0,0,.25)}
+.result ol li{counter-increment:s;padding:10px 0 10px 34px;position:relative;border-bottom:1px solid rgba(0,0,0,.25);font-size:14px}
+.result ol li::before{content:counter(s);position:absolute;left:0;top:10px;font-family:var(--mono);font-size:12px;width:20px;height:20px;border:1px solid var(--k);border-radius:50%;display:grid;place-items:center}
+.result .btn{width:100%;justify-content:space-between}
+.steps4{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:clamp(72px,9vw,140px);background:var(--hair)}
+.steps4 div{background:var(--k);padding:30px 26px 34px;min-height:240px;display:flex;flex-direction:column}
+.steps4 .n{font-family:var(--disp);font-size:64px;line-height:1;color:transparent;-webkit-text-stroke:1px var(--g3);margin-bottom:auto}
+.steps4 div:hover .n{-webkit-text-stroke-color:var(--y);color:var(--y)}
+.steps4 h4{font-size:20px;margin:28px 0 6px}
+.steps4 p{color:var(--g3);font-size:15px}
+
+/* ── 空间对比 ─────────────────────────────── */
+.space{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;align-items:center}
+.space .vis{grid-column:1 / span 7;position:relative}
+.space svg{width:100%;height:auto;display:block;overflow:visible}
+.space .toggles{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.space .toggles button{font-family:var(--mono);font-size:12px;letter-spacing:.08em;border:1px solid var(--hair-k);padding:8px 14px;border-radius:2px;color:var(--k);transition:all .2s}
+.space .toggles button.on{background:var(--k);color:var(--y);border-color:var(--k)}
+.space .side{grid-column:9 / span 4}
+.space .x{font-family:var(--disp);font-size:clamp(120px,15vw,240px);line-height:.8;letter-spacing:-.06em}
+.space .x small{font-size:.32em;letter-spacing:0;margin-left:.08em}
+.space .xcap{color:var(--g4);margin:16px 0 34px;font-size:15px}
+.diff{font-family:var(--mono);font-size:13px;letter-spacing:.02em;border:1px solid var(--hair-k)}
+.diff .hd{display:flex;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--hair-k);color:var(--g4);font-size:11px;letter-spacing:.12em}
+.diff .ln{display:grid;grid-template-columns:22px 1fr;padding:7px 14px;line-height:1.5}
+.diff .ln.m{color:var(--g4);background:var(--g1)}
+.diff .ln.p{background:rgba(255,255,0,.55)}
+.diff .ln b{font-weight:400}
+.diff .gap{height:1px;background:var(--hair-k)}
+
+/* ── 横向机型展台 ─────────────────────────────── */
+.hz{position:relative;height:300vh;background:var(--k)}
+.hz .pin{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.hz .lane{display:flex;gap:2vw;padding:0 var(--pad);will-change:transform}
+.hz .intro{flex:0 0 34vw;display:flex;flex-direction:column;justify-content:center;padding-right:2vw}
+.hz .intro .mono{color:var(--g3);display:flex;gap:12px;margin-bottom:22px}
+.hz .intro .mono b{color:var(--y);font-weight:400}
+.hz .intro h2{font-size:clamp(40px,4.3vw,72px)}
+.hz .intro p{color:var(--g2);margin-top:22px;font-size:17px;max-width:24em}
+.card{flex:0 0 min(62vw,880px);height:74vh;position:relative;border:1px solid var(--hair);display:grid;grid-template-columns:1.1fr .9fr;overflow:hidden}
+.card .ph{position:relative;background:var(--k)}
+.card .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:6%;-webkit-mask-image:radial-gradient(ellipse 62% 64% at 50% 52%,#000000 55%,transparent 100%);mask-image:radial-gradient(ellipse 62% 64% at 50% 52%,#000000 55%,transparent 100%)}
+.card .tx{padding:clamp(24px,3vw,44px);display:flex;flex-direction:column;border-left:1px solid var(--hair)}
+.card .nm{font-family:var(--disp);font-size:clamp(64px,7vw,120px);line-height:.85;letter-spacing:-.04em}
+.card .ps{color:var(--y);font-weight:600;margin:14px 0 auto;font-size:17px}
+.card dl{display:grid;grid-template-columns:auto 1fr;gap:0;border-top:1px solid var(--hair);margin-top:28px}
+.card dt,.card dd{padding:11px 0;border-bottom:1px solid var(--hair);font-size:14px}
+.card dt{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--g3);padding-right:18px;padding-top:13px}
+.card .fit{margin-top:18px;color:var(--g2);font-size:14px}
+.card .badge{position:absolute;top:18px;left:18px;background:var(--y);color:var(--k);font-size:12px;font-weight:700;padding:5px 10px;letter-spacing:.06em;z-index:2}
+.hz .prog{position:absolute;left:var(--pad);right:var(--pad);bottom:5vh;height:1px;background:var(--hair)}
+.hz .prog i{position:absolute;left:0;top:-1px;height:3px;background:var(--y);width:0}
+
+/* ── 市场 ─────────────────────────────── */
+.mkt{background:var(--y);color:var(--k)}
+.mkt .sec-head .tag{color:var(--k)}
+.mkt .sec-head .tag b{color:var(--k);border:1px solid var(--k);padding:0 6px}
+.mkt .sec-head p{color:var(--k);opacity:.8}
+.years{display:grid;grid-template-columns:repeat(3,1fr);border-top:2px solid var(--k)}
+.years>div{padding:26px 24px 0 0;position:relative}
+.years>div+div{padding-left:24px;border-left:1px solid rgba(0,0,0,.35)}
+.years .yr{font-family:var(--mono);font-size:13px;letter-spacing:.12em}
+.years .v{white-space:nowrap;font-family:var(--disp);font-weight:600;font-size:clamp(52px,7vw,120px);line-height:.95;letter-spacing:-.05em;margin:14px 0 6px;font-variant-numeric:tabular-nums}
+.years .v small{font-size:.22em;letter-spacing:0;margin-left:6px;font-weight:600}
+.years .fc .v{color:transparent;-webkit-text-stroke:2px var(--k)}
+.years .lbl{font-size:14px}
+.years .bar{height:10px;background:var(--k);margin-top:22px;transform-origin:left;transform:scaleX(0);transition:transform 1.4s var(--ease)}
+.years .fc .bar{background:repeating-linear-gradient(-45deg,#000000 0 4px,transparent 4px 8px)}
+.years.in .bar{transform:scaleX(var(--s))}
+.mkt .stat{display:flex;gap:28px;align-items:baseline;margin-top:64px;padding-top:26px;border-top:1px solid rgba(0,0,0,.35);flex-wrap:wrap}
+.mkt .stat .disp{font-size:clamp(48px,6vw,88px)}
+.mkt .src{color:var(--k);opacity:.7}
+
+/* ── 伙伴 ─────────────────────────────── */
+.lock{display:flex;align-items:center;gap:clamp(20px,3vw,48px);flex-wrap:wrap;margin-bottom:clamp(56px,7vw,110px)}
+.lock .mfk{height:clamp(30px,3.6vw,52px);width:auto}
+.lock .x{font-family:var(--disp);font-size:clamp(40px,5vw,80px);font-weight:300;color:var(--g3);line-height:1}
+.lock .il{height:clamp(46px,5.4vw,80px);width:auto}
+.pt{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;row-gap:48px}
+.pt h2{grid-column:1 / span 6;font-size:clamp(40px,5.2vw,84px)}
+.pt .lead{grid-column:8 / span 5;font-size:18px;color:var(--g4);align-self:end}
+.pt .nums{grid-column:1 / -1;display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--k)}
+.pt .nums>div{padding:24px 24px 26px 0}
+.pt .nums>div+div{padding-left:24px;border-left:1px solid var(--hair-k)}
+.pt .nums .v{font-family:var(--disp);font-weight:600;font-size:clamp(48px,6vw,96px);line-height:1;letter-spacing:-.04em}
+.pt .nums .v small{font-size:.3em;margin-left:4px;letter-spacing:0}
+.pt .nums p{color:var(--g4);margin-top:10px;font-size:15px}
+.pt .caps{grid-column:1 / span 7;display:flex;flex-wrap:wrap;gap:10px;align-content:flex-start}
+.pt .caps span{border:1px solid var(--k);padding:10px 18px;font-size:15px;border-radius:999px}
+.pt .creds{grid-column:9 / span 4;list-style:none}
+.pt .creds li{padding:12px 0;border-bottom:1px solid var(--hair-k);font-size:14px;display:flex;gap:12px}
+.pt .creds li::before{content:"✓";font-family:var(--mono);color:var(--k);background:var(--y);width:20px;height:20px;display:grid;place-items:center;font-size:12px;flex:none}
+
+/* ── 品牌 ─────────────────────────────── */
+.brand{position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden}
+.brand>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.brand::before{content:"";position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.92) 0%,rgba(0,0,0,.55) 55%,rgba(0,0,0,.15)),linear-gradient(to top,rgba(0,0,0,.85),transparent 50%);z-index:1}
+.brand .inner{position:relative;z-index:2;padding:0 var(--pad) clamp(56px,7vw,110px);width:100%}
+.brand .mono{color:var(--g2);display:flex;gap:12px;margin-bottom:24px}
+.brand .mono b{color:var(--y);font-weight:400}
+.brand h2{font-size:clamp(48px,7vw,120px);max-width:9em}
+.brand .three{display:grid;grid-template-columns:repeat(3,minmax(0,22em));gap:36px;margin-top:48px}
+.brand .three div{border-top:1px solid rgba(255,255,255,.4);padding-top:16px}
+.brand .three b{display:block;font-size:18px;margin-bottom:6px}
+.brand .three p{color:var(--g2);font-size:15px}
+.brand .nums{display:flex;gap:64px;margin-top:56px}
+.brand .nums .v{font-family:var(--disp);font-size:clamp(56px,6vw,96px);color:var(--y);line-height:1;letter-spacing:-.04em}
+.brand .nums p{color:var(--g2);margin-top:6px}
+
+/* ── 预约 ─────────────────────────────── */
+.book{background:var(--y);color:var(--k)}
+.book .grid{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;row-gap:48px}
+.book h2{grid-column:1 / span 6;font-size:clamp(56px,8vw,132px)}
+.book .lead{grid-column:1 / span 5;font-size:18px;margin-top:-20px}
+form.f{grid-column:7 / span 6;grid-row:1 / span 3;background:var(--k);color:var(--w);padding:clamp(28px,3vw,44px);display:grid;grid-template-columns:1fr 1fr;gap:22px 22px}
+form.f .full{grid-column:1 / -1}
+form.f label{display:flex;flex-direction:column;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--g3)}
+form.f input,form.f textarea{font:inherit;font-family:var(--body);font-size:16px;letter-spacing:0;color:var(--w);background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,.3);padding:8px 0;outline:none;border-radius:0;transition:border-color .2s}
+form.f input:focus,form.f textarea:focus{border-bottom-color:var(--y)}
+form.f input::placeholder{color:var(--g4)}
+.seg{display:flex;gap:8px;flex-wrap:wrap}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg span{font-family:var(--body);letter-spacing:0;font-size:15px;color:var(--w);border:1px solid rgba(255,255,255,.35);padding:10px 16px;border-radius:2px;cursor:pointer;transition:all .2s}
+.seg input:checked+span{background:var(--y);color:var(--k);border-color:var(--y);font-weight:600}
+form.f button{grid-column:1 / -1;justify-content:space-between}
+.contact{grid-column:1 / span 5;align-self:end;display:grid;grid-template-columns:1fr auto;gap:20px;border-top:2px solid var(--k);padding-top:24px}
+.contact .chip{padding:8px 12px;border:1px solid rgba(0,0,0,.15)}
+.contact .chip img{height:30px}
+.contact h3{font-size:20px;margin:16px 0 2px}
+.contact .s{font-size:14px;opacity:.75}
+.contact dl{display:grid;grid-template-columns:44px 1fr;gap:6px 8px;font-size:15px;margin-top:16px}
+.contact dt{font-family:var(--mono);font-size:11px;letter-spacing:.1em;padding-top:4px}
+.contact .qr{text-align:center;font-size:12px}
+.contact .qr img{width:104px;height:104px;background:var(--w);padding:6px;margin-bottom:6px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,24px);background:var(--k);color:var(--y);padding:14px 22px;font-weight:600;opacity:0;transition:all .3s var(--ease);z-index:99;border:1px solid var(--y)}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+footer{padding:56px var(--pad) 64px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end;font-size:13px;color:var(--g3);border-top:1px solid var(--hair)}
+footer p+p{margin-top:8px}
+footer .lg{display:flex;align-items:center;gap:18px}
+footer .lg .mf{height:20px}
+
+/* ── 进场动效 ─────────────────────────────── */
+.rv{opacity:0;transform:translateY(36px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.mask{clip-path:inset(0 0 100% 0);transition:clip-path 1.1s var(--ease)}
+.mask.in{clip-path:inset(0 0 0 0)}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv,.mask{opacity:1;transform:none;clip-path:none}.readout{opacity:1}}
+
+/* ── 响应式 ─────────────────────────────── */
+@media (max-width:1080px){
+  .bar nav{display:none}
+  .bar{grid-template-columns:auto 1fr}
+  .hero .copy{grid-column:1 / -1}
+  .hero .machine{width:96vw;right:-28vw;opacity:.55}
+  .sec-head .tag,.sec-head h2,.sec-head p{grid-column:1 / -1}
+  .sec-head h2{margin-top:18px}
+  .diag .list,.diag .stage,.picker,.dial,.quiz .qs,.result,.space .vis,.space .side,.pt h2,.pt .lead,.pt .caps,.pt .creds,.book h2,.book .lead,form.f,.contact{grid-column:1 / -1}
+  form.f{grid-row:auto}
+  .diag .stage{margin-top:40px}
+  .result{position:relative;top:0}
+  .space .side{margin-top:40px}
+  .hz{height:auto}
+  .hz .pin{position:relative;height:auto;padding:96px 0}
+  .hz .lane{flex-direction:column;transform:none!important;gap:24px}
+  .hz .intro{flex:none;padding:0}
+  .card{flex:none;height:auto;grid-template-columns:1fr}
+  .card .ph{aspect-ratio:4/3}
+  .card .tx{border-left:none;border-top:1px solid var(--hair)}
+  .hz .prog{display:none}
+  .paths{flex-direction:column;height:auto}
+  .ti-hero h2,.ti-hero p{grid-column:1 / -1}
+  .path{min-height:72vh}
+  .path:hover{flex:1}
+}
+@media (max-width:640px){
+  .hero .foot{grid-template-columns:1fr 1fr}
+  .hero .foot div:nth-child(3){border-left:none;padding-left:0}
+  .hero .foot div:nth-child(n+3){border-top:1px solid var(--hair)}
+  .readout{display:none}
+  .flow,.steps4,.years,.pt .nums{grid-template-columns:1fr 1fr}
+  .flow::before,.flow .rail{display:none}
+  .years>div+div,.pt .nums>div+div{border-left:none;padding-left:0}
+  .allbars .row{grid-template-columns:1fr 92px;gap:8px}
+  .allbars .bg{grid-column:1 / -1;grid-row:2}
+  .brand .three{grid-template-columns:1fr}
+  .brand .nums{gap:32px}
+  form.f{grid-template-columns:1fr}
+  .contact{grid-template-columns:1fr}
+  .bar .chip{display:none}
+  footer{grid-template-columns:1fr}
+}
+</style>
+<link rel="canonical" href="https://news.markforged.tw/homecoming/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://news.markforged.tw/homecoming/">
+<meta property="og:title" content="老朋友，回娘家｜Markforged 设备健诊 · 工业级 3D 打印机旧换新">
+<meta property="og:description" content="Markforged 老客户回娘家设备健诊，以及不限品牌的工业级 3D 打印机旧换新。">
+<meta property="og:image" content="https://news.markforged.tw/homecoming/assets/fx10_hero.jpg">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="Markforged Media Hub">
+<script src="../analytics.js" defer></script>
+</head>
+<body>
+
+<header class="bar" id="bar">
+  <a href="#top"><img class="mf" src="assets/mf_logo_white.png" alt="Markforged"></a>
+  <nav>
+    <a href="#health">回娘家健诊</a>
+    <a href="#support">支持期查询</a>
+    <a href="#tradein">旧换新</a>
+    <a href="#lineup">升级机型</a>
+    <a href="#partner">服务团队</a>
+  </nav>
+  <div class="rt">
+    <span class="chip"><img src="assets/intellengine_logo.png" alt="Intellengine"></span>
+    <a class="btn btn-y" href="#book">立即预约</a>
+  </div>
+</header>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="top">
+  <div class="grid-lines"></div>
+  <div class="machine" aria-hidden="true">
+    <img src="assets/fx10_hero.jpg" alt="">
+    <div class="scan"></div>
+    <div class="readout r1"><i></i><span>CHK·02 打印头 <b>正常</b></span></div>
+    <div class="readout r2"><i></i><span>CHK·05 料仓 <b>正常</b></span></div>
+    <div class="readout r3"><i></i><span>CHK·03 平台 <b>校准中</b></span></div>
+    <div class="readout r4"><i></i><span>CHK·04 固件 <b>已确认</b></span></div>
+  </div>
+  <div class="copy">
+    <div class="kicker mono"><em></em>Markforged × Intellengine · 中国区客户服务活动</div>
+    <h1 class="disp">老朋友，<span class="l2">回娘家。</span></h1>
+    <p class="lead">用了几年的 Markforged，带它回来做一次<b>完整健诊</b>；手上<b>任何品牌</b>的工业级 3D 打印机，也可以<b>折抵升级</b>到新一代。两项服务，由 Markforged 金牌授权合作伙伴上海睿淮执行。</p>
+    <div class="ctas">
+      <a class="btn btn-y" href="#book">预约设备健诊 <span class="arrow">→</span></a>
+      <a class="btn btn-line" href="#tradein">评估旧机折抵</a>
+    </div>
+  </div>
+  <div class="foot">
+    <div><span class="mono">01 · 健诊</span><b>Markforged 各代在用设备</b></div>
+    <div><span class="mono">02 · 旧换新</span><b>任何品牌工业级 3D 打印机</b></div>
+    <div><span class="mono">执行伙伴</span><b>上海睿淮 Intellengine</b></div>
+    <div><span class="mono down">向下滚动 ↓</span><b>先看看您的设备状态</b></div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div class="track">
+  <span>检查<i></i>校准<i></i>试打<i></i>报告<i></i>评估<i></i>折抵<i></i>升级<i></i>交付<i></i></span>
+  <span>检查<i></i>校准<i></i>试打<i></i>报告<i></i>评估<i></i>折抵<i></i>升级<i></i>交付<i></i></span>
+</div></div>
+
+<!-- ═══ 两条路 ═══ -->
+<section class="paths" aria-label="两项服务">
+  <a class="path" href="#health">
+    <img src="assets/gen_healthcheck.jpg" alt="工程师用数显卡尺量测零件">
+    <div class="inner">
+      <div class="num">01</div>
+      <h3 class="disp">设备还在用？<br>先回来健诊。</h3>
+      <p>上海睿淮工程师逐项检查、校准、试打，交给您一份健诊报告和保养建议。</p>
+      <ul><li>Mark Two</li><li>Onyx 系列</li><li>X 系列</li><li>FX 系列</li></ul>
+      <span class="go">看六个检测点 <span class="arrow">→</span></span>
+    </div>
+  </a>
+  <a class="path" href="#tradein">
+    <img src="assets/gen_tradein.jpg" alt="空出位置等待新设备的厂房">
+    <div class="inner">
+      <div class="num">02</div>
+      <h3 class="disp">已经不够用？<br>旧机折抵换新。</h3>
+      <p>不论哪个品牌，只要是工业级 3D 打印机，都可以提交评估，折抵后升级到 X7、FX10 或 FX20。</p>
+      <ul><li>任何品牌</li><li>含已停售机型</li><li>安装与培训</li></ul>
+      <span class="go">三题快速评估 <span class="arrow">→</span></span>
+    </div>
+  </a>
+</section>
+
+<!-- ═══ 健诊：检测点 ═══ -->
+<section class="sec light" id="health">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag mono"><b>01</b>回娘家健诊</div>
+      <h2 class="disp mask">一台机器，<br>六个检测点。</h2>
+      <p class="rv">点选清单或机台上的检测点，看工程师会检查什么。健诊结束，您会拿到一份完整的健诊报告。</p>
+    </div>
+    <div class="diag">
+      <ol class="list" id="checkList"></ol>
+      <div class="stage rv" id="stage">
+        <img src="assets/fx10_hero.jpg" alt="Markforged FX10 机台正面">
+        <div class="frame"></div>
+        <div class="meta mono">DIAGNOSTIC VIEW · <b id="metaN">CHK 01/06</b></div>
+        <div class="callout" id="callout"><span class="mono" id="coN">CHK·01</span><b id="coT"></b><p id="coP"></p></div>
+      </div>
+    </div>
+    <div class="flow" id="flow">
+      <span class="rail"></span>
+      <div><span class="n">01</span><h4>在线预约</h4><p>填写设备型号、序列号与目前的使用情况。</p></div>
+      <div><span class="n">02</span><h4>工程师确认</h4><p>上海睿淮工程师联系您，确认检查项目与时间。</p></div>
+      <div><span class="n">03</span><h4>现场健诊</h4><p>逐项检查、校准、试打，过程中随时说明。</p></div>
+      <div><span class="n">04</span><h4>健诊报告</h4><p>设备状态、建议更换的零件与后续保养计划。</p></div>
+    </div>
+    <p class="note">健诊项目根据设备型号与现场情况调整；如需更换零件，另行报价。</p>
+  </div>
+</section>
+
+<!-- ═══ 支持期查询 ═══ -->
+<section class="sec" id="support">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag mono"><b>02</b>支持期查询</div>
+      <h2 class="disp mask">您的设备，<br>还剩多少原厂支持？</h2>
+      <p class="rv">已停售机型过了最后支持日（LDOS），原厂不再提供技术支持与维修服务。选一下您的机型。</p>
+    </div>
+    <div class="ldos">
+      <div class="picker rv">
+        <span class="mono">选择机型</span>
+        <div class="opts" id="opts"></div>
+      </div>
+      <div class="dial rv d1" id="dial">
+        <span class="mono" id="dModel">—</span>
+        <div class="big" id="dBig"><span class="n" id="dN">0</span><span class="u" id="dU">个月</span></div>
+        <div class="when" id="dWhen"></div>
+        <div class="track"><i id="dBar" style="width:0%"></i></div>
+        <div class="ticks mono"><span>2026</span><span>2027</span><span>2028</span><span>2029</span><span>2030</span><span>2031</span></div>
+        <div class="advice"><p id="dAdv"></p><a class="btn btn-y" href="#book" id="dCta">预约 <span class="arrow">→</span></a></div>
+      </div>
+      <div class="allbars rv" id="allbars"></div>
+    </div>
+    <p class="src">第一代桌面系列与第一代 X3/X5 工业系列设备也列在原厂停售／停止支持清单内（公告 EOL000010），日期以原厂公告为准。资料来源：Markforged 官方 EOS/EOL 公告 EOL000001（X5）、EOL0000013（Metal X）、EOL000008（Onyx One）、EOL0000014（Sinter-1）。</p>
+  </div>
+</section>
+
+<!-- ═══ 旧换新 ═══ -->
+<section class="ti-hero" id="tradein">
+  <img src="assets/gen_tradein.jpg" alt="空出位置等待新设备的厂房" id="tiImg">
+  <div class="inner">
+    <div class="tag mono"><b>03</b>不限品牌旧换新</div>
+    <h2 class="disp mask">不限品牌，<br><s>工业级</s>都能换。</h2>
+    <p class="rv">手上的设备是哪个品牌都没关系。还在用、不够用、或已经闲置，都可以提交评估，折抵后升级到 Markforged 新一代机型。</p>
+  </div>
+</section>
+<section class="sec" style="padding-top:clamp(64px,8vw,120px)">
+  <div class="wrap">
+    <div class="quiz">
+      <div class="qs">
+        <div class="q rv"><div class="mono"><b>Q1</b>/ 3</div><h4>您的设备是哪个品牌？</h4>
+          <div class="opts" data-q="brand"><button class="opt on" data-v="mf">Markforged</button><button class="opt" data-v="other">其他品牌</button></div></div>
+        <div class="q rv"><div class="mono"><b>Q2</b>/ 3</div><h4>用了多久？</h4>
+          <div class="opts" data-q="age"><button class="opt" data-v="a1">3 年内</button><button class="opt on" data-v="a2">3–6 年</button><button class="opt" data-v="a3">6 年以上</button></div></div>
+        <div class="q rv"><div class="mono"><b>Q3</b>/ 3</div><h4>目前状况？</h4>
+          <div class="opts" data-q="state"><button class="opt on" data-v="s1">正常使用</button><button class="opt" data-v="s2">够用但想扩充能力</button><button class="opt" data-v="s3">闲置或故障</button></div></div>
+      </div>
+      <aside class="result rv d2" id="result">
+        <span class="mono">评估建议</span>
+        <h3 id="rT"></h3>
+        <p id="rP"></p>
+        <ol id="rL"></ol>
+        <a class="btn btn-k" href="#book" id="rCta">按这个建议预约 <span class="arrow">→</span></a>
+      </aside>
+    </div>
+    <div class="steps4">
+      <div class="rv"><span class="n">01</span><h4>提交旧机资料</h4><p>品牌、型号、年份、照片，在线填写即可。</p></div>
+      <div class="rv d1"><span class="n">02</span><h4>上海睿淮评估</h4><p>工程师评估设备状况，提出折抵方式。</p></div>
+      <div class="rv d2"><span class="n">03</span><h4>升级方案</h4><p>按您的应用推荐新机配置，出具专项报价。</p></div>
+      <div class="rv d3"><span class="n">04</span><h4>交付与培训</h4><p>新机安装、调试，操作人员现场培训。</p></div>
+    </div>
+    <p class="note" style="color:var(--g3)">折抵方式与金额以上海睿淮评估及正式报价为准。</p>
+  </div>
+</section>
+
+<!-- ═══ 空间对比 ═══ -->
+<section class="sec light" id="space">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag mono"><b>04</b>升级之后</div>
+      <h2 class="disp mask">同一个原点，<br>差出来的是空间。</h2>
+      <p class="rv">四台机器的可打印空间，按真实尺寸等比例画在同一个原点上。点选机型对比。</p>
+    </div>
+    <div class="space">
+      <div class="vis rv">
+        <svg id="iso" viewBox="0 0 680 540" role="img" aria-label="Mark Two、X7、FX10、FX20 可打印空间等比例对比"></svg>
+        <div class="toggles" id="isoT"></div>
+      </div>
+      <div class="side rv d1">
+        <div class="x disp" id="isoX">5.2<small>倍</small></div>
+        <p class="xcap" id="isoCap"></p>
+        <div class="diff">
+          <div class="hd"><span>MARK TWO → FX10</span><span>官方规格书</span></div>
+          <div class="ln m"><b>−</b>成型室无加热</div>
+          <div class="ln p"><b>+</b>成型室 60°C 恒温</div>
+          <div class="gap"></div>
+          <div class="ln m"><b>−</b>单卷料仓</div>
+          <div class="ln p"><b>+</b>4 卷密封料仓，自动换料</div>
+          <div class="gap"></div>
+          <div class="ln m"><b>−</b>手动平台校准</div>
+          <div class="ln p"><b>+</b>激光自动检测平台</div>
+          <div class="gap"></div>
+          <div class="ln m"><b>−</b>无在线检测</div>
+          <div class="ln p"><b>+</b>激光测微 + 视觉模块</div>
+          <div class="gap"></div>
+          <div class="ln m"><b>−</b>只能打印复合材料</div>
+          <div class="ln p"><b>+</b>加装 Metal Kit 可扩展到金属</div>
+        </div>
+        <p class="src">资料来源：Markforged 官方产品规格书。FX20 取单喷头配置；Metal Kit 需搭配清洗与烧结设备完成金属零件制作。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 横向机型展台 ═══ -->
+<section class="hz" id="lineup">
+  <div class="pin">
+    <div class="lane" id="lane">
+      <div class="intro">
+        <div class="mono"><b>05</b>升级机型</div>
+        <h2 class="disp">换到哪一台，<br>看您要打印什么。</h2>
+        <p>三款现役工业机各有专长，上海睿淮会根据您的零件、材料与产量需求推荐配置。</p>
+      </div>
+      <article class="card">
+        <div class="ph"><img src="assets/x7_hero.jpg" alt="Markforged X7"></div>
+        <div class="tx"><div class="nm">X7</div><div class="ps">精密复合材料</div>
+          <dl><dt>空间</dt><dd>330 × 270 × 200 mm</dd><dt>纤维</dt><dd>碳纤维、玻璃纤维、凯夫拉®</dd><dt>检测</dt><dd>激光在线检测</dd></dl>
+          <p class="fit">适合：精密工装夹具、研发打样</p></div>
+      </article>
+      <article class="card">
+        <span class="badge">升级首选</span>
+        <div class="ph"><img src="assets/fx10_hero.jpg" alt="Markforged FX10"></div>
+        <div class="tx"><div class="nm y">FX10</div><div class="ps">复合材料 + 金属 双模式</div>
+          <dl><dt>空间</dt><dd>375 × 300 × 300 mm</dd><dt>成型室</dt><dd>60°C 加热，4 卷自动换料</dd><dt>金属</dt><dd>加装 Metal Kit，搭配清洗与烧结设备</dd></dl>
+          <p class="fit">适合：产线工装、终端零件、小批量金属件</p></div>
+      </article>
+      <article class="card">
+        <div class="ph"><img src="assets/fx20_hero.jpg" alt="Markforged FX20"></div>
+        <div class="tx"><div class="nm">FX20</div><div class="ps">大尺寸、高温</div>
+          <dl><dt>空间</dt><dd>525 × 400 × 400 mm</dd><dt>成型室</dt><dd>最高 200°C</dd><dt>材料</dt><dd>ULTEM™ 9085 等高温材料</dd></dl>
+          <p class="fit">适合：大型零件、高温工况</p></div>
+      </article>
+    </div>
+    <div class="prog"><i id="hzBar"></i></div>
+  </div>
+</section>
+
+<!-- ═══ 市场 ═══ -->
+<section class="sec mkt" id="market">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag mono"><b>06</b>为什么是现在</div>
+      <h2 class="disp mask">行业五年翻了几倍，<br>设备也该跟上。</h2>
+      <p class="rv">中国增材制造产业规模（亿元）。</p>
+    </div>
+    <div class="years" id="years"></div>
+    <div class="stat rv"><span class="disp" data-count="52.5" data-dec="1" data-pre="+" data-suf="%">+0%</span><p>2025 年中国 3D 打印设备产量 521.1 万台，同比增长 52.5%。</p></div>
+    <p class="src">资料来源：中国增材制造产业联盟（经新浪财经 2026-03-19 转引），2030 年为预测值；国家统计局《2025 年国民经济和社会发展统计公报》。</p>
+  </div>
+</section>
+
+<!-- ═══ 伙伴 ═══ -->
+<section class="sec light" id="partner">
+  <div class="wrap">
+    <div class="lock rv">
+      <img class="mfk" src="assets/mf_logo_black.png" alt="Markforged">
+      <span class="x">×</span>
+      <img class="il" src="assets/intellengine_logo.png" alt="Intellengine">
+    </div>
+    <div class="pt">
+      <h2 class="disp mask">原厂技术，<br>本地团队服务。</h2>
+      <p class="lead rv">上海睿淮工业装备有限公司是 Markforged 在中国的金牌授权合作伙伴。从设备安装、售后维修到操作培训，由本地工程团队就近服务。</p>
+      <div class="nums" id="ptNums">
+        <div class="rv"><div class="v" data-count="2016" data-raw="1">0</div><p>成立于上海</p></div>
+        <div class="rv d1"><div class="v"><span data-count="12">0</span><small>名</small></div><p>技术与服务工程师</p></div>
+        <div class="rv d2"><div class="v"><span data-count="3">0</span><small>地</small></div><p>上海 · 深圳 · 天津 服务网点</p></div>
+        <div class="rv d3"><div class="v" style="font-size:clamp(36px,4vw,60px);padding-top:.25em">金牌授权</div><p>Markforged 中国区合作伙伴</p></div>
+      </div>
+      <div class="caps rv"><span>设备安装</span><span>售后维修</span><span>操作培训</span><span>样件试打</span><span>应用评估</span><span>材料选型</span></div>
+      <ul class="creds rv d1" id="creds"></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 品牌 ═══ -->
+<section class="brand" id="brand">
+  <img src="assets/cfr_closeup.jpg" alt="连续碳纤维增强打印件">
+  <div class="inner">
+    <div class="mono"><b>07</b>关于 Markforged</div>
+    <h2 class="disp mask">把工业级 3D 打印，带进工厂现场。</h2>
+    <div class="three">
+      <div class="rv"><b>连续纤维增强</b><p>打印过程中铺入连续碳纤维，大幅提升零件的强度与刚性，让打印件能直接上产线使用。</p></div>
+      <div class="rv d1"><b>复合材料与金属，同一平台</b><p>FX10 加装 Metal Kit 即可切换金属模式，搭配清洗与烧结设备完成金属零件制作。</p></div>
+      <div class="rv d2"><b>工厂现场就能用</b><p>工装、夹具、检具与备件在厂内打印，交期大幅缩短，设计改了随时重打。</p></div>
+    </div>
+    <div class="nums">
+      <div class="rv"><div class="v">10,000+</div><p>全球客户</p></div>
+      <div class="rv d1"><div class="v">70+</div><p>国家与地区</p></div>
+      <div class="rv d2"><div class="v">2013</div><p>创立于美国波士顿</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 预约 ═══ -->
+<section class="sec book" id="book">
+  <div class="wrap grid">
+    <h2 class="disp mask">让设备<br>回家看看。</h2>
+    <p class="lead rv">留下设备与联系方式，上海睿淮工程师会与您联系，安排健诊或旧机评估。</p>
+    <form class="f rv d1" id="form">
+      <div class="full"><label>服务类型</label>
+        <div class="seg" style="margin-top:10px">
+          <label><input type="radio" name="svc" value="health" checked><span>回娘家健诊</span></label>
+          <label><input type="radio" name="svc" value="tradein"><span>旧换新评估</span></label>
+          <label><input type="radio" name="svc" value="both"><span>两项都要</span></label>
+        </div>
+      </div>
+      <label>公司名称<input name="company" required></label>
+      <label>联系人<input name="name" required></label>
+      <label>手机<input name="phone" type="tel" required></label>
+      <label>邮箱<input name="email" type="email"></label>
+      <label>设备品牌与型号<input name="model" id="fModel" placeholder="例：Markforged Mark Two"></label>
+      <label>所在城市<input name="city"></label>
+      <label class="full">设备使用情况（选填）<textarea name="note" rows="2"></textarea></label>
+      <button class="btn btn-y" type="submit">提交预约 <span class="arrow">→</span></button>
+    </form>
+    <div class="contact rv d2">
+      <div>
+        <span class="chip"><img src="assets/intellengine_logo.png" alt="Intellengine"></span>
+        <h3>上海睿淮工业装备有限公司</h3>
+        <div class="s">Markforged 中国区金牌授权合作伙伴</div>
+        <dl><dt>电话</dt><dd>021-6223 9858</dd><dt>邮箱</dt><dd>info@intellengine.cn</dd><dt>网站</dt><dd>www.intellengine.cn</dd><dt>地址</dt><dd>上海市青浦区华徐路 605 号 B 栋 202 室</dd></dl>
+      </div>
+      <div class="qr"><img src="assets/qr_intellengine.svg" alt="二维码">扫码访问官网</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <p><a href="../index.html" style="color:#FFFF00">← Markforged 媒体中心</a></p>
+    <p>本活动服务由上海睿淮工业装备有限公司提供。健诊项目、折抵方式与价格以上海睿淮确认及正式报价为准。所有交易须符合适用的进出口管制法规。</p>
+    <p>产品规格来源：Markforged 官方产品规格书；最后支持日来源：Markforged 官方 EOS/EOL 公告。ULTEM™ 是 SABIC 的商标，凯夫拉® 是杜邦公司的商标。© 2026 Markforged, Inc.</p>
+  </div>
+  <div class="lg"><img class="mf" src="assets/mf_logo_white.png" alt="Markforged"><span>×</span><span class="chip"><img src="assets/intellengine_logo.png" alt="Intellengine"></span></div>
+</footer>
+
+<div class="toast" id="toast">已为您打开邮件，请确认后发送</div>
+
+<script>
+const FACTS = {"as_of": "2026-10-01", "partner": {"zh_short": "上海睿淮", "zh_full": "上海睿淮工业装备有限公司", "en": "Intellengine", "en_legal": "Intellengine Automatic Equip Co. Ltd.", "founded": "2016", "sites": ["上海", "深圳", "天津"], "engineers": 12, "tier": "金牌授权合作伙伴", "phone": "021-6223 9858", "web": "www.intellengine.cn", "address": "上海市青浦区华徐路 605 号 B 栋 202 室", "credentials": ["ISO 9001:2015 质量管理体系认证", "Essemtec 2024 亚太区年度合作伙伴（销售与服务卓越）", "Essemtec 2025 增长冠军奖"], "email": "info@intellengine.cn"}, "build_volume": {"unit": "L", "rows": [{"model": "Mark Two", "liters": 6.5, "dims": "320 × 132 × 154 mm", "old": true}, {"model": "X7", "liters": 17.8, "dims": "330 × 270 × 200 mm"}, {"model": "FX10", "liters": 33.8, "dims": "375 × 300 × 300 mm", "highlight": true}, {"model": "FX20", "liters": 84, "dims": "525 × 400 × 400 mm"}]}, "ldos": {"today": "2026-10-01", "rows": [{"model": "X5", "ldos": "2027-12-31", "bulletin": "EOL000001"}, {"model": "Metal X（第一代）", "ldos": "2027-12-31", "bulletin": "EOL0000013"}, {"model": "Onyx One（第二代）", "ldos": "2028-12-31", "bulletin": "EOL000008"}, {"model": "Metal X（第二代）", "ldos": "2030-12-31", "bulletin": "EOL0000013"}, {"model": "Sinter-1 烧结炉", "ldos": "2030-12-31", "bulletin": "EOL0000014"}]}, "market": {"rows": [{"year": "2020", "value": 208, "kind": "actual"}, {"year": "2025", "value": 700, "kind": "actual"}, {"year": "2030", "value": 1500, "kind": "forecast"}], "unit": "亿元", "label": "中国增材制造产业规模", "src": "中国增材制造产业联盟（经新浪财经 2026-03-19 转引）；2030 年为预测值", "output_2025": {"value": "521.1 万台", "yoy": "52.5%", "src": "国家统计局《2025 年国民经济和社会发展统计公报》"}}, "markforged": {"customers": "10,000+", "countries": "70+"}};
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+
+/* 顶栏 */
+const bar = $("#bar");
+addEventListener("scroll", () => bar.classList.toggle("solid", scrollY > 40), {passive: true});
+
+/* 进场 */
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), {threshold: .15});
+$$(".rv").forEach(n => io.observe(n));
+// .mask 用 clip-path 從零高度展開：Chrome 計算交集時會套用元素自身的 clip-path，
+// 直接觀察它永遠是 0 面積、永遠不觸發 → 改觀察外層容器，再替它加上 in
+const mio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.querySelectorAll(":scope > .mask").forEach(m => m.classList.add("in")); mio.unobserve(e.target); } }), {threshold: .1});
+new Set($$(".mask").map(m => m.parentElement)).forEach(p => mio.observe(p));
+
+/* 数字滚动 */
+function countUp(el) {
+  const to = parseFloat(el.dataset.count), dec = +(el.dataset.dec || 0), raw = el.dataset.raw;
+  const pre = el.dataset.pre || "", suf = el.dataset.suf || "", t0 = performance.now(), d = 1400;
+  const step = t => { const p = Math.min(1, (t - t0) / d), e = 1 - Math.pow(1 - p, 4), v = to * e;
+    el.textContent = pre + (raw ? Math.round(v) : v.toLocaleString("en-US", {minimumFractionDigits: dec, maximumFractionDigits: dec})) + suf;
+    if (p < 1) requestAnimationFrame(step); };
+  requestAnimationFrame(step);
+}
+const cio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { countUp(e.target); cio.unobserve(e.target); } }), {threshold: .5});
+$$("[data-count]").forEach(n => cio.observe(n));
+
+/* ── 健诊：检测点 ── */
+const CHECKS = [
+  {t: "机构与运动系统", p: "检查导轨、皮带、风扇与机壳，确认运动平顺、没有异常磨损或松动。", x: 58.5, y: 38},
+  {t: "打印头与送料路径", p: "检查塑料与纤维喷嘴的磨损，确认送料路径、纤维切刀与送丝顺畅。", x: 50, y: 24.5},
+  {t: "打印平台校准", p: "平台调平与 Z 轴高度校准；带激光检测的机型，同步检查传感器。", x: 43.5, y: 50},
+  {t: "软件与固件", p: "确认 Eiger 账户、设备固件版本与联网状态，整理打印记录。", x: 50, y: 62},
+  {t: "材料存放", p: "检查耗材是否受潮、干燥箱是否正常，给出存放与使用建议。", x: 32.5, y: 39.5},
+  {t: "标准件试打与报告", p: "打印标准测试件，对照检查结果，出具健诊报告与保养建议。", x: 50, y: 77}
+];
+const list = $("#checkList"), stage = $("#stage");
+CHECKS.forEach((c, i) => {
+  const li = document.createElement("li"); li.className = "item";
+  li.innerHTML = `<h3>${c.t}</h3><p>${c.p}</p><span class="bar-t"></span>`;
+  li.onclick = () => pick(i, true); list.appendChild(li);
+  const h = document.createElement("button"); h.className = "hot"; h.style.left = c.x + "%"; h.style.top = c.y + "%";
+  h.innerHTML = `<span>${i + 1}</span>`; h.setAttribute("aria-label", c.t); h.onclick = () => pick(i, true); stage.appendChild(h);
+});
+let cur = 0, timer = null, userPicked = false;
+function pick(i, user) {
+  cur = i; if (user) userPicked = true;
+  $$("#checkList .item").forEach((n, k) => { n.classList.toggle("on", k === i); if (k === i) { const b = n.querySelector(".bar-t"); b.style.animation = "none"; b.offsetWidth; b.style.animation = ""; } });
+  $$("#stage .hot").forEach((n, k) => n.classList.toggle("on", k === i));
+  $("#coN").textContent = "CHK·0" + (i + 1); $("#coT").textContent = CHECKS[i].t; $("#coP").textContent = CHECKS[i].p;
+  $("#metaN").textContent = "CHK 0" + (i + 1) + "/06";
+  clearTimeout(timer); timer = setTimeout(() => pick((cur + 1) % CHECKS.length, false), userPicked ? 9000 : 5000);
+}
+const dio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { pick(0); dio.disconnect(); } }), {threshold: .3});
+dio.observe(stage);
+
+/* 流程进度轨 */
+const flow = $("#flow"), rail = flow.querySelector(".rail"), fsteps = [...flow.querySelectorAll("div")];
+function flowProg() {
+  const r = flow.getBoundingClientRect(), vh = innerHeight;
+  const p = Math.max(0, Math.min(1, (vh * .85 - r.top) / (vh * .55)));
+  rail.style.width = (p * 100) + "%";
+  fsteps.forEach((d, i) => d.classList.toggle("done", p >= i / (fsteps.length - 1) - .001 && p > 0));
+}
+addEventListener("scroll", flowProg, {passive: true});
+
+/* ── 支持期查询 ── */
+const T0 = new Date("2026-01-01"), T1 = new Date("2031-06-30");
+const today = new Date(Math.max(Date.now(), new Date(FACTS.ldos.today).getTime()));
+const months = d => Math.max(0, Math.round((d - today) / 86400000 / 30.44));
+const OPTS = FACTS.ldos.rows.map(r => ({k: r.model, ldos: r.ldos, b: r.bulletin}))
+  .concat([{k: "Mark Two / Onyx Pro", na: "gen"}, {k: "其他品牌", na: "other"}]);
+const optBox = $("#opts"), allb = $("#allbars");
+OPTS.forEach((o, i) => {
+  const b = document.createElement("button"); b.className = "opt"; b.textContent = o.k; b.onclick = () => showL(i); optBox.appendChild(b);
+});
+FACTS.ldos.rows.forEach((r, i) => {
+  const d = new Date(r.ldos), w = ((d - T0) / (T1 - T0) * 100).toFixed(1);
+  const row = document.createElement("div"); row.className = "row"; row.onclick = () => showL(i);
+  row.innerHTML = `<span class="lab">${r.model}</span><span class="bg"><i style="width:${w}%"></i></span><span class="dt">${r.ldos}</span>`;
+  allb.appendChild(row);
+});
+function showL(i) {
+  const o = OPTS[i];
+  $$("#opts .opt").forEach((n, k) => n.classList.toggle("on", k === i));
+  $$("#allbars .row").forEach((n, k) => n.classList.toggle("on", k === i));
+  $("#dModel").textContent = o.k;
+  const big = $("#dBig");
+  if (!o.na) {
+    const d = new Date(o.ldos), m = months(d);
+    big.classList.remove("na"); $("#dU").textContent = "个月";
+    animNum($("#dN"), m);
+    $("#dWhen").textContent = `原厂最后支持日 ${o.ldos} · 公告 ${o.b}`;
+    $("#dBar").style.width = ((d - T0) / (T1 - T0) * 100).toFixed(1) + "%";
+    $("#dAdv").innerHTML = m <= 18 ? `支持期已不到一年半。建议<b>先健诊确认状态，同时评估旧换新</b>。` : `还有时间，但要提前规划。建议<b>定期健诊</b>，把升级排进预算。`;
+    $("#dCta").dataset.svc = m <= 18 ? "both" : "health";
+  } else if (o.na === "gen") {
+    big.classList.add("na"); $("#dN").textContent = "需确认"; $("#dU").textContent = "";
+    $("#dWhen").textContent = "未列入单独的最后支持日公告；第一代桌面机型另列于公告 EOL000010";
+    $("#dBar").style.width = "0%";
+    $("#dAdv").innerHTML = `健诊时由工程师<b>确认设备代别与支持状态</b>，再决定保养或升级。`;
+    $("#dCta").dataset.svc = "health";
+  } else {
+    big.classList.add("na"); $("#dN").textContent = "可评估"; $("#dU").textContent = "";
+    $("#dWhen").textContent = "支持期以原品牌公告为准";
+    $("#dBar").style.width = "0%";
+    $("#dAdv").innerHTML = `任何品牌的工业级 3D 打印机，都可以<b>提交旧换新评估</b>。`;
+    $("#dCta").dataset.svc = "tradein";
+  }
+}
+function animNum(el, to) {
+  const from = parseInt(el.textContent) || 0, t0 = performance.now();
+  const st = t => { const p = Math.min(1, (t - t0) / 700), e = 1 - Math.pow(1 - p, 3); el.textContent = Math.round(from + (to - from) * e); if (p < 1) requestAnimationFrame(st); };
+  requestAnimationFrame(st);
+}
+showL(0);
+
+/* ── 旧机快速评估 ── */
+const ans = {brand: "mf", age: "a2", state: "s1"};
+$$(".quiz .opts").forEach(g => g.querySelectorAll(".opt").forEach(b => b.onclick = () => {
+  g.querySelectorAll(".opt").forEach(x => x.classList.remove("on")); b.classList.add("on");
+  ans[g.dataset.q] = b.dataset.v; evalQ();
+}));
+function evalQ() {
+  let svc, t, p, steps;
+  if (ans.brand === "other") {
+    svc = "tradein"; t = "旧换新评估";
+    p = "其他品牌的工业级设备，直接走旧换新：工程师评估旧机，按您的应用推荐新机配置。";
+    steps = ["提交旧机品牌、型号、年份与照片", "工程师评估设备状况与折抵方式", "推荐 X7 / FX10 / FX20 配置与专项报价"];
+  } else if (ans.state === "s1" && ans.age !== "a3") {
+    svc = "health"; t = "回娘家健诊";
+    p = "设备还在正常使用，先做一次完整健诊，把状态调回来，延长使用寿命。";
+    steps = ["预约健诊，填写型号与序列号", "工程师到场逐项检查、校准、试打", "拿到健诊报告与保养计划"];
+  } else {
+    svc = "both"; t = "先健诊，再评估换新";
+    p = ans.state === "s2" ? "设备还能用，但想做更大、更强或金属件：健诊确认现况，同时评估升级到新一代。" : "先由工程师确认设备状况，再决定是修复保养，还是折抵换新最划算。";
+    steps = ["健诊确认设备状态与支持期", "评估旧机折抵方式", "对比保养与换新两种方案后再决定"];
+  }
+  $("#rT").textContent = t; $("#rP").textContent = p;
+  $("#rL").innerHTML = steps.map(s => `<li>${s}</li>`).join("");
+  $("#rCta").dataset.svc = svc;
+}
+evalQ();
+$$("[data-svc]").forEach(a => a.addEventListener("click", () => {
+  const v = a.dataset.svc; const r = document.querySelector(`input[name=svc][value=${v}]`); if (r) r.checked = true;
+}));
+
+/* ── 旧换新大图视差 ── */
+const tiImg = $("#tiImg");
+addEventListener("scroll", () => {
+  const r = tiImg.parentElement.getBoundingClientRect();
+  if (r.bottom > 0 && r.top < innerHeight) tiImg.style.transform = `translateY(${(r.top * -.12).toFixed(1)}px)`;
+}, {passive: true});
+
+/* ── 等比例空间对比（等轴测） ── */
+const DIMS = {"Mark Two": [320, 154, 132], "X7": [330, 200, 270], "FX10": [375, 300, 300], "FX20": [525, 400, 400]};
+const VOL = Object.fromEntries(FACTS.build_volume.rows.map(r => [r.model, r]));
+const svg = $("#iso"), NS = "http://www.w3.org/2000/svg", S = .56, C = Math.cos(Math.PI / 6), SN = .5, OX = 245, OY = 330;
+const P = (x, y, z) => [OX + (x - z) * C * S, OY + (x + z) * SN * S - y * S];
+let sel = "FX10";
+function drawIso() {
+  svg.innerHTML = "";
+  // 地面网格
+  for (let g = 0; g <= 525; g += 75) { line(P(g, 0, 0), P(g, 0, 400), "rgba(0,0,0,.07)", 1); }
+  for (let g = 0; g <= 400; g += 75) { line(P(0, 0, g), P(525, 0, g), "rgba(0,0,0,.07)", 1); }
+  const order = ["FX20", "FX10", "X7", "Mark Two"];
+  order.forEach(m => {
+    const [w, h, d] = DIMS[m], on = m === sel, base = m === "Mark Two";
+    const col = on ? "#000000" : base ? "#000000" : "#999999";
+    if (on || base) {
+      const top = [P(0, h, 0), P(w, h, 0), P(w, h, d), P(0, h, d)];
+      poly([P(w, 0, 0), P(w, 0, d), P(w, h, d), P(w, h, 0)], on ? "rgba(255,255,0,.30)" : "rgba(0,0,0,.05)");
+      poly([P(0, 0, d), P(w, 0, d), P(w, h, d), P(0, h, d)], on ? "rgba(255,255,0,.18)" : "rgba(0,0,0,.03)");
+      poly(top, on ? "rgba(255,255,0,.62)" : "rgba(0,0,0,.08)");
+    }
+    const E = [[0,0,0,w,0,0],[0,0,0,0,h,0],[0,0,0,0,0,d],[w,0,0,w,h,0],[w,0,0,w,0,d],[0,h,0,w,h,0],[0,h,0,0,h,d],[0,0,d,w,0,d],[0,0,d,0,h,d],[w,h,0,w,h,d],[w,0,d,w,h,d],[0,h,d,w,h,d]];
+    E.forEach(e => line(P(e[0], e[1], e[2]), P(e[3], e[4], e[5]), col, on ? 2 : 1, on || base ? "" : "4 4"));
+    if (on) { const lp = P(w, h, 0); text(lp[0] + 10, lp[1] - 4, m, 16, "#000000", 700, "start"); }
+    else if (base) { const lp = P(0, h, d); text(lp[0] - 10, lp[1] + 4, m, 13, "#000000", 400, "end"); }
+    else if (m === "FX20") { const lp = P(w, h, 0); text(lp[0] + 10, lp[1] - 4, m, 12, "#999999", 400, "start"); }
+  });
+  const v = VOL[sel], b = VOL["Mark Two"];
+  $("#isoX").innerHTML = (v.liters / b.liters).toFixed(1) + "<small>倍</small>";
+  $("#isoCap").textContent = sel === "Mark Two" ? "Mark Two 可打印空间 6.5 升（基准）" : `${sel} 可打印空间 ${v.liters} 升（${v.dims}），是 Mark Two 的 ${(v.liters / b.liters).toFixed(1)} 倍。`;
+}
+function line(a, b, c, w, dash) { const l = document.createElementNS(NS, "line"); l.setAttribute("x1", a[0]); l.setAttribute("y1", a[1]); l.setAttribute("x2", b[0]); l.setAttribute("y2", b[1]); l.setAttribute("stroke", c); l.setAttribute("stroke-width", w); if (dash) l.setAttribute("stroke-dasharray", dash); svg.appendChild(l); }
+function poly(pts, f) { const p = document.createElementNS(NS, "polygon"); p.setAttribute("points", pts.map(q => q.join(",")).join(" ")); p.setAttribute("fill", f); svg.appendChild(p); }
+function text(x, y, s, sz, c, wt, anc) { const t = document.createElementNS(NS, "text"); t.setAttribute("x", x); t.setAttribute("y", y); if (anc) t.setAttribute("text-anchor", anc); t.setAttribute("font-size", sz); t.setAttribute("fill", c); t.setAttribute("font-weight", wt); t.setAttribute("font-family", "MFLatin,Helvetica Neue,Arial"); t.textContent = s; svg.appendChild(t); }
+["X7", "FX10", "FX20"].forEach(m => {
+  const b = document.createElement("button"); b.textContent = m + " vs Mark Two"; b.className = m === sel ? "on" : "";
+  b.onclick = () => { sel = m; $$("#isoT button").forEach(x => x.classList.toggle("on", x === b)); drawIso(); };
+  $("#isoT").appendChild(b);
+});
+drawIso();
+
+/* ── 横向展台 ── */
+const hz = $(".hz"), lane = $("#lane"), hzBar = $("#hzBar");
+function hzMove() {
+  if (innerWidth <= 1080) { lane.style.transform = ""; return; }
+  const r = hz.getBoundingClientRect(), total = hz.offsetHeight - innerHeight;
+  const p = Math.max(0, Math.min(1, -r.top / total)), max = lane.scrollWidth - innerWidth;
+  lane.style.transform = `translateX(${-p * max}px)`; hzBar.style.width = (p * 100) + "%";
+}
+addEventListener("scroll", hzMove, {passive: true}); addEventListener("resize", hzMove);
+
+/* ── 市场 ── */
+const yb = $("#years"), mx = Math.max(...FACTS.market.rows.map(r => r.value));
+FACTS.market.rows.forEach(r => {
+  const d = document.createElement("div"); if (r.kind === "forecast") d.className = "fc";
+  d.innerHTML = `<div class="yr">${r.year}${r.kind === "forecast" ? " · 预测" : ""}</div><div class="v"><span data-count="${r.value}">0</span><small>亿元</small></div><div class="lbl">${FACTS.market.label}</div><div class="bar" style="--s:${(r.value / mx).toFixed(3)}"></div>`;
+  yb.appendChild(d);
+});
+$$("#years [data-count]").forEach(n => cio.observe(n));
+new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting) { yb.classList.add("in"); o.disconnect(); } }), {threshold: .4}).observe(yb);
+
+/* ── 伙伴资格 ── */
+$("#creds").innerHTML = FACTS.partner.credentials.map(c => `<li>${c}</li>`).join("");
+
+/* ── 表单 ── */
+$("#form").addEventListener("submit", e => {
+  e.preventDefault();
+  const f = new FormData(e.target), svcName = {health: "回娘家健诊", tradein: "旧换新评估", both: "健诊 + 旧换新评估"}[f.get("svc")];
+  const body = [["服务类型", svcName], ["公司名称", f.get("company")], ["联系人", f.get("name")], ["手机", f.get("phone")], ["邮箱", f.get("email")],
+                ["设备品牌与型号", f.get("model")], ["所在城市", f.get("city")], ["设备使用情况", f.get("note")]].map(([k, v]) => `${k}：${v || ""}`).join("\n");
+  const subj = `【${svcName}预约】${f.get("company") || ""}`;
+  location.href = `mailto:${FACTS.partner.email}?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;
+  const t = $("#toast"); t.classList.add("on"); setTimeout(() => t.classList.remove("on"), 4200);
+});
+</script>
+</body>
+</html>
