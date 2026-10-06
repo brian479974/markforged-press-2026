@@ -59,6 +59,23 @@
         bump(p.replace(/\.html$/, "") + "-uniq");   // 不重複瀏覽器
       }
     } catch (e) { /* 無痕模式沒有 localStorage，只計總數 */ }
+    // 2026-10-06：依來源分帳。hits.sh 以 key 計數、看不到 query string，
+    // 所以帶 utm_source 的進站另外記一個 key：<page>~<source>-<medium>（總數）
+    // 與 <page>~<source>-<medium>-uniq（不重複）。沒帶 utm 的流量照舊，不受影響。
+    try {
+      var q = new URLSearchParams(location.search || "");
+      var clean = function (v) { return (v || "").toLowerCase().replace(/[^a-z0-9_]/g, "").slice(0, 24); };
+      var src = clean(q.get("utm_source")), med = clean(q.get("utm_medium"));
+      if (src) {
+        var sk = p.replace(/\.html$/, "") + "~" + src + (med ? "-" + med : "");
+        bump(sk);
+        var k2 = "mf_seen_" + sk;
+        if (!window.localStorage.getItem(k2)) {
+          window.localStorage.setItem(k2, "1");
+          bump(sk + "-uniq");
+        }
+      }
+    } catch (e) { /* 舊瀏覽器沒有 URLSearchParams：只計頁面總數 */ }
     return;
   }
 
