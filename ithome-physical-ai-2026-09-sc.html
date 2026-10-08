@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>设计按天迭代，Markforged 以制造与验证让 Physical AI 落地 — Markforged</title>
+<meta name="description" content="生成式 AI 让复杂几何在数字端按天迭代，瓶颈落在实体端。Markforged 大中华区总经理陈中欣谈连续纤维、工装分流与数字库存，如何把设计走向量产的周期压缩到以天计算。">
+<meta property="og:title" content="设计按天迭代，Markforged 以制造与验证让 Physical AI 落地">
+<meta property="og:description" content="生成式 AI 让复杂几何在数字端按天迭代，瓶颈落在实体端。Markforged 大中华区总经理陈中欣谈连续纤维、工装分流与数字库存，如何把设计走向量产的周期压缩到以天计算。">
+<meta property="og:image" content="https://news.markforged.tw/images/ithome-physical-ai-hero.jpg">
+<meta property="og:type" content="article">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#e8e8e8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,'Noto Sans TC','Noto Sans SC',sans-serif;color:#1a1a1a}
+  .wrap{max-width:700px;margin:0 auto;background:#fff}
+  .hdr{background:#000;padding:20px 40px;display:flex;align-items:center;justify-content:space-between}
+  .hdr-logo{display:block;line-height:0}
+  .hdr-logo img{height:26px;width:auto;display:block}
+  .hdr-ev{color:rgba(255,255,255,.6);font-size:12px;text-align:right;line-height:1.6}
+  .langbar{background:#111;padding:8px 40px;display:flex;gap:6px;align-items:center;border-top:1px solid #222}
+  .langbar span{color:#666;font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-right:4px}
+  .langbar a{font-size:11.5px;font-weight:700;color:#888;text-decoration:none;padding:3px 10px;border-radius:20px;border:1px solid #333}
+  .langbar a:hover{color:#FFFF00;border-color:#FFFF00}
+  .langbar a.on{background:#FFFF00;color:#000;border-color:#FFFF00}
+  .hero{position:relative;overflow:hidden}
+  .hero img{width:100%;display:block}
+  .hero-ov{position:absolute;inset:0;background:linear-gradient(100deg,rgba(0,0,0,.90) 0%,rgba(0,0,0,.80) 38%,rgba(0,0,0,.32) 64%,rgba(0,0,0,.08) 88%)}
+  .hero-ov2{position:absolute;left:0;right:0;bottom:0;height:42%;background:linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.72) 100%)}
+  .hero-top{position:absolute;top:0;left:0;right:0;padding:28px 38px}
+  .hero-kicker{color:#FFFF00;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px}
+  .hero-title{color:#fff;font-size:26px;font-weight:900;line-height:1.3;max-width:56%;text-shadow:0 2px 12px rgba(0,0,0,.6)}
+  .hero-btm{position:absolute;bottom:0;left:0;right:0;padding:16px 38px;background:linear-gradient(transparent,rgba(0,0,0,.75))}
+  .hero-meta{color:rgba(255,255,255,.85);font-size:12px;letter-spacing:.04em}
+  .ds{background:#FFFF00;padding:10px 38px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}
+  .ds-l{font-size:12.5px;font-weight:700;color:#000}
+  .ds-r{font-size:11.5px;color:#333}
+  .body{padding:36px 38px 0}
+  .lead{font-size:16px;line-height:1.82;color:#222;margin-bottom:24px;padding-bottom:24px;border-bottom:2px solid #f0f0f0}
+  .qb{margin:6px 0 26px;padding:20px 24px;background:#000;border-radius:6px}
+  .qb p{color:#FFFF00;font-size:18px;font-weight:800;line-height:1.45;margin-bottom:5px}
+  .qb small{color:rgba(255,255,255,.45);font-size:10.5px;letter-spacing:.07em}
+  .sec{margin-bottom:30px}
+  h2{font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#111111;margin-bottom:12px;padding-left:11px;border-left:5px solid #FFFF00}
+  h3{font-size:18px;font-weight:800;color:#111;margin-bottom:12px;line-height:1.32}
+  p{font-size:14.5px;line-height:1.82;color:#333;margin-bottom:14px}
+  strong{color:#111}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
+  .tag{background:#111;color:#FFFF00;font-size:10px;font-weight:700;letter-spacing:.07em;padding:4px 10px;border-radius:30px}
+  .tag.ol{background:#fff;color:#666;border:1.5px solid #ddd}
+  .ph-full img{width:100%;display:block}
+  .ph-2col{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+  .gi{width:100%;display:block;object-fit:cover}
+  .gi-43{aspect-ratio:4/3}
+  .cap{font-size:11px;color:#aaa;text-align:center;padding:8px 38px 22px;border-bottom:1px solid #eee;margin-bottom:26px;line-height:1.55}
+  .hl-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:30px}
+  .hl{background:#f7f7f7;border-left:4px solid #FFFF00;padding:16px 18px}
+  .hl b{display:block;font-size:24px;font-weight:900;color:#111;line-height:1.1;margin-bottom:5px}
+  .hl span{font-size:11.5px;color:#777;line-height:1.5;display:block}
+  .prof{display:flex;gap:18px;align-items:center;background:#111;padding:22px 24px;border-radius:6px;margin:8px 0 28px}
+  .prof img{width:92px;height:92px;object-fit:cover;border-radius:50%;flex-shrink:0;border:3px solid #FFFF00}
+  .prof-n{color:#fff;font-size:16px;font-weight:800;margin-bottom:4px}
+  .prof-t{color:#FFFF00;font-size:11.5px;font-weight:700;margin-bottom:7px}
+  .prof-d{color:rgba(255,255,255,.6);font-size:11.5px;line-height:1.6}
+  .cta{background:#FFFF00;padding:28px 32px;margin:6px 0 0}
+  .cta h4{font-size:17px;font-weight:900;color:#000;margin-bottom:8px}
+  .cta p{font-size:13px;color:#333;line-height:1.7;margin-bottom:16px}
+  .btn{display:inline-block;background:#000;color:#FFFF00;padding:12px 26px;font-size:13.5px;font-weight:800;text-decoration:none;letter-spacing:.04em}
+  .btn:hover{background:#222}
+  .srcbox{background:#fafafa;border-top:3px solid #111;padding:22px 38px 26px}
+  .srcbox h5{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#888;margin-bottom:10px}
+  .srcbox li{font-size:11.5px;color:#777;line-height:1.75;margin-left:16px}
+  .ftr{background:#000;padding:24px 38px;color:rgba(255,255,255,.5);font-size:11.5px;line-height:1.7}
+  .ftr a{color:#FFFF00;text-decoration:none}
+  @media(max-width:620px){.hero-title{font-size:18px;max-width:58%}.hero-top{padding:20px 22px}.hero-kicker{font-size:9px;margin-bottom:6px}.hero-btm{padding:12px 22px}.hero-meta{font-size:10.5px}.body{padding:26px 22px 0}.hl-grid{grid-template-columns:1fr}.prof{flex-direction:column;text-align:center}.langbar{padding:8px 22px}}
+
+</style>
+<script src="analytics.js" defer></script>
+<link rel="alternate" hreflang="zh-TW" href="https://news.markforged.tw/ithome-physical-ai-2026-09.html"><link rel="alternate" hreflang="zh-CN" href="https://news.markforged.tw/ithome-physical-ai-2026-09-sc.html"><link rel="alternate" hreflang="en" href="https://news.markforged.tw/ithome-physical-ai-2026-09-en.html">
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hdr">
+    <a href="index.html" class="hdr-logo"><img src="images/markforged-logo-white.png" alt="Markforged"></a>
+    <div class="hdr-ev">大中华区媒体中心<br>News &amp; Insights</div>
+  </div>
+
+  <div class="langbar"><span>语言</span><a href="ithome-physical-ai-2026-09.html">繁體中文</a><a href="ithome-physical-ai-2026-09-sc.html" class="on">简体中文</a><a href="ithome-physical-ai-2026-09-en.html">English</a></div>
+
+  <div class="hero">
+    <img src="images/ithome-physical-ai-hero.jpg" alt="Markforged 大中华区总经理陈中欣，摄于 Markforged 设备前">
+    <div class="hero-ov"></div>
+    <div class="hero-ov2"></div>
+    <div class="hero-top">
+      <div class="hero-kicker">产业专访 · Physical AI</div>
+      <div class="hero-title">设计按天迭代，<br><span style="white-space:nowrap">以制造与验证</span><span style="white-space:nowrap">让 Physical AI 落地</span></div>
+    </div>
+    <div class="hero-btm"><div class="hero-meta">专访　Markforged 大中华区总经理　陈中欣</div></div>
+  </div>
+
+  <div class="ds"><div class="ds-l">2026 年 9 月</div><div class="ds-r">原载 <a href="https://www.ithome.com.tw/pr/179022" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:2px">iThome</a> · 专访拍摄 2026 年 9 月 8 日</div></div>
+
+  <div class="body">
+
+    <div class="lead">生成式 AI 与拓扑优化，让复杂几何在数字端按天迭代；瓶颈卡在实体端——受限于传统切削加工与外包排队，打样往往得等上两周。竞争焦点已经转移，不再只看单位成本，而是看谁能更快从设计走到量产。<br><br>Physical AI（实体 AI）的核心不在模型堆得多高，而在设计能不能落地、驱动机械运转。Markforged 大中华区总经理陈中欣认为，增材制造是设计走向量产的桥梁，关键在于输出的几何与迭代的节奏能不能对上：工艺不受刀具与模具限制，又具备结构强度，跟得上软件的迭代速度。</div>
+
+    <div class="qb"><p>增材制造是设计走向量产的桥梁，关键在于输出的几何与迭代的节奏能不能对上。</p><small>文中陈中欣的观点 · Markforged 大中华区总经理</small></div>
+
+    <div class="prof">
+      <img src="brian-chen.jpg" alt="陈中欣 Brian Chen">
+      <div><div class="prof-n">陈中欣 Brian Chen</div><div class="prof-t">Markforged 大中华区总经理</div><div class="prof-d">负责大中华区与越南市场的业务发展、渠道体系与技术方案。</div></div>
+    </div>
+
+    <div class="tags"><span class="tag">Physical AI</span><span class="tag">增材制造</span><span class="tag ol">连续纤维</span><span class="tag ol">工装与夹具</span><span class="tag ol">数字库存</span></div>
+
+    <div class="hl-grid"><div class="hl"><b>800 → 70 件以下</b><span>Haddington Dynamics 七轴机械臂 Dexter 零件数；组装时间缩短至一天</span></div><div class="hl"><b>144 → 6 小时</b><span>Hugard Inc. 车床接料夹爪制作时间；成本 400 → 25.06 美元</span></div><div class="hl"><b>14 → 1 天</b><span>BMF GmbH 客户端停机时间；备件改以 Digital Source 按需打印</span></div><div class="hl"><b>25%</b><span>Farason Corporation 末端快换安装板成本仅为 CNC 铣削的四分之一</span></div></div>
+
+    <div class="sec">
+      <h2>材料与验证</h2>
+      <h3>以连续纤维建立强度，以工程验证建立信任</h3>
+      <p>“增材制造只能做原型”，是 2015 年材料受限时留下的旧标签。陈中欣说，Markforged 以连续纤维强化（Continuous Fiber Reinforcement, CFR）技术突破此限制：打印时将连续碳纤维、Kevlar 或玻璃纤维铺设在 Onyx（碳纤维微粒强化的尼龙基材）之中，由纤维承担载荷，兼具轻量与高刚性，在纤维铺层方向上，部分结构件的比强度（Specific Strength）可超越铝合金。旗舰机型 FX10 加装 Metal Kit 后，同一台设备即可在复合材料与金属之间切换，金属模式支持 17-4 PH、316L 与 H13 工具钢。</p><p>真正的导入门槛不在塑料强度，而在谁为零件的表现背书。解法是把信任转为可验证的规格：材料数据、工艺参数与检测报告随件留存，让设计、工艺与品控用同一套数据判断零件能不能上线；需要极严配合公差、或已摊销完开模成本的大量标准件，仍旧交给既有工艺，其余应用都以可追溯的数据决定。半导体、食品与航空航天等高规范场景，另有抗静电、食品接触级与阻燃材料，备件可直接装上产线，不必停留在原型阶段。</p><p>Canon 在半导体光刻机上以打印工装取代金属件，降低刮伤晶圆的风险——这是半导体设备 OEM 少数对外公开的导入案例。Haddington Dynamics 的七轴机械臂 Dexter，零件数由 800 件降至 70 件以下，机械臂可在一天内完成组装，速度提升 70%、成本降低 58%。导入面，Markforged 建立材料认证与培训机制，让设计、工艺与品控共用同一套语言，把个人经验转为组织能力。</p>
+    </div>
+
+    <div class="sec">
+      <h2>产能配置</h2>
+      <h3>分流工装与工件精度，四阶段释放 CNC 产能</h3>
+      <p>按需制造对加工厂的价值，不在取代 CNC，而在把不需要精密配合的软爪与防错板移出排程，让 CNC 工时回到高价值订单。关键是分清工件与工装的精度需求：以 ±0.02 mm（20 µm）为例，那是工件加工面的要求，工装本体不需要同等精度；衬套与嵌件的作用在于耐磨与锁固，而不是弥补公差。</p><p>四阶段蓝图：第一个月挑 3 至 5 件不需精密配合的应用做验证；第 2 至 3 个月导入嵌件工艺；第 4 至 6 个月走向近净成形，大型异形件先打印再精修；接着把重复性高的工装建成数字库存。陈中欣指出，这条路径约半年走完一轮，设备产能可以实质释放出来。</p><p>Hugard Inc. 的车床接料夹爪，制作时间由 CNC 加工的 144 小时缩短为打印 6 小时，成本从 400 美元降到 25.06 美元，每日接料 3,000 件、24 小时不间断运转——这类零件几何复杂又长期接触切削液，CNC 铣削与一般 ABS 打印都做不出来，增材制造补上的正是既有工艺做不到的那一段。Farason Corporation 的末端快换安装板，成本仅为 CNC 铣削的 25%，可支持每分钟 80 件、行程逾 26 英寸（约 660 毫米）的应用。Roman Design Solutions 以 5 台 X7 打印 Onyx 工装，单批 30–60 件。美国密歇根州的 Project DIAMOnD 则以数百台设备组成全美最大的分布式打印网络，急件可在网络内调度产能。</p>
+    </div>
+
+    <div class="sec">
+      <h2>流程与库存</h2>
+      <h3>从边印边检走向全检，数字库存降低停机风险</h3>
+      <p>Physical AI 的工具要能落地，必须满足四项条件：可重复、工艺记录可追溯、不必为它新增专家、应用范围界定清楚。这四项正是 Digital Forge 的设计前提；导入之后，差别不在设备本身，而在能不能嵌进日常流程。</p><p>把试错周期从两周压缩到隔夜，工程师就能从一次只做一版，变成一次测试三版，一年累积下来可以探索的方向远多于过去，这正是制造业进入迭代时代的优势。Markforged 以 Eiger 作为 Digital Forge 的引擎并持续更新，整合 Simulation、Inspection 与 Management and Integration 三个模块。Digital Forge Complete Advanced Plan 包含 Simulation 与 Inspection，适用机型扩及 Industrial 系列（台湾现售机型为 X7、X7 Field Edition、FX10、FX20）。云计算降低本地端的运算负担，离线部署则可满足国防等高信息安全场景的要求；Markforged 亦已取得 ISO/IEC 27001:2022 信息安全管理体系认证。</p><p>质量验证走的是闭环流程：打印过程中以激光扫描测量，完成后立即比对、判定并产出报告，记录操作者、时间与版本。一旦检测到异常，设备会自动暂停并留下记录，由人员判读后决定续印或终止，责任与轨迹都留在流程里。Hangar One Avionics 导入后，每件约省下 30 分钟检测时间，不增加工时就能做到全检。</p><p>根据全国工业总会（工总）白皮书调查，在 161 个公会中，缺工 76.6%、产业转型 75.7%，分列前两位。对应到制造现场，Eiger 内置的 AI 辅助功能可检索原厂技术文件，依用户的问题直接回答，现场不必等专家到场。陈中欣强调：“我们不是只有卖设备，是整个解决方案。最重要是软件。”</p><p>数字库存瞄准的是品种多、单项用量少、停机成本高的零件。Markforged 以 Digital Source 实现：OEM 上传设计并锁定工艺后，授权端只能依规范打印，无法下载设计文件或进行逆向工程。要把工厂能力纳入管理流程，需要管好三类数据：设计上云端并具版本权限、工艺参数锁定、验证报告随件保存。Vestas 已将逾 2,000 个零件纳入云端数字库存，并推广到 23 个站点；BMF GmbH 则以 Digital Source 让客户自行打印备件，把停机从平均 14 天压缩到 1 天。</p>
+    </div>
+
+    <div class="sec">
+      <h2>本地落点</h2>
+      <h3>中台湾制造集群：把交付周期压缩到以天为单位</h3>
+      <p>2025 年 12 月 Markforged 与彰化市签署 MOU，定位“无人载具＋数字锻造示范城市”，由台湾授权伙伴达运光电、实威国际与马路科技提供设备导入、CAD 整合及逆向工程支持，协助台中与彰化企业把交付周期压缩到以天为单位。陈中欣强调，台湾本来就有精密机械与信息通信集群的底子，若能把设计、制造与检测数据整合起来，供应链韧性与竞争力都会跟着提升。</p><p>Physical AI 能不能落地，关键在于谁能把试产与验证周期压缩到以天计算，并把设计定义、工艺参数与质量审核数据，转化为跨厂可复制的制造网络。若台湾能减少外包排队与备料积压，以按需制造与黑灯工厂实现自主生产，就有机会在全球智能制造重构中，从代工集群转型为具自主制造能力的高附加值环节。</p><p>Physical AI 听起来很远，但对台湾的工厂而言，起点不必是整厂数字化。陈中欣的建议只有一句：挑一件现在最占交付周期的工装，先印一次、量一次、上机试一次。当试错周期从两周压到隔夜，你会很快看清楚，真正卡住产能的到底是设备、是排程，还是那张还没被数字化的图。这一波制造业的重构，不会等谁准备好——它从你手上那一件零件开始。</p>
+    </div>
+
+  </div>
+
+  <div class="ph-full"><img src="images/ithome-physical-ai-parts.jpg" alt="Markforged 大中华区总经理陈中欣展示增材制造应用零件" class="gi"></div>
+  <div class="cap">Markforged 大中华区总经理陈中欣展示增材制造应用零件</div>
+
+  <div class="cta">
+    <h4>想亲手摸到这些零件？</h4>
+    <p>从 3 至 5 件不需精密配合的工装开始验证，是多数工厂风险最低的起点。Markforged 大中华区 VIP 体验日开放现场实机操作与样件上手，欢迎带着你手上最占用交付周期的那一件来，我们当场一起看。</p>
+    <a class="btn" href="https://mfmk.markforged.tw/" target="_blank" rel="noopener">报名 VIP 体验日 · 现场实机</a>
+  </div>
+
+  <div class="srcbox">
+    <h5>来源与说明</h5>
+    <ul><li>本文由 <a href="https://www.ithome.com.tw/pr/179022" target="_blank" rel="noopener">iThome</a> 采访撰稿，Markforged 大中华区提供受访内容与案例数据（<a href="https://www.ithome.com.tw/pr/179022" target="_blank" rel="noopener">阅读 iThome 原文</a>）。</li><li>文中案例与数据均取自 Markforged 官方公开案例，可于 markforged.com 查证。</li><li>专访拍摄：2026 年 9 月 8 日。</li></ul>
+  </div>
+
+  <div class="ftr">
+    Markforged — The Digital Manufacturing Company<br>
+    <a href="https://news.markforged.tw/">news.markforged.tw</a>　·　<a href="https://www.markforged.tw/">www.markforged.tw</a>
+  </div>
+
+</div>
+</body>
+</html>

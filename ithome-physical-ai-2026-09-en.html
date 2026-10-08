@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design iterates by the day: Markforged makes Physical AI real through manufacturing and validation — Markforged</title>
+<meta name="description" content="Generative AI lets design iterate by the day in the digital world; the bottleneck is now on the physical side. Brian Chen, Markforged Country Manager, Greater China and Vietnam, on continuous fibre, moving fixtures off the CNC schedule and digital inventory, and how they compress the path from design to volume production to days.">
+<meta property="og:title" content="Design iterates by the day: Markforged makes Physical AI real through manufacturing and validation">
+<meta property="og:description" content="Generative AI lets design iterate by the day in the digital world; the bottleneck is now on the physical side. Brian Chen, Markforged Country Manager, Greater China and Vietnam, on continuous fibre, moving fixtures off the CNC schedule and digital inventory, and how they compress the path from design to volume production to days.">
+<meta property="og:image" content="https://news.markforged.tw/images/ithome-physical-ai-hero.jpg">
+<meta property="og:type" content="article">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#e8e8e8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,'Noto Sans TC','Noto Sans SC',sans-serif;color:#1a1a1a}
+  .wrap{max-width:700px;margin:0 auto;background:#fff}
+  .hdr{background:#000;padding:20px 40px;display:flex;align-items:center;justify-content:space-between}
+  .hdr-logo{display:block;line-height:0}
+  .hdr-logo img{height:26px;width:auto;display:block}
+  .hdr-ev{color:rgba(255,255,255,.6);font-size:12px;text-align:right;line-height:1.6}
+  .langbar{background:#111;padding:8px 40px;display:flex;gap:6px;align-items:center;border-top:1px solid #222}
+  .langbar span{color:#666;font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-right:4px}
+  .langbar a{font-size:11.5px;font-weight:700;color:#888;text-decoration:none;padding:3px 10px;border-radius:20px;border:1px solid #333}
+  .langbar a:hover{color:#FFFF00;border-color:#FFFF00}
+  .langbar a.on{background:#FFFF00;color:#000;border-color:#FFFF00}
+  .hero{position:relative;overflow:hidden}
+  .hero img{width:100%;display:block}
+  .hero-ov{position:absolute;inset:0;background:linear-gradient(100deg,rgba(0,0,0,.90) 0%,rgba(0,0,0,.80) 38%,rgba(0,0,0,.32) 64%,rgba(0,0,0,.08) 88%)}
+  .hero-ov2{position:absolute;left:0;right:0;bottom:0;height:42%;background:linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.72) 100%)}
+  .hero-top{position:absolute;top:0;left:0;right:0;padding:28px 38px}
+  .hero-kicker{color:#FFFF00;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px}
+  .hero-title{color:#fff;font-size:26px;font-weight:900;line-height:1.3;max-width:56%;text-shadow:0 2px 12px rgba(0,0,0,.6)}
+  .hero-btm{position:absolute;bottom:0;left:0;right:0;padding:16px 38px;background:linear-gradient(transparent,rgba(0,0,0,.75))}
+  .hero-meta{color:rgba(255,255,255,.85);font-size:12px;letter-spacing:.04em}
+  .ds{background:#FFFF00;padding:10px 38px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}
+  .ds-l{font-size:12.5px;font-weight:700;color:#000}
+  .ds-r{font-size:11.5px;color:#333}
+  .body{padding:36px 38px 0}
+  .lead{font-size:16px;line-height:1.82;color:#222;margin-bottom:24px;padding-bottom:24px;border-bottom:2px solid #f0f0f0}
+  .qb{margin:6px 0 26px;padding:20px 24px;background:#000;border-radius:6px}
+  .qb p{color:#FFFF00;font-size:18px;font-weight:800;line-height:1.45;margin-bottom:5px}
+  .qb small{color:rgba(255,255,255,.45);font-size:10.5px;letter-spacing:.07em}
+  .sec{margin-bottom:30px}
+  h2{font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#111111;margin-bottom:12px;padding-left:11px;border-left:5px solid #FFFF00}
+  h3{font-size:18px;font-weight:800;color:#111;margin-bottom:12px;line-height:1.32}
+  p{font-size:14.5px;line-height:1.82;color:#333;margin-bottom:14px}
+  strong{color:#111}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
+  .tag{background:#111;color:#FFFF00;font-size:10px;font-weight:700;letter-spacing:.07em;padding:4px 10px;border-radius:30px}
+  .tag.ol{background:#fff;color:#666;border:1.5px solid #ddd}
+  .ph-full img{width:100%;display:block}
+  .ph-2col{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+  .gi{width:100%;display:block;object-fit:cover}
+  .gi-43{aspect-ratio:4/3}
+  .cap{font-size:11px;color:#aaa;text-align:center;padding:8px 38px 22px;border-bottom:1px solid #eee;margin-bottom:26px;line-height:1.55}
+  .hl-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:30px}
+  .hl{background:#f7f7f7;border-left:4px solid #FFFF00;padding:16px 18px}
+  .hl b{display:block;font-size:24px;font-weight:900;color:#111;line-height:1.1;margin-bottom:5px}
+  .hl span{font-size:11.5px;color:#777;line-height:1.5;display:block}
+  .prof{display:flex;gap:18px;align-items:center;background:#111;padding:22px 24px;border-radius:6px;margin:8px 0 28px}
+  .prof img{width:92px;height:92px;object-fit:cover;border-radius:50%;flex-shrink:0;border:3px solid #FFFF00}
+  .prof-n{color:#fff;font-size:16px;font-weight:800;margin-bottom:4px}
+  .prof-t{color:#FFFF00;font-size:11.5px;font-weight:700;margin-bottom:7px}
+  .prof-d{color:rgba(255,255,255,.6);font-size:11.5px;line-height:1.6}
+  .cta{background:#FFFF00;padding:28px 32px;margin:6px 0 0}
+  .cta h4{font-size:17px;font-weight:900;color:#000;margin-bottom:8px}
+  .cta p{font-size:13px;color:#333;line-height:1.7;margin-bottom:16px}
+  .btn{display:inline-block;background:#000;color:#FFFF00;padding:12px 26px;font-size:13.5px;font-weight:800;text-decoration:none;letter-spacing:.04em}
+  .btn:hover{background:#222}
+  .srcbox{background:#fafafa;border-top:3px solid #111;padding:22px 38px 26px}
+  .srcbox h5{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#888;margin-bottom:10px}
+  .srcbox li{font-size:11.5px;color:#777;line-height:1.75;margin-left:16px}
+  .ftr{background:#000;padding:24px 38px;color:rgba(255,255,255,.5);font-size:11.5px;line-height:1.7}
+  .ftr a{color:#FFFF00;text-decoration:none}
+  @media(max-width:620px){.hero-title{font-size:18px;max-width:58%}.hero-top{padding:20px 22px}.hero-kicker{font-size:9px;margin-bottom:6px}.hero-btm{padding:12px 22px}.hero-meta{font-size:10.5px}.body{padding:26px 22px 0}.hl-grid{grid-template-columns:1fr}.prof{flex-direction:column;text-align:center}.langbar{padding:8px 22px}}
+
+</style>
+<script src="analytics.js" defer></script>
+<link rel="alternate" hreflang="zh-TW" href="https://news.markforged.tw/ithome-physical-ai-2026-09.html"><link rel="alternate" hreflang="zh-CN" href="https://news.markforged.tw/ithome-physical-ai-2026-09-sc.html"><link rel="alternate" hreflang="en" href="https://news.markforged.tw/ithome-physical-ai-2026-09-en.html">
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hdr">
+    <a href="index.html" class="hdr-logo"><img src="images/markforged-logo-white.png" alt="Markforged"></a>
+    <div class="hdr-ev">Greater China Media Hub<br>News &amp; Insights</div>
+  </div>
+
+  <div class="langbar"><span>Language</span><a href="ithome-physical-ai-2026-09.html">繁體中文</a><a href="ithome-physical-ai-2026-09-sc.html">简体中文</a><a href="ithome-physical-ai-2026-09-en.html" class="on">English</a></div>
+
+  <div class="hero">
+    <img src="images/ithome-physical-ai-hero.jpg" alt="Brian Chen, Markforged Country Manager, Greater China and Vietnam, in front of Markforged equipment">
+    <div class="hero-ov"></div>
+    <div class="hero-ov2"></div>
+    <div class="hero-top">
+      <div class="hero-kicker">Industry Interview · Physical AI</div>
+      <div class="hero-title">Design iterates <span style="white-space:nowrap">by the day,</span><br>manufacturing and validation make <span style="white-space:nowrap">Physical AI real</span></div>
+    </div>
+    <div class="hero-btm"><div class="hero-meta">Interview · Brian Chen, Markforged</div></div>
+  </div>
+
+  <div class="ds"><div class="ds-l">September 2026</div><div class="ds-r">Originally published by <a href="https://www.ithome.com.tw/pr/179022" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:2px">iThome</a> · Interview photographed 8 September 2026</div></div>
+
+  <div class="body">
+
+    <div class="lead">Generative AI and topology optimisation let complex geometry iterate by the day on the digital side. The bottleneck is on the physical side: constrained by conventional machining and outsourcing queues, a prototype often takes two weeks. The focus of competition has shifted. It is no longer only about unit cost, but about who can move from design to volume production faster.<br><br>The core of Physical AI is not how large the models grow, but whether designs can be realised and drive machines in the physical world. Brian Chen, Markforged Country Manager, Greater China and Vietnam, sees additive manufacturing as the bridge from design to volume production. The key is whether the geometry it outputs and the cadence of iteration match: a process unconstrained by cutting tools and moulds, with the structural strength to keep pace with software iteration.</div>
+
+    <div class="qb"><p>Additive manufacturing is the bridge from design to volume production; the key is whether the geometry it outputs and the cadence of iteration match.</p><small>Brian Chen's view, as reported in the article · Country Manager, Greater China and Vietnam, Markforged</small></div>
+
+    <div class="prof">
+      <img src="brian-chen.jpg" alt="Brian Chen">
+      <div><div class="prof-n">Brian Chen</div><div class="prof-t">Country Manager, Greater China and Vietnam, Markforged</div><div class="prof-d">Responsible for business development, channel structure and technical solutions across Greater China and Vietnam.</div></div>
+    </div>
+
+    <div class="tags"><span class="tag">Physical AI</span><span class="tag">Additive Manufacturing</span><span class="tag ol">Continuous Fibre</span><span class="tag ol">Jigs and Fixtures</span><span class="tag ol">Digital Inventory</span></div>
+
+    <div class="hl-grid"><div class="hl"><b>800 → under 70</b><span>Part count of the Haddington Dynamics Dexter seven-axis arm; assembly time cut to one day</span></div><div class="hl"><b>144 → 6 hours</b><span>Production time for the Hugard Inc. lathe part-catcher gripper; cost US$400 → US$25.06</span></div><div class="hl"><b>14 → 1 day</b><span>Downtime at BMF GmbH customers; spare parts printed on demand via Digital Source</span></div><div class="hl"><b>25%</b><span>Farason Corporation's end-of-arm quick-change mounting plate costs a quarter of CNC milling</span></div></div>
+
+    <div class="sec">
+      <h2>Materials and validation</h2>
+      <h3>Strength from continuous fibre, trust from engineering validation</h3>
+      <p>“Additive manufacturing is only for prototyping” is an old label left over from 2015, when materials were limited. Brian Chen says Markforged breaks through that limit with Continuous Fiber Reinforcement (CFR): during printing, continuous carbon fibre, Kevlar or glass fibre is laid into Onyx (a nylon base material reinforced with carbon fibre micro-particles), so the fibre carries the load, combining light weight with high stiffness. Along the direction of the fibre layup, the specific strength of some structural parts can exceed that of aluminium alloy. With the Metal Kit added, the flagship FX10 can switch between composites and metal on the same machine, and its metal mode supports 17-4 PH, 316L and H13 tool steel.</p><p>The real barrier to adoption is not the strength of the plastic, but who vouches for how the part performs. The answer is to turn trust into verifiable specifications: material data, process parameters and inspection reports stay with each part, so design, process engineering and quality assurance use the same data to decide whether a part can go into production. Mass-produced standard parts that need extremely tight mating tolerances, or whose tooling costs have already been amortised, remain with existing processes; every other application is decided on traceable data. For highly regulated settings such as semiconductors, food and aerospace, there are also anti-static, food-contact-grade and flame-retardant materials, so spare parts can go straight onto the production line instead of stopping at the prototype stage.</p><p>Canon replaced metal parts in its semiconductor exposure equipment with printed fixtures, reducing the risk of scratching wafers — one of the few adoption cases a semiconductor equipment OEM has disclosed publicly. For Haddington Dynamics' seven-axis robotic arm, Dexter, part count fell from 800 to fewer than 70; the arm can be assembled within a day, with a 70% gain in speed and a 58% reduction in cost. On the adoption side, Markforged has built material certification and training programmes so that design, process engineering and quality assurance share one language, turning individual experience into organisational capability.</p>
+    </div>
+
+    <div class="sec">
+      <h2>Capacity allocation</h2>
+      <h3>Separate fixture precision from workpiece precision, and free up CNC capacity in four stages</h3>
+      <p>For a machine shop, the value of on-demand manufacturing is not replacing CNC, but taking soft jaws and error-proofing plates that need no precision fit out of the schedule, so CNC hours go back to high-value orders. The key is to distinguish the precision requirements of the workpiece from those of the fixture: take ±0.02 mm (20 µm) as an example. That is a requirement on the machined surface of the workpiece; the fixture body does not need the same precision. Bushings and inserts are there for wear resistance and secure locating, not to make up for tolerance.</p><p>The four-stage roadmap: in the first month, pick 3 to 5 applications that need no precision fit and validate them; in months 2 to 3, introduce the insert method; in months 4 to 6, move to near-net-shape parts, printing large, irregular parts first and then finish-machining them; after that, build frequently repeated fixtures into a digital inventory. Brian Chen notes that one round of this path takes about six months, and machine capacity is freed up in real terms.</p><p>At Hugard Inc., production time for a lathe part-catcher gripper fell from 144 hours of CNC machining to 6 hours of printing, and cost from US$400 to US$25.06; it catches 3,000 parts a day, running 24 hours a day without a break. Parts like this have complex geometry and are in constant contact with cutting fluid; neither CNC milling nor ordinary ABS printing can make them. Additive manufacturing fills exactly the gap that existing processes cannot. Farason Corporation's end-of-arm quick-change mounting plate costs only 25% of a CNC-milled one, and supports applications running 80 parts per minute with a stroke of more than 26 inches (about 660 mm). Roman Design Solutions uses 5 X7 printers to print Onyx fixtures in batches of 30–60. In Michigan, Project DIAMOnD links hundreds of machines into the largest distributed printing network in the United States, so urgent jobs can draw on capacity across the network.</p>
+    </div>
+
+    <div class="sec">
+      <h2>Process and inventory</h2>
+      <h3>From checking during printing to full inspection, with digital inventory cutting downtime risk</h3>
+      <p>For Physical AI tools to work in practice, they must meet four conditions: they are repeatable, their process records are traceable, they do not require hiring new specialists, and their scope of application is clearly defined. These four conditions are the design premises of the Digital Forge. After adoption, what makes the difference is not the equipment itself, but whether it can be embedded in day-to-day workflows.</p><p>Compress the trial-and-error cycle from two weeks to overnight, and engineers go from building one version at a time to testing three at once; over a year, they can explore far more directions than before. That is the advantage manufacturing gains as it enters the age of iteration. Markforged uses Eiger as the engine of the Digital Forge and updates it continuously, integrating three modules: Simulation, Inspection, and Management and Integration. The Digital Forge Complete Advanced Plan includes Simulation and Inspection and covers the Industrial Series (models currently sold in Taiwan: X7, X7 Field Edition, FX10 and FX20). Cloud computing reduces the local computing load, while offline deployment meets the requirements of high-security settings such as defence; Markforged has also achieved ISO/IEC 27001:2022 certification for its information security management system.</p><p>Quality validation follows a closed loop: the part is measured by laser scanning during printing; on completion, results are immediately compared, assessed and reported, with the operator, time and version recorded. If an anomaly is detected, the machine pauses automatically and logs the event, and a person reviews it before deciding whether to resume or stop the print, so accountability and the audit trail stay inside the process. After adopting it, Hangar One Avionics saves about 30 minutes of inspection time per part, achieving full inspection without adding labour hours.</p><p>According to a white paper survey by the Chinese National Federation of Industries (CNFI), labour shortages (76.6%) and industrial transformation (75.7%) ranked first and second among 161 industry associations. On the factory floor, the AI-assisted features built into Eiger can search Markforged's technical documentation and answer users' questions directly, so the shop floor does not have to wait for an expert to arrive. Brian Chen stresses: “We are not only selling equipment — it is the whole solution. The most important part is the software.”</p><p>Digital inventory targets parts with many line items, low usage per item and high downtime costs. Markforged delivers it through Digital Source: once an OEM uploads a design and locks the process, licensed sites can only print to specification and cannot download the design file or reverse-engineer it. Bringing factory capability into a managed process means controlling three kinds of data: designs in the cloud with version permissions, locked process parameters, and validation reports kept with each part. Vestas has put more than 2,000 parts into a cloud-based digital inventory and rolled it out to 23 sites; BMF GmbH uses Digital Source to let customers print their own spare parts, cutting downtime from an average of 14 days to 1 day.</p>
+    </div>
+
+    <div class="sec">
+      <h2>Local focus</h2>
+      <h3>Central Taiwan's manufacturing cluster: lead times measured in days</h3>
+      <p>In December 2025, Markforged signed an MOU with Changhua City, positioned as an “Unmanned Vehicles + Digital Forging Demonstration City”. Taiwan authorised partners TwoWay, SolidWizard Technology and RAIC provide equipment deployment, CAD integration and reverse engineering support, helping businesses in Taichung and Changhua compress lead times to days. Brian Chen emphasises that Taiwan already has a strong base in precision machinery and information and communications technology clusters; if design, manufacturing and inspection data can be brought together, supply chain resilience and competitiveness will rise with it.</p><p>Whether Physical AI takes hold depends on who can compress trial production and validation cycles to days, and turn design definitions, process parameters and quality audit data into a manufacturing network that can be replicated across plants. If Taiwan can cut outsourcing queues and material backlogs, and achieve self-reliant production through on-demand manufacturing and lights-out factories, it has a chance, amid the global restructuring of smart manufacturing, to move from a contract-manufacturing cluster to a high-value-added link with manufacturing capability of its own.</p><p>Physical AI sounds far away, but for Taiwan's factories the starting point does not have to be digitalising an entire plant. Brian Chen's advice comes down to one line: pick the fixture that currently takes up the most lead time, then print it once, measure it once and try it on the machine once. When the trial-and-error cycle drops from two weeks to overnight, you will soon see what is really holding back capacity: the equipment, the schedule, or the drawing that has not yet been digitised. This restructuring of manufacturing will not wait for anyone to be ready. It starts with the part in your hand.</p>
+    </div>
+
+  </div>
+
+  <div class="ph-full"><img src="images/ithome-physical-ai-parts.jpg" alt="Brian Chen, Markforged Country Manager, Greater China and Vietnam, showing additive manufacturing application parts" class="gi"></div>
+  <div class="cap">Brian Chen, Markforged Country Manager, Greater China and Vietnam, showing additive manufacturing application parts</div>
+
+  <div class="cta">
+    <h4>Want to get your hands on these parts?</h4>
+    <p>Starting validation with 3 to 5 fixtures that need no precision fit is the lowest-risk starting point for most factories. The Markforged Greater China VIP Experience Day offers hands-on operation of live machines and sample parts on site. Bring the part that takes up the most lead time in your operation, and we will look at it together on the spot.</p>
+    <a class="btn" href="https://mfmk.markforged.tw/" target="_blank" rel="noopener">Register for the VIP Experience Day · Live machines</a>
+  </div>
+
+  <div class="srcbox">
+    <h5>Sources and notes</h5>
+    <ul><li>This article was written by <a href="https://www.ithome.com.tw/pr/179022" target="_blank" rel="noopener">iThome</a> based on its interview, with interview content and case material provided by Markforged Greater China (<a href="https://www.ithome.com.tw/pr/179022" target="_blank" rel="noopener">read the original iThome article, in Chinese</a>). This English version, including the quotation, is translated from the Chinese original.</li><li>All cases and figures in this article are taken from Markforged's official published case studies and can be verified at markforged.com.</li><li>Interview photographed: 8 September 2026.</li></ul>
+  </div>
+
+  <div class="ftr">
+    Markforged — The Digital Manufacturing Company<br>
+    <a href="https://news.markforged.tw/">news.markforged.tw</a> · <a href="https://www.markforged.tw/">www.markforged.tw</a>
+  </div>
+
+</div>
+</body>
+</html>
