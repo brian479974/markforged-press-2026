@@ -19,7 +19,9 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import importlib  # noqa: E402
 # 一支產生器服務多篇文章：ARTICLE_CONTENT 指定內容源，預設 content（既有廣編稿）
 _C = importlib.import_module(os.environ.get("ARTICLE_CONTENT", "content"))
-META, UI, LEAD, QUOTE, PROF = _C.META, _C.UI, _C.LEAD, _C.QUOTE, _C.PROF
+META, UI, LEAD, PROF = _C.META, _C.UI, _C.LEAD, _C.PROF
+# QUOTE 可省略：全敘述體的文章刻意不放引言（G1 冒名引言閘的最保險解），
+# 不該為了塞滿版型硬生一句出來。
 SOURCE_MD = getattr(_C, "SOURCE_MD", None)
 COVERAGE_EXEMPT = getattr(_C, "COVERAGE_EXEMPT", {})
 TAGS, BLOCKS, CTA, SRC, FTR = _C.TAGS, _C.BLOCKS, _C.CTA, _C.SRC, _C.FTR
@@ -96,6 +98,7 @@ STYLE = """
   .btn:hover{background:#222}
   .vid{position:relative;width:100%;padding-top:56.25%;background:#000}
   .vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .vid video{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;background:#000}
   .srcbox{background:#fafafa;border-top:3px solid #111;padding:22px 38px 26px}
   .srcbox h5{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#888;margin-bottom:10px}
   .srcbox li{font-size:11.5px;color:#777;line-height:1.75;margin-left:16px}
@@ -193,8 +196,10 @@ def render(lang):
     if LEAD.get("p2"):
         _lead.append(t(LEAD["p2"], lang, "lead.p2"))
     A('    <div class="lead">' + "<br><br>".join(_lead) + '</div>\n')
-    A(f'    <div class="qb"><p>{t(QUOTE["text"], lang, "quote")}</p>'
-      f'<small>{t(QUOTE["attr"], lang, "quote.attr")}</small></div>\n')
+    _q = getattr(_C, "QUOTE", None)
+    if _q:
+        A(f'    <div class="qb"><p>{t(_q["text"], lang, "quote")}</p>'
+          f'<small>{t(_q["attr"], lang, "quote.attr")}</small></div>\n')
     if PROF:   # 具名觀點文才掛作者卡；活動報導裡 Brian 是消息來源，不是作者
         A('    <div class="prof">')
         A(f'      <img src="brian-chen.jpg" alt="{t(PROF["alt"], lang, "prof.alt")}">')
@@ -238,6 +243,17 @@ def render(lang):
               f'title="{t(b["alt"], lang, f"blk{i}.alt")}" loading="lazy" '
               'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; '
               'picture-in-picture" allowfullscreen></iframe></div>')
+            A(f'    <div class="cap">{t(b["cap"], lang, f"blk{i}.cap")}</div>\n')
+        elif b["kind"] == "mp4":
+            # 自託管影片（GitHub Pages），不走 Drive iframe —— 對外公開連結是 Brian 親手的事，
+            # 自託管就不必為了一支片去開 Drive 公開權限。沿用 .vid 的 16:9 容器。
+            _src = b["src"][lang] if isinstance(b["src"], dict) else b["src"]
+            _po = b.get("poster", "")
+            _po = (_po[lang] if isinstance(_po, dict) else _po)
+            A(f'    <div class="vid"><video src="{_src}" '
+              + (f'poster="{_po}" ' if _po else "")
+              + f'title="{t(b["alt"], lang, f"blk{i}.alt")}" '
+              'controls playsinline preload="metadata"></video></div>')
             A(f'    <div class="cap">{t(b["cap"], lang, f"blk{i}.cap")}</div>\n')
         elif b["kind"] == "quotes":
             A('    <div class="quotes">')
