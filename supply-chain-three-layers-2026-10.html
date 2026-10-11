@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>供應鏈安全的三層——台灣只談到第一層 — Markforged</title>
+<meta name="description" content="非紅供應鏈的討論幾乎都停在零件來源。但製造資料的流向、產能的自主，是另外兩層，而台灣現在幾乎沒有人在管第二層。Markforged 大中華區暨越南國家經理陳中欣，以中科院四個研究所的實際導入經驗，提出供應鏈安全三層模型。">
+<meta property="og:title" content="供應鏈安全的三層——台灣只談到第一層">
+<meta property="og:description" content="非紅供應鏈的討論幾乎都停在零件來源。但製造資料的流向、產能的自主，是另外兩層，而台灣現在幾乎沒有人在管第二層。Markforged 大中華區暨越南國家經理陳中欣，以中科院四個研究所的實際導入經驗，提出供應鏈安全三層模型。">
+<meta property="og:image" content="https://news.markforged.tw/images/supply-chain-three-layers-2026-10-hero.jpg">
+<meta property="og:type" content="article">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#e8e8e8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,'Noto Sans TC',sans-serif;color:#1a1a1a}
+.wrap{max-width:700px;margin:0 auto;background:#fff}
+.hdr{background:#000;padding:20px 40px;display:flex;align-items:center;justify-content:space-between}
+.hdr img{height:26px;display:block}
+.hdr-ev{color:rgba(255,255,255,.6);font-size:12px;text-align:right;line-height:1.6}
+.hero{position:relative;overflow:hidden}
+.hero img{width:100%;display:block}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(100deg,rgba(0,0,0,.93) 0%,rgba(0,0,0,.84) 42%,rgba(0,0,0,.34) 70%,rgba(0,0,0,.08) 92%)}
+.hero-top{position:absolute;top:0;left:0;right:0;padding:30px 38px}
+.hero-kicker{color:#FFFF00;font-size:10px;font-weight:700;letter-spacing:.14em;margin-bottom:10px}
+.hero-title{color:#fff;font-size:27px;font-weight:900;line-height:1.3;max-width:62%;text-shadow:0 2px 12px rgba(0,0,0,.6)}
+.hero-title .y{color:#FFFF00}
+.hero-btm{position:absolute;bottom:0;left:0;right:0;padding:15px 38px;background:linear-gradient(transparent,rgba(0,0,0,.78))}
+.hero-meta{color:rgba(255,255,255,.85);font-size:12px;letter-spacing:.04em}
+.ds{background:#FFFF00;padding:10px 38px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}
+.ds-l{font-size:12.5px;font-weight:700;color:#000}
+.ds-r{font-size:11.5px;color:#333}
+.body{padding:34px 38px 0}
+.lead{font-size:16px;line-height:1.85;color:#222;margin-bottom:22px;padding-bottom:22px;border-bottom:2px solid #f0f0f0}
+.qb{margin:4px 0 28px;padding:21px 24px;background:#000;border-radius:6px}
+.qb p{color:#FFFF00;font-size:18.5px;font-weight:800;line-height:1.48;margin-bottom:6px}
+.qb small{color:rgba(255,255,255,.42);font-size:10.5px;letter-spacing:.08em}
+.sec{margin-bottom:30px}
+h2{font-size:11px;font-weight:700;letter-spacing:.13em;color:#111;margin-bottom:11px;padding-left:11px;border-left:5px solid #FFFF00}
+h3{font-size:19px;font-weight:800;color:#111;margin-bottom:13px;line-height:1.34}
+p{font-size:14.6px;line-height:1.85;color:#333;margin-bottom:14px}
+strong{color:#111;font-weight:700}
+figure{margin:20px 0 22px}
+figure img{width:100%;display:block}
+figcaption{font-size:11.5px;color:#777;line-height:1.6;margin-top:8px;padding-left:10px;border-left:3px solid #FFFF00}
+/* ── 三層模型（本文核心資產）── */
+.ly{border:2px solid #111;margin:22px 0}
+.ly-h{background:#111;color:#fff;padding:11px 18px;font-size:12px;font-weight:700;letter-spacing:.09em}
+.ly-r{display:flex;border-top:1px solid #ddd;align-items:stretch}
+.ly-r:first-of-type{border-top:0}
+.ly-n{flex:none;width:58px;background:#f5f5f5;display:flex;align-items:center;justify-content:center;
+  font-size:21px;font-weight:900;color:#bbb;border-right:1px solid #ddd}
+.ly-r.on .ly-n{background:#FFFF00;color:#000}
+.ly-b{padding:14px 18px;flex:1}
+.ly-t{font-size:15.5px;font-weight:800;color:#111;margin-bottom:4px}
+.ly-d{font-size:13px;color:#555;line-height:1.65;margin-bottom:7px}
+.ly-s{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.05em;
+  padding:3px 9px;border-radius:20px;background:#eee;color:#666}
+.ly-s.hot{background:#111;color:#FFFF00}
+.ly-f{background:#fafafa;border-top:2px solid #111;padding:12px 18px;font-size:12.5px;color:#444;line-height:1.7}
+/* ── 雲端 vs 地端 ── */
+.df{display:grid;grid-template-columns:1fr 1fr;border:2px solid #111;margin:22px 0}
+.df>div{padding:16px 18px}
+.df>div:first-child{border-right:2px solid #111;background:#fafafa}
+.df .t{font-size:12.5px;font-weight:800;margin-bottom:11px;letter-spacing:.04em}
+.df .t.k{color:#999}
+.df ul{list-style:none}
+.df li{font-size:12.5px;line-height:1.6;color:#555;padding:5px 0 5px 15px;position:relative}
+.df li:before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;background:#ccc;border-radius:50%}
+.df .ok li:before{background:#FFFF00;border:1px solid #111}
+.df .ok li{color:#222}
+.df .vd{margin-top:11px;padding-top:10px;border-top:1px dashed #ccc;font-size:11.5px;font-weight:700;color:#999}
+.df .ok .vd{color:#111}
+/* ── 精度分流 ── */
+.pc{display:grid;grid-template-columns:1fr 1fr;border:2px solid #111;margin:22px 0}
+.pc>div{padding:16px 18px}
+.pc>div:first-child{border-right:2px solid #111}
+.pc .h{font-size:12px;font-weight:800;margin-bottom:8px;letter-spacing:.04em}
+.pc .n{font-size:25px;font-weight:900;letter-spacing:-.02em;line-height:1.1}
+.pc .n small{font-size:12px;font-weight:700}
+.pc .y .n{background:linear-gradient(transparent 60%,#FFFF00 60%);display:inline}
+.pc .d{font-size:12px;color:#666;margin-top:9px;line-height:1.65}
+/* ── CTA ── */
+.cta{margin:30px 0 0;border:3px solid #111;background:#111;color:#fff;padding:24px 26px}
+.cta h4{color:#FFFF00;font-size:18px;font-weight:900;margin-bottom:10px}
+.cta p{color:rgba(255,255,255,.82);font-size:13.5px;line-height:1.78;margin-bottom:13px}
+.cta ul{list-style:none;margin-bottom:17px}
+.cta li{color:rgba(255,255,255,.9);font-size:13px;line-height:1.6;padding:6px 0 6px 18px;position:relative}
+.cta li:before{content:"";position:absolute;left:0;top:13px;width:7px;height:7px;background:#FFFF00}
+.cta a{display:inline-block;background:#FFFF00;color:#000;font-size:13.5px;font-weight:800;
+  padding:12px 24px;text-decoration:none;letter-spacing:.02em}
+/* ── 作者 / 出處 ── */
+.au{margin-top:26px;padding:18px 0 0;border-top:2px solid #f0f0f0}
+.au .n{font-size:14px;font-weight:800;color:#111;margin-bottom:4px}
+.au .r{font-size:12px;color:#777;line-height:1.6}
+.src{margin-top:14px;font-size:10.8px;color:#999;line-height:1.7}
+.tags{display:flex;flex-wrap:wrap;gap:6px;padding:22px 38px 30px}
+.tag{background:#111;color:#FFFF00;font-size:10px;font-weight:700;letter-spacing:.06em;padding:4px 10px;border-radius:30px}
+.ft{background:#000;color:rgba(255,255,255,.45);font-size:11px;padding:18px 38px;line-height:1.7}
+@media(max-width:700px){
+  .hero-title{max-width:100%;font-size:21px} .body{padding:26px 22px 0}
+  .hdr,.ds,.tags,.ft{padding-left:22px;padding-right:22px}
+  .df,.pc{grid-template-columns:1fr}
+  .df>div:first-child,.pc>div:first-child{border-right:0;border-bottom:2px solid #111}
+}
+</style>
+<script src="analytics.js" defer></script>
+</head>
+<body><div class="wrap">
+<div class="hdr"><img src="images/markforged-logo-white.png" alt="Markforged">
+  <div class="hdr-ev">Markforged 大中華區<br>市場觀點</div></div>
+<div class="hero"><img src="images/supply-chain-three-layers-2026-10-hero.jpg" alt="">
+  <div class="hero-ov"></div>
+  <div class="hero-top"><div class="hero-kicker">MARKET ANALYSIS · 市場觀點</div>
+    <div class="hero-title">供應鏈安全的三層<br>台灣只談到<span class='y'>第一層</span></div></div>
+  <div class="hero-btm"><div class="hero-meta">陳中欣｜2026 年 10 月 11 日</div></div></div>
+<div class="ds"><div class="ds-l">近十萬架的採購，決定成敗的不只是零件來源</div>
+  <div class="ds-r">閱讀時間 8 分鐘</div></div>
+<div class="body">
+<p class="lead">近十萬架。這是把 2026 年度軍用無人機採購，與 2026 至 2028 年政府機關民用採購加總之後，台灣無人機產業手上這張訂單的量級。國防預算 9,495 億元、約占 GDP 3.32%，是歷史新高。這兩週的討論集中在同一個問題上：誰進得了非紅供應鏈。</p>
+<div class="qb"><p>通過非紅審查，不等於供應鏈安全。<br>那只是第一層。</p><small>SUPPLY-CHAIN SECURITY · LAYER ONE OF THREE</small></div>
+<div class="sec"><h2>HISTORY · 這條路台灣走過一次</h2><h3>換得掉組裝，換不掉上游</h3><p>判斷一個供應鏈重組做得成不成，不必等三年。台灣在半導體已經走過完整的一輪，結果是現成的對照組。</p><p>台灣的半導體產值全球第二，IC 製造與封測市佔世界第一，高階製程與前瞻研發留在島內，台廠在台布局占比約九成。從「誰來製造」這個問題看，台灣贏了。</p><p>但同一份產業盤點裡，另一行寫著：<strong>半導體設備與材料的自給率仍然不足</strong>。換句話說，最難換的那一層，二十年後還在那裡。產業鏈近年又被要求「台灣＋1」，在島外建立產線——換的仍然是組裝的位置，不是上游的依賴。</p><p>電池是第二個對照。美國在電池供應鏈推動去中化，台灣材料廠因此拿到訂單；電池也從單純的產業競爭，被重新定義成國安規格。但真正決定長期位置的，同樣不是誰組裝，是誰掌握材料與設備。</p><p>無人機現在站的，就是當年半導體站過的那個位置。換供應商是看得見、算得出來、能上新聞的那一步。真正難的那層，通常不在零件清單上。</p><figure><img src="images/supply-chain-three-layers-2026-10-hero.jpg" alt=""><figcaption>以連續纖維複合材料列印的無人機結構件：機臂、中心板與電池座為單一連續纖維結構。</figcaption></figure></div><div class="sec"><h2>FRAMEWORK · 三層模型</h2><h3>供應鏈安全有三層，而且是遞進的</h3><p>把它拆開來看會清楚很多。供應鏈安全不是一道是非題，是三層遞進的結構。</p>
+<div class="ly">
+  <div class="ly-h">供應鏈安全三層模型 · SUPPLY-CHAIN SECURITY IN THREE LAYERS</div>
+  <div class="ly-r on"><div class="ly-n">1</div><div class="ly-b">
+    <div class="ly-t">零件主權</div>
+    <div class="ly-d">這顆馬達、這塊飛控、這片電池是誰做的，來源是否可接受。</div>
+    <span class="ly-s hot">目前 99% 的討論在這裡</span></div></div>
+  <div class="ly-r"><div class="ly-n">2</div><div class="ly-b">
+    <div class="ly-t">資料主權</div>
+    <div class="ly-d">零件的幾何、材料參數、製程紀錄與檢測報告，存在誰的伺服器、落在哪個管轄區、誰調得出來。</div>
+    <span class="ly-s">幾乎沒有人在談</span></div></div>
+  <div class="ly-r"><div class="ly-n">3</div><div class="ly-b">
+    <div class="ly-t">產能主權</div>
+    <div class="ly-d">在不依賴外部排程的前提下，你能不能在期限內自己做出來。</div>
+    <span class="ly-s">被當成效率問題，其實是保險絲</span></div></div>
+  <div class="ly-f">三層是<strong>遞進</strong>不是並列：第一層做完只是及格；第二層沒做，第一層的努力會從後門漏光；
+    第三層沒做，前兩層會在交期壓力下被迫讓步。</div>
+</div>
+<p>三層的關係不是並列。<strong>第一層做完只是及格</strong>；<strong>第二層沒做，第一層的努力會從後門漏光</strong>；<strong>第三層沒做，前兩層會在交期壓力下被迫讓步</strong>——當客戶要的東西兩週後才做得出來，所有人都會開始找捷徑。</p><p>目前台灣的公開討論，九成九集中在第一層。</p></div><div class="sec"><h2>LAYER 2 · 資料主權</h2><h3>零件合規了，那檔案呢</h3><p>當製造流程數位化，零件的幾何、材料參數、製程紀錄、檢測報告，全部變成檔案。這些檔案存在誰的伺服器上、落在哪一國的管轄區、誰有權調閱——這是供應鏈安全的第二層，而它幾乎不在現在的討論範圍內。</p><p>這不是假設性的風險。多數積層製造平台預設把切片運算與專案管理放在雲端，對一般製造業沒有問題，效率也確實比較好。但對國防研究單位，雲端是一道過不了的門檻——不是流程麻煩，是規範上不允許。</p><p>這一點決定了誰進得去。我們在中科院能打開四個研究所——航空、飛彈火箭、化學，加上海軍專案——切入點不是設備規格，是<strong>地端部署、不上雲、角色權限控管</strong>。那是那些場域唯一能接受的配置。把論述建立在零件級可追溯性上，正好對得上他們既有的品保文件，不必為了導入新技術重寫一套品保制度。</p><p>一個做法上的細節值得講清楚：可追溯性與雲端並不是綁在一起的。材料數據、製程參數、檢測報告隨件留存，讓設計、製程與品保用同一套數據判斷零件能不能上線，這件事在地端一樣做得到。把兩者綁定，是平台的商業選擇，不是技術的必然。</p>
+<div class="df">
+  <div><div class="t k">雲端預設架構</div>
+    <ul>
+      <li>切片運算在供應商雲端</li>
+      <li>專案與零件庫存放雲端</li>
+      <li>幾何檔案離開本地管轄區</li>
+      <li>調閱權限由平台定義</li>
+    </ul>
+    <div class="vd">對一般製造業可接受</div></div>
+  <div class="ok"><div class="t">地端部署配置</div>
+    <ul>
+      <li>運算與資料留在場域內</li>
+      <li>角色權限由機構自己控管</li>
+      <li>零件級可追溯性照常保留</li>
+      <li>對得上既有品保文件</li>
+    </ul>
+    <div class="vd">國防與高資安場域唯一能接受</div></div>
+</div>
+</div><div class="sec"><h2>LAYER 3 · 產能主權</h2><h3>交期壓力會逼你在前兩層讓步</h3><p>第三層最容易被當成純粹的效率問題，其實它是前兩層的保險絲。</p><p>近十萬架不是一次下單、一次交付，是三年內分批交付，而且規格會改。無人機不是一款產品，是一個每季都在改的平台。中科院的狙擊手中程防禦無人機採模組化設計加積層製造，公開說法就是為了降低對傳統模具與複雜工裝的依賴。</p><p>模組化的另一面，是治具跟著改。一條組裝線上真正讓產出停住的，往往不是缺機台，是缺那一套還沒做好的定位夾具、軟爪、防呆板。這些東西不需要工件級的精度，卻長年跟工件搶同一條 CNC 排程。</p><p>這裡有一個常被混淆的規格。以 ±0.02 mm 為例，那是<strong>工件加工面</strong>的要求，不是治具本體的要求；襯套與嵌件的作用在耐磨與鎖固，不是用來彌補公差。把治具的精度需求跟工件綁在一起，是 CNC 排程塞爆的根本原因之一。</p>
+<div class="pc">
+  <div><div class="h">工件加工面</div>
+    <div class="n">±0.02<small> mm</small></div>
+    <div class="d">這是工件的要求。公差由加工面保證。</div></div>
+  <div class="y"><div class="h">治具本體</div>
+    <div class="n">不需同等精度</div>
+    <div class="d">襯套與嵌件的作用在耐磨與鎖固，不是用來彌補公差。把兩者綁在一起，是 CNC 排程塞爆的根本原因之一。</div></div>
+</div>
+<p>我們在中科院做的一具無人機機體，用連續碳纖維列印，機臂、中心板與電池座是單一連續纖維結構，已在中科院通過蒲福風級 9 級的風洞測試，機型是 X7 Field Edition——強固化、可部署、不依賴雲端。</p><p>爆炸圖攤開來，最值得看的不是列印出來的那些零件，是消失掉的那些。原本需要分件製造、再靠治具定位組裝的結構，現在一體成形。少掉的零件，連帶少掉的是對應的夾治具、對應的組裝工時、對應的公差堆疊。這個案子在中科院航空研究所的專案時程整整提前一年——提前的那一年不是靠趕工，是靠把「設計改一次要等兩週」變成「設計改一次等隔夜」。</p><figure><img src="images/supply-chain-three-layers-2026-10-brian.jpg" alt=""><figcaption>陳中欣說明積層製造的無人機結構件，以及夾治具、襯套與防呆板如何移出 CNC 排程。</figcaption></figure></div><div class="sec"><h2>CONCLUSION</h2><h3>先畫那張圖</h3><p>不必先談設備。這個月做一件事就好：把你的製造資料流向畫成一張圖。幾何檔案、材料參數、製程紀錄、檢測報告，各自存在誰的伺服器上、落在哪個管轄區、誰調得出來。</p><p><strong>如果這張圖畫不出來，你的供應鏈安全只做完第一層。</strong></p></div>
+<div class="cta"><h4>把三層盤一次</h4><p>三層盤點不是採購流程，是一次工程面的對帳：零件來源、資料流向、關鍵治具的排程佔用。Markforged 台灣卓越中心與大中華區團隊可以協助走完這一輪，從現有產線的實際數據出發，不從設備規格出發。</p><ul><li>製造資料流向盤點：哪些檔案離開了你的管轄區</li><li>關鍵治具排程稽核：它們佔掉多少 CNC 工時</li><li>國防與高資安場域的地端部署配置說明</li></ul>
+  <a href="https://mfmk.markforged.tw/">聯絡 Markforged 大中華區團隊 →</a></div>
+<div class="au"><div class="n">陳中欣 Brian Chen</div><div class="r">Markforged 大中華區暨越南 國家經理｜台灣無人載具產業聯盟 榮譽副理事長</div>
+  <div class="src">採購量體、國防預算與半導體／電池產業現況引自 2026 年 9–10 月公開報導；中科院相關導入為 Markforged 大中華區自有專案紀錄，機體風洞測試結果已於 2026-10-02 以中英文對外發布。本文不含任何客戶金額、商業條件或未公開的專案資訊。</div></div>
+</div>
+<div class="tags"><span class="tag">供應鏈安全</span><span class="tag">非紅供應鏈</span><span class="tag">無人機</span><span class="tag">國防自主</span><span class="tag">積層製造</span><span class="tag">資料主權</span></div>
+<div class="ft">© 2026 Markforged · news.markforged.tw　本文為作者個人專業觀點，所引外部數據均來自公開報導。</div>
+</div></body></html>
