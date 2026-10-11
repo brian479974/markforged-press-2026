@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>供应链安全的三层——多数讨论只谈到第一层 — Markforged</title>
+<meta name="description" content="供应链安全的讨论几乎都停在零部件来源。但制造数据的流向、产能的自主，是另外两层，而第二层几乎无人讨论。Markforged 大中华区暨越南国家经理陈中欣，提出供应链安全三层模型。">
+<meta property="og:title" content="供应链安全的三层——多数讨论只谈到第一层">
+<meta property="og:description" content="供应链安全的讨论几乎都停在零部件来源。但制造数据的流向、产能的自主，是另外两层，而第二层几乎无人讨论。Markforged 大中华区暨越南国家经理陈中欣，提出供应链安全三层模型。">
+<meta property="og:image" content="https://news.markforged.tw/images/supply-chain-three-layers-2026-10-hero.jpg">
+<meta property="og:type" content="article">
+<script src="analytics.js" defer></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#e8e8e8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,'Noto Sans TC','Noto Sans SC',sans-serif;color:#1a1a1a}
+.wrap{max-width:700px;margin:0 auto;background:#fff}
+.hdr{background:#000;padding:20px 40px;display:flex;align-items:center;justify-content:space-between}
+.hdr img{height:26px;display:block}
+.hdr-ev{color:rgba(255,255,255,.6);font-size:12px;text-align:right;line-height:1.6}
+.langbar{background:#111;padding:8px 40px;display:flex;gap:6px;align-items:center;border-top:1px solid #222}
+.langbar span{color:#666;font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-right:4px}
+.langbar a{font-size:11.5px;font-weight:700;color:#888;text-decoration:none;padding:3px 10px;border-radius:20px;border:1px solid #333}
+.langbar a:hover{color:#FFFF00;border-color:#FFFF00}
+.langbar a.on{background:#FFFF00;color:#000;border-color:#FFFF00}
+.hero{position:relative;overflow:hidden}
+.hero img{width:100%;display:block}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(100deg,rgba(0,0,0,.93) 0%,rgba(0,0,0,.84) 42%,rgba(0,0,0,.34) 70%,rgba(0,0,0,.08) 92%)}
+.hero-top{position:absolute;top:0;left:0;right:0;padding:30px 38px}
+.hero-kicker{color:#FFFF00;font-size:10px;font-weight:700;letter-spacing:.14em;margin-bottom:10px}
+.hero-title{color:#fff;font-size:27px;font-weight:900;line-height:1.3;max-width:64%;text-shadow:0 2px 12px rgba(0,0,0,.6)}
+.hero-title .y{color:#FFFF00}
+.hero-btm{position:absolute;bottom:0;left:0;right:0;padding:15px 38px;background:linear-gradient(transparent,rgba(0,0,0,.78))}
+.hero-meta{color:rgba(255,255,255,.85);font-size:12px;letter-spacing:.04em}
+.ds{background:#FFFF00;padding:10px 38px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}
+.ds-l{font-size:12.5px;font-weight:700;color:#000}
+.ds-r{font-size:11.5px;color:#333}
+.body{padding:34px 38px 0}
+.lead{font-size:16px;line-height:1.85;color:#222;margin-bottom:22px;padding-bottom:22px;border-bottom:2px solid #f0f0f0}
+.qb{margin:4px 0 28px;padding:21px 24px;background:#000;border-radius:6px}
+.qb p{color:#FFFF00;font-size:18.5px;font-weight:800;line-height:1.48;margin-bottom:6px}
+.qb small{color:rgba(255,255,255,.42);font-size:10.5px;letter-spacing:.08em}
+.sec{margin-bottom:30px}
+h2{font-size:11px;font-weight:700;letter-spacing:.13em;color:#111;margin-bottom:11px;padding-left:11px;border-left:5px solid #FFFF00}
+h3{font-size:19px;font-weight:800;color:#111;margin-bottom:13px;line-height:1.34}
+p{font-size:14.6px;line-height:1.85;color:#333;margin-bottom:14px}
+strong{color:#111;font-weight:700}
+figure{margin:20px 0 22px}
+figure img{width:100%;display:block}
+figcaption{font-size:11.5px;color:#777;line-height:1.6;margin-top:8px;padding-left:10px;border-left:3px solid #FFFF00}
+.ly{border:2px solid #111;margin:22px 0}
+.ly-h{background:#111;color:#fff;padding:11px 18px;font-size:12px;font-weight:700;letter-spacing:.09em}
+.ly-r{display:flex;border-top:1px solid #ddd;align-items:stretch}
+.ly-r:first-of-type{border-top:0}
+.ly-n{flex:none;width:58px;background:#f5f5f5;display:flex;align-items:center;justify-content:center;font-size:21px;font-weight:900;color:#bbb;border-right:1px solid #ddd}
+.ly-r.on .ly-n{background:#FFFF00;color:#000}
+.ly-b{padding:14px 18px;flex:1}
+.ly-t{font-size:15.5px;font-weight:800;color:#111;margin-bottom:4px}
+.ly-d{font-size:13px;color:#555;line-height:1.65;margin-bottom:7px}
+.ly-s{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.05em;padding:3px 9px;border-radius:20px;background:#eee;color:#666}
+.ly-s.hot{background:#111;color:#FFFF00}
+.ly-f{background:#fafafa;border-top:2px solid #111;padding:12px 18px;font-size:12.5px;color:#444;line-height:1.7}
+.df{display:grid;grid-template-columns:1fr 1fr;border:2px solid #111;margin:22px 0}
+.df>div{padding:16px 18px}
+.df>div:first-child{border-right:2px solid #111;background:#fafafa}
+.df .t{font-size:12.5px;font-weight:800;margin-bottom:11px;letter-spacing:.04em}
+.df .t.k{color:#999}
+.df ul{list-style:none}
+.df li{font-size:12.5px;line-height:1.6;color:#555;padding:5px 0 5px 15px;position:relative}
+.df li:before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;background:#ccc;border-radius:50%}
+.df .ok li:before{background:#FFFF00;border:1px solid #111}
+.df .ok li{color:#222}
+.df .vd{margin-top:11px;padding-top:10px;border-top:1px dashed #ccc;font-size:11.5px;font-weight:700;color:#999}
+.df .ok .vd{color:#111}
+.pc{display:grid;grid-template-columns:1fr 1fr;border:2px solid #111;margin:22px 0}
+.pc>div{padding:16px 18px}
+.pc>div:first-child{border-right:2px solid #111}
+.pc .h{font-size:12px;font-weight:800;margin-bottom:8px;letter-spacing:.04em}
+.pc .n{font-size:25px;font-weight:900;letter-spacing:-.02em;line-height:1.15}
+.pc .n small{font-size:12px;font-weight:700}
+.pc .y .n{background:linear-gradient(transparent 62%,#FFFF00 62%);display:inline}
+.pc .d{font-size:12px;color:#666;margin-top:9px;line-height:1.65}
+.cta{margin:30px 0 0;border:3px solid #111;background:#111;color:#fff;padding:24px 26px}
+.cta h4{color:#FFFF00;font-size:18px;font-weight:900;margin-bottom:10px}
+.cta p{color:rgba(255,255,255,.82);font-size:13.5px;line-height:1.78;margin-bottom:13px}
+.cta ul{list-style:none;margin-bottom:17px}
+.cta li{color:rgba(255,255,255,.9);font-size:13px;line-height:1.6;padding:6px 0 6px 18px;position:relative}
+.cta li:before{content:"";position:absolute;left:0;top:13px;width:7px;height:7px;background:#FFFF00}
+.cta a{display:inline-block;background:#FFFF00;color:#000;font-size:13.5px;font-weight:800;padding:12px 24px;text-decoration:none;letter-spacing:.02em}
+.au{margin-top:26px;padding:18px 0 0;border-top:2px solid #f0f0f0}
+.au .n{font-size:14px;font-weight:800;color:#111;margin-bottom:4px}
+.au .r{font-size:12px;color:#777;line-height:1.6}
+.src{margin-top:14px;font-size:10.8px;color:#999;line-height:1.7}
+.tags{display:flex;flex-wrap:wrap;gap:6px;padding:22px 38px 30px}
+.tag{background:#111;color:#FFFF00;font-size:10px;font-weight:700;letter-spacing:.06em;padding:4px 10px;border-radius:30px}
+.ft{background:#000;color:rgba(255,255,255,.45);font-size:11px;padding:18px 38px;line-height:1.7}
+@media(max-width:700px){
+  .hero-title{max-width:100%;font-size:21px} .body{padding:26px 22px 0}
+  .hdr,.ds,.tags,.ft,.langbar{padding-left:22px;padding-right:22px}
+  .df,.pc{grid-template-columns:1fr}
+  .df>div:first-child,.pc>div:first-child{border-right:0;border-bottom:2px solid #111}
+}
+</style>
+</head>
+<body><div class="wrap">
+<div class="hdr"><img src="images/markforged-logo-white.png" alt="Markforged">
+  <div class="hdr-ev">Markforged<br>Greater China</div></div>
+<div class="langbar"><span>LANG</span><a href="supply-chain-three-layers-2026-10.html">繁體中文</a><a href="supply-chain-three-layers-2026-10-sc.html" class="on">简体中文</a><a href="supply-chain-three-layers-2026-10-en.html">English</a></div>
+<div class="hero"><img src="images/supply-chain-three-layers-2026-10-hero.jpg" alt="">
+  <div class="hero-ov"></div>
+  <div class="hero-top"><div class="hero-kicker">MARKET ANALYSIS · 市场观点</div>
+    <div class="hero-title">供应链安全的三层<br>多数讨论只谈到<span class='y'>第一层</span></div></div>
+  <div class="hero-btm"><div class="hero-meta">陈中欣｜2026 年 10 月 11 日</div></div></div>
+<div class="ds"><div class="ds-l">无人机产业的大额采购，决定成败的不只是零部件来源</div><div class="ds-r">阅读时间 8 分钟</div></div>
+<div class="body">
+<p class="lead">无人机产业正迎来一轮规模空前的采购。各地的讨论集中在同一个问题上：零部件来源是否合规、谁进得了新的供应链体系。这是必要的一步，但它只是整件事的三分之一。</p>
+<div class="qb"><p>通过来源审查，不等于供应链安全。<br>那只是第一层。</p><small>SUPPLY-CHAIN SECURITY · LAYER ONE OF THREE</small></div>
+<div class="sec"><h2>HISTORY · 这条路走过一次</h2><h3>换得掉组装，换不掉上游</h3><p>判断一轮供应链重组做得成不成，不必等三年。半导体已经走过完整的一轮，结果是现成的参照。</p><p>以台湾地区为例：半导体产值全球第二，IC 制造与封测市占世界第一，高阶制程与前瞻研发留在本地，厂商本地布局占比约九成。从「谁来制造」这个问题看，这一轮是赢的。</p><p>但同一份产业盘点里，另一行写着：<strong>半导体设备与材料的自给率仍然不足</strong>。换句话说，最难换的那一层，二十年后还在那里。</p><p>电池是第二个参照。各国在电池供应链推动来源多元化，材料厂因此拿到订单；电池也从单纯的产业竞争，被重新定义成国家安全规格。但真正决定长期位置的，同样不是谁组装，是谁掌握材料与设备。</p><p>无人机现在站的，就是当年半导体站过的那个位置。换供应商是看得见、算得出来、能上新闻的那一步。真正难的那层，通常不在零部件清单上。</p><figure><img src="images/supply-chain-three-layers-2026-10-hero.jpg" alt=""><figcaption>以连续纤维复合材料打印的无人机结构件：机臂、中心板与电池座为单一连续纤维结构。</figcaption></figure></div><div class="sec"><h2>FRAMEWORK · 三层模型</h2><h3>供应链安全有三层，而且是递进的</h3><p>拆开来看会清楚很多。供应链安全不是一道是非题，是三层递进的结构。</p><div class="ly"><div class="ly-h">供应链安全三层模型 · SUPPLY-CHAIN SECURITY IN THREE LAYERS</div><div class="ly-r on"><div class="ly-n">1</div><div class="ly-b"><div class="ly-t">零部件主权</div><div class="ly-d">这颗电机、这块飞控、这片电池是谁做的，来源是否可接受。</div><span class="ly-s hot">目前绝大多数讨论在这里</span></div></div><div class="ly-r"><div class="ly-n">2</div><div class="ly-b"><div class="ly-t">数据主权</div><div class="ly-d">零件的几何、材料参数、工艺记录与检测报告，存在谁的服务器、落在哪个管辖区、谁调得出来。</div><span class="ly-s">几乎没有人在谈</span></div></div><div class="ly-r"><div class="ly-n">3</div><div class="ly-b"><div class="ly-t">产能主权</div><div class="ly-d">在不依赖外部排程的前提下，你能不能在期限内自己做出来。</div><span class="ly-s">被当成效率问题，其实是保险丝</span></div></div><div class="ly-f">三层是<strong>递进</strong>不是并列：第一层做完只是及格；第二层没做，第一层的努力会从后门漏光；第三层没做，前两层会在交期压力下被迫让步。</div></div><p>三层的关系不是并列。<strong>第一层做完只是及格</strong>；<strong>第二层没做，第一层的努力会从后门漏光</strong>；<strong>第三层没做，前两层会在交期压力下被迫让步</strong>——当客户要的东西两周后才做得出来，所有人都会开始找捷径。</p><p>目前的公开讨论，绝大多数集中在第一层。</p></div><div class="sec"><h2>LAYER 2 · 数据主权</h2><h3>零部件合规了，那文件呢</h3><p>当制造流程数字化，零件的几何、材料参数、工艺记录、检测报告，全部变成文件。这些文件存在谁的服务器上、落在哪一个司法管辖区、谁有权调阅——这是供应链安全的第二层，而它几乎不在现在的讨论范围内。</p><p>这不是假设性的风险。多数增材制造平台默认把切片运算与项目管理放在云端，对一般制造业没有问题，效率也确实更好。但在高保密场域，云端是一道过不了的门槛——不是流程麻烦，是规范上不允许。</p><p>这一点决定了谁进得去。我们在这类场域的切入点不是设备规格，是<strong>本地部署、不上云、角色权限管控</strong>。那是这些场域唯一能接受的配置。把论述建立在零件级可追溯性上，正好对得上他们既有的质量保证文件，不必为了引入新技术重写一套质保制度。</p><p>一个做法上的细节值得讲清楚：可追溯性与云端并不是绑在一起的。材料数据、工艺参数、检测报告随件留存，让设计、工艺与质保用同一套数据判断零件能不能上线，这件事在本地一样做得到。把两者绑定，是平台的商业选择，不是技术的必然。</p><div class="df"><div><div class="t k">云端默认架构</div><ul><li>切片运算在供应商云端</li><li>项目与零件库存放云端</li><li>几何文件离开本地管辖区</li><li>调阅权限由平台定义</li></ul><div class="vd">对一般制造业可接受</div></div><div class="ok"><div class="t">本地部署配置</div><ul><li>运算与数据留在场域内</li><li>角色权限由机构自己管控</li><li>零件级可追溯性照常保留</li><li>对得上既有质保文件</li></ul><div class="vd">高保密场域唯一能接受</div></div></div></div><div class="sec"><h2>LAYER 3 · 产能主权</h2><h3>交期压力会逼你在前两层让步</h3><p>第三层最容易被当成纯粹的效率问题，其实它是前两层的保险丝。</p><p>大额采购不是一次下单、一次交付，是分批交付，而且规格会改。无人机不是一款产品，是一个每季都在改的平台。业内已公开的做法是以模块化设计加增材制造，降低对传统模具与复杂工装的依赖。</p><p>模块化的另一面，是工装跟着改。一条装配线上真正让产出停住的，往往不是缺机台，是缺那一套还没做好的定位夹具、软爪、防错板。这些东西不需要工件级的精度，却长年跟工件抢同一条 CNC 排程。</p><p>这里有一个常被混淆的规格。以 ±0.02 mm 为例，那是<strong>工件加工面</strong>的要求，不是工装本体的要求；衬套与嵌件的作用在耐磨与锁固，不是用来弥补公差。把工装的精度需求跟工件绑在一起，是 CNC 排程塞爆的根本原因之一。</p><div class="pc"><div><div class="h">工件加工面</div><div class="n">±0.02<small> mm</small></div><div class="d">这是工件的要求。公差由加工面保证。</div></div><div class="y"><div class="h">工装本体</div><div class="n">不需同等精度</div><div class="d">衬套与嵌件的作用在耐磨与锁固，不是用来弥补公差。把两者绑在一起，是 CNC 排程塞爆的根本原因之一。</div></div></div><p>以一具连续碳纤维打印的无人机机体为例：机臂、中心板与电池座是单一连续纤维结构，已通过蒲福风级 9 级的风洞测试，机型是 X7 Field Edition——加固化、可部署、不依赖云端。</p><p>爆炸图摊开来，最值得看的不是打印出来的那些零件，是消失掉的那些。原本需要分件制造、再靠工装定位装配的结构，现在一体成形。少掉的零件，连带少掉的是对应的夹具工装、对应的装配工时、对应的公差堆叠。该项目的时程整整提前一年——提前的那一年不是靠赶工，是靠把「设计改一次要等两周」变成「设计改一次等隔夜」。</p><figure><img src="images/supply-chain-three-layers-2026-10-brian.jpg" alt=""><figcaption>陈中欣说明增材制造的无人机结构件，以及夹具、衬套与防错板如何移出 CNC 排程。</figcaption></figure></div><div class="sec"><h2>CONCLUSION</h2><h3>先画那张图</h3><p>不必先谈设备。这个月做一件事就好：把你的制造数据流向画成一张图。几何文件、材料参数、工艺记录、检测报告，各自存在谁的服务器上、落在哪个管辖区、谁调得出来。</p><p><strong>如果这张图画不出来，你的供应链安全只做完第一层。</strong></p></div>
+<div class="cta"><h4>把三层盘一次</h4><p>三层盘点不是采购流程，是一次工程面的对账：零部件来源、数据流向、关键工装的排程占用。Markforged 大中华区团队可以协助走完这一轮，从现有产线的实际数据出发，不从设备规格出发。</p>
+  <ul><li>制造数据流向盘点：哪些文件离开了你的管辖区</li><li>关键工装排程审计：它们占掉多少 CNC 工时</li><li>高保密场域的本地部署配置说明</li></ul>
+  <a href="https://mfmk.markforged.tw/">联系 Markforged 大中华区团队 →</a></div>
+<div class="au"><div class="n">陈中欣 Brian Chen</div><div class="r">Markforged 大中华区暨越南 国家经理</div>
+  <div class="src">产业现况与采购规模引自 2026 年 9–10 月公开报导；机体风洞测试结果已于 2026-10-02 以中英文对外发布。本文不含任何客户金额、商业条件或未公开的项目信息。</div></div>
+</div>
+<div class="tags"><span class="tag">供应链安全</span><span class="tag">无人机</span><span class="tag">增材制造</span><span class="tag">数据主权</span><span class="tag">产能主权</span></div>
+<div class="ft">© 2026 Markforged · news.markforged.tw　本文为作者个人专业观点，所引外部数据均来自公开报导。</div>
+</div></body></html>
