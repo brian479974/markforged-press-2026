@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Three hundred machines are not a manufacturing network: the US Army's IBAS Phase I puts fleet-level process qualification on the table</title>
+<meta name="description" content="One line of technical scope in Automation Alley's $7.5 million IBAS Phase I Task Order is skipped by most coverage: the parts must be made using validated processes. That line defines the real threshold for distributed manufacturing — not how many machines, but how many qualified processes the fleet shares.">
+<meta property="og:title" content="Three hundred machines are not a network: the threshold IBAS Phase I puts on the table">
+<meta property="og:description" content="Encrypting the instructions is a security problem. Getting scattered factories to make the same acceptable part from the same parameters is a manufacturing problem — and no cipher solves that one.">
+<meta property="og:image" content="https://news.markforged.tw/images/eiger-inspection.jpg">
+<meta property="og:type" content="article">
+<link rel="alternate" hreflang="zh-TW" href="https://news.markforged.tw/fleet-qualified-process-2026-10.html">
+<link rel="alternate" hreflang="en" href="https://news.markforged.tw/fleet-qualified-process-2026-10-en.html">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#e8e8e8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,'Noto Sans TC','Noto Sans SC',sans-serif;color:#1a1a1a}
+  .wrap{max-width:700px;margin:0 auto;background:#fff}
+  .hdr{background:#000;padding:20px 40px;display:flex;align-items:center;justify-content:space-between}
+  .hdr-logo{display:block;line-height:0}
+  .hdr-logo img{height:26px;width:auto;display:block}
+  .hdr-ev{color:rgba(255,255,255,.6);font-size:12px;text-align:right;line-height:1.6}
+  .langbar{background:#111;padding:8px 40px;display:flex;gap:6px;align-items:center;border-top:1px solid #222}
+  .langbar span{color:#666;font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-right:4px}
+  .langbar a{font-size:11.5px;font-weight:700;color:#888;text-decoration:none;padding:3px 10px;border-radius:20px;border:1px solid #333}
+  .langbar a:hover{color:#FFFF00;border-color:#FFFF00}
+  .langbar a.on{background:#FFFF00;color:#000;border-color:#FFFF00}
+  .hero{position:relative;overflow:hidden}
+  .hero img{width:100%;display:block}
+  .hero-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.68) 0%,rgba(0,0,0,.15) 50%,rgba(0,0,0,.72) 100%)}
+  .hero-top{position:absolute;top:0;left:0;right:0;padding:28px 38px}
+  .hero-kicker{color:#FFFF00;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px}
+  .hero-title{color:#fff;font-size:26px;font-weight:900;line-height:1.28;max-width:540px;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+  .hero-btm{position:absolute;bottom:0;left:0;right:0;padding:16px 38px;background:linear-gradient(transparent,rgba(0,0,0,.75))}
+  .hero-meta{color:rgba(255,255,255,.85);font-size:12px;letter-spacing:.04em}
+  .ds{background:#FFFF00;padding:10px 38px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}
+  .ds-l{font-size:12.5px;font-weight:700;color:#000}
+  .ds-r{font-size:11.5px;color:#333}
+  .body{padding:36px 38px 0}
+  .lead{font-size:16px;line-height:1.82;color:#222;margin-bottom:24px;padding-bottom:24px;border-bottom:2px solid #f0f0f0}
+  .y{color:#FFFF00}
+  .cmp{margin:8px 0 30px;border:1px solid #111}
+  .cmp-h{background:#000;color:#fff;font-size:10.5px;font-weight:800;letter-spacing:.1em;padding:11px 16px;line-height:1.5}
+  .cmp-b{display:grid;grid-template-columns:1fr 1fr}
+  .cmp-c{padding:18px 18px 16px}
+  .cmp-c.alt{border-left:1px solid #e6e6e6;background:#fcfcfc}
+  .cmp-t{font-size:15px;font-weight:900;color:#111;margin-bottom:11px;padding-bottom:8px;border-bottom:3px solid #FFFF00}
+  .cmp-c.alt .cmp-t{border-bottom-color:#dcdcdc;color:#666}
+  .cmp-l{list-style:none;margin:0 0 14px;padding:0}
+  .cmp-l li{font-size:12px;color:#555;line-height:1.6;padding:5px 0 5px 15px;position:relative}
+  .cmp-l li:before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;background:#FFFF00}
+  .cmp-c.alt .cmp-l li:before{background:#cfcfcf}
+  .cmp-v{font-size:12.5px;font-weight:800;color:#111;background:#FFF9D6;padding:9px 11px;line-height:1.45}
+  .cmp-c.alt .cmp-v{background:#f2f2f2;color:#777}
+  @media(max-width:700px){.cmp-b{grid-template-columns:1fr}.cmp-c.alt{border-left:0;border-top:1px solid #e6e6e6}}
+  .qb{margin:6px 0 26px;padding:20px 24px;background:#000;border-radius:6px}
+  .qb p{color:#FFFF00;font-size:18px;font-weight:800;line-height:1.45;margin-bottom:5px}
+  .qb small{color:rgba(255,255,255,.45);font-size:10.5px;letter-spacing:.07em}
+  .dl{background:#111;padding:24px 38px;margin:0 -38px 26px}
+  .dl h4{color:#fff;font-size:15.5px;font-weight:900;margin-bottom:6px}
+  .dl>p{color:rgba(255,255,255,.55);font-size:12px;line-height:1.7;margin-bottom:15px}
+  .dl-row{display:flex;gap:10px;flex-wrap:wrap}
+  .dl-row a{flex:1;min-width:148px;background:#1c1c1c;border:1px solid #333;padding:13px 15px;text-decoration:none;display:block}
+  .dl-row a:hover{border-color:#FFFF00;background:#222}
+  .dl-l{color:#FFFF00;font-size:13.5px;font-weight:800;display:block;margin-bottom:3px}
+  .dl-s{color:rgba(255,255,255,.45);font-size:10.5px;display:block}
+  .sec{margin-bottom:30px}
+  h2{font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#111;margin-bottom:12px;padding-left:11px;border-left:4px solid #FFFF00}
+  h3{font-size:18px;font-weight:800;color:#111;margin-bottom:12px;line-height:1.32}
+  p{font-size:14.5px;line-height:1.82;color:#333;margin-bottom:14px}
+  strong{color:#111}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
+  .tag{background:#111;color:#FFFF00;font-size:10px;font-weight:700;letter-spacing:.07em;padding:4px 10px;border-radius:30px}
+  .tag.ol{background:#fff;color:#666;border:1.5px solid #ddd}
+  .ph-full img{width:100%;display:block}
+  .ph-2col{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+  .gi{width:100%;display:block;object-fit:cover}
+  .gi-43{aspect-ratio:4/3}
+  .cap{font-size:11px;color:#aaa;text-align:center;padding:8px 38px 22px;border-bottom:1px solid #eee;margin-bottom:26px;line-height:1.55}
+  .hl-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:30px}
+  .hl{background:#f7f7f7;border-left:4px solid #FFFF00;padding:16px 18px}
+  .hl b{display:block;font-size:24px;font-weight:900;color:#111;line-height:1.1;margin-bottom:5px}
+  .hl span{font-size:11.5px;color:#777;line-height:1.5;display:block}
+  .prof{display:flex;gap:18px;align-items:center;background:#111;padding:22px 24px;border-radius:6px;margin:8px 0 28px}
+  .prof img{width:92px;height:92px;object-fit:cover;border-radius:50%;flex-shrink:0;border:3px solid #FFFF00}
+  .prof-n{color:#fff;font-size:16px;font-weight:800;margin-bottom:4px}
+  .prof-t{color:#FFFF00;font-size:11.5px;font-weight:700;margin-bottom:7px}
+  .prof-d{color:rgba(255,255,255,.6);font-size:11.5px;line-height:1.6}
+  .cta{background:#FFFF00;padding:28px 32px;margin:6px 0 0}
+  .cta h4{font-size:17px;font-weight:900;color:#000;margin-bottom:8px}
+  .cta p{font-size:13px;color:#333;line-height:1.7;margin-bottom:16px}
+  .btn{display:inline-block;background:#000;color:#FFFF00;padding:12px 26px;font-size:13.5px;font-weight:800;text-decoration:none;letter-spacing:.04em}
+  .btn:hover{background:#222}
+  .srcbox{background:#fafafa;border-top:3px solid #111;padding:22px 38px 26px}
+  .srcbox h5{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#888;margin-bottom:10px}
+  .srcbox li{font-size:11.5px;color:#777;line-height:1.75;margin-left:16px}
+  .srcbox li a{color:#555;text-decoration:none;border-bottom:1px solid #ccc;word-break:break-all}
+  .srcbox li a:hover{color:#000;border-color:#FFFF00}
+  .sec p a{color:#111;text-decoration:none;border-bottom:2px solid #FFFF00;font-weight:600}
+  .sec p a:hover{background:#FFF6D6}
+  .ftr{background:#000;padding:24px 38px;color:rgba(255,255,255,.5);font-size:11.5px;line-height:1.7}
+  .ftr a{color:#FFFF00;text-decoration:none}
+  @media(max-width:620px){.hero-title{font-size:21px}.body{padding:26px 22px 0}.hl-grid{grid-template-columns:1fr}.prof{flex-direction:column;text-align:center}.langbar{padding:8px 22px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hdr">
+    <a href="index.html" class="hdr-logo"><img src="images/markforged-logo-white.png" alt="Markforged"></a>
+    <div class="hdr-ev">Greater China &amp; Vietnam Media Hub<br>News &amp; Insights</div>
+  </div>
+
+  <div class="langbar"><span>Language</span><a href="fleet-qualified-process-2026-10.html">繁體中文</a><a href="fleet-qualified-process-2026-10-en.html" class="on">English</a></div>
+
+  <div class="hero">
+    <img src="images/eiger-inspection.jpg" alt="A part inspection view in additive manufacturing software, showing scan-point deviation and key dimensional measurements">
+    <div class="hero-ov"></div>
+    <div class="hero-top">
+      <div class="hero-kicker">Industry Analysis · Distributed Manufacturing · Process Qualification</div>
+      <div class="hero-title">Three hundred machines<br>are not a <span class='y'>manufacturing network</span></div>
+    </div>
+    <div class="hero-btm"><div class="hero-meta">Industry analysis · 23 October 2026 · Based on the scope stated in Automation Alley's 15 October announcement</div></div>
+  </div>
+
+  <div class="ds"><div class="ds-l">23 October 2026</div><div class="ds-r">Analysis · United States / Greater China</div></div>
+
+  <div class="body">
+
+    <div class="lead">One line of technical scope in the 15 October announcement is skipped by almost every piece of coverage: Phase I is to produce the candidate parts using <b>validated processes</b>. That line is where the difficulty actually sits. Encrypting a set of manufacturing instructions and sending it out is a security problem. Getting factories scattered across the country, none of them inside the same quality system, to make the same acceptable part from the same parameters is a manufacturing problem — and no cipher solves that one.<br><br>The facts are straightforward. <a href='https://www.automationalley.com/' target='_blank' rel='noopener'>Automation Alley</a>, Michigan's Industry 4.0 knowledge center, <a href='https://www.prnewswire.com/news-releases/automation-alley-awarded-contract-to-advance-secure-distributed-additive-manufacturing-forthe-us-departmentof-war-302909514.html' target='_blank' rel='noopener'>was awarded a Phase I Task Order under the Industrial Base Analysis and Sustainment (IBAS) program</a>, worth $7.5 million with a Base and Option — Automation Alley is the awardee — administered through the <a href='https://www.ncdmm.org/' target='_blank' rel='noopener'>National Center for Defense Manufacturing and Machining (NCDMM)</a> IDIQ. NCDMM is the prime contractor; Markforged and <a href='https://www.fraunhofer.org/' target='_blank' rel='noopener'>Fraunhofer USA</a> are the executing technology and research partners. What follows is not about who received the funding, but about a threshold the technical scope exposes — one that the additive manufacturing conversation across Greater China has barely raised.</div>
+
+    <div class="prof">
+      <img src="brian-chen.jpg" alt="Brian Chen">
+      <div><div class="prof-n">Brian Chen</div><div class="prof-t">Country Manager, Greater China and Vietnam, Markforged</div><div class="prof-d">Responsible for Taiwan, Mainland China, Hong Kong and Viet Nam. This article is an industry analysis prepared by the media hub from public information. All contract facts come from Automation Alley's announcement of 15 October 2026; fleet-level process qualification is this article's own analytical frame for reading the technical scope, not language from the announcement. No local project, customer name or commercial term is involved.</div></div>
+    </div>
+
+    <div class="tags"><span class="tag">Process Qualification</span><span class="tag ol">Distributed Manufacturing</span><span class="tag ol">Defense Supply Chain</span><span class="tag ol">Quality Evidence</span></div>
+
+    <div class="sec">
+      <h2>The word fleet</h2>
+      <h3>Three hundred machines do not add up to a manufacturing network</h3>
+      <p><a href='https://www.automationalley.com/project-diamond' target='_blank' rel='noopener'>Project DIAMOnD</a> has been placing printers with small and mid-sized manufacturers across Michigan since 2020, three hundred of them to date; <a href='https://www.3dnatives.com/en/markforged-provides-3d-printers-for-project-diamond-140120216/' target='_blank' rel='noopener'>Markforged supplied the first wave</a>. On headcount alone, the hardware for a distributed manufacturing network was in place six years ago.</p>
+      <p>But what lets those three hundred sites take on a defense order together is not their number. It is the answer to a narrow question: send one set of manufacturing instructions to any machine in the network, and do you get the same part out. Not a part that looks the same — one whose dimensions and mechanical properties land inside the same acceptable band despite differences in material lot, ambient conditions, operator and post-processing, with evidence left behind for every unit.</p>
+      <p>This is hard enough inside one factory; across a distributed network it is a different order of magnitude. Phase I writes it into the deliverables: identify and validate candidate polymer and metallic weapon system components, then produce them using validated processes. Validation first, production second — the sequence is itself the specification.</p>
+    </div>
+
+    <div class="cmp">
+      <div class="cmp-h">Two ways to build a distributed network</div>
+      <div class="cmp-b">
+        <div class="cmp-c">
+          <div class="cmp-t">One fleet</div>
+          <ul class="cmp-l"><li>Same machine model, same material specification, same software chain</li><li>Process parameters validated at source and version-controlled</li><li>Adding a site means copying an existing configuration</li><li>Quality records share one schema and can be compared in aggregate</li></ul>
+          <div class="cmp-v">Qualify once; the network inherits it</div>
+        </div>
+        <div class="cmp-c alt">
+          <div class="cmp-t">Mixed estate</div>
+          <ul class="cmp-l"><li>Each site buys whatever brand and model its budget cycle allowed</li><li>Parameters tuned locally; the variance lives with the operator</li><li>Adding a site means adding another combination to qualify</li><li>Records differ in format and have to be reconciled by hand</li></ul>
+          <div class="cmp-v">Every combination has to be qualified again</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <h2>The cost of qualification</h2>
+      <h3>Qualification cost is not additive, it is multiplicative</h3>
+      <p>The volume of qualification work is set by how many machine-material-part combinations have to be qualified. In a single-fleet network, a part qualified once in one material carries that status to other sites along with the configuration. In a mixed estate, every additional machine type multiplies the combination count. This is why the number of machines a programme owns says almost nothing about whether it can take on an order that demands traceability.</p>
+      <p>It also explains why Phase I puts a secure encrypted digital workflow architecture and production using validated processes on the same deliverables list, aligned to Cybersecurity Maturity Model Certification (CMMC) and <a href='https://www.nist.gov/cyberframework' target='_blank' rel='noopener'>National Institute of Standards and Technology (NIST)</a> cybersecurity standards. The first governs whether the file leaks. The second governs whether the part can be made and proven. A network exists only when both hold; with one missing, what remains is a set of machines with network access.</p>
+      <div class="hl-grid">
+        <div class="hl"><b>$7.5M</b><span>Phase I Task Order value, Base and Option. Awarded to Automation Alley</span></div>
+        <div class="hl"><b>300</b><span>Printers placed by Project DIAMOnD since 2020; Markforged supplied the first wave</span></div>
+        <div class="hl"><b>Phase I</b><span>Currently design and validation; not production deployment</span></div>
+        <div class="hl"><b>CMMC / NIST</b><span>The two cybersecurity standards the workflow architecture must align to</span></div>
+      </div>
+    </div>
+
+    <div class="ph-full"><img src="images/us-military-markforged.jpg" alt="US military personnel around a Markforged system running in a deployed environment"></div>
+    <div class="cap">The hard part of distributed manufacturing is not getting machines forward; it is being able to prove what each site produced.</div>
+
+    <div class="sec">
+      <h2>Not a procurement preference</h2>
+      <h3>The advantage of one fleet shows up in the qualification ledger, not the datasheet</h3>
+      <p>Converging a fleet onto one platform intuitively feels like lock-in. Where quality evidence has to be delivered, the arithmetic runs the other way: qualifying once and letting the network inherit it, against qualifying at every site, differs by the schedule and auditability of the whole programme.</p>
+      <p>It is also why equipment suppliers on programmes like this are rarely selected on single-machine specifications. No Phase I deliverable concerns the maximum part size of any one printer. The deliverables are the secure end-to-end transfer of Smart Product Recipes (SPRs) and the digital quality assurance instructions that accompany each part produced. The equipment has one question to answer: can it reproduce the same recipe at a different site.</p>
+      <p>On the division of labour: Automation Alley leads the design and validation of the secure digital manufacturing environment; Markforged supplies industrial additive manufacturing systems; Fraunhofer USA handles applied research; NCDMM, the prime contractor, also manages <a href='https://www.americamakes.us/' target='_blank' rel='noopener'>America Makes</a> and operates seven locations nationwide. Automation Alley describes the combination as bringing together additive manufacturing technology, cybersecurity and manufacturing process validation.</p>
+    </div>
+
+    <div class="sec">
+      <h2>Greater China and Viet Nam</h2>
+      <h3>Turning demonstration sites into capacity is not a question of the next machine</h3>
+      <p>Taiwan, Hong Kong and Viet Nam have each seen additive manufacturing demonstration sites, clusters and defense self-reliance initiatives appear over the past two years. The publicly visible discussion sits mostly on machine counts, build volumes and material options — the fields on a datasheet.</p>
+      <p>The Phase I list points at a different set of fields. How many qualified processes do your sites share? Move a part to another site and does it need re-qualifying? What format of evidence does each unit leave behind, and who can retrieve it?</p>
+      <p>None of these require a budget cycle or another purchase to answer. What they decide is whether, when an order requiring traceability arrives, those sites constitute a network or a collection of unrelated machines.</p>
+    </div>
+
+    <div class="sec">
+      <h2>CONCLUSION</h2>
+      <h3>Start by counting the processes in your fleet</h3>
+      <p>Do not start with equipment. Take the list of sites you already have and count three numbers: how many machine models, how many material specifications, and whether the same part runs on the same parameters at every site.</p>
+      <p><strong>If those three numbers add up to well above one, what you have is machines, not yet a network.</strong></p>
+    </div>
+
+    <div class="dl">
+      <h4>Further reading</h4>
+      <p>The event report on this award and the A4 case reports (four pages each, Traditional Chinese and English), all drawn from Automation Alley's announcement of 15 October 2026.</p>
+      <div class="dl-row"><a href="downloads/Markforged-AutomationAlley-IBAS-Case-TC.pdf"><span class="dl-l">Case report · Traditional Chinese</span><span class="dl-s">A4 · 4 pages · PDF</span></a><a href="downloads/Markforged-AutomationAlley-IBAS-Case-EN.pdf"><span class="dl-l">Case report · English</span><span class="dl-s">A4 · 4 pages · PDF</span></a></div>
+    </div>
+
+  </div>
+
+  <div class="cta">
+    <h4>Audit your fleet once</h4>
+    <p>A fleet audit is not a procurement exercise. It is an engineering reconciliation: how many machine models, material specifications, process parameter sets and evidence formats you actually have. The Markforged Greater China and Viet Nam team can work through it with you, starting from the configuration of your existing sites rather than from a datasheet. On-site sessions can be arranged in Taiwan, Hong Kong or Viet Nam.</p>
+    <a href="https://mfmk.markforged.tw" class="btn">Contact the Markforged Greater China team</a>
+  </div>
+
+  <div class="srcbox">
+    <h5>Sources and method</h5>
+    <ul><li>Automation Alley news release: Automation Alley Awarded Contract to Advance Secure Distributed Additive Manufacturing (PR Newswire, 15 October 2026). All contract facts, scope and organisational roles in this article come from this source.<br><a href="https://www.prnewswire.com/news-releases/automation-alley-awarded-contract-to-advance-secure-distributed-additive-manufacturing-forthe-us-departmentof-war-302909514.html" target="_blank" rel="noopener">https://www.prnewswire.com/news-releases/automation-alley-awarded-contract-to-advance-secure-distributed-additive-manufacturing-forthe-us-departmentof-war-302909514.html</a></li><li>Automation Alley, Project DIAMOnD programme page: established 2020 under CARES Act funding, 300 printers placed to date.<br><a href="https://www.automationalley.com/project-diamond" target="_blank" rel="noopener">https://www.automationalley.com/project-diamond</a></li><li>3Dnatives, Markforged Provides 3D Printers for Project DIAMOnD (January 2021) — the first wave of printers and the programme's scope.<br><a href="https://www.3dnatives.com/en/markforged-provides-3d-printers-for-project-diamond-140120216/" target="_blank" rel="noopener">https://www.3dnatives.com/en/markforged-provides-3d-printers-for-project-diamond-140120216/</a></li><li>Metal AM magazine, Automation Alley to develop secure distributed AM network under $7.5M defence contract (October 2026) — independent trade-press coverage of the award.<br><a href="https://www.metal-am.com/automation-alley-to-develop-secure-distributed-am-network-under-7-5-million-defence-contract/" target="_blank" rel="noopener">https://www.metal-am.com/automation-alley-to-develop-secure-distributed-am-network-under-7-5-million-defence-contract/</a></li><li>A note on method: fleet-level process qualification and the multiplicative cost of qualification are this article's analytical frame for reading the announced scope; neither phrase appears in the announcement. Observations about Greater China and Viet Nam refer to the emphasis of publicly visible discussion and to no named organisation's procurement.</li><li>A note on naming: the statutory name remains the Department of Defense. Department of War is a secondary title established by executive order in September 2025, with the legislative process incomplete. This article uses the US Army, the operative service, as its subject.</li></ul>
+  </div>
+
+  <div class="ftr">
+    Markforged is an industrial additive manufacturing company whose continuous fiber composite and metal technologies, together with the Digital Forge platform, help manufacturers integrate design, production, inspection and automation on the factory floor. This media hub is maintained by the Markforged Greater China and Viet Nam team.<br><br>
+    <a href="index.html">← Back to the media hub</a>　·　<a href="https://markforged.tw">markforged.tw</a>
+  </div>
+
+</div>
+</body>
+</html>

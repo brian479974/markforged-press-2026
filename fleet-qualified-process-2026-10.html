@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>300 台機器不等於一個製造網路：美軍 IBAS Phase I 把「機隊級製程資格」推上檯面</title>
+<meta name="description" content="Automation Alley 取得的 750 萬美元 IBAS Phase I 任務訂單裡，有一句技術規格被多數轉述跳過：要用「已通過驗證的製程」把零件做出來。這句話決定了分散式製造的真正門檻——不是機台數量，而是整個機隊共用幾套已驗證製程。">
+<meta property="og:title" content="300 台機器不等於一個製造網路：IBAS Phase I 推上檯面的那個門檻">
+<meta property="og:description" content="把製造指令加密送出去是資安問題；要讓散在各地的工廠用同一套參數印出同一個可上機的零件，是製造問題——而後者沒有加密演算法可以解。">
+<meta property="og:image" content="https://news.markforged.tw/images/eiger-inspection.jpg">
+<meta property="og:type" content="article">
+<link rel="alternate" hreflang="zh-TW" href="https://news.markforged.tw/fleet-qualified-process-2026-10.html">
+<link rel="alternate" hreflang="en" href="https://news.markforged.tw/fleet-qualified-process-2026-10-en.html">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#e8e8e8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,'Noto Sans TC','Noto Sans SC',sans-serif;color:#1a1a1a}
+  .wrap{max-width:700px;margin:0 auto;background:#fff}
+  .hdr{background:#000;padding:20px 40px;display:flex;align-items:center;justify-content:space-between}
+  .hdr-logo{display:block;line-height:0}
+  .hdr-logo img{height:26px;width:auto;display:block}
+  .hdr-ev{color:rgba(255,255,255,.6);font-size:12px;text-align:right;line-height:1.6}
+  .langbar{background:#111;padding:8px 40px;display:flex;gap:6px;align-items:center;border-top:1px solid #222}
+  .langbar span{color:#666;font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-right:4px}
+  .langbar a{font-size:11.5px;font-weight:700;color:#888;text-decoration:none;padding:3px 10px;border-radius:20px;border:1px solid #333}
+  .langbar a:hover{color:#FFFF00;border-color:#FFFF00}
+  .langbar a.on{background:#FFFF00;color:#000;border-color:#FFFF00}
+  .hero{position:relative;overflow:hidden}
+  .hero img{width:100%;display:block}
+  .hero-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.68) 0%,rgba(0,0,0,.15) 50%,rgba(0,0,0,.72) 100%)}
+  .hero-top{position:absolute;top:0;left:0;right:0;padding:28px 38px}
+  .hero-kicker{color:#FFFF00;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px}
+  .hero-title{color:#fff;font-size:26px;font-weight:900;line-height:1.28;max-width:540px;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+  .hero-btm{position:absolute;bottom:0;left:0;right:0;padding:16px 38px;background:linear-gradient(transparent,rgba(0,0,0,.75))}
+  .hero-meta{color:rgba(255,255,255,.85);font-size:12px;letter-spacing:.04em}
+  .ds{background:#FFFF00;padding:10px 38px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}
+  .ds-l{font-size:12.5px;font-weight:700;color:#000}
+  .ds-r{font-size:11.5px;color:#333}
+  .body{padding:36px 38px 0}
+  .lead{font-size:16px;line-height:1.82;color:#222;margin-bottom:24px;padding-bottom:24px;border-bottom:2px solid #f0f0f0}
+  .y{color:#FFFF00}
+  .cmp{margin:8px 0 30px;border:1px solid #111}
+  .cmp-h{background:#000;color:#fff;font-size:10.5px;font-weight:800;letter-spacing:.1em;padding:11px 16px;line-height:1.5}
+  .cmp-b{display:grid;grid-template-columns:1fr 1fr}
+  .cmp-c{padding:18px 18px 16px}
+  .cmp-c.alt{border-left:1px solid #e6e6e6;background:#fcfcfc}
+  .cmp-t{font-size:15px;font-weight:900;color:#111;margin-bottom:11px;padding-bottom:8px;border-bottom:3px solid #FFFF00}
+  .cmp-c.alt .cmp-t{border-bottom-color:#dcdcdc;color:#666}
+  .cmp-l{list-style:none;margin:0 0 14px;padding:0}
+  .cmp-l li{font-size:12px;color:#555;line-height:1.6;padding:5px 0 5px 15px;position:relative}
+  .cmp-l li:before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;background:#FFFF00}
+  .cmp-c.alt .cmp-l li:before{background:#cfcfcf}
+  .cmp-v{font-size:12.5px;font-weight:800;color:#111;background:#FFF9D6;padding:9px 11px;line-height:1.45}
+  .cmp-c.alt .cmp-v{background:#f2f2f2;color:#777}
+  @media(max-width:700px){.cmp-b{grid-template-columns:1fr}.cmp-c.alt{border-left:0;border-top:1px solid #e6e6e6}}
+  .qb{margin:6px 0 26px;padding:20px 24px;background:#000;border-radius:6px}
+  .qb p{color:#FFFF00;font-size:18px;font-weight:800;line-height:1.45;margin-bottom:5px}
+  .qb small{color:rgba(255,255,255,.45);font-size:10.5px;letter-spacing:.07em}
+  .dl{background:#111;padding:24px 38px;margin:0 -38px 26px}
+  .dl h4{color:#fff;font-size:15.5px;font-weight:900;margin-bottom:6px}
+  .dl>p{color:rgba(255,255,255,.55);font-size:12px;line-height:1.7;margin-bottom:15px}
+  .dl-row{display:flex;gap:10px;flex-wrap:wrap}
+  .dl-row a{flex:1;min-width:148px;background:#1c1c1c;border:1px solid #333;padding:13px 15px;text-decoration:none;display:block}
+  .dl-row a:hover{border-color:#FFFF00;background:#222}
+  .dl-l{color:#FFFF00;font-size:13.5px;font-weight:800;display:block;margin-bottom:3px}
+  .dl-s{color:rgba(255,255,255,.45);font-size:10.5px;display:block}
+  .sec{margin-bottom:30px}
+  h2{font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#111;margin-bottom:12px;padding-left:11px;border-left:4px solid #FFFF00}
+  h3{font-size:18px;font-weight:800;color:#111;margin-bottom:12px;line-height:1.32}
+  p{font-size:14.5px;line-height:1.82;color:#333;margin-bottom:14px}
+  strong{color:#111}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
+  .tag{background:#111;color:#FFFF00;font-size:10px;font-weight:700;letter-spacing:.07em;padding:4px 10px;border-radius:30px}
+  .tag.ol{background:#fff;color:#666;border:1.5px solid #ddd}
+  .ph-full img{width:100%;display:block}
+  .ph-2col{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+  .gi{width:100%;display:block;object-fit:cover}
+  .gi-43{aspect-ratio:4/3}
+  .cap{font-size:11px;color:#aaa;text-align:center;padding:8px 38px 22px;border-bottom:1px solid #eee;margin-bottom:26px;line-height:1.55}
+  .hl-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:30px}
+  .hl{background:#f7f7f7;border-left:4px solid #FFFF00;padding:16px 18px}
+  .hl b{display:block;font-size:24px;font-weight:900;color:#111;line-height:1.1;margin-bottom:5px}
+  .hl span{font-size:11.5px;color:#777;line-height:1.5;display:block}
+  .prof{display:flex;gap:18px;align-items:center;background:#111;padding:22px 24px;border-radius:6px;margin:8px 0 28px}
+  .prof img{width:92px;height:92px;object-fit:cover;border-radius:50%;flex-shrink:0;border:3px solid #FFFF00}
+  .prof-n{color:#fff;font-size:16px;font-weight:800;margin-bottom:4px}
+  .prof-t{color:#FFFF00;font-size:11.5px;font-weight:700;margin-bottom:7px}
+  .prof-d{color:rgba(255,255,255,.6);font-size:11.5px;line-height:1.6}
+  .cta{background:#FFFF00;padding:28px 32px;margin:6px 0 0}
+  .cta h4{font-size:17px;font-weight:900;color:#000;margin-bottom:8px}
+  .cta p{font-size:13px;color:#333;line-height:1.7;margin-bottom:16px}
+  .btn{display:inline-block;background:#000;color:#FFFF00;padding:12px 26px;font-size:13.5px;font-weight:800;text-decoration:none;letter-spacing:.04em}
+  .btn:hover{background:#222}
+  .srcbox{background:#fafafa;border-top:3px solid #111;padding:22px 38px 26px}
+  .srcbox h5{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#888;margin-bottom:10px}
+  .srcbox li{font-size:11.5px;color:#777;line-height:1.75;margin-left:16px}
+  .srcbox li a{color:#555;text-decoration:none;border-bottom:1px solid #ccc;word-break:break-all}
+  .srcbox li a:hover{color:#000;border-color:#FFFF00}
+  .sec p a{color:#111;text-decoration:none;border-bottom:2px solid #FFFF00;font-weight:600}
+  .sec p a:hover{background:#FFF6D6}
+  .ftr{background:#000;padding:24px 38px;color:rgba(255,255,255,.5);font-size:11.5px;line-height:1.7}
+  .ftr a{color:#FFFF00;text-decoration:none}
+  @media(max-width:620px){.hero-title{font-size:21px}.body{padding:26px 22px 0}.hl-grid{grid-template-columns:1fr}.prof{flex-direction:column;text-align:center}.langbar{padding:8px 22px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hdr">
+    <a href="index.html" class="hdr-logo"><img src="images/markforged-logo-white.png" alt="Markforged"></a>
+    <div class="hdr-ev">大中華區暨越南　媒體中心<br>News &amp; Insights</div>
+  </div>
+
+  <div class="langbar"><span>語言</span><a href="fleet-qualified-process-2026-10.html" class="on">繁體中文</a><a href="fleet-qualified-process-2026-10-en.html">English</a></div>
+
+  <div class="hero">
+    <img src="images/eiger-inspection.jpg" alt="積層製造軟體的零件檢驗畫面，顯示掃描點位偏差與關鍵尺寸量測結果">
+    <div class="hero-ov"></div>
+    <div class="hero-top">
+      <div class="hero-kicker">產業分析 · 分散式製造 · 製程資格</div>
+      <div class="hero-title">300 台機器<br>不等於一個<span class='y'>製造網路</span></div>
+    </div>
+    <div class="hero-btm"><div class="hero-meta">產業分析 · 2026 年 10 月 23 日 · 依 Automation Alley 10 月 15 日公告所載範圍</div></div>
+  </div>
+
+  <div class="ds"><div class="ds-l">2026 年 10 月 23 日</div><div class="ds-r">分析報導 · 美國 / 大中華區</div></div>
+
+  <div class="body">
+
+    <div class="lead">10 月 15 日那份公告裡有一句技術規格，被幾乎所有轉述都跳過了：Phase I 要用「<b>已通過驗證的製程</b>」，把候選零件實際做出來。這句話決定了整件事的難度。把製造指令加密送出去，是資訊安全的問題；要讓散在各地、不在同一個品保體系裡的工廠，用同一套參數印出同一個可以上機的零件，是製造的問題——而後者沒有加密演算法可以解。<br><br>公告的事實部分很清楚。密西根州的 Industry 4.0 機構 <a href='https://www.automationalley.com/' target='_blank' rel='noopener'>Automation Alley</a> <a href='https://www.prnewswire.com/news-releases/automation-alley-awarded-contract-to-advance-secure-distributed-additive-manufacturing-forthe-us-departmentof-war-302909514.html' target='_blank' rel='noopener'>取得工業基礎分析與維持（IBAS）計畫下的 Phase I 任務訂單</a>，含基本期與選擇期共 750 萬美元——得標方是 Automation Alley——透過<a href='https://www.ncdmm.org/' target='_blank' rel='noopener'>國家國防製造與加工中心（NCDMM）</a>的 IDIQ 機制發包，NCDMM 為主承包商，Markforged 與<a href='https://www.fraunhofer.org/' target='_blank' rel='noopener'>弗勞恩霍夫協會美國分會（Fraunhofer USA）</a>為共同執行的技術與研究夥伴。本文要談的不是誰拿到這筆錢，而是這份合約的技術範圍暴露出來的一個門檻——它在大中華區的增材製造討論裡，幾乎沒有被提起過。</div>
+
+    <div class="prof">
+      <img src="brian-chen.jpg" alt="陳中欣">
+      <div><div class="prof-n">陳中欣 Brian Chen</div><div class="prof-t">Markforged 大中華區暨越南總經理</div><div class="prof-d">負責台灣、中國大陸、香港與越南市場。本文為媒體中心依公開資訊所作之產業分析，合約事實均出自 Automation Alley 2026 年 10 月 15 日公告；「機隊級製程資格」為本文用來解釋該合約技術範圍的分析框架，非公告用語。本文不涉及任何在地專案、客戶名稱或商業條件。</div></div>
+    </div>
+
+    <div class="tags"><span class="tag">製程資格</span><span class="tag ol">分散式製造</span><span class="tag ol">國防供應鏈</span><span class="tag ol">品質憑據</span></div>
+
+    <div class="sec">
+      <h2>機隊</h2>
+      <h3>300 台機器不會自動變成一個製造網路</h3>
+      <p><a href='https://www.automationalley.com/project-diamond' target='_blank' rel='noopener'>Project DIAMOnD</a> 自 2020 年起在密西根州配發印表機，累計 300 台，進駐的是當地的中小型製造廠；<a href='https://www.3dnatives.com/en/markforged-provides-3d-printers-for-project-diamond-140120216/' target='_blank' rel='noopener'>Markforged 是這批設備首波的供應者</a>。單看數量，一個分散式製造網路的硬體條件在六年前就備齊了。</p>
+      <p>但要讓這 300 個點位能一起承接一張國防訂單，條件不是數量。它要能回答一個很窄的問題：同一份製造指令送到其中任何一台機器上，印出來的是不是同一個零件。不是看起來一樣——是在材料批次、環境條件、操作者與後處理都可能有差異的情況下，尺寸與機械性質落在同一個可接受區間，而且每一件都留得下證據。</p>
+      <p>這件事在單一工廠裡就不簡單，在分散的網路裡是另一個量級。Phase I 把它寫進交付項目：識別並驗證候選的高分子與金屬武器系統零件，然後用已通過驗證的製程把它們做出來。驗證在前、生產在後——順序本身就是規格。</p>
+    </div>
+
+    <div class="cmp">
+      <div class="cmp-h">兩種分散式製造網路 · TWO WAYS TO BUILD A DISTRIBUTED NETWORK</div>
+      <div class="cmp-b">
+        <div class="cmp-c">
+          <div class="cmp-t">同一機隊</div>
+          <ul class="cmp-l"><li>同型號設備、同一套材料規格、同一條軟體鏈</li><li>製程參數由設備端驗證並隨版本管控</li><li>新增一個點位＝複製一份既有組態</li><li>品質憑據欄位一致，可直接彙總比對</li></ul>
+          <div class="cmp-v">製程驗一次，整個網路繼承</div>
+        </div>
+        <div class="cmp-c alt">
+          <div class="cmp-t">混廠拼裝</div>
+          <ul class="cmp-l"><li>各點位依採購時程買進不同廠牌與機型</li><li>參數各自調校，差異留在操作者身上</li><li>新增一個點位＝新增一組待驗證的組合</li><li>憑據格式不一，要靠人工對帳</li></ul>
+          <div class="cmp-v">每一種組合都要重驗一次</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <h2>驗證成本</h2>
+      <h3>驗證成本不是加法，是乘法</h3>
+      <p>製程驗證的工作量，取決於要驗幾種「設備 × 材料 × 零件」的組合。單一機隊的網路，一個零件在一種材料上驗過一次，這份資格可以隨組態複製到其他點位；混廠的網路，每多一種設備就把組合數乘一次。這是為什麼「我們有幾台機器」這個數字，對能不能承接可追溯訂單幾乎沒有解釋力。</p>
+      <p>這也解釋了 Phase I 為什麼把「安全加密的數位工作流架構」與「用已驗證製程生產」寫在同一份交付清單裡，而且要對齊網路安全成熟度模型認證（CMMC）與<a href='https://www.nist.gov/cyberframework' target='_blank' rel='noopener'>美國國家標準暨技術研究院（NIST）</a>的資安標準。前者管檔案不外流，後者管零件做得出來且證明得了。兩件事要同時成立，一個網路才算存在；少一件，剩下的就只是一批連了網的機器。</p>
+      <div class="hl-grid">
+        <div class="hl"><b>750 萬美元</b><span>Phase I 任務訂單金額，含基本期與選擇期。得標方為 Automation Alley</span></div>
+        <div class="hl"><b>300 台</b><span>Project DIAMOnD 自 2020 年起累計配發的印表機，Markforged 為首波供應者</span></div>
+        <div class="hl"><b>Phase I</b><span>現階段為設計與驗證，尚未進入量產部署</span></div>
+        <div class="hl"><b>CMMC / NIST</b><span>數位工作流架構須對齊的兩套資安標準</span></div>
+      </div>
+    </div>
+
+    <div class="ph-full"><img src="images/us-military-markforged.jpg" alt="美軍人員在部署環境中圍繞一台運轉中的 Markforged 系統"></div>
+    <div class="cap">分散式製造的難處不在把機器送到前沿，而在讓每個點位印出來的零件都證明得了。</div>
+
+    <div class="sec">
+      <h2>這不是採購偏好</h2>
+      <h3>單一機隊的好處落在驗證帳本上，不在設備規格表上</h3>
+      <p>把機隊收斂到同一個平台，直覺上像是把自己鎖住。但在必須交付品質憑據的場合，算式是另一個方向：驗證一次、整個網路繼承，與每個點位各自驗一次，差的是整個專案的時程與可稽核性。</p>
+      <p>這也是為什麼這類計畫的設備供應者通常不是靠單機規格被選上的。Phase I 的交付物裡沒有一項是「某台機器的最大件尺寸」，而是智慧產品配方（Smart Product Recipes，SPR）的安全端到端傳輸，以及每一個被做出來的零件所附帶的數位品質保證指令。設備在這裡要回答的問題只有一個：它能不能讓同一份配方在不同點位重現。</p>
+      <p>分工上，Automation Alley 主導安全數位製造環境的設計與驗證；Markforged 提供工業級積層製造系統；Fraunhofer USA 負責應用研究；NCDMM 作為主承包商，同時管理 <a href='https://www.americamakes.us/' target='_blank' rel='noopener'>America Makes</a>，在全美設有七個據點。Automation Alley 把這個組合描述為積層製造技術、網路安全與製造製程驗證三種專長的整合。</p>
+    </div>
+
+    <div class="sec">
+      <h2>大中華區與越南</h2>
+      <h3>示範場要變成產能，缺的不是第幾台機器</h3>
+      <p>台灣、香港與越南這兩年陸續出現以增材製造為主題的示範場、聚落與國防自主討論。公開可見的論述大多集中在機台數量、建構尺寸與材料種類——也就是設備規格表上的欄位。</p>
+      <p>IBAS Phase I 的清單指向另一組欄位：你的點位之間共用幾套已驗證製程？同一個零件換到另一個點位印，要不要重驗？每一件做出來的東西留得下什麼格式的憑據，誰調得出來？</p>
+      <p>這些問題不必等預算、也不必先買設備才能回答。它們決定的是：當一張需要可追溯性的訂單出現時，手上這些點位是一個網路，還是一堆各自獨立的機器。</p>
+    </div>
+
+    <div class="sec">
+      <h2>CONCLUSION</h2>
+      <h3>先數一數你的機隊有幾套製程</h3>
+      <p>不必從設備開始。拿出現有的點位清單，數三個數字：設備型號有幾種、材料規格有幾套、同一個零件在不同點位是否共用同一份參數。</p>
+      <p><strong>如果這三個數字加起來遠大於一，你手上是機器，還不是網路。</strong></p>
+    </div>
+
+    <div class="dl">
+      <h4>延伸閱讀</h4>
+      <p>本案的事件報導與 A4 案例報導（繁中／英文各 4 頁），內容同源於 Automation Alley 2026 年 10 月 15 日公告。</p>
+      <div class="dl-row"><a href="downloads/Markforged-AutomationAlley-IBAS-Case-TC.pdf"><span class="dl-l">案例報導 · 繁體中文</span><span class="dl-s">A4 · 4 頁 · PDF</span></a><a href="downloads/Markforged-AutomationAlley-IBAS-Case-EN.pdf"><span class="dl-l">案例報導 · 英文</span><span class="dl-s">A4 · 4 頁 · PDF</span></a></div>
+    </div>
+
+  </div>
+
+  <div class="cta">
+    <h4>盤一次你的機隊</h4>
+    <p>機隊盤點不是採購流程，是一次工程面的對帳：設備型號、材料規格、製程參數與品質憑據格式，各自有幾套。Markforged 大中華區暨越南團隊可以協助走完這一輪，從現有點位的實際組態出發，不從設備規格出發。可安排台灣、香港或越南的現場說明。</p>
+    <a href="https://mfmk.markforged.tw" class="btn">聯絡 Markforged 大中華區團隊</a>
+  </div>
+
+  <div class="srcbox">
+    <h5>資料來源與方法</h5>
+    <ul><li>Automation Alley 新聞稿：Automation Alley Awarded Contract to Advance Secure Distributed Additive Manufacturing（PR Newswire，2026 年 10 月 15 日）。本文所有合約事實、交付範圍與機構分工均出自本篇。<br><a href="https://www.prnewswire.com/news-releases/automation-alley-awarded-contract-to-advance-secure-distributed-additive-manufacturing-forthe-us-departmentof-war-302909514.html" target="_blank" rel="noopener">https://www.prnewswire.com/news-releases/automation-alley-awarded-contract-to-advance-secure-distributed-additive-manufacturing-forthe-us-departmentof-war-302909514.html</a></li><li>Automation Alley 官網 Project DIAMOnD 專頁：2020 年成立、CARES Act 補助、累計配發 300 台印表機。<br><a href="https://www.automationalley.com/project-diamond" target="_blank" rel="noopener">https://www.automationalley.com/project-diamond</a></li><li>3Dnatives：Markforged Provides 3D Printers for Project DIAMOnD（2021 年 1 月）——該網路首波列印設備供應者與涵蓋範圍。<br><a href="https://www.3dnatives.com/en/markforged-provides-3d-printers-for-project-diamond-140120216/" target="_blank" rel="noopener">https://www.3dnatives.com/en/markforged-provides-3d-printers-for-project-diamond-140120216/</a></li><li>Metal AM 雜誌：Automation Alley to develop secure distributed AM network under $7.5M defence contract（2026 年 10 月）——國際金屬積層製造專業媒體對本案的獨立報導。<br><a href="https://www.metal-am.com/automation-alley-to-develop-secure-distributed-am-network-under-7-5-million-defence-contract/" target="_blank" rel="noopener">https://www.metal-am.com/automation-alley-to-develop-secure-distributed-am-network-under-7-5-million-defence-contract/</a></li><li>方法註記：「機隊級製程資格」與「驗證成本是乘法」是本文用來解釋公告技術範圍的分析框架，公告原文未使用這兩個說法。關於大中華區與越南現況的敘述，依據的是公開可見的論述重心，不涉及任何具名機構的採購內容。</li><li>名稱註記：美國國防部的法定名稱仍為 Department of Defense；Department of War 為 2025 年 9 月行政命令所定之對外名義，國會立法程序尚未完成。本文以實質執行單位美國陸軍為主詞。</li></ul>
+  </div>
+
+  <div class="ftr">
+    Markforged 為工業級積層製造企業，以連續纖維複合材料與金屬積層製造技術，以及 Digital Forge 數位製造平台，協助製造企業在生產現場整合設計、製造、檢測與自動化。本媒體中心由 Markforged 大中華區暨越南團隊維護。<br><br>
+    <a href="index.html">← 回媒體中心</a>　·　<a href="https://markforged.tw">markforged.tw</a>
+  </div>
+
+</div>
+</body>
+</html>
