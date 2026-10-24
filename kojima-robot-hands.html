@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小島沖壓工業以 3D 列印自製機器人手爪，零件成本降 67%、交期從 14 天縮到 1 天｜Markforged 媒體中心</title>
+<meta name="description" content="日本汽車零件大廠小島沖壓工業把產線機器人手爪從金屬加工件改為 Markforged 3D 列印件：手爪零件製作費用降 67%，委外要 14 天的零件廠內 1 天完成，部分零件設計工時減少約 30%。">
+<meta property="og:title" content="小島沖壓工業以 3D 列印自製機器人手爪：零件成本降 67%，交期 14 天縮到 1 天">
+<meta property="og:description" content="手爪變輕，機器人就不必加大規格。日本汽車零件大廠小島沖壓工業以 Markforged 3D 列印自製產線手爪與治具。">
+<meta property="og:image" content="https://news.markforged.tw/images/kojima-robot-hands-card.jpg">
+<meta property="og:type" content="article">
+<link rel="alternate" hreflang="zh-TW" href="https://news.markforged.tw/kojima-robot-hands.html">
+<link rel="alternate" hreflang="zh-CN" href="https://news.markforged.tw/kojima-robot-hands-sc.html">
+<link rel="alternate" hreflang="en" href="https://news.markforged.tw/kojima-robot-hands-en.html">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#e8e8e8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,'Noto Sans TC','Noto Sans SC',sans-serif;color:#1a1a1a}
+  .wrap{max-width:700px;margin:0 auto;background:#fff}
+  .hdr{background:#000;padding:20px 40px;display:flex;align-items:center;justify-content:space-between}
+  .hdr-logo{display:block;line-height:0}
+  .hdr-logo img{height:26px;width:auto;display:block}
+  .hdr-ev{color:rgba(255,255,255,.6);font-size:12px;text-align:right;line-height:1.6}
+  .langbar{background:#111;padding:8px 40px;display:flex;gap:6px;align-items:center;border-top:1px solid #222}
+  .langbar span{color:#666;font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-right:4px}
+  .langbar a{font-size:11.5px;font-weight:700;color:#888;text-decoration:none;padding:3px 10px;border-radius:20px;border:1px solid #333}
+  .langbar a:hover{color:#FFFF00;border-color:#FFFF00}
+  .langbar a.on{background:#FFFF00;color:#000;border-color:#FFFF00}
+  .hero{position:relative;overflow:hidden}
+  .hero img{width:100%;display:block}
+  .hero-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.68) 0%,rgba(0,0,0,.15) 50%,rgba(0,0,0,.72) 100%)}
+  .hero-top{position:absolute;top:0;left:0;right:0;padding:28px 38px}
+  .hero-kicker{color:#FFFF00;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px}
+  .hero-title{color:#fff;font-size:26px;font-weight:900;line-height:1.28;max-width:540px;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+  .hero-btm{position:absolute;bottom:0;left:0;right:0;padding:16px 38px;background:linear-gradient(transparent,rgba(0,0,0,.75))}
+  .hero-meta{color:rgba(255,255,255,.85);font-size:12px;letter-spacing:.04em}
+  .ds{background:#FFFF00;padding:10px 38px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}
+  .ds-l{font-size:12.5px;font-weight:700;color:#000}
+  .ds-r{font-size:11.5px;color:#333}
+  .body{padding:36px 38px 0}
+  .lead{font-size:16px;line-height:1.82;color:#222;margin-bottom:24px;padding-bottom:24px;border-bottom:2px solid #f0f0f0}
+  .qb{margin:6px 0 26px;padding:20px 24px;background:#000;border-radius:6px}
+  .qb p{color:#FFFF00;font-size:18px;font-weight:800;line-height:1.45;margin-bottom:5px}
+  .qb small{color:rgba(255,255,255,.45);font-size:10.5px;letter-spacing:.07em}
+  .sec{margin-bottom:30px}
+  h2{font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#111;margin-bottom:12px;padding-left:11px;border-left:4px solid #FFFF00}
+  h3{font-size:18px;font-weight:800;color:#111;margin-bottom:12px;line-height:1.32}
+  p{font-size:14.5px;line-height:1.82;color:#333;margin-bottom:14px}
+  strong{color:#111}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
+  .tag{background:#111;color:#FFFF00;font-size:10px;font-weight:700;letter-spacing:.07em;padding:4px 10px;border-radius:30px}
+  .tag.ol{background:#fff;color:#666;border:1.5px solid #ddd}
+  .ph-full img{width:100%;display:block}
+  .ph-2col{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+  .gi{width:100%;display:block;object-fit:cover}
+  .gi-43{aspect-ratio:4/3}
+  .cap{font-size:11px;color:#aaa;text-align:center;padding:8px 38px 22px;border-bottom:1px solid #eee;margin-bottom:26px;line-height:1.55}
+  .hl-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:30px}
+  .hl{background:#f7f7f7;border-left:4px solid #FFFF00;padding:16px 18px}
+  .hl b{display:block;font-size:24px;font-weight:900;color:#111;line-height:1.1;margin-bottom:5px}
+  .hl span{font-size:11.5px;color:#777;line-height:1.5;display:block}
+  .prof{display:flex;gap:18px;align-items:center;background:#111;padding:22px 24px;border-radius:6px;margin:8px 0 28px}
+  .prof img{width:92px;height:92px;object-fit:cover;border-radius:50%;flex-shrink:0;border:3px solid #FFFF00}
+  .prof-n{color:#fff;font-size:16px;font-weight:800;margin-bottom:4px}
+  .prof-t{color:#FFFF00;font-size:11.5px;font-weight:700;margin-bottom:7px}
+  .prof-d{color:rgba(255,255,255,.6);font-size:11.5px;line-height:1.6}
+  .cta{background:#FFFF00;padding:28px 32px;margin:6px 0 0}
+  .cta h4{font-size:17px;font-weight:900;color:#000;margin-bottom:8px}
+  .cta p{font-size:13px;color:#333;line-height:1.7;margin-bottom:16px}
+  .btn{display:inline-block;background:#000;color:#FFFF00;padding:12px 26px;font-size:13.5px;font-weight:800;text-decoration:none;letter-spacing:.04em}
+  .btn:hover{background:#222}
+  .srcbox{background:#fafafa;border-top:3px solid #111;padding:22px 38px 26px}
+  .srcbox h5{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#888;margin-bottom:10px}
+  .srcbox li{font-size:11.5px;color:#777;line-height:1.75;margin-left:16px}
+  .srcbox li a{color:#555;text-decoration:none;border-bottom:1px solid #ccc;word-break:break-all}
+  .srcbox li a:hover{color:#000;border-color:#FFFF00}
+  .sec p a{color:#111;text-decoration:none;border-bottom:2px solid #FFFF00;font-weight:600}
+  .sec p a:hover{background:#FFF6D6}
+  .ftr{background:#000;padding:24px 38px;color:rgba(255,255,255,.5);font-size:11.5px;line-height:1.7}
+  .ftr a{color:#FFFF00;text-decoration:none}
+  @media(max-width:620px){.hero-title{font-size:21px}.body{padding:26px 22px 0}.hl-grid{grid-template-columns:1fr}.prof{flex-direction:column;text-align:center}.langbar{padding:8px 22px}}
+
+  .hero-title{max-width:300px;text-wrap:balance}
+  .nb{white-space:nowrap}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:#111;margin:0 0 26px}
+  .stats div{padding:16px 14px 15px;border-right:1px solid #2a2a2a}
+  .stats div:last-child{border-right:none}
+  .stats b{display:block;color:#FFFF00;font-size:22px;font-weight:900;line-height:1.1;white-space:nowrap}
+  .stats i{display:block;font-style:normal;color:#fff;font-size:12px;font-weight:700;margin-top:7px}
+  .stats small{display:block;color:rgba(255,255,255,.5);font-size:10.5px;line-height:1.45;margin-top:3px}
+  .lead a,.sec a{color:#111;text-decoration:none;border-bottom:2px solid #FFFF00}
+  .lead a:hover,.sec a:hover{background:#FFFF00}
+  .ph-2col.eq img{height:100%;object-fit:cover}
+  .flow{margin:4px 0 6px}
+  .flow img{width:100%;display:block}
+  .dl{background:#111;padding:26px 38px;margin:6px 0 0}
+  .dl h4{color:#fff;font-size:16px;font-weight:900;margin-bottom:6px}
+  .dl>p{color:rgba(255,255,255,.55);font-size:12px;line-height:1.7;margin-bottom:16px}
+  .dl-row{display:flex;gap:10px;flex-wrap:wrap}
+  .dl-row a{flex:1;min-width:148px;background:#1c1c1c;border:1px solid #333;padding:14px 16px;text-decoration:none;display:block}
+  .dl-row a:hover{border-color:#FFFF00;background:#222}
+  .dl-l{color:#FFFF00;font-size:13.5px;font-weight:800;display:block;margin-bottom:3px}
+  .dl-s{color:rgba(255,255,255,.45);font-size:10.5px;display:block}
+  .orgs{background:#fff;border-top:3px solid #111;border-bottom:1px solid #e6e6e6;padding:26px 38px;margin:6px 0 0}
+  .orgs h5{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#888;font-weight:800;margin:0 0 20px}
+  .orgs-row{display:flex;align-items:center;gap:52px;flex-wrap:wrap}
+  .orgs-row a{display:block;opacity:.85;transition:opacity .18s}
+  .orgs-row a:hover{opacity:1}
+  .orgs-row img{width:auto;display:block}
+  .orgs-note{font-size:10.5px;line-height:1.7;color:#999;margin:22px 0 0}
+  @media(max-width:640px){
+    .stats{grid-template-columns:1fr 1fr}
+    .stats div:nth-child(2){border-right:none}
+    .stats div:nth-child(-n+2){border-bottom:1px solid #2a2a2a}
+    .hero-top{padding:18px 20px}
+    .hero-title{max-width:170px;font-size:17px}
+    .orgs{padding:22px 20px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hdr">
+    <a href="index.html" class="hdr-logo"><img src="images/markforged-logo-white.png" alt="Markforged"></a>
+    <div class="hdr-ev">大中華區暨越南　媒體中心<br>News &amp; Insights</div>
+  </div>
+  <div class="langbar"><span>語言</span><a href="kojima-robot-hands.html" class="on">繁體中文</a><a href="kojima-robot-hands-sc.html">简体中文</a><a href="kojima-robot-hands-en.html">English</a></div>
+
+  <div class="hero">
+    <img src="images/kojima-robot-hands-hero.jpg" alt="Akira Kashima of Kojima Industries holding a 3D printed robot hand component">
+    <div class="hero-ov"></div>
+    <div class="hero-top">
+      <div class="hero-kicker">客戶案例 · 日本愛知 · 汽車零件產線自動化</div>
+      <div class="hero-title">小島沖壓以 3D 列印<span class="nb">自製</span><span class="nb">機器人</span><span class="nb">手爪</span>：<br>零件成本降 67%，<span class="nb">交期</span>從 14 天縮到 1 天</div>
+    </div>
+    <div class="hero-btm"><div class="hero-meta">2026 年 10 月 22 日 · Markforged 官方客戶案例 · 小島沖壓工業 × Markforged</div></div>
+  </div>
+
+  <div class="ds"><div class="ds-l">2026 年 10 月 24 日</div><div class="ds-r">日本 · 愛知縣</div></div>
+
+  <div class="body">
+    <div class="lead">日本汽車零件大廠<a href="https://www.kojima-tns.co.jp/" target="_blank" rel="noopener">小島沖壓工業</a>（小島プレス工業株式会社，以下簡稱小島）把產線自動化設備上的機器人手爪，從金屬加工件改為以 Markforged 3D 列印機在廠內自行製作。根據 Markforged 於 10 月 22 日發布的<a href="https://markforged.com/resources/case-studies/robotic-tooling-with-kojima-industries-corporation" target="_blank" rel="noopener">客戶案例</a>，手爪零件的製作費用比傳統機械加工件低 67%；過去委外加工要 14 天的零件，改在廠內列印 1 天完成。<br><br>關鍵不只在零件便宜。金屬手爪太重，讓機器人必須選用超出工序所需的規格；手爪減重之後，機器人不必再跟著加大，整套自動化設備的投資因此大幅降低。</div>
+    <div class="stats"><div><b>−67%</b><i>手爪零件製作費用</i><small>對比傳統機械加工件</small></div><div><b>14→1 天</b><i>零件交期</i><small>委外加工對比廠內列印</small></div><div><b>約 30%</b><i>設計工時減少</i><small>部分零件，免畫 2D 加工圖</small></div><div><b>不加大</b><i>機器人規格</i><small>手爪減重，設備投資大幅降低</small></div></div>
+    <div class="tags"><span class="tag">汽車零件</span><span class="tag">機器人手爪</span><span class="tag ol">治具內製</span><span class="tag ol">產線自動化</span><span class="tag ol">QCD</span><span class="tag ol">日本</span></div>
+
+    <div class="sec">
+      <h2>起點</h2><h3>一家 88 年的零件廠，和一道還靠人手的工序</h3><p>小島創業 88 年，連同集團公司員工超過 8,000 人，在日本、美國、泰國、中國與歐洲設有據點；主要設計、生產汽車內裝件、外裝件與單元零件，以集團供應鏈提供從開發到量產的一條龍服務。</p><p>電動化與系統整合正在改寫汽車產業，全球化也讓零件廠之間的競爭更激烈。小島以 QCD——品質（Quality）、成本（Cost）、交期（Delivery）——為準則，持續追求更便宜、更精準、更快速的製造。</p><p>產線上有一道工序，要由作業員以手工貼上不織布貼片。貼片數量增加之後，這道工序花掉的時間愈來愈多。為了省下人力，小島開始用機器人把它自動化。</p>
+    </div>
+    <div class="ph-2col eq">
+      <img class="gi gi-43" src="images/kojima-hq.jpg" alt="Kojima Industries head office, Aichi Prefecture, Japan">
+      <img class="gi gi-43" src="images/kojima-kashima.jpg" alt="Akira Kashima, Kojima Industries">
+    </div>
+    <div class="cap">左：小島位於日本愛知縣的本社。右：小島生產技術部設備技術室 設備技術課係長鹿島章。（照片：Markforged 官方客戶案例）</div>
+
+    <div class="sec">
+      <h2>卡關</h2><h3>手爪太重，機器人就得買大一號</h3><p>自動化設備上的機器人手爪，原本以金屬材料製作。手爪裝在機器人手臂末端，它的重量直接算進機器人要承擔的負載。</p><p>金屬手爪的重量，讓機器人的規格被推到超出工序實際所需的等級，設備費用也跟著明顯墊高。換句話說，手爪的重量不只是手爪的問題——它往回決定了要買哪一級的機器人。</p>
+    </div>
+    <div class="flow"><img src="images/kojima-flow-tc.png" alt="重量怎麼一路傳到設備預算"></div>
+    <div class="cap">依 Markforged 官方客戶案例原文整理；原文未揭露減重公斤數與機器人型號。</div>
+
+    <div class="sec">
+      <h2>做法</h2><h3>改用 3D 列印，手爪自己做</h3><p>小島導入 Markforged 3D 列印機——案例中列出的機型為 Mark Two 與 X7——改以列印方式製作機器人手爪。</p><p>案例原文指出，改用 3D 列印件之後，手爪在維持生產使用所需強度的前提下明顯減重；機器人因此不必選用過大的規格，設備投資大幅降低。</p><p>案例同時公開了幾件用在產線上的列印件：讓缸體調整治具底座角度的缸體連接件（Cylinder Joint）、在生產過程中定位並承接產品的受台治具，以及存放成捲貼片的料架。</p>
+    </div>
+    <div class="ph-full"><img class="gi" src="images/kojima-jig-fixture.jpg" alt="3D printed jig fixture on a base plate"></div>
+    <div class="cap">案例中展示的列印件：受台治具，在生產過程中定位、承接產品。（照片：Markforged 官方客戶案例）</div>
+    <div class="ph-2col">
+      <img class="gi gi-43" src="images/kojima-cj-parts.jpg" alt="3D printed cylinder joint parts">
+      <img class="gi gi-43" src="images/kojima-sticker-storage.jpg" alt="3D printed storage stand for rolls of seal stickers">
+    </div>
+    <div class="cap">左：缸體連接件（Cylinder Joint），讓缸體調整治具底座的角度。右：存放成捲貼片的料架。（照片：Markforged 官方客戶案例）</div>
+
+    <div class="sec">
+      <h2>成果</h2><h3>67%、14 天變 1 天、少畫一張 2D 圖</h3><p><strong>費用。</strong>以 3D 列印製作的手爪零件，費用比傳統機械加工件低 67%。</p><p><strong>交期。</strong>這類零件過去委外加工，案例列出的交期是 14 天；改由 Markforged 在廠內列印，1 天完成。與委外加工件相比，成本與交期都大幅縮減。</p><p><strong>設計工時。</strong>委外加工必須先畫出 2D 加工圖才能發包；3D 列印直接用 3D CAD 資料開始製作。依零件不同，設計工時可減少約 30%。</p><p>三個數字裡，最後一個最容易被略過。2D 加工圖本身不會裝到設備上，但委外加工非它不可；改成廠內列印，這一步就可以拿掉。</p>
+    </div>
+
+    <div class="sec">
+      <h2>讀法</h2><h3>先看手爪，再決定機器人</h3><p>對正在把人工工序自動化的零件廠，小島的經驗提供了一個檢查順序：手爪的重量往回決定機器人的規格，機器人的規格決定設備投資。手爪若能在廠內做輕、做快，整個自動化專案的成本與時程，就多了一個可以調整的變數。</p><p>小島印的不是賣給客戶的產品，而是產線上的工具——手爪、治具、料架。這類零件多半依工序量身設計、少量製作，正是委外加工的費用與等待最明顯的地方；本案的三個數字，都落在這一段。</p>
+    </div>
+  </div>
+
+  <div class="orgs">
+    <h5>案例主角</h5>
+    <div class="orgs-row"><a href="https://www.kojima-tns.co.jp/" target="_blank" rel="noopener" aria-label="小島沖壓工業"><img src="images/org-kojima.png" alt="小島沖壓工業" style="height:40px"></a></div>
+    <p class="orgs-note">Logo 取自 Markforged 官方客戶案例文件；商標屬小島沖壓工業（小島プレス工業株式会社）所有，此處僅為標示案例主角。</p>
+  </div>
+
+  <div class="dl">
+    <h4>完整案例整理（A4 · 6 頁）</h4>
+    <p>本案的完整整理，含公司背景、工序課題、列印件逐件說明與 QCD 成果數據。三語版本，可直接下載引用。</p>
+    <div class="dl-row"><a href="downloads/Markforged-Kojima-Robot-Hands-Case-TC.pdf"><span class="dl-l">繁體中文</span><span class="dl-s">PDF · A4 · 6 頁</span></a><a href="downloads/Markforged-Kojima-Robot-Hands-Case-SC.pdf"><span class="dl-l">简体中文</span><span class="dl-s">PDF · A4 · 6 页</span></a><a href="downloads/Markforged-Kojima-Robot-Hands-Case-EN.pdf"><span class="dl-l">English</span><span class="dl-s">PDF · A4 · 6 pages</span></a></div>
+  </div>
+
+  <div class="cta">
+    <h4>產線手爪與治具導入評估</h4>
+    <p>由 Markforged 工程團隊就實際的手爪、治具圖面與使用條件進行可行性評估，並可安排現場操作演示。地點可安排於台灣、中國、香港或越南。</p>
+    <a href="https://mfmk.markforged.tw" class="btn">與我們聯繫</a>
+  </div>
+
+  <div class="srcbox">
+    <h5>資料來源</h5>
+    <ul><li>Markforged 官方客戶案例〈Kojima Industries Corporation〉英文版，2026 年 10 月 22 日發布；本文事實、數據、人物職稱與零件說明均引自該案例及其下載版 PDF<br><a href='https://markforged.com/resources/case-studies/robotic-tooling-with-kojima-industries-corporation' target='_blank' rel='noopener'>https://markforged.com/resources/case-studies/robotic-tooling-with-kojima-industries-corporation</a></li><li>同一案例日文版〈小島プレス工業株式会社〉，為客戶母語原文，含受訪者完整職稱<br><a href='https://markforged.com/jp/resources/case-studies/robotic-tooling-with-kojima-industries-corporation' target='_blank' rel='noopener'>https://markforged.com/jp/resources/case-studies/robotic-tooling-with-kojima-industries-corporation</a></li><li>小島沖壓工業（小島プレス工業株式会社）官方網站<br><a href='https://www.kojima-tns.co.jp/' target='_blank' rel='noopener'>https://www.kojima-tns.co.jp/</a></li><li>照片與 logo 取自 Markforged 官方客戶案例配圖，版權屬 Markforged 或小島沖壓工業</li></ul>
+  </div>
+
+  <div class="ftr">
+    Markforged, Inc. 為工業級增材製造系統供應商，以連續纖維複合材料與金屬解決方案，協助製造與技術保障單位於使用現場自主生產功能性零件、工裝與備件。<br><br>本文由 Markforged 大中華區暨越南團隊整理。<br><br>
+    <a href="index.html">回到媒體中心</a>　·　<a href="https://markforged.tw">markforged.tw</a>
+  </div>
+</div>
+</body>
+</html>
