@@ -140,7 +140,10 @@
       '#mfg-bar .mfg-lang span{padding:7px 8px;font-size:11px}' +
     '}' +
     /* 媒體中心首頁原本的欄目列（News／Programs／Insights）本來就黏在頂端，改成黏在導覽列正下方，不被蓋住 */
-    'nav.nav{top:64px!important}';
+    'nav.nav{top:64px!important}' +
+    /* 各頁原本頁首上的 Markforged logo 跟上面這條導覽列的 logo 上下疊在一起（Brian 10/26 20:10：「兩個 logo 上下重疊」「不對」）。
+       只把 logo 藏起來、佔位保留 → 頁首其他文字與排版一個像素都不動。五種頁首寫法都在這裡 */
+    '.hdr .hdr-logo,.hdr>img,nav.nav .nav-brand,.header .brand,.header .logo-text{visibility:hidden!important}';
 
   var st = document.createElement('style');
   st.id = 'mfg-bar-css';
