@@ -7,7 +7,10 @@
  * 用法：每頁 <body> 之後第一行放
  *   <script src="/globalbar.js"></script>
  * 同步載入、在原地插入，首屏就有導覽列、不會跳版。
- * 語言依檔名：-sc.html → 簡中，-en.html → 英文（官網連結加 ?lang=en），其餘繁中。
+ * 語言依檔名：-sc.html → 簡中，-en.html（含英文版首頁 index-en.html）→ 英文，其餘繁中。
+ * 中｜EN（2026-10-26 第二版）：兩個網站各記各的語言會對不上，所以語言一律放在連結上帶過去——
+ *   往官網的連結都帶 ?lang=zh 或 ?lang=en；官網往這裡的連結英文時帶 ?lang=en（首頁直接連 index-en.html）。
+ *   按 EN：這篇有英文版就去英文版，沒有（含媒體中心首頁）就去英文版首頁 index-en.html。按中：回中文版。
  * 官網的選單項目改了，這裡要跟著改（對照 www 的 shared.js NAV_HTML）。
  */
 (function () {
@@ -34,11 +37,17 @@
                 'Packaging Machinery', 'Product Development', 'View All →'] }
   };
   var T = Tx[lang];
-  var q = lang === 'en' ? '?lang=en' : '';
+  var q = '?lang=' + (lang === 'en' ? 'en' : 'zh');
   var u = function (p) { return W + p + q; };
   var solPages = ['defense', 'aerospace', 'automotive', 'industrial', 'medical', 'electronics', 'energy',
                   'education', 'cpg', 'food', 'packaging', 'product-dev', 'solutions'];
-  var isHub = /^\/(index\.html)?$/.test(path);
+  var isHub = /^\/(index(-en)?\.html)?$/.test(path);
+  var HUB = { zh: '/', en: '/index-en.html' };
+  /* 從官網帶語言過來（?lang=en / ?lang=zh）：媒體中心首頁可以馬上換，文章要等頁面讀完才找得到語言列 */
+  var want0 = null;
+  try { want0 = new URLSearchParams(location.search).get('lang'); } catch (e) {}
+  if (want0 !== 'en' && want0 !== 'zh') want0 = null;
+  if (want0 && isHub && (want0 === 'en') !== (lang === 'en')) { location.replace(HUB[want0]); return; }
   var a = function (href, text, extra) { return '<a href="' + href + '"' + (extra || '') + '>' + text + '</a>'; };
 
   var page = lang;               /* 這一頁本身的語言 */
@@ -56,7 +65,7 @@
           '<div class="mfg-drop">' + solPages.map(function (p, i) { return a(u(p + '.html'), T.sol[i], ' data-k="sol' + i + '"'); }).join('') + '</div></li>' +
         '<li>' + a(u('materials.html'), T.materials, ' data-k="materials"') + '</li>' +
         '<li>' + a(u('cases.html'), T.cases, ' data-k="cases"') + '</li>' +
-        '<li>' + a('/', T.news, ' class="mfg-active" data-k="news"' + (isHub ? ' aria-current="page"' : '')) + '</li>' +
+        '<li>' + a(lang === 'en' ? HUB.en : HUB.zh, T.news, ' class="mfg-active" data-k="news"' + (isHub ? ' aria-current="page"' : '')) + '</li>' +
         '<li>' + a(u('about.html'), T.about, ' data-k="about"') + '</li>' +
         '<li>' + a(u('contact.html'), T.contact, ' data-k="contact"') + '</li>' +
       '</ul>' +
@@ -162,17 +171,19 @@
     });
   });
 
-  /* 中｜EN：這篇有對應語言版就換到那一版；沒有的話只把導覽列換成該語言（官網的切換鈕也是換介面文字） */
-  var L2 = { zh: lang === 'sc' ? 'sc' : 'tc', en: 'en' };
-  function relabel(to) {
+  /* 中｜EN：這篇有對應語言版就換到那一版；沒有的話（含媒體中心首頁）換到該語言的媒體中心首頁 */
+  var shown = lang === 'en' ? 'en' : 'zh';   /* 導覽列目前顯示的語言 */
+  function relabel(to) {                     /* to：'en'／'tc'／'sc' */
+    shown = to === 'en' ? 'en' : 'zh';
     var t = Tx[to];
     bar.querySelectorAll('[data-k]').forEach(function (el) {
       var k = el.getAttribute('data-k');
       var v = k.indexOf('sol') === 0 ? t.sol[+k.slice(3)] : t[k];
       if (v) el.textContent = v;
-      if (el.href && el.href.indexOf(W) === 0) el.href = el.href.split('?')[0] + (to === 'en' ? '?lang=en' : '');
+      if (el.href && el.href.indexOf(W) === 0) el.href = el.href.split('?')[0] + '?lang=' + (to === 'en' ? 'en' : 'zh');
     });
-    bar.querySelector('.mfg-logo').href = W + (to === 'en' ? '?lang=en' : '');
+    bar.querySelector('[data-k=news]').setAttribute('href', to === 'en' ? HUB.en : HUB.zh);
+    bar.querySelector('.mfg-logo').href = W + '?lang=' + (to === 'en' ? 'en' : 'zh');
     bar.querySelectorAll('.mfg-lang [data-lang]').forEach(function (s) {
       s.classList.toggle('mfg-on', (s.getAttribute('data-lang') === 'en') === (to === 'en'));
     });
@@ -186,14 +197,24 @@
     });
     return found;
   }
+  function target(want) {           /* want：'en' 或 'zh' */
+    if (want === 'en') return versionLink('en') || HUB.en;
+    return versionLink('tc') || HUB.zh;
+  }
   bar.querySelectorAll('.mfg-lang [data-lang]').forEach(function (s) {
     s.addEventListener('click', function () {
       var want = this.getAttribute('data-lang');
-      var cur = (lang === 'en') ? 'en' : 'zh';
-      if (want === cur) return;
-      var href = versionLink(want === 'en' ? 'en' : 'tc');
-      if (href) { location.href = href; return; }
-      relabel(want === 'en' ? 'en' : L2.zh);
+      if (want === shown) return;
+      if (want === 'zh' && lang !== 'en') { relabel(lang); return; }   /* 只有中文的文章：選單換回中文就好 */
+      location.href = target(want);
     });
   });
+  /* 從官網帶語言過來的文章：有該語言版就換過去；只有中文的文章就留在原文，導覽列換成英文 */
+  if (want0 && (want0 === 'en') !== (lang === 'en')) {
+    var go = function () {
+      var h = want0 === 'en' ? versionLink('en') : (versionLink('tc') || HUB.zh);
+      if (h) location.replace(h); else relabel('en');
+    };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go); else go();
+  }
 })();

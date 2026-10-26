@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<!-- v=20260321-1430 -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Markforged Newsroom — Greater China &amp; Vietnam</title>
+  <meta name="description" content="Official newsroom of Markforged Greater China and Vietnam: press releases, event reports, customer stories and industry insights." />
+  <meta name="author" content="Markforged Taiwan" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://news.markforged.tw/index-en.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://news.markforged.tw/" />
+  <link rel="alternate" hreflang="en" href="https://news.markforged.tw/index-en.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://news.markforged.tw/index-en.html" />
+  <meta property="og:title" content="Markforged Newsroom — Greater China &amp; Vietnam" />
+  <meta property="og:description" content="Official newsroom of Markforged Greater China and Vietnam: press releases, event reports, customer stories and industry insights." />
+  <meta property="og:image" content="https://markforged.com/wp-content/uploads/2023/03/FX10-Hero.png" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="Markforged Taiwan" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Markforged Newsroom — Greater China &amp; Vietnam" />
+  <meta name="twitter:description" content="Official newsroom of Markforged Greater China and Vietnam: press releases, event reports, customer stories and industry insights." />
+  <meta name="twitter:image" content="https://markforged.com/wp-content/uploads/2023/03/FX10-Hero.png" />
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Helvetica, Arial, sans-serif;
+      background: #fff;
+      color: #000;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* ===== STICKY NAV ===== */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #000;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    .nav-brand { display: flex; align-items: center; line-height: 0; }
+    .nav-brand img { height: 20px; width: auto; display: block; }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      color: rgba(255,255,255,0.75);
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #FFFF00; }
+
+    @media (max-width: 480px) {
+      .nav { padding: 0 20px; }
+      .nav-brand img { height: 17px; }
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 11px; letter-spacing: 1px; }
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: #000;
+      padding: 100px 32px 90px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(255,255,0,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      color: #FFFF00;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      opacity: 0.9;
+    }
+    .hero-logo {
+      height: 40px; width: auto; display: block; margin: 0 auto 26px;
+      position: relative; z-index: 1;
+    }
+    .hero-title {
+      font-size: 52px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -1px;
+      line-height: 1.05;
+      margin-bottom: 24px;
+    }
+    .hero-title span { color: #FFFF00; }
+    .hero-subtitle {
+      font-size: 17px;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.3px;
+      margin-bottom: 36px;
+      font-weight: 400;
+    }
+    .hero-divider {
+      width: 60px;
+      height: 4px;
+      background: #FFFF00;
+      margin: 0 auto;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+      .hero { padding: 60px 24px 56px; }
+      .hero-title { font-size: 40px; letter-spacing: -0.5px; }
+      .hero-subtitle { font-size: 15px; }
+    }
+    @media (max-width: 480px) {
+      .hero { padding: 48px 20px 44px; }
+      .hero-title { font-size: 34px; }
+    }
+
+    /* ===== SECTION WRAPPER ===== */
+    .section-wrapper {
+      padding: 72px 32px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    @media (max-width: 768px) {
+      .section-wrapper { padding: 44px 20px; }
+    }
+
+    /* ===== SECTION LABEL ===== */
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #000;
+      margin-bottom: 8px;
+    }
+    .section-label-line {
+      width: 40px;
+      height: 3px;
+      background: #FFFF00;
+      margin-bottom: 36px;
+      border-radius: 2px;
+    }
+
+    /* ===== PRESS RELEASES SECTION ===== */
+    #news {
+      background: #fff;
+    }
+
+    .press-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+    /* 整列 featured：五張卡在兩欄會落單一張，改成 1 大 + 2×2 */
+    .press-card.wide { grid-column: 1 / -1; display: grid; grid-template-columns: 1.15fr 1fr; }
+    .press-card.wide .press-card-banner { height: 100%; min-height: 280px; border-bottom: 0; border-right: 3px solid #FFFF00; }
+    .press-card.wide .press-card-body { padding: 34px 36px; display: flex; flex-direction: column; justify-content: center; }
+    .press-card.wide .press-card-title { font-size: 26px; line-height: 1.35; }
+    .press-card.wide .press-card-summary { font-size: 15px; }
+    @media (max-width: 768px) {
+      .press-card.wide { grid-template-columns: 1fr; }
+      .press-card.wide .press-card-banner { min-height: 190px; border-right: 0; border-bottom: 3px solid #FFFF00; }
+      .press-card.wide .press-card-body { padding: 22px; }
+      .press-card.wide .press-card-title { font-size: 20px; }
+    }
+    @media (max-width: 768px) {
+      .press-grid { grid-template-columns: 1fr; gap: 20px; }
+    }
+
+    /* ===== PRESS CARD ===== */
+    .press-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #eee;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .press-card:hover {
+      box-shadow: 0 16px 48px rgba(0,0,0,0.14);
+      transform: translateY(-2px);
+    }
+    .press-card-banner { border-bottom: 3px solid #FFFF00;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1e1e1e 50%, #2a2a2a 100%);
+      height: 200px;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      padding: 16px 20px;
+      overflow: hidden;
+    }
+    .press-card-banner::before {
+      content: '';
+      position: absolute;
+      top: -20px; right: -20px;
+      width: 120px; height: 120px;
+      border: 2px solid rgba(255,255,0,0.12);
+      border-radius: 50%;
+    }
+    .press-card-banner::after {
+      content: '';
+      position: absolute;
+      bottom: -30px; left: -30px;
+      width: 160px; height: 160px;
+      border: 2px solid rgba(255,255,0,0.07);
+      border-radius: 50%;
+    }
+    .press-banner-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+    .press-tag {
+      background: #FFFF00;
+      color: #000;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+    .press-date {
+      color: rgba(255,255,255,0.45);
+      font-size: 11px;
+      letter-spacing: 0.5px;
+    }
+    .press-card-body {
+      padding: 28px 24px 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .press-card-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #000;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+    .press-card-summary {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.65;
+      margin-bottom: 20px;
+      flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .press-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .press-location {
+      font-size: 11px;
+      color: #999;
+      letter-spacing: 0.3px;
+    }
+    .press-location svg {
+      width: 11px; height: 11px;
+      fill: #ccc;
+      vertical-align: middle;
+      margin-right: 3px;
+      margin-top: -1px;
+    }
+    .btn-readmore {
+      background: #000;
+      color: #FFFF00;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 9px 18px;
+      border-radius: 6px;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-readmore:hover { background: #1a1a1a; transform: translateX(2px); }
+    .btn-readmore::after { content: '→'; }
+
+    /* ===== INSIGHTS SECTION ===== */
+    #insights {
+      background: #f8f8f8;
+    }
+    #insights .section-label { color: #000; }
+
+    /* ===== FEATURED INSIGHT CARD ===== */
+    .featured-card {
+      display: grid;
+      text-decoration: none;
+      background: #0a0a0a;
+      border-radius: 16px;
+      overflow: hidden;
+      grid-template-columns: 1fr 280px;
+      margin-bottom: 40px;
+      min-height: 240px;
+      position: relative;
+    }
+    @media (max-width: 768px) {
+      .featured-card { grid-template-columns: 1fr; }
+    }
+    .featured-card-content {
+      padding: 40px 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+    .featured-card-content::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 5px;
+      background: linear-gradient(180deg, #FFFF00 0%, rgba(255,255,0,0.4) 100%);
+      border-radius: 0 3px 3px 0;
+    }
+    .featured-eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #FFFF00;
+      margin-bottom: 12px;
+    }
+    .featured-tag {
+      display: inline-block;
+      background: rgba(255,255,0,0.15);
+      border: 1px solid rgba(255,255,0,0.3);
+      color: #FFFF00;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+    .featured-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.3;
+      margin-bottom: 14px;
+      letter-spacing: -0.3px;
+    }
+    .featured-summary {
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.65;
+      margin-bottom: 24px;
+    }
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #FFFF00;
+      color: #000;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 12px 22px;
+      border-radius: 8px;
+      width: fit-content;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-download:hover { background: #e6b000; transform: translateY(-1px); }
+    .btn-download svg { width: 14px; height: 14px; fill: #000; }
+
+    @media (max-width: 768px) {
+      .featured-card-content { padding: 32px 28px; }
+      .featured-title { font-size: 22px; }
+    }
+    @media (max-width: 480px) {
+      .featured-card-content { padding: 28px 24px; }
+    }
+
+    /* ===== GEOMETRIC DECORATION ===== */
+    .featured-card-deco {
+      background: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    @media (max-width: 768px) {
+      .featured-card-deco { display: none; }
+    }
+    .deco-inner {
+      position: relative;
+      width: 160px;
+      height: 160px;
+    }
+    .deco-arc {
+      position: absolute;
+      border-radius: 50%;
+      border: 3px solid #FFFF00;
+    }
+    .deco-arc-1 { width: 160px; height: 160px; top: 0; left: 0; opacity: 0.6; clip-path: inset(0 50% 0 0); }
+    .deco-arc-2 { width: 110px; height: 110px; top: 25px; left: 25px; opacity: 0.3; clip-path: inset(50% 0 0 0); }
+    .deco-arc-3 { width: 60px; height: 60px; top: 50px; left: 50px; opacity: 0.8; }
+    .deco-dot {
+      position: absolute;
+      width: 10px; height: 10px;
+      background: #FFFF00;
+      border-radius: 50%;
+      top: 75px; left: 75px;
+    }
+
+    /* ===== INSIGHT CARDS GRID ===== */
+    .insights-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 1024px) {
+      .insights-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .insights-grid { grid-template-columns: 1fr; }
+    }
+
+    .insight-card { height: 100%; display: flex; flex-direction: column;
+      background: #fff;
+      border-radius: 10px;
+      padding: 24px 22px;
+      border-top: 4px solid #FFFF00;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .insight-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(0,0,0,0.1);
+    }
+    .insight-date {
+      font-size: 11px;
+      color: #999;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+    .insight-badge {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      background: #f0f0f0;
+      color: #444;
+      padding: 3px 8px;
+      border-radius: 3px;
+      margin-bottom: 12px;
+    }
+    .insight-badge.strategic {
+      background: rgba(255,255,0,0.15);
+      color: #a07800;
+    }
+    .insight-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #111;
+      line-height: 1.5;
+      margin-bottom: auto;
+      padding-bottom: 16px;
+    }
+    .insight-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-top: 12px;
+    }
+    .arrow-btn {
+      width: 32px; height: 32px;
+      background: #000;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .insight-card:hover .arrow-btn {
+      background: #FFFF00;
+      transform: translateX(2px);
+    }
+    .arrow-btn svg { width: 14px; height: 14px; fill: #fff; }
+    .insight-card:hover .arrow-btn svg { fill: #000; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #000;
+      padding: 56px 32px 40px;
+      text-align: center;
+      border-top: 1px solid #1a1a1a;
+    }
+    .footer-brand { line-height: 0; margin-bottom: 14px; }
+    .footer-brand img { height: 26px; width: auto; display: inline-block; }
+    .footer-copy {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 10px;
+      letter-spacing: 0.3px;
+    }
+    .footer-link a {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 1px;
+      transition: color 0.2s;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .footer-link a:hover { color: #FFFF00; }
+
+    @media (max-width: 480px) {
+      footer { padding: 44px 20px 32px; }
+      .footer-brand img { height: 22px; }
+    }
+  </style>
+</head>
+<body>
+<script src="/globalbar.js"></script>
+
+  <!-- ===== STICKY NAV ===== -->
+  <nav class="nav">
+    <a href="index-en.html" class="nav-brand"><img src="images/markforged-logo-white.png" alt="Markforged"></a>
+    <div class="nav-links">
+      <a href="#news">News</a>
+      <a href="#programs">Programs</a>
+      <a href="#insights">Insights</a>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <img class="hero-logo" src="images/markforged-logo-white.png" alt="Markforged">
+    <div class="hero-eyebrow">Greater China Region &amp; Vietnam</div>
+    <h1 class="hero-title">MEDIA HUB</h1>
+    <p class="hero-subtitle">Press Releases · Event Reports · Industry Insights</p>
+    <div class="hero-divider"></div>
+  </section>
+
+  <!-- PROGRAMS:START (generated by stage_to_news_site.py · 重跑只替换本区块) -->
+  <style>
+    #programs{background:#000000;color:#FFFFFF}
+    #programs .section-label{color:#FFFFFF}
+    #programs .section-label-line{background:#FFFF00}
+    .pg-card{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:40px;margin-top:8px;color:#FFFFFF;border:1px solid rgba(255,255,255,.14);overflow:hidden;transition:border-color .3s}
+    .pg-card:hover{border-color:#FFFF00}
+    .pg-tx{padding:48px 44px}
+    .pg-tag{display:inline-block;background:#FFFF00;color:#000000;font-size:12px;font-weight:700;letter-spacing:1px;padding:5px 10px}
+    .pg-tag2{margin-left:10px;font-size:12px;letter-spacing:1px;color:#999999}
+    .pg-h{font-size:clamp(40px,5.4vw,72px);line-height:1.04;font-weight:700;letter-spacing:-1px;margin:22px 0 18px}
+    .pg-h span{color:#FFFF00}
+    .pg-p{color:#CCCCCC;font-size:16px;max-width:30em;line-height:1.7}
+    .pg-chips{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 30px}
+    .pg-chips i{font-style:normal;font-size:13px;border:1px solid rgba(255,255,255,.3);padding:6px 12px;border-radius:999px;color:#FFFFFF}
+    .pg-go{display:inline-flex;gap:10px;align-items:center;background:#FFFF00;color:#000000;font-weight:700;padding:14px 22px;font-size:15px}
+    .pg-ph{position:relative;align-self:stretch;min-height:420px;background:#000000}
+    .pg-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;-webkit-mask-image:radial-gradient(ellipse 62% 64% at 50% 50%,#000000 58%,transparent 100%);mask-image:radial-gradient(ellipse 62% 64% at 50% 50%,#000000 58%,transparent 100%)}
+    .pg-scan{position:absolute;left:22%;right:22%;height:2px;background:#FFFF00;box-shadow:0 0 16px 3px rgba(255,255,0,.45);animation:pgscan 5s ease-in-out infinite}
+    @keyframes pgscan{0%{top:14%;opacity:0}10%{opacity:1}55%{top:84%;opacity:1}62%,100%{top:84%;opacity:0}}
+    @media (max-width:860px){.pg-card{grid-template-columns:1fr}.pg-tx{padding:32px 24px}.pg-ph{min-height:300px}}
+    @media (prefers-reduced-motion:reduce){.pg-scan{animation:none;display:none}}
+  </style>
+  <section id="programs">
+    <div class="section-wrapper">
+      <div class="section-label">Customer Programs</div>
+      <div class="section-label-line"></div>
+      <a href="homecoming/" class="pg-card">
+        <div class="pg-tx">
+          <span class="pg-tag">NEW · Customer Programme</span><span class="pg-tag2">China · page in Chinese</span>
+          <h2 class="pg-h">Old friends,<br><span>come home.</span></h2>
+          <p class="pg-p">Equipment health checks for existing Markforged customers, plus trade-in of industrial 3D printers of any brand. Delivered by Intellengine (Shanghai), a Markforged Gold authorised partner.</p>
+          <div class="pg-chips"><i>Six-point health check</i><i>Factory support status lookup</i><i>Quick trade-in valuation</i><i>X7 · FX10 · FX20</i></div>
+          <span class="pg-go">Enter the programme →</span>
+        </div>
+        <div class="pg-ph"><img src="homecoming/assets/fx10_hero.jpg" alt="Markforged FX10" loading="lazy"><span class="pg-scan"></span></div>
+      </a>
+    </div>
+  </section>
+  <!-- PROGRAMS:END -->
+
+  <!-- ===== PRESS RELEASES ===== -->
+  <section id="news" style="background:#fff;">
+    <div class="section-wrapper">
+      <div class="section-label">Press Releases</div>
+      <div class="section-label-line"></div>
+
+      <div class="press-grid">
+
+        <!-- CARD:kojima-robot-hands -->
+        <a href="kojima-robot-hands-en.html" class="press-card">
+          <div class="press-card-banner" style="background: linear-gradient(rgba(0,0,0,.10), rgba(0,0,0,.78)), url('images/kojima-robot-hands-card.jpg') center 30%/cover;">
+            <div class="press-banner-meta">
+              <span class="press-tag">Customer Story · Automotive Parts</span>
+              <span class="press-date">2026.10.24</span>
+            </div>
+          </div>
+          <div class="press-card-body">
+            <h2 class="press-card-title">Kojima Industries 3D prints its own robot hands: part cost down 67%, lead time cut from 14 days to 1</h2>
+            <p class="press-card-summary">Japanese auto parts maker Kojima Industries replaced machined metal robot hands with parts printed in-house on Markforged 3D printers: 67% lower part cost, a 14-day outsourced lead time cut to one day, and about 30% less design work on some parts.</p>
+            <div class="press-card-footer">
+              <span class="press-location">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                Customer Story · Aichi, Japan
+              </span>
+              <span class="btn-readmore">Read More</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- CARD:fleet-qualified-process-2026-10 -->
+        <a href="fleet-qualified-process-2026-10-en.html" class="press-card">
+          <div class="press-card-banner" style="background: linear-gradient(rgba(0,0,0,.10), rgba(0,0,0,.78)), url('images/project-diamond-presser.jpg') center 40%/cover;">
+            <div class="press-banner-meta">
+              <span class="press-tag">Industry Analysis · Distributed Manufacturing</span>
+              <span class="press-date">2026.10.23</span>
+            </div>
+          </div>
+          <div class="press-card-body">
+            <h2 class="press-card-title">US Army funds a $7.5M test of distributed 3D printing: one file, 300 machines, one part</h2>
+            <p class="press-card-summary">One line of technical scope in Automation Alley's $7.5 million IBAS Phase I Task Order is skipped by most coverage: the parts must be made using validated processes. That line defines the real threshold for distributed manufacturing — not how many machines, but how many qualified processes the fleet shares.</p>
+            <div class="press-card-footer">
+              <span class="press-location">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                Industry Analysis · US / Greater China
+              </span>
+              <span class="btn-readmore">Read More</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- CARD:secure-distributed-am-ibas -->
+        <a href="secure-distributed-am-ibas-en.html" class="press-card">
+          <div class="press-card-banner" style="background: linear-gradient(rgba(0,0,0,.10), rgba(0,0,0,.78)), url('images/hero-x7fe.jpg') center 88%/cover;">
+            <div class="press-banner-meta">
+              <span class="press-tag">Industry News · Defence Supply Chain</span>
+              <span class="press-date">2026.10.15</span>
+            </div>
+          </div>
+          <div class="press-card-body">
+            <h2 class="press-card-title">Markforged named a partner in the US Army's $7.5M distributed manufacturing proof, as the 300-printer network it supplied faces validation</h2>
+            <p class="press-card-summary">On 15 October 2026 Automation Alley, Michigan's Industry 4.0 knowledge center, announced a $7.5 million Phase I Task Order under the IBAS program to validate IP-protected distributed additive manufacturing. NCDMM is prime contractor; Markforged and Fraunhofer USA are executing partners.</p>
+            <div class="press-card-footer">
+              <span class="press-location">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                Industry News · Michigan, USA
+              </span>
+              <span class="btn-readmore">Read More</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- CARD:twoway-vietnam-master-distributor -->
+        <a href="casa-additive-airworthiness-en.html" class="press-card">
+          <div class="press-card-banner" style="background: linear-gradient(rgba(0,0,0,.10), rgba(0,0,0,.78)), url('images/casa-214b-hero.jpg') center/cover;">
+            <div class="press-banner-meta">
+              <span class="press-tag">Industry News · Airworthy Additive Manufacturing</span>
+              <span class="press-date">2026.10.14</span>
+            </div>
+          </div>
+          <div class="press-card-body">
+            <h2 class="press-card-title">One Duct, and Asia-Pacific's First Civil Aviation Approval for Additive Manufacturing</h2>
+            <p class="press-card-summary">Australia's Plane Support has gained CASA APMA approval to additively manufacture cabin air conditioning ducting for the Bell 214B. The first publicly citable civil aviation additive approval in Asia-Pacific — and the approval covers the manufacturer and the process, not a printer brand.</p>
+            <div class="press-card-footer">
+              <span class="press-location">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                Industry News · Queensland, Australia
+              </span>
+              <span class="btn-readmore">Read More</span>
+            </div>
+          </div>
+        </a>
+        <a href="supply-chain-three-layers-2026-10-en.html" class="press-card">
+          <div class="press-card-banner" style="background: linear-gradient(rgba(0,0,0,.10), rgba(0,0,0,.78)), url('images/supply-chain-three-layers-2026-10-hero.jpg') center/cover;">
+            <div class="press-banner-meta">
+              <span class="press-tag">Perspective · Supply-Chain Security</span>
+              <span class="press-date">2026.10.11</span>
+            </div>
+          </div>
+          <div class="press-card-body">
+            <h2 class="press-card-title">Supply-Chain Security Has Three Layers. Most of Us Only Talk About the First.</h2>
+            <p class="press-card-summary">The de-risking debate stops at component origin. But where your manufacturing data lives, and whether you can build on time without someone else's queue, are the other two layers. Brian Chen, Country Manager for Greater China and Vietnam at Markforged, on a three-layer model drawn from high-security deployments.</p>
+            <div class="press-card-footer">
+              <span class="press-location">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                Perspective · Taiwan
+              </span>
+              <span class="btn-readmore">Read More</span>
+            </div>
+          </div>
+        </a>
+        <a href="fx10-sinter2-bundle-en.html" class="press-card">
+          <div class="press-card-banner" style="background: linear-gradient(rgba(0,0,0,.10), rgba(0,0,0,.78)), url('images/fx10-sinter2-bundle.jpg') center/cover;">
+            <div class="press-banner-meta">
+              <span class="press-tag">Product Solution · Hybrid Manufacturing</span>
+              <span class="press-date">2026.10.10</span>
+            </div>
+          </div>
+          <div class="press-card-body">
+            <h2 class="press-card-title">One Machine, Composites and Metal</h2>
+            <p class="press-card-summary">The FX10 Sinter-2 Bundle has four parts: the dual-mode FX10, a swappable Metal Kit print engine, the Wash-1 debinding station and the Sinter-2 furnace. Print continuous carbon fiber day to day, swap in the metal engine when you need metal parts, and run printing, washing and sintering in your own facility. Includes a 28-second film.</p>
+            <div class="press-card-footer">
+              <span class="press-location">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                Taiwan · China · Hong Kong
+              </span>
+              <span class="btn-readmore">Read More</span>
+            </div>
+          </div>
+        </a>
+        <a href="land-forces-2026-executive-roundtable-en.html" class="press-card">
+          <div class="press-card-banner" style="background: linear-gradient(rgba(0,0,0,.10), rgba(0,0,0,.78)), url('images/lf2026-event-opening.jpg') center 35%/cover;">
+            <div class="press-banner-meta">
+              <span class="press-tag">Australia Event · Defence</span>
+              <span class="press-date">2026.10.07</span>
+            </div>
+          </div>
+          <div class="press-card-body">
+            <h2 class="press-card-title">How long could a nation sustain itself if the chain broke</h2>
+            <p class="press-card-summary">On 7 October 2026, Invenio 3D and Markforged hosted an invitation-only executive breakfast roundtable alongside Land Forces 2026 in Perth. Five speakers and twenty manufacturing principals spent the morning on one question: if Australia is to keep manufacturing capability onshore, it first has to know where in the value chain it sits.</p>
+            <div class="press-card-footer">
+              <span class="press-location">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                Liberty Flexible Workspaces, Perth, Australia
+              </span>
+              <span class="btn-readmore">Read More</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="twoway-vietnam-master-distributor-en.html" class="press-card">
+          <div class="press-card-banner" style="background: linear-gradient(rgba(0,0,0,.10), rgba(0,0,0,.78)), url('images/twoway-vn-md-hero-fx20.jpg') center/cover;">
+            <div class="press-banner-meta">
+              <span class="press-tag">Partner · Vietnam Master Distributor</span>
+              <span class="press-date">2026.10.05</span>
+            </div>
+          </div>
+          <div class="press-card-body">
+            <h2 class="press-card-title">Markforged Appoints TwoWay as Master Distributor for Vietnam</h2>
+            <p class="press-card-summary">Markforged has appointed its Diamond Partner TwoWay as Master Distributor for Vietnam, with application centres in Hanoi and Ho Chi Minh City and a local reseller and service network, to bring industrial additive manufacturing onto the production floors of one of Asia's fastest-growing manufacturing economies.</p>
+            <div class="press-card-footer">
+              <span class="press-location">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                Vietnam
+              </span>
+              <span class="btn-readmore">Read More</span>
+            </div>
+          </div>
+        </a>
+
+
+
+
+
+        <a href="unotech-hk-launch-en.html" class="press-card">
+          <div class="press-card-banner" style="background: linear-gradient(rgba(0,0,0,.10), rgba(0,0,0,.78)), url('images/unotech-hk-launch-principals.jpg') center/cover;">
+            <div class="press-banner-meta">
+              <span class="press-tag">Partner · Hong Kong Exclusive Distributor</span>
+              <span class="press-date">2026.09.24</span>
+            </div>
+          </div>
+          <div class="press-card-body">
+            <h2 class="press-card-title">Markforged Appoints Unotech as Exclusive Hong Kong Distributor</h2>
+            <p class="press-card-summary">Markforged has appointed Unotech Limited as its exclusive distributor in Hong Kong, announced at a launch event at HKPC. The programme included a live demonstration of Continuous Fiber Reinforcement and a Red Dot-winning saddle developed at PolyU.</p>
+            <div class="press-card-footer">
+              <span class="press-location">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                Hong Kong
+              </span>
+              <span class="btn-readmore">Read More</span>
+            </div>
+          </div>
+        </a>
+
+
+
+
+        <a href="markforged-hilo-coe-zhongshan-2026-09-en.html" class="press-card">
+          <div class="press-card-banner" style="background: linear-gradient(rgba(0,0,0,.10), rgba(0,0,0,.78)), url('images/hilo-signing-hero.jpg') center/cover;">
+            <div class="press-banner-meta">
+              <span class="press-tag">Partnership · Zhongshan, Guangdong</span>
+              <span class="press-date">2026.09.22</span>
+            </div>
+          </div>
+          <div class="press-card-body">
+            <h2 class="press-card-title">Making continuous carbon fibre a production tool manufacturers can rely on: Markforged and HiLO sign South China Center of Excellence</h2>
+            <p class="press-card-summary">On 22 September 2026, Markforged and HiLO signed a memorandum of understanding in Zhongshan, Guangdong to build a South China Center of Excellence. Both sides positioned the centre as an industrial application and incubation platform rather than an equipment showroom.</p>
+            <div class="press-card-footer">
+
+              <span class="press-location">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                Markforged Greater China · Zhongshan, Guangdong
+              </span>
+              <span class="btn-readmore">Read More</span>
+            </div>
+          </div>
+        </a>
+        <a href="tooling-forum-guangdong-2026-09-en.html" class="press-card">
+          <div class="press-card-banner" style="background: linear-gradient(rgba(0,0,0,.10), rgba(0,0,0,.78)), url('images/tooling-forum-hero.jpg') center/cover;">
+            <div class="press-banner-meta">
+              <span class="press-tag">Event Report · Guangdong</span>
+              <span class="press-date">2026.09.17</span>
+            </div>
+          </div>
+          <div class="press-card-body">
+            <h2 class="press-card-title">The machine is waiting on tooling: Markforged takes the lead-time bottleneck to China's mould and cutting-tool trade</h2>
+            <p class="press-card-summary">Markforged held a Mould and Cutting Tool Industry Forum in Guangdong on 17 September 2026. Country Manager Brian Chen argued that the real lead-time bottleneck sits in tooling rather than in the machine tool, and backed it with ten published cases and parts handled on the floor.</p>
+            <div class="press-card-footer">
+
+              <span class="press-location">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                Markforged Greater China · Guangdong
+              </span>
+              <span class="btn-readmore">Read More</span>
+            </div>
+          </div>
+        </a>
+        <a href="ithome-physical-ai-2026-09-en.html" class="press-card">
+          <div class="press-card-banner" style="background: linear-gradient(rgba(0,0,0,.10), rgba(0,0,0,.78)), url('images/ithome-brian-drone.jpg') center/cover;">
+            <div class="press-banner-meta">
+              <span class="press-tag">Interview · Physical AI</span>
+              <span class="press-date">2026.09.17</span>
+            </div>
+          </div>
+          <div class="press-card-body">
+            <h2 class="press-card-title">Design iterates by the day: Markforged makes Physical AI real through manufacturing and validation</h2>
+            <p class="press-card-summary">Generative AI lets design iterate by the day in the digital world; the bottleneck is now on the physical side. Brian Chen, Markforged Country Manager, Greater China and Vietnam, on continuous fibre, moving fixtures off the CNC schedule and digital inventory, and how they compress the path from design to volume production to days.</p>
+            <div class="press-card-footer">
+              <span class="press-location">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                Originally published in iThome · Taiwan
+              </span>
+              <span class="btn-readmore">Read More</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="sidus-satellite-en.html" class="press-card">
+          <div class="press-card-banner" style="background: linear-gradient(rgba(0,0,0,.10), rgba(0,0,0,.78)), url('images/sidus-leo-orbit.jpg') center/cover;">
+            <div class="press-banner-meta">
+              <span class="press-tag">Case Study · LEO Satellite</span>
+              <span class="press-date">2026.09.16</span>
+            </div>
+          </div>
+          <div class="press-card-body">
+            <h2 class="press-card-title">We 3D Printed a Satellite: Sidus Space's LEO satellite LizzieSat</h2>
+            <p class="press-card-summary">Three LizzieSats are already operating in low Earth orbit. Sidus Space printed the satellite's structure in continuous carbon fiber and Onyx — after the material spent a year outside the International Space Station with no degradation.</p>
+            <div class="press-card-footer">
+              <span class="press-location">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                Taiwan · China · Hong Kong · Vietnam
+              </span>
+              <span class="btn-readmore">Read More</span>
+            </div>
+          </div>
+        </a>
+        <a href="physical-ai-body-en.html" class="press-card">
+          <div class="press-card-banner" style="background: linear-gradient(rgba(0,0,0,.10), rgba(0,0,0,.78)), url('images/hero-factory-floor.jpg') center/cover;">
+            <div class="press-banner-meta">
+              <span class="press-tag">Insight · Physical AI</span>
+              <span class="press-date">2026.09.07</span>
+            </div>
+          </div>
+          <div class="press-card-body">
+            <h2 class="press-card-title">The next phase of AI competition: from compute to physical realisation</h2>
+            <p class="press-card-summary">Beyond software, silicon and compute, what determines how far Physical AI can go is manufacturing. Brian Chen, Markforged Country Manager for Greater China and Vietnam, on the three structural constraints of physical realisation.</p>
+            <div class="press-card-footer">
+              <span class="press-location">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                Taiwan · China · Hong Kong · Vietnam
+              </span>
+              <span class="btn-readmore">Read More</span>
+            </div>
+          </div>
+        </a>
+        <a href="vietnam-defense-seminar-en.html" class="press-card">
+          <div class="press-card-banner" style="background: linear-gradient(rgba(0,0,0,.10), rgba(0,0,0,.78)), url('images/event-group-photo.jpg') center 30%/cover;">
+            <div class="press-banner-meta">
+              <span class="press-tag">Vietnam Event · Defence</span>
+              <span class="press-date">2026.08.25</span>
+            </div>
+          </div>
+          <div class="press-card-body">
+            <h2 class="press-card-title">When the supplier stops, the maintenance unit has to make the part itself</h2>
+            <p class="press-card-summary">On 25 August 2026 the Military Technical Academy and Tan Tien Industrial Equipment (AIE), with the VAMI association, hosted a seminar in Hanoi on 3D digital manufacturing for defence technical support. Markforged attended by invitation and Suraj Sethi, Sales Director for APAC South and Greater China, presented six fielded defence applications and how digital inventory addresses obsolete spare parts.</p>
+            <div class="press-card-footer">
+              <span class="press-location">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                Military Technical Academy, Hanoi, Vietnam
+              </span>
+              <span class="btn-readmore">Read More</span>
+            </div>
+          </div>
+        </a>
+                        
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MARKET INSIGHTS ===== -->
+  <section id="insights" style="background:#f8f8f8;">
+    <div class="section-wrapper">
+      <div class="section-label">Strategic Reports</div>
+      <div class="section-label-line"></div>
+
+      <!-- FEATURED CARD: NVIDIA GTC -->
+      <a href="insights/nvidia-gtc-2026.html" class="featured-card">
+        <div class="featured-card-content">
+          <span class="featured-eyebrow">Featured Report</span>
+          <span class="featured-tag">Strategic Report</span>
+          <h2 class="featured-title">The Physical AI Era: NVIDIA GTC 2026 × Markforged<br>Strategic Blueprint</h2>
+          <p class="featured-summary">A 37-page strategy report, from trillion-dollar compute infrastructure to the physical revolution on the factory floor: where Markforged stands in the Physical AI era, and what it plans to do.</p>
+          <span class="btn-download">
+            <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+            Download the full report (PDF, in Chinese)
+          </span>
+        </div>
+        <div class="featured-card-deco">
+          <div class="deco-inner">
+            <div class="deco-arc deco-arc-1"></div>
+            <div class="deco-arc deco-arc-2"></div>
+            <div class="deco-arc deco-arc-3"></div>
+            <div class="deco-dot"></div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-brand"><img src="images/markforged-logo-white.png" alt="Markforged"></div>
+    <p class="footer-copy">© 2026 Markforged, Inc. Greater China Region &amp; Vietnam</p>
+    <div class="footer-link"><a href="https://www.markforged.tw/?lang=en">www.markforged.tw</a> · <a href="https://markforged.com" target="_blank" rel="noopener">markforged.com</a></div>
+  </footer>
+
+</body>
+</html>
