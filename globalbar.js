@@ -80,10 +80,13 @@
     '</nav>';
 
   /* 以下數值逐條照 www.markforged.tw 的 shared.css（#main-nav 段＋2026-10-26 品牌一致化覆寫），
-     選擇器結構與優先順序也照抄，兩邊才會一模一樣 */
+     選擇器結構與優先順序也照抄，兩邊才會一模一樣。
+     唯一刻意不同：z-index。官網的 999 在官網上就是最上層，但新聞站頁面有自己的層（媒體中心首頁欄目列是 1000），
+     照抄 999 → 下拉被欄目列蓋住、滑鼠一往下移下拉就消失（Brian 10/26 21:01「滑鼠移上去的選單動畫不正常」）。
+     導覽列是疊在別人頁面上的外框，必須高過頁面裡任何一層 → 10000。 */
   var Y = '#FFFF00';
   var css =
-    '#mfg-bar{position:sticky;top:0;z-index:999;display:flex;align-items:center;height:64px;padding:0 24px;margin:0;' +
+    '#mfg-bar{position:sticky;top:0;z-index:10000;display:flex;align-items:center;height:64px;padding:0 24px;margin:0;' +
       'background:#000;border-bottom:1px solid #1f1f1f;box-sizing:border-box;' +
       'font-family:"Helvetica Neue",Helvetica,Arial,' + (lang === 'sc' ? "'PingFang SC','Noto Sans SC'" : "'PingFang TC','Noto Sans TC'") + ',sans-serif;' +
       'line-height:1.6;-webkit-font-smoothing:antialiased;text-align:left}' +
@@ -96,6 +99,7 @@
     '#mfg-bar .mfg-links>li>a{color:#fff;font-size:13px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;transition:all .2s;' +
       'padding:0 14px;height:64px;display:flex;align-items:center;white-space:nowrap}' +
     '#mfg-bar .mfg-links>li>a:hover,#mfg-bar .mfg-links>li>a.mfg-active{color:' + Y + '}' +
+    '#mfg-bar .mfg-links>li>a.mfg-active{font-weight:800}' +     /* 官網目前所在項目＝黃字＋粗體 800（shared.css .nav-links>li>a.active） */
     '#mfg-bar .mfg-dd{position:relative}' +
     '#mfg-bar .mfg-drop{display:none;position:absolute;top:100%;left:0;background:#fff;border:1px solid #e0e0e0;min-width:220px;' +
       'padding:8px 0;z-index:200;box-shadow:0 8px 32px rgba(0,0,0,.12);border-top:3px solid ' + Y + '}' +
