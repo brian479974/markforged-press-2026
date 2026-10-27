@@ -60,7 +60,7 @@
       '<ul class="mfg-links">' +
         '<li class="mfg-dd">' + a(u('products.html'), T.products, ' data-k="products"') +
           '<div class="mfg-drop">' + a(u('fx10.html'), 'FX10') + a(u('fx10-metal.html'), T.metal, ' data-k="metal"') +
-          a(u('fx20.html'), 'FX20') + a(u('x7fe.html'), 'X7 Field Edition') + '</div></li>' +
+          a(u('fx20.html'), 'FX20') + a(u('x7.html'), 'X7') + a(u('x7fe.html'), 'X7 Field Edition') + '</div></li>' +
         '<li class="mfg-dd">' + a(u('solutions.html'), T.solutions, ' data-k="solutions"') +
           '<div class="mfg-drop">' + solPages.map(function (p, i) { return a(u(p + '.html'), T.sol[i], ' data-k="sol' + i + '"'); }).join('') + '</div></li>' +
         '<li>' + a(u('materials.html'), T.materials, ' data-k="materials"') + '</li>' +
