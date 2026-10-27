@@ -17,7 +17,8 @@
   if (document.getElementById('mfg-bar')) return;
   var W = 'https://www.markforged.tw/';
   var path = location.pathname;
-  var lang = /-sc\.html$/.test(path) ? 'sc' : (/-en\.html$/.test(path) ? 'en' : 'tc');
+  var hl = (document.documentElement.lang || '').toLowerCase();   /* 2026-10-27：活動頁在子資料夾、檔名是 index.html，改看 <html lang> */
+  var lang = (/-sc\.html$/.test(path) || hl === 'zh-cn') ? 'sc' : (/-en\.html$/.test(path) ? 'en' : 'tc');
   var Tx = {
     tc: { products: '產品', solutions: '解決方案', materials: '材料', cases: '案例', news: '新聞',
           about: '關於', contact: '聯絡', quote: '立即詢價', menu: '選單', home: 'Markforged 官網首頁',
