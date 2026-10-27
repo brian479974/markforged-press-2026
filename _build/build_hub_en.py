@@ -22,6 +22,9 @@ ROOT = Path(__file__).resolve().parent.parent
 SRC, OUT = ROOT / 'index.html', ROOT / 'index-en.html'
 
 TAG_EN = {
+    '產業報導 · 歐洲製造': 'Industry News · European Manufacturing',
+    '客戶案例 · 軌道交通': 'Customer Story · Rail',
+    '產業報導 · 國防後勤': 'Industry News · Defense Logistics',
     '客戶案例 · 汽車零件': 'Customer Story · Automotive Parts',
     '產業分析 · 分散式製造': 'Industry Analysis · Distributed Manufacturing',
     '產業報導 · 國防供應鏈': 'Industry News · Defence Supply Chain',
@@ -36,6 +39,9 @@ TAG_EN = {
     'Case Study · 低軌衛星': 'Case Study · LEO Satellite',
 }
 LOC_EN = {
+    '產業報導 · 葡萄牙／德國': 'Industry News · Portugal / Germany',
+    '客戶案例 · 法國': 'Customer Story · France',
+    '產業報導 · 韓國浦項': 'Industry News · Pohang, Korea',
     '客戶案例 · 日本愛知縣': 'Customer Story · Aichi, Japan',
     '產業分析 · 美國 / 大中華區': 'Industry Analysis · US / Greater China',
     '產業報導 · 美國密西根州': 'Industry News · Michigan, USA',
