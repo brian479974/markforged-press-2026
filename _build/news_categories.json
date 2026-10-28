@@ -8,8 +8,19 @@
    "slugs": [
     "alstom-railway-3d-printed-jigs",
     "kojima-robot-hands",
-    "sidus-satellite"
-   ]
+    "sidus-satellite",
+    "yamaha-fine-technologies-x7-jigs"
+   ],
+   "more": {
+    "zh": {
+     "text": "全球 138 個原廠案例 →",
+     "href": "case-library.html"
+    },
+    "en": {
+     "text": "All 138 official case studies →",
+     "href": "case-library-en.html"
+    }
+   }
   },
   {
    "id": "industry-news",
@@ -148,6 +159,10 @@
   "tct-asia-2026": [
    "2026-03-17",
    "TCT Asia 2026 新聞稿發布日（展期 3/17–3/19 首日）"
+  ],
+  "yamaha-fine-technologies-x7-jigs": [
+   "2026-08-20",
+   "Markforged 官方客戶案例影片 YouTube 上架日（案例文件 2026-07-30）"
   ]
  }
 }
