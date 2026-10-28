@@ -5,7 +5,7 @@
 不手改 —— 中文首頁新增／修改卡片後重跑一次，英文版才會跟上。
 
 規則：
-- 卡片順序與中文首頁相同；有 -en.html 的才列，連到英文版，標題／摘要取英文文章本身的
+- 卡片依分類分區、同一類依發佈日期新到舊（news_order.py，2026-10-28 起）；有 -en.html 的才列，連到英文版，標題／摘要取英文文章本身的
   og:title／meta description（不另外翻譯）。沒有英文版的卡片不列。
 - 卡片的分類標籤與地點是中文首頁手寫的，英文對照放在下面兩張表；
   遇到表裡沒有的中文 → 直接失敗（exit 1），不准把中文漏進英文頁。
@@ -70,15 +70,6 @@ FIXED = [
     ('<p class="hero-subtitle">大中華區暨越南　新聞稿 · 活動報導 · 產業觀點<br>\n'
      '      <span style="opacity:.7;">News, Event Reports &amp; Industry Insights</span></p>',
      '<p class="hero-subtitle">Press Releases · Event Reports · Industry Insights</p>'),
-    ('<span class="pg-tag">NEW · 客戶服務專區</span><span class="pg-tag2">中國大陸 · 簡體中文頁面</span>',
-     '<span class="pg-tag">NEW · Customer Programme</span><span class="pg-tag2">China · page in Chinese</span>'),
-    ('<h2 class="pg-h">老朋友，<br><span>回娘家。</span></h2>',
-     '<h2 class="pg-h">Old friends,<br><span>come home.</span></h2>'),
-    ('<p class="pg-p">Markforged 老客戶設備健診，加上不限品牌的工業級 3D 列印機舊換新。由 Markforged 金牌授權合作夥伴上海睿淮 Intellengine 執行。</p>',
-     '<p class="pg-p">Equipment health checks for existing Markforged customers, plus trade-in of industrial 3D printers of any brand. Delivered by Intellengine (Shanghai), a Markforged Gold authorised partner.</p>'),
-    ('<i>六項設備健診</i><i>原廠支援期查詢</i><i>舊機快速評估</i>',
-     '<i>Six-point health check</i><i>Factory support status lookup</i><i>Quick trade-in valuation</i>'),
-    ('<span class="pg-go">進入專區 →</span>', '<span class="pg-go">Enter the programme →</span>'),
     ('<h2 class="featured-title">AI 實體化時代：NVIDIA GTC 2026 × Markforged<br>戰略藍圖</h2>',
      '<h2 class="featured-title">The Physical AI Era: NVIDIA GTC 2026 × Markforged<br>Strategic Blueprint</h2>'),
     ('<p class="featured-summary">37 頁深度策略報告：從兆元算力基礎設施到廠房車間的實體革命，分析 Markforged 在 AI 實體化時代的策略定位與行動方案。</p>',
@@ -143,6 +134,13 @@ def en_card(block, href, problems):
 
 def build():
     t = SRC.read_text(encoding='utf-8')
+    # 回娘家區塊（PROGRAMS:START～END）由 homecoming 的 stage.py 直接產中英兩版，這裡沿用英文首頁現有那段，不翻譯
+    pm = re.compile(r'  <!-- PROGRAMS:START.*?<!-- PROGRAMS:END -->', re.S)
+    zh_prog, en_prog = pm.search(t), pm.search(OUT.read_text(encoding='utf-8')) if OUT.exists() else None
+    if zh_prog and not en_prog:
+        fail('中文首頁有回娘家區塊，英文首頁沒有 —— 先跑 homecoming 的 stage.py 產英文版')
+    if zh_prog:
+        t = t[:zh_prog.start()] + en_prog.group(0) + t[zh_prog.end():]
     for zh, en in FIXED:
         n = t.count(zh)
         if n != 1:
@@ -174,7 +172,7 @@ def build():
         fail('頁首找不到 <title> … <style> 區段')
     # 卡片
     problems, kept, dropped = [], [], []
-    parts = re.split(r'((?:<!-- CARD:[^>]*-->\s*)?<a href="([^"]+)" class="press-card">.*?</a>\n)', t, flags=re.S)
+    parts = re.split(r'((?:<!-- CARD:[^>]*-->\s*)?<a href="([^"]+)" class="press-card(?: wide)?">.*?</a>\n)', t, flags=re.S)
     rebuilt = []
     i = 0
     while i < len(parts):
@@ -193,6 +191,13 @@ def build():
     t = ''.join(rebuilt)
     if problems:
         fail('卡片無法轉成英文：\n   ' + '\n   '.join(problems))
+    # 依分類分區、同一類依發佈日期新到舊（規則與分類表見 news_order.py／news_categories.json）
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import news_order
+    try:
+        t, _, _ = news_order.render(t, 'en')
+    except news_order.NewsOrderError as ex:
+        fail(f'英文首頁分類排序失敗：\n   {ex}')
     if not kept:
         fail('一張英文卡片都沒有，解析一定出錯了')
     # 可見文字不得有中文
