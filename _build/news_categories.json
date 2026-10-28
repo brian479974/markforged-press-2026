@@ -1,25 +1,153 @@
 {
-  "_說明": "媒體中心首頁新聞卡片的分類（唯一來源，2026-10-28 Brian 定案）。categories 的先後＝首頁區塊的先後；slugs 是文章檔名去掉 .html／-en.html。新文章上首頁前必須先登記在這裡，沒登記 news_order.py 會 exit 1。同一類裡的順序不用排，程式依卡片上的發佈日期新到舊自動排。",
-  "categories": [
-    {"id": "customer-stories", "zh": "客戶案例", "en": "Customer Stories",
-     "slugs": ["alstom-railway-3d-printed-jigs", "kojima-robot-hands", "sidus-satellite"]},
-    {"id": "industry-news", "zh": "產業報導", "en": "Industry News",
-     "slugs": ["usmc-cjlots26-expeditionary-am", "europe-oem-continuous-fiber-vw-claas-thyssenkrupp",
-               "secure-distributed-am-ibas", "casa-additive-airworthiness"]},
-    {"id": "perspectives", "zh": "觀點與專訪", "en": "Perspectives & Interviews",
-     "slugs": ["fleet-qualified-process-2026-10", "supply-chain-three-layers-2026-10",
-               "physical-ai-body", "ithome-physical-ai-2026-09"]},
-    {"id": "products", "zh": "產品方案", "en": "Product Solutions",
-     "slugs": ["fx10-sinter2-bundle"]},
-    {"id": "partners", "zh": "合作夥伴", "en": "Partners",
-     "slugs": ["twoway-vietnam-master-distributor", "unotech-hk-launch",
-               "markforged-hilo-coe-zhongshan-2026-09"]},
-    {"id": "events", "zh": "活動與展會", "en": "Events & Exhibitions",
-     "slugs": ["land-forces-2026-executive-roundtable", "tooling-forum-guangdong-2026-09",
-               "vietnam-defense-seminar", "uav-expo-2026", "tct-asia-2026"]}
-  ],
-  "off_homepage": {
-    "soulforge": "2026-10-28 Brian 裁示從新聞首頁拿掉（不是 Markforged 新聞），頁面本身保留",
-    "ai-digital-workforce": "2026-09-12 Brian 裁示從首頁下架，頁面本身保留"
+ "_說明": "媒體中心首頁新聞卡片的分類與日期（唯一來源）。categories 的先後＝首頁區塊的先後；slugs 是文章檔名去掉 .html／-en.html。dates＝每篇新聞本身的日期（2026-10-28 Brian 定案：新聞發生或原始公開那天，不是我們放上網站那天；主要素材有好幾份的取最新那份），卡片上印的日期與同一類裡的先後都由它決定，news_order.py 會把它寫進卡片。新文章上首頁前，分類與日期都要先登記，沒登記 news_order.py 會 exit 1。",
+ "categories": [
+  {
+   "id": "customer-stories",
+   "zh": "客戶案例",
+   "en": "Customer Stories",
+   "slugs": [
+    "alstom-railway-3d-printed-jigs",
+    "kojima-robot-hands",
+    "sidus-satellite"
+   ]
+  },
+  {
+   "id": "industry-news",
+   "zh": "產業報導",
+   "en": "Industry News",
+   "slugs": [
+    "usmc-cjlots26-expeditionary-am",
+    "europe-oem-continuous-fiber-vw-claas-thyssenkrupp",
+    "secure-distributed-am-ibas",
+    "casa-additive-airworthiness"
+   ]
+  },
+  {
+   "id": "perspectives",
+   "zh": "觀點與專訪",
+   "en": "Perspectives & Interviews",
+   "slugs": [
+    "fleet-qualified-process-2026-10",
+    "supply-chain-three-layers-2026-10",
+    "physical-ai-body",
+    "ithome-physical-ai-2026-09"
+   ]
+  },
+  {
+   "id": "products",
+   "zh": "產品方案",
+   "en": "Product Solutions",
+   "slugs": [
+    "fx10-sinter2-bundle"
+   ]
+  },
+  {
+   "id": "partners",
+   "zh": "合作夥伴",
+   "en": "Partners",
+   "slugs": [
+    "twoway-vietnam-master-distributor",
+    "unotech-hk-launch",
+    "markforged-hilo-coe-zhongshan-2026-09"
+   ]
+  },
+  {
+   "id": "events",
+   "zh": "活動與展會",
+   "en": "Events & Exhibitions",
+   "slugs": [
+    "land-forces-2026-executive-roundtable",
+    "tooling-forum-guangdong-2026-09",
+    "vietnam-defense-seminar",
+    "uav-expo-2026",
+    "tct-asia-2026"
+   ]
   }
+ ],
+ "off_homepage": {
+  "soulforge": "2026-10-28 Brian 裁示從新聞首頁拿掉（不是 Markforged 新聞），頁面本身保留",
+  "ai-digital-workforce": "2026-09-12 Brian 裁示從首頁下架，頁面本身保留"
+ },
+ "dates": {
+  "alstom-railway-3d-printed-jigs": [
+   "2021-06-09",
+   "Markforged 官方 webinar「How Alstom boosts their business with Additive Manufacturing」播出日"
+  ],
+  "kojima-robot-hands": [
+   "2026-10-22",
+   "Markforged 官方客戶案例〈Kojima Industries Corporation〉發布日"
+  ],
+  "sidus-satellite": [
+   "2023-03-22",
+   "Markforged 官方影片《We 3D Printed a Satellite with Sidus Space.》YouTube 上傳日"
+  ],
+  "usmc-cjlots26-expeditionary-am": [
+   "2026-07-25",
+   "美軍 DVIDS 原文發布日（後續媒體轉載 7/27 起）"
+  ],
+  "europe-oem-continuous-fiber-vw-claas-thyssenkrupp": [
+   "2024-11-25",
+   "三支 Mark3D 原片中最新一支（thyssenkrupp）的上傳日；另兩支 2024-08-07、2024-10-11"
+  ],
+  "secure-distributed-am-ibas": [
+   "2026-10-15",
+   "Automation Alley 新聞稿發布日"
+  ],
+  "casa-additive-airworthiness": [
+   "2026-10-12",
+   "Plane Support 與 McDermott Aviation 聯合新聞稿發布日"
+  ],
+  "fleet-qualified-process-2026-10": [
+   "2026-10-23",
+   "本站原創分析，首次公開日"
+  ],
+  "supply-chain-three-layers-2026-10": [
+   "2026-10-11",
+   "本站原創觀點文，首次公開日"
+  ],
+  "ithome-physical-ai-2026-09": [
+   "2026-09-17",
+   "本站首次公開日（iThome 版 2026-09-21 才刊出，以較早者為準；專訪拍攝 9/8）"
+  ],
+  "physical-ai-body": [
+   "2026-09-07",
+   "本站原創專文，首次公開日"
+  ],
+  "fx10-sinter2-bundle": [
+   "2026-10-10",
+   "本站產品方案文，首次公開日"
+  ],
+  "twoway-vietnam-master-distributor": [
+   "2026-10-05",
+   "任命新聞稿發布日"
+  ],
+  "unotech-hk-launch": [
+   "2026-09-24",
+   "香港發布會當天"
+  ],
+  "markforged-hilo-coe-zhongshan-2026-09": [
+   "2026-09-22",
+   "中山簽約儀式當天"
+  ],
+  "land-forces-2026-executive-roundtable": [
+   "2026-10-07",
+   "Land Forces 2026 場邊圓桌當天（澳洲伯斯）"
+  ],
+  "tooling-forum-guangdong-2026-09": [
+   "2026-09-17",
+   "廣東模具論壇當天"
+  ],
+  "vietnam-defense-seminar": [
+   "2026-08-25",
+   "越南國防技術保障研討會當天"
+  ],
+  "uav-expo-2026": [
+   "2026-03-20",
+   "台灣無人載具商機媒合會當天"
+  ],
+  "tct-asia-2026": [
+   "2026-03-17",
+   "TCT Asia 2026 新聞稿發布日（展期 3/17–3/19 首日）"
+  ]
+ }
 }
