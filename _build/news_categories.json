@@ -9,7 +9,10 @@
     "alstom-railway-3d-printed-jigs",
     "kojima-robot-hands",
     "sidus-satellite",
-    "yamaha-fine-technologies-x7-jigs"
+    "yamaha-fine-technologies-x7-jigs",
+    "wescad-fx10-jigs-fixtures",
+    "fieldmade-nomad-lw-mobile-printing",
+    "british-army-project-convergence-22"
    ],
    "more": {
     "zh": {
@@ -163,6 +166,18 @@
   "yamaha-fine-technologies-x7-jigs": [
    "2026-08-20",
    "Markforged 官方客戶案例影片 YouTube 上架日（案例文件 2026-07-30）"
+  ],
+  "wescad-fx10-jigs-fixtures": [
+   "2025-02-27",
+   "Mark3D 英文版客戶案例頁、英文 PDF 與 YouTube 影片上架日"
+  ],
+  "fieldmade-nomad-lw-mobile-printing": [
+   "2022-11-01",
+   "Mark3D 英文版客戶案例頁發布日（2023-06-15 更新）"
+  ],
+  "british-army-project-convergence-22": [
+   "2022-11-04",
+   "Mark3D YouTube 影片上架日"
   ]
  }
 }
