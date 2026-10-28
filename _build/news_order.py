@@ -40,6 +40,8 @@ STYLE = '''      <style>
         #news .news-cat.first{margin-top:0}
         #news .news-cat-title{font-size:24px;font-weight:800;line-height:1.3;color:#000;letter-spacing:.5px;padding-left:14px;border-left:5px solid #FFFF00}
         #news .news-cat-en{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#888}
+        #news .news-cat-more{margin-left:auto;font-size:13.5px;font-weight:800;color:#000;border-bottom:3px solid #FFFF00;padding-bottom:1px}
+        #news .news-cat-more:hover{background:#FFFF00}
         @media (max-width:768px){#news .news-cat{margin:48px 0 18px}#news .news-cat-title{font-size:20px}}
       </style>'''
 
@@ -115,6 +117,9 @@ def render(t, lang, drop=()):
             continue
         title = c['zh'] if lang == 'zh' else c['en']
         sub = f'<span class="news-cat-en">{c["en"]}</span>' if lang == 'zh' else ''
+        if c.get('more'):  # 分類的「看更多」連結（例：客戶案例 → 全球成功案例庫）
+            m = c['more'][lang]
+            sub += f'<a class="news-cat-more" href="{m["href"]}">{m["text"]}</a>'
         out.append(f'      <div class="news-cat{" first" if first else ""}" id="cat-{c["id"]}">'
                    f'<h2 class="news-cat-title">{title}</h2>{sub}</div>')
         first = False
