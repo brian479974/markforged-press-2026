@@ -9,7 +9,7 @@
 <title>Markforged 工业级 3D 打印机 · 百度落地页示范</title>
 <meta name="description" content="专为工厂车间打造的 3D 打印机：采用经连续碳纤维增强的金属和复合材料，打印工业级强度零件。">
 <!--
-  Markforged 百度落地页 · 全功能示范页 v1.4（2026-10-29）
+  Markforged 百度落地页 · 全功能示范页 v1.5（2026-10-29）
   用途：给推广代理商照着重建百度基木鱼落地页，也是后续讨论与调整的依据。
   本页是手写源文件，没有产生器；改这里就是改源头。
   文案出处：markforged.com/zh 首页、关于我们、FX10／FX20／X7／X7 Field Edition 产品页、材料页（2026-10-29 读取）；
@@ -257,6 +257,7 @@ table.spec thead th{background:var(--k);color:var(--w)}
 .case h3{font-size:19px;line-height:1.4;margin-bottom:8px}
 .case p{font-size:14px;color:var(--g4)}
 .cfilter{display:flex;gap:8px;margin:-10px 0 22px;flex-wrap:wrap}
+@media (max-width:900px){.cfilter{flex-wrap:nowrap;overflow-x:auto;margin:-6px -20px 18px;padding:0 20px 4px;scrollbar-width:none}.cfilter::-webkit-scrollbar{display:none}.cf{white-space:nowrap;flex:none}}
 .cf{background:var(--w);border:1px solid var(--k);font:600 14px "PingFang SC","Noto Sans SC",sans-serif;padding:8px 14px;cursor:pointer;transition:background .2s}
 .cf span{font-family:"MFRubik",sans-serif;font-weight:400;color:var(--g4);margin-left:2px}
 .cf.on{background:var(--k);color:var(--y)}
@@ -378,7 +379,6 @@ body.show-no [data-sec]{outline:2px dashed var(--y);outline-offset:-2px}
   .cases{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:0 -20px;padding:0 20px 4px;scrollbar-width:none}
   .cases::-webkit-scrollbar{display:none}
   .case{flex:0 0 84%;scroll-snap-align:center}
-  .cmore .btn{display:none}
   .sw,.about{grid-template-columns:1fr;gap:26px}
   .ogf h2{font-size:28px}
   .ogf h2 small{font-size:17px}
@@ -601,15 +601,11 @@ body.show-no [data-sec]{outline:2px dashed var(--y);outline-offset:-2px}
 </div></section>
 
 <section class="sec" id="cases" data-sec="08"><span class="secno">08 客户案例</span><div class="wrap">
-  <div class="sec-h rv"><div><span class="k en">CUSTOMERS</span><h2>客户案例</h2><p>跨国企业与食品饮料工厂如何运用 Markforged 降低成本、缩短交期、保持生产线正常运转。</p><div class="rule"></div></div></div>
-  <div class="cfilter rv" role="tablist">
-    <button class="cf on" type="button" data-cf="all">全部 <span></span></button>
-    <button class="cf" type="button" data-cf="mnc">跨国企业 <span></span></button>
-    <button class="cf" type="button" data-cf="fb">食品饮料 <span></span></button>
-  </div>
+  <div class="sec-h rv"><div><span class="k en">CUSTOMERS</span><h2>客户案例</h2><p>汽车、电子、能源、食品饮料与工业制造企业如何运用 Markforged 降低成本、缩短交期、保持生产线正常运转。可按行业筛选，点开看完整数据。</p><div class="rule"></div></div></div>
+  <div class="cfilter rv" role="tablist" id="cfilter"></div>
   <div class="cases" id="caseTrack"></div>
   <div class="cmore"><button class="btn ghost" type="button" id="caseMore">查看全部案例</button><span class="ccount" id="caseCount"></span></div>
-  <p class="src">案例内容与数据取自 Markforged 官方客户案例与应用焦点；点开卡片可看完整数据。</p>
+  <p class="src">案例内容与数据取自 Markforged 官方客户案例、应用焦点与官方视频；数据为客户在其案例中的结果。</p>
 </div></section>
 
 <section class="sec dark" id="software" data-sec="09"><span class="secno">09 软件</span><div class="wrap sw">
@@ -647,7 +643,7 @@ body.show-no [data-sec]{outline:2px dashed var(--y);outline-offset:-2px}
 <footer class="ft"><div class="wrap">
   <img src="assets/logo_w.png" alt="Markforged">
   <nav><a href="#printers">机型</a><a href="#materials">材料</a><a href="#cases">案例</a><a href="#form">咨询</a><a href="https://markforged.com/zh" target="_blank" rel="noopener">Markforged 官网（海外站点）↗</a></nav>
-  <span>© Markforged · 示范版 v1.4 · 2026-10-29</span>
+  <span>© Markforged · 示范版 v1.5 · 2026-10-29</span>
 </div></footer>
 
 <div class="sticky" id="sticky" data-sec="12"><span class="secno">12 底部固定条</span><span>工业级 3D 打印 · 免费咨询方案与报价</span><a class="btn" href="#form">立即咨询</a></div>
@@ -660,7 +656,7 @@ body.show-no [data-sec]{outline:2px dashed var(--y);outline-offset:-2px}
     <h4>改版讨论</h4>
     <label><input type="checkbox" id="showNo"> 显示区块编号</label>
     <a href="assets/Markforged_landing-page-assets_2026-10-29.zip" download>下载素材包（官方标志、二维码与全部图片）</a>
-    <p>讨论时请用区块编号指出位置，例如「04 现役机型第 2 张卡」。示范版 v1.4 · 2026-10-29。</p>
+    <p>讨论时请用区块编号指出位置，例如「04 现役机型第 2 张卡」。示范版 v1.5 · 2026-10-29。</p>
   </div>
 </div>
 
@@ -777,97 +773,1701 @@ body.show-no [data-sec]{outline:2px dashed var(--y);outline-offset:-2px}
   });
 
   /* cases: official Markforged case studies & application spotlights (simplified Chinese) */
+  /* CASES:BEGIN */
   var CASES = [
-    { c: ["mnc"], img: "assets/cases/MF-OFF-004.jpg", who: "佳能 Canon", ind: "超精密设备制造", num: "1/20",
-      t: "定制夹具与维修件的采购时间缩短至原来的 1/20",
-      b: ["定制夹具与维修件的采购时间缩短至原来的 1/20", "2022 年改善项目的外购件成本降至原来的 1/5", "曝光设备本体约 2 m × 5 m × 3 m，所用元件极为昂贵"],
-      eq: "X7、Onyx、连续碳纤维", kind: "客户成功案例", url: "https://markforged.com/resources/case-studies/canon-inc" },
-    { c: ["mnc"], img: "assets/cases/MF-OFF-018.jpg", who: "西门子能源 Siemens Energy", ind: "燃气轮机", num: "48→18 h",
-      t: "燃气轮机叶片夹具：机加工 48 小时、$250，改为打印 18 小时、$52.79",
-      b: ["燃气轮机叶片夹具：机加工铝 48 小时 × $250，改为打印 Onyx＋连续碳纤维 18 小时 × $52.79", "导入仿真功能后，碳纤维用量最多减少 60%、打印时间最多缩短 75%", "取代原本机加工最长 6 周、硅胶垫片开模成本最高 $10,000 的夹具", "叶片平均重 15 磅、长达 3 英尺，测试气流温度最高 600°F"],
-      eq: "X7、Onyx、连续碳纤维、仿真功能", kind: "客户成功案例", url: "https://markforged.com/resources/case-studies/siemens-energy-technology-application-center" },
-    { c: ["mnc"], img: "assets/cases/MF-OFF-008.jpg", who: "费斯托 Festo", ind: "工业自动化", num: "€80,000",
-      t: "电子元件制造夹具，九个月内省下约 80,000 欧元",
-      b: ["九个月内省下约 80,000 欧元", "已增材制造超过 200 种不同零件，取代铣削或高价外购", "某支架 10 件：机械加工估约 4,000 欧元，改用 Onyx ESD 打印仅 385.88 欧元＋200 欧元人工"],
-      eq: "X7、FX20、Onyx ESD、Eiger", kind: "客户成功案例", url: "https://markforged.com/resources/case-studies/festo" },
-    { c: ["mnc"], img: "assets/cases/MF-OFF-051.jpg", who: "圣戈班 Saint-Gobain", ind: "材料制造", num: "−86%",
-      t: "主轴转接件成本节省 86%，6 个月内收回投资",
-      b: ["主轴转接件成本节省 86%，交期节省 90 天", "购机后 6 个月内达成 100% 投资回收", "400 个主轴转接件若内部机加工，约需 1,200 工时、人工加材料 $47,000", "单件打印 3 小时，下机即可上产线"],
-      eq: "X7、Onyx、连续碳纤维", kind: "客户成功案例", url: "https://markforged.com/resources/case-studies/saint-gobain" },
-    { c: ["mnc"], img: "assets/cases/MF-OFF-032.jpg", who: "维斯塔斯 Vestas", ind: "风电", num: "−85%",
-      t: "金属检具改为纤维增强 Onyx 打印，重量减少 85%",
-      b: ["原金属检具改用纤维增强 Onyx 打印后，重量减少 85%", "Eiger 云端数字库已存放逾 2,000 个 Vestas 零件", "按需检具生产将推广至全部 23 个制造据点", "避雷接收器原以铝材减材制造，至少需 12 周"],
-      eq: "X7、Onyx、连续碳纤维、Eiger", kind: "客户成功案例", url: "https://markforged.com/resources/case-studies/vestas" },
-    { c: ["mnc"], img: "assets/cases/MF-OFF-045.jpg", who: "瓦锡兰 Wärtsilä", ind: "船舶与能源", num: "−75%",
-      t: "CE 认证重载吊具，较实心钢吊具减重 75%",
-      b: ["较原实心钢加工吊具，总重量减少 75%", "八个月内仅工装就省下逾 €100,000，每支工具至少省下 €1,000", "实测吊挂 960 kg 无变形；认证吊挂能力 240 kg（安全系数 4）"],
-      eq: "X7、连续碳纤维", kind: "客户成功案例", url: "https://markforged.com/resources/case-studies/w%C3%A4rtsil%C3%A4-case-study" },
-    { c: ["mnc"], img: "assets/cases/MF-OFF-131.jpg", who: "雅马哈精密科技 Yamaha Fine Technologies", ind: "精密设备", num: "7→1 天",
-      t: "产线夹具交期从约 7 天缩短到 1 天",
-      b: ["夹具前置时间从约 7 天缩短到 1 天（−85%）", "夹具成本降至原本约 25%（−75%）", "代表性夹具由 22 kg 降至约 12 kg", "用于定位、固定、检查辅具、防护罩与配线导引"],
-      eq: "X7、Onyx、连续碳纤维", kind: "应用焦点", url: "https://markforged.com/resources/application-spotlights/sophisticated-production-systems-with-yamaha-fine-technologies" },
-    { c: ["mnc"], img: "assets/cases/MF-OFF-111.jpg", who: "伊顿 Eaton", ind: "电气与动力管理", num: "41×",
-      t: "装配线立柱转接件成本降至 1/4、速度提升 41 倍",
-      b: ["立柱转接件成本降至 1/4、速度提升 41 倍", "玻璃纤维增强使零件可承受原聚碳酸酯件无法承受的循环弯曲负载"],
-      eq: "Onyx、玻璃纤维、连续碳纤维", kind: "应用焦点", url: "https://markforged.com/resources/application-spotlights/stanchion-adapter-assembly-fixture" },
-    { c: ["mnc", "fb"], img: "assets/case_danone.jpg", who: "达能 Danone", ind: "乳品 · 波兰 Bieruń 工厂", num: "−80%",
-      t: "包装线末端工具，374 项零件成本降低 80%",
-      b: ["Bieruń 乳品厂 374 项零件成本降低 80%", "为包装线 3D 打印真空抓手等末端工具", "零件以数小时产出，取代传统定制零件所需的数周", "Markforged X7 在一年内收回了成本"],
-      eq: "X7、Onyx", kind: "应用焦点", url: "https://markforged.com/resources/application-spotlights/end-of-arm-tooling-food-and-beverage-packaging-industry" },
-    { c: ["mnc", "fb"], img: "assets/case_suntory.jpg", who: "三得利 Suntory", ind: "饮料 · 日本榛名工厂", num: "1 天",
-      t: "定制夹具从外包最长一个月，缩短到一天内完成",
-      b: ["单一夹具原外包需数万日元、交期最长一个月，现在一天内完成且成本极低", "定制夹具的生产时间缩短 1/3，显著提高工厂效率", "集团已导入 14 台打印机"],
-      eq: "", kind: "应用焦点", url: "https://markforged.com/resources/application-spotlights/suntory-3d-printing-end-use-jigs-and-fixtures" },
-    { c: ["fb"], img: "assets/case_ampc.jpg", who: "AMPC", ind: "肉类加工", num: "18 h",
-      t: "齿轮故障停产，18 小时内打印并装上两个关键齿轮",
-      b: ["2 个齿轮于 18 小时内打印并装回，产线未损失产能", "替换刀片原须向钢厂订制、单价最高 $10,000，改为打印后仅需数天，成本为其零头", "导入厂区日处理 1,200 头牛、员工逾 1,000 人"],
-      eq: "X7、Onyx、连续碳纤维", kind: "客户成功案例", url: "https://markforged.com/resources/case-studies/ampc-case-study" },
-    { c: ["fb"], img: "assets/cases/MF-OFF-074.jpg", who: "MHM Automation", ind: "食品包装自动化设备", num: "−93%",
-      t: "拆箱机真空歧管整合为单件打印，成本节省 93%",
-      b: ["拆箱机真空歧管整合为单件打印，成本节省 93%", "整体成本持续节省约 75%", "该零件生产时间较外包缩短 32 天"],
-      eq: "X7、Onyx", kind: "应用焦点", url: "https://markforged.com/resources/application-spotlights/mhm-automation" },
-    { c: ["fb"], img: "assets/cases/MF-OFF-088.jpg", who: "食品包装制造商", ind: "食品包装产线", num: "当天",
-      t: "三款定制推板，需求提出当天完成打印并装机",
-      b: ["三款定制推板均于需求提出当天完成打印并安装上线"],
-      eq: "FX10、FX20、X7、Onyx、Smooth TPU 95A、芳纶纤维", kind: "应用焦点", url: "https://markforged.com/resources/application-spotlights/pusher-spotlight" },
-    { c: ["fb"], img: "assets/case_farason.jpg", who: "Farason Corporation", ind: "包装设备", num: "CFR",
-      t: "带定制卡圈法兰的夹爪，连续碳纤维加固",
-      b: ["团队在现场制作零件原型、测试和生产，快速解决客户在制造过程中遇到的问题", "为防止袋子在卡爪闭合时滑落，设计带定制卡圈法兰的夹爪，并用连续碳纤维加固", "另一应用：快换安装板成本仅为传统 CNC 铣削的 25%"],
-      eq: "X7、Onyx、连续碳纤维", kind: "客户成功案例", url: "https://markforged.com/resources/application-spotlights/quick-change-mount-plate" },
-    { c: [], img: "assets/case_lean.jpg", who: "Lean Machine", ind: "工装与夹爪", num: "+66%",
-      t: "定制夹爪生产速度提高 66%，成本削减 75%",
-      b: ["生产速度提高 66%，生产成本削减 75%", "利用 3D 打印的设计灵活性开发定制虎钳卡爪组合，将二十多种 3D 打印组件与现成零件相结合"],
-      eq: "", kind: "应用焦点", url: "" }
-  ];
-  var track = $("#caseTrack"), CUT = 6, cFilter = "all", cAll = false;
+ {
+  "c": [
+   "mnc"
+  ],
+  "img": "assets/cases/MF-OFF-004.jpg",
+  "who": "佳能 Canon",
+  "ind": "超精密设备制造",
+  "num": "1/20",
+  "t": "定制夹具与维修件的采购时间缩短至原来的 1/20",
+  "b": [
+   "定制夹具与维修件的采购时间缩短至原来的 1/20",
+   "2022 年改善项目的外购件成本降至原来的 1/5",
+   "曝光设备本体约 2 m × 5 m × 3 m，所用元件极为昂贵"
+  ],
+  "eq": "X7、Onyx、连续碳纤维",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/canon-inc",
+  "g": "elec",
+  "cardB": [
+   "2022 年改善项目的外购件成本降至原来的 1/5",
+   "曝光设备本体约 2 m × 5 m × 3 m，所用元件极为昂贵"
+  ]
+ },
+ {
+  "c": [
+   "mnc"
+  ],
+  "img": "assets/cases/MF-OFF-018.jpg",
+  "who": "西门子能源 Siemens Energy",
+  "ind": "燃气轮机",
+  "num": "48→18 h",
+  "t": "燃气轮机叶片夹具：机加工 48 小时、$250，改为打印 18 小时、$52.79",
+  "b": [
+   "燃气轮机叶片夹具：机加工铝 48 小时 × $250，改为打印 Onyx＋连续碳纤维 18 小时 × $52.79",
+   "导入仿真功能后，碳纤维用量最多减少 60%、打印时间最多缩短 75%",
+   "取代原本机加工最长 6 周、硅胶垫片开模成本最高 $10,000 的夹具",
+   "叶片平均重 15 磅、长达 3 英尺，测试气流温度最高 600°F"
+  ],
+  "eq": "X7、Onyx、连续碳纤维、仿真功能",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/siemens-energy-technology-application-center",
+  "g": "energy",
+  "cardB": [
+   "导入仿真功能后，碳纤维用量最多减少 60%、打印时间最多缩短 75%",
+   "取代原本机加工最长 6 周、硅胶垫片开模成本最高 $10,000 的夹具"
+  ]
+ },
+ {
+  "c": [
+   "mnc"
+  ],
+  "img": "assets/cases/MF-OFF-008.jpg",
+  "who": "费斯托 Festo",
+  "ind": "工业自动化",
+  "num": "€80,000",
+  "t": "电子元件制造夹具，九个月内省下约 80,000 欧元",
+  "b": [
+   "九个月内省下约 80,000 欧元",
+   "已增材制造超过 200 种不同零件，取代铣削或高价外购",
+   "某支架 10 件：机械加工估约 4,000 欧元，改用 Onyx ESD 打印仅 385.88 欧元＋200 欧元人工"
+  ],
+  "eq": "X7、FX20、Onyx ESD、Eiger",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/festo",
+  "g": "elec",
+  "cardB": [
+   "已增材制造超过 200 种不同零件，取代铣削或高价外购",
+   "某支架 10 件：机械加工估约 4,000 欧元，改用 Onyx ESD 打印仅 385.88 欧元＋200 欧元人工"
+  ]
+ },
+ {
+  "c": [
+   "mnc"
+  ],
+  "img": "assets/cases/MF-OFF-051.jpg",
+  "who": "圣戈班 Saint-Gobain",
+  "ind": "材料制造",
+  "num": "−86%",
+  "t": "主轴转接件成本节省 86%，6 个月内收回投资",
+  "b": [
+   "主轴转接件成本节省 86%，交期节省 90 天",
+   "购机后 6 个月内达成 100% 投资回收",
+   "400 个主轴转接件若内部机加工，约需 1,200 工时、人工加材料 $47,000",
+   "单件打印 3 小时，下机即可上产线"
+  ],
+  "eq": "X7、Onyx、连续碳纤维",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/saint-gobain",
+  "g": "mfg",
+  "cardB": [
+   "购机后 6 个月内达成 100% 投资回收",
+   "400 个主轴转接件若内部机加工，约需 1,200 工时、人工加材料 $47,000"
+  ]
+ },
+ {
+  "c": [
+   "mnc"
+  ],
+  "img": "assets/cases/MF-OFF-032.jpg",
+  "who": "维斯塔斯 Vestas",
+  "ind": "风电",
+  "num": "−85%",
+  "t": "金属检具改为纤维增强 Onyx 打印，重量减少 85%",
+  "b": [
+   "原金属检具改用纤维增强 Onyx 打印后，重量减少 85%",
+   "Eiger 云端数字库已存放逾 2,000 个 Vestas 零件",
+   "按需检具生产将推广至全部 23 个制造据点",
+   "避雷接收器原以铝材减材制造，至少需 12 周"
+  ],
+  "eq": "X7、Onyx、连续碳纤维、Eiger",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/vestas",
+  "g": "energy",
+  "cardB": [
+   "Eiger 云端数字库已存放逾 2,000 个 Vestas 零件",
+   "按需检具生产将推广至全部 23 个制造据点"
+  ]
+ },
+ {
+  "c": [
+   "mnc"
+  ],
+  "img": "assets/cases/MF-OFF-045.jpg",
+  "who": "瓦锡兰 Wärtsilä",
+  "ind": "船舶与能源",
+  "num": "−75%",
+  "t": "CE 认证重载吊具，较实心钢吊具减重 75%",
+  "b": [
+   "较原实心钢加工吊具，总重量减少 75%",
+   "八个月内仅工装就省下逾 €100,000，每支工具至少省下 €1,000",
+   "实测吊挂 960 kg 无变形；认证吊挂能力 240 kg（安全系数 4）"
+  ],
+  "eq": "X7、连续碳纤维",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/w%C3%A4rtsil%C3%A4-case-study",
+  "g": "energy",
+  "cardB": [
+   "八个月内仅工装就省下逾 €100,000，每支工具至少省下 €1,000",
+   "实测吊挂 960 kg 无变形；认证吊挂能力 240 kg（安全系数 4）"
+  ]
+ },
+ {
+  "c": [
+   "mnc"
+  ],
+  "img": "assets/cases/MF-OFF-131.jpg",
+  "who": "雅马哈精密科技 Yamaha Fine Technologies",
+  "ind": "精密设备",
+  "num": "7→1 天",
+  "t": "产线夹具交期从约 7 天缩短到 1 天",
+  "b": [
+   "夹具前置时间从约 7 天缩短到 1 天（−85%）",
+   "夹具成本降至原本约 25%（−75%）",
+   "代表性夹具由 22 kg 降至约 12 kg",
+   "用于定位、固定、检查辅具、防护罩与配线导引"
+  ],
+  "eq": "X7、Onyx、连续碳纤维",
+  "kind": "应用焦点",
+  "url": "https://markforged.com/resources/application-spotlights/sophisticated-production-systems-with-yamaha-fine-technologies",
+  "g": "auto",
+  "cardB": [
+   "夹具成本降至原本约 25%（−75%）",
+   "代表性夹具由 22 kg 降至约 12 kg"
+  ]
+ },
+ {
+  "c": [
+   "mnc"
+  ],
+  "img": "assets/cases/MF-OFF-111.jpg",
+  "who": "伊顿 Eaton",
+  "ind": "电气与动力管理",
+  "num": "41×",
+  "t": "装配线立柱转接件成本降至 1/4、速度提升 41 倍",
+  "b": [
+   "立柱转接件成本降至 1/4、速度提升 41 倍",
+   "玻璃纤维增强使零件可承受原聚碳酸酯件无法承受的循环弯曲负载"
+  ],
+  "eq": "Onyx、玻璃纤维、连续碳纤维",
+  "kind": "应用焦点",
+  "url": "https://markforged.com/resources/application-spotlights/stanchion-adapter-assembly-fixture",
+  "g": "mfg",
+  "cardB": [
+   "玻璃纤维增强使零件可承受原聚碳酸酯件无法承受的循环弯曲负载"
+  ]
+ },
+ {
+  "c": [
+   "mnc",
+   "fb"
+  ],
+  "img": "assets/case_danone.jpg",
+  "who": "达能 Danone",
+  "ind": "乳品 · 波兰 Bieruń 工厂",
+  "num": "−80%",
+  "t": "包装线末端工具，374 项零件成本降低 80%",
+  "b": [
+   "Bieruń 乳品厂 374 项零件成本降低 80%",
+   "为包装线 3D 打印真空抓手等末端工具",
+   "零件以数小时产出，取代传统定制零件所需的数周",
+   "Markforged X7 在一年内收回了成本"
+  ],
+  "eq": "X7、Onyx",
+  "kind": "应用焦点",
+  "url": "https://markforged.com/resources/application-spotlights/end-of-arm-tooling-food-and-beverage-packaging-industry",
+  "g": "pack",
+  "cardB": [
+   "为包装线 3D 打印真空抓手等末端工具",
+   "零件以数小时产出，取代传统定制零件所需的数周"
+  ]
+ },
+ {
+  "c": [
+   "mnc",
+   "fb"
+  ],
+  "img": "assets/case_suntory.jpg",
+  "who": "三得利 Suntory",
+  "ind": "饮料 · 日本榛名工厂",
+  "num": "1 天",
+  "t": "定制夹具从外包最长一个月，缩短到一天内完成",
+  "b": [
+   "单一夹具原外包需数万日元、交期最长一个月，现在一天内完成且成本极低",
+   "定制夹具的生产时间缩短 1/3，显著提高工厂效率",
+   "集团已导入 14 台打印机"
+  ],
+  "eq": "",
+  "kind": "应用焦点",
+  "url": "https://markforged.com/resources/application-spotlights/suntory-3d-printing-end-use-jigs-and-fixtures",
+  "g": "pack",
+  "cardB": [
+   "定制夹具的生产时间缩短 1/3，显著提高工厂效率",
+   "集团已导入 14 台打印机"
+  ]
+ },
+ {
+  "c": [
+   "fb"
+  ],
+  "img": "assets/case_ampc.jpg",
+  "who": "AMPC",
+  "ind": "肉类加工",
+  "num": "18 h",
+  "t": "齿轮故障停产，18 小时内打印并装上两个关键齿轮",
+  "b": [
+   "2 个齿轮于 18 小时内打印并装回，产线未损失产能",
+   "替换刀片原须向钢厂订制、单价最高 $10,000，改为打印后仅需数天，成本为其零头",
+   "导入厂区日处理 1,200 头牛、员工逾 1,000 人"
+  ],
+  "eq": "X7、Onyx、连续碳纤维",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/ampc-case-study",
+  "g": "pack",
+  "cardB": [
+   "替换刀片原须向钢厂订制、单价最高 $10,000，改为打印后仅需数天，成本为其零头",
+   "导入厂区日处理 1,200 头牛、员工逾 1,000 人"
+  ]
+ },
+ {
+  "c": [
+   "fb"
+  ],
+  "img": "assets/cases/MF-OFF-074.jpg",
+  "who": "MHM Automation",
+  "ind": "食品包装自动化设备",
+  "num": "−93%",
+  "t": "拆箱机真空歧管整合为单件打印，成本节省 93%",
+  "b": [
+   "拆箱机真空歧管整合为单件打印，成本节省 93%",
+   "整体成本持续节省约 75%",
+   "该零件生产时间较外包缩短 32 天"
+  ],
+  "eq": "X7、Onyx",
+  "kind": "应用焦点",
+  "url": "https://markforged.com/resources/application-spotlights/mhm-automation",
+  "g": "pack",
+  "cardB": [
+   "整体成本持续节省约 75%",
+   "该零件生产时间较外包缩短 32 天"
+  ]
+ },
+ {
+  "c": [
+   "fb"
+  ],
+  "img": "assets/cases/MF-OFF-088.jpg",
+  "who": "食品包装制造商",
+  "ind": "食品包装产线",
+  "num": "当天",
+  "t": "三款定制推板，需求提出当天完成打印并装机",
+  "b": [
+   "三款定制推板均于需求提出当天完成打印并安装上线"
+  ],
+  "eq": "FX10、FX20、X7、Onyx、Smooth TPU 95A、芳纶纤维",
+  "kind": "应用焦点",
+  "url": "https://markforged.com/resources/application-spotlights/pusher-spotlight",
+  "g": "pack",
+  "cardB": []
+ },
+ {
+  "c": [
+   "fb"
+  ],
+  "img": "assets/case_farason.jpg",
+  "who": "Farason Corporation",
+  "ind": "包装设备",
+  "num": "CFR",
+  "t": "带定制卡圈法兰的夹爪，连续碳纤维加固",
+  "b": [
+   "团队在现场制作零件原型、测试和生产，快速解决客户在制造过程中遇到的问题",
+   "为防止袋子在卡爪闭合时滑落，设计带定制卡圈法兰的夹爪，并用连续碳纤维加固",
+   "另一应用：快换安装板成本仅为传统 CNC 铣削的 25%"
+  ],
+  "eq": "X7、Onyx、连续碳纤维",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/application-spotlights/quick-change-mount-plate",
+  "g": "pack",
+  "cardB": [
+   "为防止袋子在卡爪闭合时滑落，设计带定制卡圈法兰的夹爪，并用连续碳纤维加固",
+   "另一应用：快换安装板成本仅为传统 CNC 铣削的 25%"
+  ]
+ },
+ {
+  "c": [],
+  "img": "assets/case_lean.jpg",
+  "who": "Lean Machine",
+  "ind": "工装与夹爪",
+  "num": "+66%",
+  "t": "定制夹爪生产速度提高 66%，成本削减 75%",
+  "b": [
+   "生产速度提高 66%，生产成本削减 75%",
+   "利用 3D 打印的设计灵活性开发定制虎钳卡爪组合，将二十多种 3D 打印组件与现成零件相结合"
+  ],
+  "eq": "",
+  "kind": "应用焦点",
+  "url": "",
+  "g": "mfg",
+  "cardB": [
+   "利用 3D 打印的设计灵活性开发定制虎钳卡爪组合，将二十多种 3D 打印组件与现成零件相结合"
+  ]
+ },
+ {
+  "c": [],
+  "g": "air",
+  "img": "assets/cases/MF-OFF-038.jpg",
+  "who": "Cabin Management Solutions",
+  "ind": "航空 · 航空内装／客舱零件",
+  "num": "",
+  "t": "私人飞机阻燃客舱零件",
+  "b": [
+   "单一架飞机上以 X7 打印至少 100 种不同零件",
+   "2019 年开业当年即导入 2 台 X7 工业打印机",
+   "全部零件以 Onyx FR 打印，具 UL 94 V-0 阻燃认证"
+  ],
+  "cardB": [
+   "单一架飞机上以 X7 打印至少 100 种不同零件",
+   "2019 年开业当年即导入 2 台 X7 工业打印机"
+  ],
+  "eq": "X7、Onyx FR、连续碳纤维、Onyx FR-A、连续碳纤维 FR-A",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/cabin-management-solutions"
+ },
+ {
+  "c": [],
+  "g": "air",
+  "img": "assets/cases/MF-OFF-089.jpg",
+  "who": "Hangar One Avionics",
+  "ind": "航空 · 航空内装／客舱零件",
+  "num": "",
+  "t": "飞机驾驶舱控制台与杯架",
+  "b": [
+   "传统机加工制作这些零件的废料率最高达 65%"
+  ],
+  "cardB": [
+   "传统机加工制作这些零件的废料率最高达 65%"
+  ],
+  "eq": "X7、Onyx FR、连续碳纤维",
+  "kind": "应用焦点",
+  "url": "https://markforged.com/resources/application-spotlights/hangar-one-avionics-cockpit-console-and-cupholders"
+ },
+ {
+  "c": [],
+  "g": "air",
+  "img": "assets/cases/MF-OFF-107.jpg",
+  "who": "JJ Churchill",
+  "ind": "航空 · 质量检测／测量夹具",
+  "num": "",
+  "t": "航空CMM检测夹具",
+  "b": [
+   "CMM 检测夹具制作速度提升 70%、成本降低 80%"
+  ],
+  "cardB": [
+   "CMM 检测夹具制作速度提升 70%、成本降低 80%"
+  ],
+  "eq": "Onyx、连续碳纤维",
+  "kind": "应用焦点",
+  "url": "https://markforged.com/resources/application-spotlights/cmm-fixture"
+ },
+ {
+  "c": [],
+  "g": "auto",
+  "img": "assets/cases/MF-OFF-001.jpg",
+  "who": "Larsen Motorsports",
+  "ind": "汽车 · 车辆操控件／结构件",
+  "num": "",
+  "t": "喷气式赛车方向盘",
+  "b": [
+   "零件交期从 8 天缩短至 2 天",
+   "从设计到成品仅 48 小时，过去需 8 天以上"
+  ],
+  "cardB": [
+   "零件交期从 8 天缩短至 2 天",
+   "从设计到成品仅 48 小时，过去需 8 天以上"
+  ],
+  "eq": "X7、连续碳纤维、Onyx",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/tw/resources/case-studies/jet-dragster-teams-replacing-metal-parts-with-3d-printed-composites"
+ },
+ {
+  "c": [],
+  "g": "auto",
+  "img": "assets/cases/MF-OFF-016.jpg",
+  "who": "Hawaya Racing",
+  "ind": "汽车 · 切削与机床辅具",
+  "num": "",
+  "t": "哈雷直线竞速摩托车复合材料零件",
+  "b": [
+   "3D 打印握把较机加工铝件轻 62%",
+   "生产成本较机加工铝件低 30%"
+  ],
+  "cardB": [
+   "3D 打印握把较机加工铝件轻 62%",
+   "生产成本较机加工铝件低 30%"
+  ],
+  "eq": "X7、Onyx、连续碳纤维",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/hawaya-racing"
+ },
+ {
+  "c": [],
+  "g": "auto",
+  "img": "assets/cases/MF-OFF-021.jpg",
+  "who": "PUNCH Torino",
+  "ind": "汽车 · 生产夹具／工装",
+  "num": "",
+  "t": "凸轮轴锁止工具与仿真验证",
+  "b": [
+   "每支夹具所需原型件由 8 件降为 1 件",
+   "单支夹具总打印时间由 144 小时降至 18 小时",
+   "开发时间由 3–4 周缩短至 1 周，整体开发时间缩短逾 50%",
+   "单支夹具材料成本由 €1,400 降至 €200",
+   "夹具须承受最高 120 牛顿米扭矩且不得有任何角度转动"
+  ],
+  "cardB": [
+   "每支夹具所需原型件由 8 件降为 1 件",
+   "单支夹具总打印时间由 144 小时降至 18 小时"
+  ],
+  "eq": "X7、Onyx、连续碳纤维、仿真功能、Eiger、Digital Forge",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/punch-torino"
+ },
+ {
+  "c": [
+   "mnc"
+  ],
+  "g": "auto",
+  "img": "assets/cases/MF-OFF-039.jpg",
+  "who": "Dana Incorporated",
+  "ind": "汽车 · 柔性制造／按需生产",
+  "num": "",
+  "t": "全球工厂分布式增材制造",
+  "b": [
+   "每套夹具成本节省 70%、交期缩短 90%",
+   "夹具连续投产超过一年未失效",
+   "Markforged 设备已部署于 7 个国家",
+   "逾 150 位员工完成 Markforged University 培训"
+  ],
+  "cardB": [
+   "每套夹具成本节省 70%、交期缩短 90%",
+   "夹具连续投产超过一年未失效"
+  ],
+  "eq": "X7、Onyx、连续碳纤维、Eiger",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/dana-incorporated"
+ },
+ {
+  "c": [],
+  "g": "auto",
+  "img": "assets/cases/MF-OFF-048.jpg",
+  "who": "Garry Rogers Motorsport",
+  "ind": "汽车 · 柔性制造／按需生产",
+  "num": "",
+  "t": "赛车轻量化零件",
+  "b": [
+   "成本节省 92%、时间节省 92%",
+   "已打印 325 个终端使用零件",
+   "刹车导风管母模由 A$1,000（约 US$670）／2 周，降为 A$75（约 US$50）／24 小时"
+  ],
+  "cardB": [
+   "成本节省 92%、时间节省 92%",
+   "已打印 325 个终端使用零件"
+  ],
+  "eq": "连续碳纤维、玻璃纤维",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/garry-rogers-motorsport"
+ },
+ {
+  "c": [],
+  "g": "auto",
+  "img": "assets/cases/MF-OFF-052.jpg",
+  "who": "Dunlop Systems",
+  "ind": "汽车 · 生产夹具／工装",
+  "num": "",
+  "t": "电动车定制夹具",
+  "b": [
+   "六个月内节省 £20,000",
+   "工装年度支出由约 £20,000 降至 £11,000，省下 £9,000",
+   "某批零件报价由 £8,000 降至 £2,000",
+   "依此进度全年可望节省 £40,000"
+  ],
+  "cardB": [
+   "六个月内节省 £20,000",
+   "工装年度支出由约 £20,000 降至 £11,000，省下 £9,000"
+  ],
+  "eq": "Onyx、连续碳纤维",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/dunlop-systems"
+ },
+ {
+  "c": [],
+  "g": "auto",
+  "img": "assets/cases/MF-OFF-059.jpg",
+  "who": "HydraTune",
+  "ind": "汽车 · 终端使用零件",
+  "num": "",
+  "t": "执行器花键",
+  "b": [
+   "花键单价由外包 $495 降至打印 $90",
+   "交期由外包 8 周缩短至 3–4 天（含后处理）",
+   "以 FX10 打印 17-4v2 即可达到所需公差与强度"
+  ],
+  "cardB": [
+   "花键单价由外包 $495 降至打印 $90",
+   "交期由外包 8 周缩短至 3–4 天（含后处理）"
+  ],
+  "eq": "FX10",
+  "kind": "应用焦点",
+  "url": "https://markforged.com/resources/application-spotlights/hydratune-application-spotlight-actuator-spline"
+ },
+ {
+  "c": [],
+  "g": "auto",
+  "img": "assets/cases/MF-OFF-060.jpg",
+  "who": "HydraTune",
+  "ind": "汽车 · 终端使用零件",
+  "num": "",
+  "t": "电池包",
+  "b": [
+   "单件成本降至 $220，较原方式减少三分之二",
+   "交期由外包 8 周缩短至自行打印 1 天"
+  ],
+  "cardB": [
+   "单件成本降至 $220，较原方式减少三分之二",
+   "交期由外包 8 周缩短至自行打印 1 天"
+  ],
+  "eq": "FX10、Onyx、Eiger",
+  "kind": "应用焦点",
+  "url": "https://markforged.com/resources/application-spotlights/hydratune-application-spotlight-battery-pack"
+ },
+ {
+  "c": [],
+  "g": "auto",
+  "img": "assets/cases/MF-OFF-061.jpg",
+  "who": "HydraTune",
+  "ind": "汽车 · 终端使用零件",
+  "num": "",
+  "t": "FlexAdjust适配器",
+  "b": [
+   "交期节省 94%、成本节省 70%",
+   "交期由 6–8 周缩短至 2–3 天（含后处理）",
+   "转接件单价由外包 $495 降至以 FX10 打印不锈钢约 $80",
+   "支架单价由 $300 降至 $90，重量下降且可整夜打印完成",
+   "FlexAdjust 转接件使基本型可涵盖逾 85% 应用场景"
+  ],
+  "cardB": [
+   "交期节省 94%、成本节省 70%",
+   "交期由 6–8 周缩短至 2–3 天（含后处理）"
+  ],
+  "eq": "FX10、Onyx",
+  "kind": "应用焦点",
+  "url": "https://markforged.com/resources/application-spotlights/hydratune-application-spotlight-flexadjust-adaptor"
+ },
+ {
+  "c": [],
+  "g": "auto",
+  "img": "assets/cases/MF-OFF-073.jpg",
+  "who": "Bremar Automotion",
+  "ind": "汽车 · 模具／成形工具",
+  "num": "",
+  "t": "折弯机工具",
+  "b": [
+   "生产时间较传统制具缩短为 1/8",
+   "仅需 100 件的小批量，CNC 加工成本过高",
+   "设计微调可于一夜内完成并重印"
+  ],
+  "cardB": [
+   "生产时间较传统制具缩短为 1/8",
+   "仅需 100 件的小批量，CNC 加工成本过高"
+  ],
+  "eq": "X7、Onyx",
+  "kind": "应用焦点",
+  "url": "https://markforged.com/resources/application-spotlights/bremar-application-spotlight"
+ },
+ {
+  "c": [
+   "mnc"
+  ],
+  "g": "auto",
+  "img": "assets/cases/MF-OFF-094.jpg",
+  "who": "Dana Incorporated",
+  "ind": "汽车 · 终端使用零件",
+  "num": "",
+  "t": "齿轮",
+  "b": [
+   "每套夹具成本节省 70%",
+   "每套夹具交期缩短 90%"
+  ],
+  "cardB": [
+   "每套夹具成本节省 70%",
+   "每套夹具交期缩短 90%"
+  ],
+  "eq": "X7、Onyx、连续碳纤维",
+  "kind": "应用焦点",
+  "url": "https://markforged.com/resources/application-spotlights/dana-incorporated-gears"
+ },
+ {
+  "c": [],
+  "g": "auto",
+  "img": "assets/cases/MF-OFF-106.jpg",
+  "who": "SDHQ",
+  "ind": "汽车 · 生产夹具／工装",
+  "num": "",
+  "t": "焊接夹具",
+  "b": [
+   "焊接夹具制作速度提升 99%、成本降低 93%"
+  ],
+  "cardB": [
+   "焊接夹具制作速度提升 99%、成本降低 93%"
+  ],
+  "eq": "Onyx",
+  "kind": "应用焦点",
+  "url": "https://markforged.com/resources/application-spotlights/welding-fixtures"
+ },
+ {
+  "c": [],
+  "g": "auto",
+  "img": "assets/cases/MF-OFF-117.jpg",
+  "who": "Humanetics",
+  "ind": "汽车 · 测试假人模具",
+  "num": "",
+  "t": "热固性模具",
+  "b": [
+   "模具成本降至 1/4、速度提升 2.5 倍",
+   "所取代的硅胶机加工模具需 144 小时、$1,000",
+   "HSHT 高强度耐高温玻纤使模具可承受热固成型环境"
+  ],
+  "cardB": [
+   "模具成本降至 1/4、速度提升 2.5 倍",
+   "所取代的硅胶机加工模具需 144 小时、$1,000"
+  ],
+  "eq": "X7、Onyx、HSHT 高温高强度玻纤、玻璃纤维",
+  "kind": "应用焦点",
+  "url": "https://markforged.com/resources/application-spotlights/thermoset-mold"
+ },
+ {
+  "c": [],
+  "g": "auto",
+  "img": "assets/cases/MF-OFF-133.jpg",
+  "who": "小岛冲压工业",
+  "ind": "汽车 · 机器人末端工具／夹爪",
+  "num": "",
+  "t": "机器人夹爪零件（减重后机器人不必加大规格）",
+  "b": [
+   "3D 打印机器人夹爪零件的制作成本，比传统机械加工件降低 67%",
+   "零件交期：委外加工 14 天，改用 Markforged 厂内打印 1 天",
+   "部分零件的设计工时约减少 30%（直接用 3D CAD 数据打印，不必再出 2D 加工图）"
+  ],
+  "cardB": [
+   "3D 打印机器人夹爪零件的制作成本，比传统机械加工件降低 67%",
+   "零件交期：委外加工 14 天，改用 Markforged 厂内打印 1 天"
+  ],
+  "eq": "X7",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/robotic-tooling-with-kojima-industries-corporation"
+ },
+ {
+  "c": [],
+  "g": "elec",
+  "img": "assets/cases/MF-OFF-026.jpg",
+  "who": "KST Moschkau",
+  "ind": "电子与半导体 · ProAV／安防系统终端件",
+  "num": "",
+  "t": "ProAV与安防系统小批量生产",
+  "b": [
+   "总交期 2 天，原需 3–4 周",
+   "三件式摄影机座总生产成本 $443.99，为原方式的 1/6",
+   "FX20 的 525×400×400 mm 成型空间可一次排入 3 个零件"
+  ],
+  "cardB": [
+   "总交期 2 天，原需 3–4 周",
+   "三件式摄影机座总生产成本 $443.99，为原方式的 1/6"
+  ],
+  "eq": "FX20、Onyx、连续碳纤维、Digital Forge",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/kst-moschkau-fx20-customer-success-story"
+ },
+ {
+  "c": [],
+  "g": "elec",
+  "img": "assets/cases/MF-OFF-096.jpg",
+  "who": "Columbia Elektronik",
+  "ind": "电子与半导体 · 质量检测／测量夹具",
+  "num": "",
+  "t": "Onyx ESD电子测试夹具",
+  "b": [
+   "ESD 夹具由两件式改为单件式，免除额外组装工时与工装"
+  ],
+  "cardB": [
+   "ESD 夹具由两件式改为单件式，免除额外组装工时与工装"
+  ],
+  "eq": "X7、Onyx ESD",
+  "kind": "应用焦点",
+  "url": "https://markforged.com/resources/application-spotlights/columbia-elektronik-ab-onyx-esd-testing-fixtures"
+ },
+ {
+  "c": [
+   "mnc"
+  ],
+  "g": "elec",
+  "img": "assets/cases/MF-OFF-104.jpg",
+  "who": "Brooks Automation",
+  "ind": "电子与半导体 · 机器人末端工具／夹爪",
+  "num": "",
+  "t": "功能型末端执行器原型",
+  "b": [
+   "功能原型末端执行器制作速度提升 92%、成本降低 86%"
+  ],
+  "cardB": [
+   "功能原型末端执行器制作速度提升 92%、成本降低 86%"
+  ],
+  "eq": "连续碳纤维",
+  "kind": "应用焦点",
+  "url": "https://markforged.com/resources/application-spotlights/functional-prototypes-brooks-automation"
+ },
+ {
+  "c": [],
+  "g": "energy",
+  "img": "assets/cases/MF-OFF-028.jpg",
+  "who": "Pipeline Design & Engineering",
+  "ind": "能源 · 终端使用零件",
+  "num": "",
+  "t": "工程服务与终端零件创业实践",
+  "b": [
+   "同样十余个零件以传统方式制作约需 $3,000–4,000、交期三周",
+   "单一项目打印 50–60 个定制零件，省下逾 $30,000 与数个月时间",
+   "首次出现打印问题前已连续打印逾 100 件"
+  ],
+  "cardB": [
+   "同样十余个零件以传统方式制作约需 $3,000–4,000、交期三周",
+   "单一项目打印 50–60 个定制零件，省下逾 $30,000 与数个月时间"
+  ],
+  "eq": "X7、连续碳纤维、Eiger",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/q-a-pipeline-design-engineering"
+ },
+ {
+  "c": [
+   "mnc"
+  ],
+  "g": "energy",
+  "img": "assets/cases/MF-OFF-046.jpg",
+  "who": "Siemens Energy Innovation Center",
+  "ind": "能源 · 涡轮维修工具／夹具",
+  "num": "",
+  "t": "燃气轮机维修工具",
+  "b": [
+   "以 7 台 X7 打印切削工具原型，除气动主轴与少数标准螺丝外全部打印",
+   "涡轮零件修复现可在例行检修的 3 个班次内完成"
+  ],
+  "cardB": [
+   "以 7 台 X7 打印切削工具原型，除气动主轴与少数标准螺丝外全部打印",
+   "涡轮零件修复现可在例行检修的 3 个班次内完成"
+  ],
+  "eq": "X7、连续碳纤维",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/siemens-energy-innovation-center"
+ },
+ {
+  "c": [
+   "mnc"
+  ],
+  "g": "energy",
+  "img": "assets/cases/MF-OFF-054.jpg",
+  "who": "Siemens Energy Sweden",
+  "ind": "能源 · 涡轮维修工具／夹具",
+  "num": "",
+  "t": "燃油喷嘴后处理夹具",
+  "b": [
+   "由概念到打印，较传统机加工夹具节省 10% 时间"
+  ],
+  "cardB": [
+   "由概念到打印，较传统机加工夹具节省 10% 时间"
+  ],
+  "eq": "X7、Onyx、连续碳纤维",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/siemens-fuel-injector-nozzle-fixture"
+ },
+ {
+  "c": [
+   "mnc"
+  ],
+  "g": "energy",
+  "img": "assets/cases/MF-OFF-055.jpg",
+  "who": "Siemens Gas & Power Orlando",
+  "ind": "能源 · 涡轮维修工具／夹具",
+  "num": "",
+  "t": "燃气轮机现场维修圆锯壳体",
+  "b": [
+   "每支工具节省逾 $8,000：单一支定制圆锯即达此数，其他应用累计再省数十万美元",
+   "每支工具节省 35 周",
+   "全事业部 100 位 Markforged 使用者",
+   "工程师原需等待逾 3 周才能拿到定制手工具"
+  ],
+  "cardB": [
+   "每支工具节省逾 $8,000：单一支定制圆锯即达此数，其他应用累计再省数十万美元",
+   "每支工具节省 35 周"
+  ],
+  "eq": "X7、连续碳纤维、Onyx",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/siemens-circular-saw"
+ },
+ {
+  "c": [
+   "mnc"
+  ],
+  "g": "energy",
+  "img": "assets/cases/MF-OFF-099.jpg",
+  "who": "Siemens Innovation Center",
+  "ind": "能源 · 涡轮维修工具／夹具",
+  "num": "",
+  "t": "燃气轮机切削工具",
+  "b": [
+   "以 7 台 X7 打印工具原型，除气动主轴与少数标准螺丝外全部打印"
+  ],
+  "cardB": [
+   "以 7 台 X7 打印工具原型，除气动主轴与少数标准螺丝外全部打印"
+  ],
+  "eq": "X7",
+  "kind": "应用焦点",
+  "url": "https://markforged.com/resources/application-spotlights/siemens-innovation-center-cutback-tool"
+ },
+ {
+  "c": [
+   "mnc"
+  ],
+  "g": "energy",
+  "img": "assets/cases/MF-OFF-132.jpg",
+  "who": "Vestas",
+  "ind": "能源 · 质量检测／测量夹具",
+  "num": "",
+  "t": "Go/No-Go 检具与校验夹具的 FOD 异物防呆（高辨识度 Onyx GF＋AI 机器视觉）",
+  "b": [
+   "模具停机每小时约损失 7,000 美元产值",
+   "单次工具遗留事故若需全天修补，单一厂区损失可达 168,000 美元以上",
+   "零件下机即符合 ISO 安全色标准，免喷漆、免染色（后处理归零）",
+   "以 2D 相机色彩对比自动检测异物",
+   "白色玻纤背景下人眼易漏看的物件可被机器视觉拦下"
+  ],
+  "cardB": [
+   "模具停机每小时约损失 7,000 美元产值",
+   "单次工具遗留事故若需全天修补，单一厂区损失可达 168,000 美元以上"
+  ],
+  "eq": "Onyx GF、Onyx",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/the-7-000-per-hour-catch-zero-fod-foreign-object-debris-prevention-with-vestas"
+ },
+ {
+  "c": [],
+  "g": "medu",
+  "img": "assets/cases/MF-OFF-044.jpg",
+  "who": "Shukla Medical",
+  "ind": "医疗与教育 · 医疗器械／辅具",
+  "num": "",
+  "t": "手术器械功能原型",
+  "b": [
+   "每月节省 $10,000",
+   "产品开发累计节省逾 430 天",
+   "手术室成本视医院与术式介于 $35 至 $100 以上，故每省下一分开发时间都有价值"
+  ],
+  "cardB": [
+   "每月节省 $10,000",
+   "产品开发累计节省逾 430 天"
+  ],
+  "eq": "连续碳纤维",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/shukla-medical-case-study"
+ },
+ {
+  "c": [],
+  "g": "medu",
+  "img": "assets/cases/MF-OFF-053.jpg",
+  "who": "Neurophotometrics",
+  "ind": "医疗与教育 · 医疗器械／辅具",
+  "num": "",
+  "t": "神经科学成像设备",
+  "b": [
+   "7 台 Markforged 复合材料打印机组成打印农场",
+   "投产前两年累计超过 14,500 打印机运转小时",
+   "约 90% 的打印机运转时数用于打印终端使用零件，而非原型",
+   "光学外壳：打印耗时 2 天多，材料成本略高于 50 美元",
+   "电子外壳：打印耗时略低于 11 小时",
+   "前两年耗用超过 100 卷线材",
+   "产品已出货至 10 个国家"
+  ],
+  "cardB": [
+   "7 台 Markforged 复合材料打印机组成打印农场",
+   "投产前两年累计超过 14,500 打印机运转小时"
+  ],
+  "eq": "Onyx",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/neurophotometrics-microscope"
+ },
+ {
+  "c": [],
+  "g": "pack",
+  "img": "assets/cases/MF-OFF-012.jpg",
+  "who": "Vogel Druck",
+  "ind": "包装与消费品 · 备件／数字库存",
+  "num": "",
+  "t": "印刷设备按需备件",
+  "b": [
+   "机器“手指”零件更换成本由约 €450 降至打印 €3.50",
+   "每年更换 30–40 支，短期内省下约 €20,000",
+   "备件由供应商交期 6–8 周，缩短为打印后 4 小时取件",
+   "备件成本节省逾 90%",
+   "通过设备优化，产出视产品最高可提升 20%"
+  ],
+  "cardB": [
+   "机器“手指”零件更换成本由约 €450 降至打印 €3.50",
+   "每年更换 30–40 支，短期内省下约 €20,000"
+  ],
+  "eq": "Onyx、连续碳纤维、Digital Forge",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/vogel-druck"
+ },
+ {
+  "c": [],
+  "g": "pack",
+  "img": "assets/cases/MF-OFF-024.jpg",
+  "who": "Clenaware Systems",
+  "ind": "包装与消费品 · 功能原型／产品开发",
+  "num": "",
+  "t": "商用玻璃清洗设备零件",
+  "b": [
+   "Airack 玻璃烘干机 75% 零件改为打印后，生产时间缩短 10–15%",
+   "单台机器约 600 个零件，其中 75% 自行设计、25% 为标准件"
+  ],
+  "cardB": [
+   "Airack 玻璃烘干机 75% 零件改为打印后，生产时间缩短 10–15%",
+   "单台机器约 600 个零件，其中 75% 自行设计、25% 为标准件"
+  ],
+  "eq": "Onyx、连续碳纤维",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/clenaware-systems"
+ },
+ {
+  "c": [],
+  "g": "pack",
+  "img": "assets/cases/MF-OFF-076.jpg",
+  "who": "Farason Corporation",
+  "ind": "包装与消费品 · 切削与机床辅具",
+  "num": "",
+  "t": "小包装容器",
+  "b": [
+   "定制容器须控制在每个 $500 的紧缩制作预算内，远低于传统运输方案成本"
+  ],
+  "cardB": [
+   "定制容器须控制在每个 $500 的紧缩制作预算内，远低于传统运输方案成本"
+  ],
+  "eq": "X7、Onyx",
+  "kind": "应用焦点",
+  "url": "https://markforged.com/resources/application-spotlights/small-package-container"
+ },
+ {
+  "c": [],
+  "g": "pack",
+  "img": "assets/cases/MF-OFF-105.jpg",
+  "who": "Centor",
+  "ind": "包装与消费品 · 功能原型／产品开发",
+  "num": "",
+  "t": "定制门五金功能原型",
+  "b": [
+   "定制门五金原型制作速度提升 93%、成本降低 99%",
+   "设备现已几乎 24/7 全天候运转"
+  ],
+  "cardB": [
+   "定制门五金原型制作速度提升 93%、成本降低 99%",
+   "设备现已几乎 24/7 全天候运转"
+  ],
+  "eq": "",
+  "kind": "应用焦点",
+  "url": "https://markforged.com/resources/application-spotlights/functional-prototypes-centor"
+ },
+ {
+  "c": [],
+  "g": "robot",
+  "img": "assets/cases/MF-OFF-005.jpg",
+  "who": "TMG Impianti",
+  "ind": "机器人与自动化 · 功能原型／产品开发",
+  "num": "",
+  "t": "末端生产线自动化定制零件",
+  "b": [
+   "单台 X7 一年内生产 1,450 个零件、累计 6,500 打印小时",
+   "6,500 小时相当于全年可用时数的 75%，接近连续生产",
+   "自动化产线平均使用寿命 20–25 年，备件支持须跨越数十年"
+  ],
+  "cardB": [
+   "单台 X7 一年内生产 1,450 个零件、累计 6,500 打印小时",
+   "6,500 小时相当于全年可用时数的 75%，接近连续生产"
+  ],
+  "eq": "X7、FX20、连续碳纤维、芳纶纤维",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/tmg-impianti"
+ },
+ {
+  "c": [],
+  "g": "robot",
+  "img": "assets/cases/MF-OFF-011.jpg",
+  "who": "Harvestance",
+  "ind": "机器人与自动化 · 机器人末端工具／夹爪",
+  "num": "",
+  "t": "协作机器人真空夹具",
+  "b": [
+   "夹爪重量较市售标准品减轻 80%",
+   "较 CNC 加工夹爪，交期由 2 周缩短至 2 天",
+   "导入 FX20 后产能提升 3–4 倍",
+   "基准：传统 CNC 铝制夹爪重达 1–2 kg 以上"
+  ],
+  "cardB": [
+   "夹爪重量较市售标准品减轻 80%",
+   "较 CNC 加工夹爪，交期由 2 周缩短至 2 天"
+  ],
+  "eq": "FX20、Onyx、连续碳纤维、玻璃纤维、Digital Forge",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/harvestance"
+ },
+ {
+  "c": [],
+  "g": "robot",
+  "img": "assets/cases/MF-OFF-022.jpg",
+  "who": "McService",
+  "ind": "机器人与自动化 · 功能原型／产品开发",
+  "num": "",
+  "t": "自动化与工业生产解决方案",
+  "b": [
+   "同一零件若以传统工艺生产，成本为打印的 10 倍且交期长得多"
+  ],
+  "cardB": [
+   "同一零件若以传统工艺生产，成本为打印的 10 倍且交期长得多"
+  ],
+  "eq": "X7、Onyx、连续碳纤维、Digital Forge",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/mcservice"
+ },
+ {
+  "c": [],
+  "g": "robot",
+  "img": "assets/cases/MF-OFF-068.jpg",
+  "who": "Harvestance",
+  "ind": "机器人与自动化 · 机器人末端工具／夹爪",
+  "num": "",
+  "t": "机器人夹具",
+  "b": [
+   "夹爪自重仅 1,055 克（含吸盘、法兰与真空匣）",
+   "可搬运 20 kg 箱体，用于物流自动化"
+  ],
+  "cardB": [
+   "夹爪自重仅 1,055 克（含吸盘、法兰与真空匣）",
+   "可搬运 20 kg 箱体，用于物流自动化"
+  ],
+  "eq": "FX20、Onyx、HSHT 高温高强度玻纤、连续碳纤维",
+  "kind": "应用焦点",
+  "url": "https://markforged.com/resources/application-spotlights/harvestance-robot-gripper-spotlight"
+ },
+ {
+  "c": [],
+  "g": "robot",
+  "img": "assets/cases/MF-OFF-069.jpg",
+  "who": "GriPalm",
+  "ind": "机器人与自动化 · 机器人末端工具／夹爪",
+  "num": "",
+  "t": "GriPalm机器人夹具",
+  "b": [
+   "夹爪自重 3,400 克，可自动对位并包覆多个各重 400 克的箱体"
+  ],
+  "cardB": [
+   "夹爪自重 3,400 克，可自动对位并包覆多个各重 400 克的箱体"
+  ],
+  "eq": "FX20、Onyx",
+  "kind": "应用焦点",
+  "url": "https://markforged.com/resources/application-spotlights/gripalm-robot-gripper-spotlight"
+ },
+ {
+  "c": [],
+  "g": "robot",
+  "img": "assets/cases/MF-OFF-077.jpg",
+  "who": "Farason Corporation",
+  "ind": "机器人与自动化 · 机器人末端工具／夹爪",
+  "num": "",
+  "t": "机器人手臂线缆管理",
+  "b": [
+   "较委外生产同类零件，零件成本最多降低 90%",
+   "量产级零件交期缩短至数小时",
+   "若不采用打印，改以束带与胶带整线约需一整天"
+  ],
+  "cardB": [
+   "较委外生产同类零件，零件成本最多降低 90%",
+   "量产级零件交期缩短至数小时"
+  ],
+  "eq": "X7、Onyx",
+  "kind": "应用焦点",
+  "url": "https://markforged.com/resources/application-spotlights/robot-arm-cable-management"
+ },
+ {
+  "c": [],
+  "g": "robot",
+  "img": "assets/cases/MF-OFF-103.jpg",
+  "who": "Haddington Dynamics",
+  "ind": "机器人与自动化 · 机器人结构件／终端件",
+  "num": "",
+  "t": "七轴机器人手臂",
+  "b": [
+   "零件数由 800 个降至 70 个以下，机械臂可在一天内组装完成",
+   "速度提升 70%、成本降低 58%",
+   "机械臂须维持 50 微米运动精度",
+   "收到设备约三周内即完成整机碳纤维重新设计"
+  ],
+  "cardB": [
+   "零件数由 800 个降至 70 个以下，机械臂可在一天内组装完成",
+   "速度提升 70%、成本降低 58%"
+  ],
+  "eq": "连续碳纤维、Onyx",
+  "kind": "应用焦点",
+  "url": "https://markforged.com/resources/application-spotlights/7-axis-robotic-arm"
+ },
+ {
+  "c": [],
+  "g": "robot",
+  "img": "assets/cases/MF-OFF-109.jpg",
+  "who": "ProCobots",
+  "ind": "机器人与自动化 · 机器人末端工具／夹爪",
+  "num": "",
+  "t": "机器人末端执行器",
+  "b": [
+   "机器人末端执行器制作速度提升 9 倍、成本降至 1/27",
+   "定制工件夹持可整夜生产，免外包、不占用机加工技师工时"
+  ],
+  "cardB": [
+   "机器人末端执行器制作速度提升 9 倍、成本降至 1/27",
+   "定制工件夹持可整夜生产，免外包、不占用机加工技师工时"
+  ],
+  "eq": "Onyx",
+  "kind": "应用焦点",
+  "url": "https://markforged.com/resources/application-spotlights/end-effectors"
+ },
+ {
+  "c": [],
+  "g": "robot",
+  "img": "assets/cases/MF-OFF-116.jpg",
+  "who": "Dixon Valve",
+  "ind": "机器人与自动化 · 机器人末端工具／夹爪",
+  "num": "",
+  "t": "复合材料机器人夹爪",
+  "b": [
+   "单组夹爪制作时间由机加工 144 小时降至打印 9 小时，减少 93%",
+   "制作成本由机加工 $290 降至打印 $9，减少 97%"
+  ],
+  "cardB": [
+   "单组夹爪制作时间由机加工 144 小时降至打印 9 小时，减少 93%",
+   "制作成本由机加工 $290 降至打印 $9，减少 97%"
+  ],
+  "eq": "Onyx",
+  "kind": "应用焦点",
+  "url": "https://markforged.com/resources/application-spotlights/composite-jaws"
+ },
+ {
+  "c": [],
+  "g": "robot",
+  "img": "assets/cases/MF-A2-013.jpg",
+  "who": "Rapid Robotics",
+  "ind": "机器人与自动化 · EOAT 夹爪、夹具",
+  "num": "",
+  "t": "机器人末端夹爪与夹具",
+  "b": [
+   "新夹爪交期 12 小时 vs 市售 2-3 个月",
+   "重量约市售品 30%",
+   "上线以来夹爪在现场零故障",
+   "25 台打印机机队",
+   "市售夹爪 $3,500-$60,000"
+  ],
+  "cardB": [
+   "新夹爪交期 12 小时 vs 市售 2-3 个月",
+   "重量约市售品 30%"
+  ],
+  "eq": "Onyx、连续碳纤维",
+  "kind": "官方视频",
+  "url": "https://youtu.be/2fgNV6ihHMc"
+ },
+ {
+  "c": [
+   "mnc"
+  ],
+  "g": "robot",
+  "img": "assets/cases/MF-OFF-130.jpg",
+  "who": "Vestas",
+  "ind": "机器人与自动化 · AMR 巡检机器人轮毂（金属替代）",
+  "num": "",
+  "t": "AMR 自主移动机器人轮毂（取代铝件）",
+  "b": [
+   "明显轻于铝制方案，延长 AMR 车队的电池续航"
+  ],
+  "cardB": [
+   "明显轻于铝制方案，延长 AMR 车队的电池续航"
+  ],
+  "eq": "Onyx GF",
+  "kind": "应用焦点",
+  "url": "https://markforged.com/resources/application-spotlights/lighter-stiffer-visible-truck-hubs-for-autonomous-mobile-robots-amrs"
+ },
+ {
+  "c": [],
+  "g": "mfg",
+  "img": "assets/cases/MF-OFF-003.jpg",
+  "who": "Spectrum Technology",
+  "ind": "工业制造 · 功能原型／产品开发",
+  "num": "",
+  "t": "快速迭代的定制机械",
+  "b": [
+   "单件成本由 CNC 加工 €220 降至打印 €27，降幅 85%",
+   "单台机器 25–30 个定制机械零件不再依赖 CNC 铝加工",
+   "定制零件可当天完成迭代"
+  ],
+  "cardB": [
+   "单件成本由 CNC 加工 €220 降至打印 €27，降幅 85%",
+   "单台机器 25–30 个定制机械零件不再依赖 CNC 铝加工"
+  ],
+  "eq": "X7、Onyx、Eiger、仿真功能",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/spectrum-technology"
+ },
+ {
+  "c": [],
+  "g": "mfg",
+  "img": "assets/cases/MF-OFF-007.jpg",
+  "who": "SQP Engineering × Strada",
+  "ind": "工业制造 · 质量检测／测量夹具",
+  "num": "",
+  "t": "钻头磨损测量卡规",
+  "b": [
+   "改为打印量规后，工具成本降低 30%",
+   "交期由 2 周缩短至 2 天",
+   "单一量规涵盖 250–450 mm 钻头范围，取代多个钢环"
+  ],
+  "cardB": [
+   "改为打印量规后，工具成本降低 30%",
+   "交期由 2 周缩短至 2 天"
+  ],
+  "eq": "FX20、Onyx",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/strada-drill-bit-gauging-caliper"
+ },
+ {
+  "c": [],
+  "g": "mfg",
+  "img": "assets/cases/MF-OFF-010.jpg",
+  "who": "Toivalan Metalli",
+  "ind": "工业制造 · 终端使用零件",
+  "num": "",
+  "t": "弯管工具与小批量终端件",
+  "b": [
+   "单支弯管模具成本由约 €4,000 降至 €300–400，节省 90%",
+   "交期由最长 6 周缩短至最多 1 周",
+   "打印模具可承受近 500 次弯管作业（25–30 mm 管径、1.5 mm 壁厚、弯曲半径 70 mm）"
+  ],
+  "cardB": [
+   "单支弯管模具成本由约 €4,000 降至 €300–400，节省 90%",
+   "交期由最长 6 周缩短至最多 1 周"
+  ],
+  "eq": "X7、Onyx、连续碳纤维、Eiger、Digital Forge",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/toivalan-metalli"
+ },
+ {
+  "c": [],
+  "g": "mfg",
+  "img": "assets/cases/MF-OFF-015.jpg",
+  "who": "PTI Tech",
+  "ind": "工业制造 · 生产夹具／工装",
+  "num": "",
+  "t": "电梯按钮组件MIM原型",
+  "b": [
+   "开发周期由最长 16 周缩短至 4 周",
+   "免开模交付数轮试产件，每轮 275–300 件"
+  ],
+  "cardB": [
+   "开发周期由最长 16 周缩短至 4 周",
+   "免开模交付数轮试产件，每轮 275–300 件"
+  ],
+  "eq": "316L 不锈钢",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/pti-tech"
+ },
+ {
+  "c": [],
+  "g": "mfg",
+  "img": "assets/cases/MF-OFF-019.jpg",
+  "who": "BMF",
+  "ind": "工业制造 · 备件／数字库存",
+  "num": "",
+  "t": "Digital Source数字备件",
+  "b": [
+   "客户停机时间由平均 14 天压缩至 1 天",
+   "设备每停机一天，客户端最多 50,000 件零件无法完成喷砂",
+   "全球逾 200 家 Twister 客户可按需自行打印备件",
+   "喷砂磨耗使内部零件约每 6 个月须更换一次",
+   "每个工件夹具容纳 10 件零件，旋转喷砂平台一次可放 10 组夹具",
+   "部分客户原须等待长达 6 周才能收到备件"
+  ],
+  "cardB": [
+   "客户停机时间由平均 14 天压缩至 1 天",
+   "设备每停机一天，客户端最多 50,000 件零件无法完成喷砂"
+  ],
+  "eq": "Onyx、Digital Source、Eiger",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/bmf-gmbh"
+ },
+ {
+  "c": [],
+  "g": "mfg",
+  "img": "assets/cases/MF-OFF-025.jpg",
+  "who": "SQP Engineering",
+  "ind": "工业制造 · 柔性制造／按需生产",
+  "num": "",
+  "t": "大型专业生产零件",
+  "b": [
+   "Wireline 计数器外盖打印时间由 9 小时缩短至 2.5 小时",
+   "服务逾 100 家工业客户"
+  ],
+  "cardB": [
+   "Wireline 计数器外盖打印时间由 9 小时缩短至 2.5 小时",
+   "服务逾 100 家工业客户"
+  ],
+  "eq": "FX20、Onyx",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/sqp-engineering"
+ },
+ {
+  "c": [],
+  "g": "mfg",
+  "img": "assets/cases/MF-OFF-027.jpg",
+  "who": "Todema",
+  "ind": "工业制造 · 柔性制造／按需生产",
+  "num": "",
+  "t": "工业机械夹具内制",
+  "b": [
+   "医药输送机构零件数由 6 个整合为 2 个，减少 80%",
+   "相较加工中心生产，生产时间与成本降低 80%"
+  ],
+  "cardB": [
+   "医药输送机构零件数由 6 个整合为 2 个，减少 80%",
+   "相较加工中心生产，生产时间与成本降低 80%"
+  ],
+  "eq": "Digital Forge",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/todema-customer-success-story"
+ },
+ {
+  "c": [],
+  "g": "mfg",
+  "img": "assets/cases/MF-OFF-031.jpg",
+  "who": "Zero Tolerance",
+  "ind": "工业制造 · 模具／成形工具",
+  "num": "",
+  "t": "注塑模具车间终端件与安全改善",
+  "b": [
+   "作业循环时间缩短 19–20 秒，产能提升 50%",
+   "原人工作业循环时间约 45 秒且不稳定",
+   "隶属 Project DIAMOnD 分布式打印网络，含逾 300 台 Markforged 设备"
+  ],
+  "cardB": [
+   "作业循环时间缩短 19–20 秒，产能提升 50%",
+   "原人工作业循环时间约 45 秒且不稳定"
+  ],
+  "eq": "X7、Onyx FR、Onyx、Eiger",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/zero-tolerance"
+ },
+ {
+  "c": [],
+  "g": "mfg",
+  "img": "assets/cases/MF-OFF-043.jpg",
+  "who": "Cashco",
+  "ind": "工业制造 · 生产夹具／工装",
+  "num": "",
+  "t": "生产夹具与工具制造",
+  "b": [
+   "制造时间缩短 75%",
+   "设备投资回收期 3 个月",
+   "自制非营收型工具的人工工时减少 90%"
+  ],
+  "cardB": [
+   "制造时间缩短 75%",
+   "设备投资回收期 3 个月"
+  ],
+  "eq": "X7",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/cashco"
+ },
+ {
+  "c": [],
+  "g": "mfg",
+  "img": "assets/cases/MF-OFF-056.jpg",
+  "who": "Arrow Global",
+  "ind": "工业制造 · 柔性制造／按需生产",
+  "num": "",
+  "t": "重载产品低成本功能原型",
+  "b": [
+   "设备在打印不到 14 个零件内即回本",
+   "交期由 2.5 周缩短至 2 小时",
+   "零件成本由 $400 降至数美元，交期由 2 周缩短至一晚",
+   "过去一次新闩锁设计需 6 件挤压型材原型，成本逾 $1,500",
+   "夹具已近 1,000 次组装循环，尼龙件仍无肉眼可见磨耗"
+  ],
+  "cardB": [
+   "设备在打印不到 14 个零件内即回本",
+   "交期由 2.5 周缩短至 2 小时"
+  ],
+  "eq": "",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/soft-jaws-glass-manufacturer"
+ },
+ {
+  "c": [],
+  "g": "mfg",
+  "img": "assets/cases/MF-OFF-062.jpg",
+  "who": "Roman Design Solutions",
+  "ind": "工业制造 · 生产夹具／工装",
+  "num": "",
+  "t": "批量夹具与人体工学改善",
+  "b": [
+   "5 台打印机以 Onyx 全天候连续运转",
+   "典型批量 30–60 件，特殊夹具组更小批"
+  ],
+  "cardB": [
+   "5 台打印机以 Onyx 全天候连续运转",
+   "典型批量 30–60 件，特殊夹具组更小批"
+  ],
+  "eq": "X7、Onyx、连续碳纤维",
+  "kind": "应用焦点",
+  "url": "https://markforged.com/resources/application-spotlights/roman-design-solutions-scaling-jig-production-and-reducing-operator-strain"
+ },
+ {
+  "c": [],
+  "g": "mfg",
+  "img": "assets/cases/MF-OFF-066.jpg",
+  "who": "M.H Material Handling",
+  "ind": "工业制造 · 柔性制造／按需生产",
+  "num": "",
+  "t": "物料搬运零件",
+  "b": [
+   "较传统制造，时间与材料成本最多节省 80%"
+  ],
+  "cardB": [
+   "较传统制造，时间与材料成本最多节省 80%"
+  ],
+  "eq": "X7、Onyx、Digital Forge",
+  "kind": "应用焦点",
+  "url": "https://markforged.com/resources/application-spotlights/m-h-material-handling"
+ },
+ {
+  "c": [],
+  "g": "mfg",
+  "img": "assets/cases/MF-OFF-067.jpg",
+  "who": "McService",
+  "ind": "工业制造 · 柔性制造／按需生产",
+  "num": "",
+  "t": "齿轮箱对中验证夹具",
+  "b": [
+   "齿轮对位验证夹具由传统约 2 周缩短至 1.5 天",
+   "免焊接并改用 Onyx，夹具成本节省 40%",
+   "打印夹具重 1 kg，不到传统铁制 2.5 kg 的一半"
+  ],
+  "cardB": [
+   "齿轮对位验证夹具由传统约 2 周缩短至 1.5 天",
+   "免焊接并改用 Onyx，夹具成本节省 40%"
+  ],
+  "eq": "FX20、X7、Onyx、Digital Forge",
+  "kind": "应用焦点",
+  "url": "https://markforged.com/resources/application-spotlights/mcservice-gearbox-alignment-verification-fixture"
+ },
+ {
+  "c": [],
+  "g": "mfg",
+  "img": "assets/cases/MF-OFF-080.jpg",
+  "who": "SQP Engineering",
+  "ind": "工业制造 · 切削与机床辅具",
+  "num": "",
+  "t": "真空工件夹持夹具",
+  "b": [
+   "夹具放大至整个打印床后，单次容量由 4 件提升至 50 件"
+  ],
+  "cardB": [
+   "夹具放大至整个打印床后，单次容量由 4 件提升至 50 件"
+  ],
+  "eq": "FX20、Onyx",
+  "kind": "应用焦点",
+  "url": "https://markforged.com/resources/application-spotlights/sqp-vacuum"
+ },
+ {
+  "c": [],
+  "g": "mfg",
+  "img": "assets/cases/MF-OFF-083.jpg",
+  "who": "Concept Metal",
+  "ind": "工业制造 · 生产夹具／工装",
+  "num": "",
+  "t": "钣金工具内制",
+  "b": [
+   "自行以 Onyx 打印 24 Vee 折弯模具，较采购机加工钢制品成本节省近 75%",
+   "交期由外包所需的数天缩短至 17 小时",
+   "该模具可承受每米 40 吨压力"
+  ],
+  "cardB": [
+   "自行以 Onyx 打印 24 Vee 折弯模具，较采购机加工钢制品成本节省近 75%",
+   "交期由外包所需的数天缩短至 17 小时"
+  ],
+  "eq": "Onyx",
+  "kind": "应用焦点",
+  "url": "https://markforged.com/resources/application-spotlights/concept-metal"
+ },
+ {
+  "c": [],
+  "g": "mfg",
+  "img": "assets/cases/MF-OFF-095.jpg",
+  "who": "MF Precision",
+  "ind": "工业制造 · 切削与机床辅具",
+  "num": "",
+  "t": "CNC软爪",
+  "b": [
+   "软爪交期加快 19 倍",
+   "成本降低 2.6 倍",
+   "软爪 2 天打印完成且不占用设备工时，导入前报价交期为 3–6 周"
+  ],
+  "cardB": [
+   "软爪交期加快 19 倍",
+   "成本降低 2.6 倍"
+  ],
+  "eq": "X7",
+  "kind": "应用焦点",
+  "url": "https://markforged.com/resources/application-spotlights/mf-precision-soft-jaws"
+ },
+ {
+  "c": [],
+  "g": "mfg",
+  "img": "assets/cases/MF-OFF-114.jpg",
+  "who": "Centerline Engineered Solutions",
+  "ind": "工业制造 · 质量检测／测量夹具",
+  "num": "",
+  "t": "折弯机冲头与凹模",
+  "b": [
+   "模具与冲头成本降至 1/7、速度提升 8 倍",
+   "打印中途暂停置入折弯钢件补强，以承受多次冲压循环"
+  ],
+  "cardB": [
+   "模具与冲头成本降至 1/7、速度提升 8 倍",
+   "打印中途暂停置入折弯钢件补强，以承受多次冲压循环"
+  ],
+  "eq": "Onyx",
+  "kind": "应用焦点",
+  "url": "https://markforged.com/resources/application-spotlights/press-brake-punch-and-die"
+ },
+ {
+  "c": [],
+  "g": "mfg",
+  "img": "assets/cases/MF-OFF-115.jpg",
+  "who": "bmi CAD",
+  "ind": "工业制造 · 切削与机床辅具",
+  "num": "",
+  "t": "CNC车床拉料器",
+  "b": [
+   "拉料器成本降至 1/75、速度提升 18 倍",
+   "拉料器本身即用来取代 $10,000–$30,000 的自动送料系统"
+  ],
+  "cardB": [
+   "拉料器成本降至 1/75、速度提升 18 倍",
+   "拉料器本身即用来取代 $10,000–$30,000 的自动送料系统"
+  ],
+  "eq": "Onyx、玻璃纤维",
+  "kind": "应用焦点",
+  "url": "https://markforged.com/resources/application-spotlights/cnc-lathe-bar-puller"
+ },
+ {
+  "c": [],
+  "g": "mfg",
+  "img": "assets/cases/MF-OFF-119.jpg",
+  "who": "Hugard",
+  "ind": "工业制造 · 切削与机床辅具",
+  "num": "",
+  "t": "CNC车床接料器",
+  "b": [
+   "制作时间由 CNC 加工 144 小时降至打印 6 小时，减少 96%",
+   "制作成本由 $400 降至 $25.06，减少 94%",
+   "夹持系统每个部件每日接料 3,000 件，24/7 不间断运转"
+  ],
+  "cardB": [
+   "制作时间由 CNC 加工 144 小时降至打印 6 小时，减少 96%",
+   "制作成本由 $400 降至 $25.06，减少 94%"
+  ],
+  "eq": "连续碳纤维、Onyx",
+  "kind": "应用焦点",
+  "url": "https://markforged.com/resources/application-spotlights/cnc-lathe-part-catcher"
+ },
+ {
+  "c": [],
+  "g": "medu",
+  "img": "assets/cases/MF-B-009.jpg",
+  "who": "香港理工大学",
+  "ind": "医疗与教育 · 自行车座垫透气晶格结构",
+  "num": "",
+  "t": "单体成型 3D 打印自行车座垫（透气晶格结构＋连续碳纤维轨道）",
+  "b": [
+   "171 克，比市面上多数座垫更轻，同时符合全部强度要求",
+   "超过 1,000 公里实骑验证",
+   "获 Red Dot 设计奖"
+  ],
+  "cardB": [
+   "171 克，比市面上多数座垫更轻，同时符合全部强度要求",
+   "超过 1,000 公里实骑验证"
+  ],
+  "eq": "Onyx、连续碳纤维、Eiger",
+  "kind": "客户成功案例",
+  "url": "https://markforged.com/resources/case-studies/one-piece-design-sets-new-standard-in-printed-bicycle-saddles"
+ }
+];
+  /* CASES:END */
+  var track = $("#caseTrack"), STEP = 9, cFilter = "all", cShow = STEP;
   var tagName = { mnc: "跨国企业", fb: "食品饮料" };
-  track.innerHTML = CASES.map(function (c, i) {
-    return '<article class="case rv" data-i="' + i + '" data-c="' + c.c.join(" ") + '" tabindex="0"><div class="pic"><img src="' + c.img + '" alt="' + esc(c.who) + '" loading="lazy"></div><div class="body">' +
-      '<div class="tags">' + c.c.map(function (k) { return '<i>' + tagName[k] + '</i>'; }).join("") + '</div>' +
-      '<div class="who">' + esc(c.who) + ' · ' + esc(c.ind) + '</div><div class="num en">' + esc(c.num) + '</div><h3>' + esc(c.t) + '</h3>' +
-      '<ul>' + c.b.slice(1, 3).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join("") + '</ul><span class="go">查看完整数据</span></div></article>';
+  var CHIPS = [["all", "全部"], ["mnc", "跨国企业"], ["fb", "食品饮料"], ["auto", "汽车"], ["elec", "电子与半导体"], ["energy", "能源"],
+    ["robot", "机器人与自动化"], ["mfg", "工业制造"], ["pack", "包装与消费品"], ["air", "航空"], ["medu", "医疗与教育"]];
+  function inCat(c, k) { return k === "all" || c.c.indexOf(k) >= 0 || c.g === k; }
+  $("#cfilter").innerHTML = CHIPS.map(function (x) {
+    var n = CASES.filter(function (c) { return inCat(c, x[0]); }).length;
+    return n ? '<button class="cf' + (x[0] === "all" ? " on" : "") + '" type="button" data-cf="' + x[0] + '">' + x[1] + ' <span>' + n + '</span></button>' : "";
   }).join("");
-  $$(".cf").forEach(function (b) { var k = b.getAttribute("data-cf"); $("span", b).textContent = k === "all" ? CASES.length : CASES.filter(function (c) { return c.c.indexOf(k) >= 0; }).length; });
+  track.innerHTML = CASES.map(function (c, i) {
+    return '<article class="case rv" data-i="' + i + '" tabindex="0"><div class="pic"><img src="' + c.img + '" alt="' + esc(c.who) + '" loading="lazy"></div><div class="body">' +
+      '<div class="tags">' + c.c.map(function (k) { return '<i>' + tagName[k] + '</i>'; }).join("") + '</div>' +
+      '<div class="who">' + esc(c.who) + ' · ' + esc(c.ind) + '</div>' + (c.num ? '<div class="num en">' + esc(c.num) + '</div>' : '') + '<h3>' + esc(c.t) + '</h3>' +
+      '<ul>' + (c.cardB || []).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join("") + '</ul><span class="go">查看完整数据</span></div></article>';
+  }).join("");
   function applyCases() {
-    var mob = innerWidth <= 900, total = 0, shown = 0;
+    var total = 0, shown = 0;
     $$(".case", track).forEach(function (el) {
-      var hit = cFilter === "all" || el.getAttribute("data-c").split(" ").indexOf(cFilter) >= 0, vis = false;
-      if (hit) { total++; vis = mob || cFilter !== "all" || cAll || total <= CUT; }
+      var c = CASES[+el.getAttribute("data-i")], vis = false;
+      if (inCat(c, cFilter)) { total++; vis = total <= cShow; }
       el.style.display = vis ? "" : "none";
       if (vis) { shown++; el.classList.add("in"); }
     });
-    $("#caseMore").style.display = (!mob && shown < total) ? "" : "none";
-    $("#caseCount").textContent = mob ? ("左右滑动 · 共 " + total + " 个案例") : ("显示 " + shown + " / " + total + " 个案例");
-    track.scrollLeft = 0;
+    var rest = total - shown;
+    $("#caseMore").style.display = rest > 0 ? "" : "none";
+    $("#caseMore").textContent = "查看更多案例（还有 " + rest + " 个）";
+    $("#caseCount").textContent = "显示 " + shown + " / " + total + " 个案例" + (innerWidth <= 900 ? " · 左右滑动" : "");
   }
-  $$(".cf").forEach(function (b) { b.addEventListener("click", function () { $$(".cf").forEach(function (x) { x.classList.remove("on"); }); b.classList.add("on"); cFilter = b.getAttribute("data-cf"); applyCases(); }); });
-  $("#caseMore").addEventListener("click", function () { cAll = true; applyCases(); });
+  $("#cfilter").addEventListener("click", function (e) {
+    var b = e.target.closest(".cf"); if (!b) return;
+    $$(".cf").forEach(function (x) { x.classList.remove("on"); }); b.classList.add("on");
+    cFilter = b.getAttribute("data-cf"); cShow = STEP; track.scrollLeft = 0; applyCases();
+  });
+  $("#caseMore").addEventListener("click", function () { cShow += STEP; applyCases(); });
   addEventListener("resize", applyCases);
   applyCases();
   function showCase(i) {
     var c = CASES[i]; if (!c) return;
     var h = '<div class="dt-hd light"><img src="' + c.img + '" alt="' + esc(c.who) + '" style="object-fit:cover"><div><h3>' + esc(c.who) + '</h3><div class="tg">' + esc(c.ind) + (c.c.length ? ' · ' + c.c.map(function (k) { return tagName[k]; }).join(" · ") : "") + '</div></div></div><div class="dt-bd">';
-    h += '<div class="kv"><div><b>' + esc(c.num) + '</b><span>' + esc(c.t) + '</span></div></div>';
+    h += c.num ? '<div class="kv"><div><b>' + esc(c.num) + '</b><span>' + esc(c.t) + '</span></div></div>' : '<p style="font-size:16px;font-weight:600;color:#000">' + esc(c.t) + '</p>';
     h += '<h4>完整数据</h4><ul class="al" style="display:block">' + c.b.map(function (x) { return '<li style="margin-bottom:6px">' + esc(x) + '</li>'; }).join("") + '</ul>';
     if (c.eq) h += '<h4>使用的设备与材料</h4><p>' + esc(c.eq) + '</p>';
     h += '<div class="dt-cta"><a class="btn" href="#form" data-goform>咨询类似应用</a></div>';
