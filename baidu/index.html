@@ -9,11 +9,11 @@
 <title>Markforged 工业级 3D 打印机 · 百度落地页示范</title>
 <meta name="description" content="专为工厂车间打造的 3D 打印机：采用经连续碳纤维增强的金属和复合材料，打印工业级强度零件。">
 <!--
-  Markforged 百度落地页 · 全功能示范页 v1.2（2026-10-29）
+  Markforged 百度落地页 · 全功能示范页 v1.4（2026-10-29）
   用途：给推广代理商照着重建百度基木鱼落地页，也是后续讨论与调整的依据。
   本页是手写源文件，没有产生器；改这里就是改源头。
   文案出处：markforged.com/zh 首页、关于我们、FX10／FX20／X7／X7 Field Edition 产品页、材料页（2026-10-29 读取）；
-  打印尺寸与规格出自官网产品页与官方数据表。客户案例五则为 markforged.com/zh 首页原文。
+  打印尺寸与规格出自官网产品页与官方数据表。客户案例 15 则：Markforged 官方客户案例与应用焦点（取自本站 case-library.html 的原厂资料，繁转简并改大陆用语），只收原厂案例、不收经销商案例；主角为停产机型（Metal X 等）的案例不收。
   中国网络可能连不上海外官网，所以机型、材料、案例的介绍都放在本页（详情用页内弹窗），页面只依赖本站自己的文件。
   广告法：不使用「全球首个、唯一、最大、最佳」等绝对用语；与铝、ABS 的对比说法不搬上页面。
   表单只做前端验证，不送出任何资料。
@@ -97,7 +97,7 @@ h1,h2,h3{font-family:"MFRubik","PingFang SC","Noto Sans SC","Microsoft YaHei",sa
 .fld select{background:var(--w) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23000' stroke-width='2' fill='none'/%3E%3C/svg%3E") no-repeat right 14px center}
 .fld input:focus,.fld select:focus{border-color:var(--k);box-shadow:inset 0 -3px 0 var(--y)}
 .fld .msg{font-size:12px;min-height:16px;margin-top:4px;color:var(--g4)}
-.fld.bad input,.fld.bad select{border-color:var(--k);background:#FFFFE6}
+.fld.bad input,.fld.bad select{border-color:var(--k);background:var(--g1)}
 .fld.bad .msg{color:var(--k);font-weight:600}
 .fld.bad .msg::before{content:"! ";}
 .agree{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--g4);margin-top:16px}
@@ -198,6 +198,41 @@ table.spec thead th{background:var(--k);color:var(--w)}
 .chips a:hover{background:var(--y)}
 .panel .fine{font-size:13px;color:var(--g4);border-top:1px solid var(--g2);padding-top:10px}
 
+/* Onyx GF */
+.ogf{background:var(--k);color:var(--w);overflow:hidden}
+.ogf .new{display:inline-block;background:var(--y);color:var(--k);font:600 12px "MFRubik","PingFang SC",sans-serif;letter-spacing:.12em;padding:3px 10px;margin-bottom:12px}
+.ogf h2{font-size:40px;line-height:1.2}
+.ogf h2 small{display:block;font-size:22px;color:var(--g2);font-weight:400;margin-top:6px}
+.ogf-top{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.ogf-top p{color:var(--g2);margin-top:12px}
+.ogf-pic{background:#fff;padding:18px;position:relative}
+.ogf-pic img{width:100%;animation:float 6s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.colors{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.colors span{display:inline-flex;align-items:center;gap:7px;border:1px solid #333;padding:5px 11px;font-size:14px}
+.ogf-kv{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid #333;border-bottom:1px solid #333;margin:40px 0 0}
+.ogf-kv div{padding:20px 18px;border-right:1px solid #333}
+.ogf-kv div:last-child{border-right:0}
+.ogf-kv b{display:block;font-family:"MFRubik",sans-serif;font-weight:400;font-size:34px;color:var(--y);line-height:1.1}
+.ogf-kv span{font-size:13px;color:var(--g2)}
+.ogf-note{font-size:12px;color:var(--g3);margin-top:8px}
+.ogf-mid{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;margin-top:44px;align-items:start}
+.ogf-mid h3{font-size:20px;margin-bottom:12px}
+.ogf-mid ul{list-style:none}
+.ogf-mid li{padding:10px 0 10px 20px;border-bottom:1px solid #222;position:relative;color:var(--g2)}
+.ogf-mid li::before{content:"";position:absolute;left:0;top:19px;width:8px;height:8px;background:var(--y)}
+.ogf-mid video{width:100%;display:block;background:#000;border-bottom:4px solid var(--y)}
+.ogf-mid .vcap{font-size:12px;color:var(--g3);margin-top:6px}
+.ogf-warn{margin-top:16px;border-left:4px solid var(--y);padding:10px 14px;background:#111;font-size:14px;color:var(--g2)}
+.ogf-cases{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+.ogf-case{background:#111;border:1px solid #222;transition:transform .3s var(--ease),border-color .3s}
+.ogf-case:hover{transform:translateY(-5px);border-color:var(--y)}
+.ogf-case img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.ogf-case div{padding:14px 16px 18px}
+.ogf-case b{display:block;font-size:16px;margin-bottom:4px}
+.ogf-case small{display:block;color:var(--y);font-size:12px;margin-bottom:8px}
+.ogf-case p{font-size:13px;color:var(--g2)}
+
 /* applications */
 .apps{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #333}
 .app{padding:26px 20px 28px;border-right:1px solid #333;position:relative;overflow:hidden;transition:background .3s}
@@ -221,6 +256,20 @@ table.spec thead th{background:var(--k);color:var(--w)}
 .case .num{font-family:"MFRubik",sans-serif;font-size:32px;line-height:1;background:var(--y);display:inline-block;padding:5px 9px;margin:10px 0}
 .case h3{font-size:19px;line-height:1.4;margin-bottom:8px}
 .case p{font-size:14px;color:var(--g4)}
+.cfilter{display:flex;gap:8px;margin:-10px 0 22px;flex-wrap:wrap}
+.cf{background:var(--w);border:1px solid var(--k);font:600 14px "PingFang SC","Noto Sans SC",sans-serif;padding:8px 14px;cursor:pointer;transition:background .2s}
+.cf span{font-family:"MFRubik",sans-serif;font-weight:400;color:var(--g4);margin-left:2px}
+.cf.on{background:var(--k);color:var(--y)}
+.cf.on span{color:var(--y)}
+.case{cursor:pointer}
+.case .tags{display:flex;gap:6px;margin-bottom:6px}
+.case .tags i{font-style:normal;font-size:11px;background:var(--k);color:var(--y);padding:1px 6px}
+.case ul{list-style:none;margin-top:8px}
+.case ul li{font-size:13px;color:var(--g4);padding:3px 0 3px 12px;position:relative}
+.case ul li::before{content:"";position:absolute;left:0;top:11px;width:5px;height:5px;background:var(--y)}
+.case .go{display:inline-block;margin-top:10px;font-size:13px;font-weight:600;border-bottom:2px solid var(--y)}
+.cmore{display:flex;align-items:center;gap:16px;margin-top:22px}
+.ccount{font-size:13px;color:var(--g4)}
 .dots{display:none;justify-content:center;gap:8px;margin-top:16px}
 .dots button{width:8px;height:8px;border-radius:50%;border:0;background:var(--g2);cursor:pointer;transition:width .25s,background .25s}
 .dots button.on{width:24px;border-radius:4px;background:var(--k)}
@@ -329,8 +378,17 @@ body.show-no [data-sec]{outline:2px dashed var(--y);outline-offset:-2px}
   .cases{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:0 -20px;padding:0 20px 4px;scrollbar-width:none}
   .cases::-webkit-scrollbar{display:none}
   .case{flex:0 0 84%;scroll-snap-align:center}
-  .dots{display:flex}
+  .cmore .btn{display:none}
   .sw,.about{grid-template-columns:1fr;gap:26px}
+  .ogf h2{font-size:28px}
+  .ogf h2 small{font-size:17px}
+  .ogf-top,.ogf-mid{grid-template-columns:1fr;gap:24px}
+  .ogf-kv{grid-template-columns:1fr 1fr}
+  .ogf-kv div:nth-child(2n){border-right:0}
+  .ogf-kv div{border-bottom:1px solid #333}
+  .ogf-kv b{font-size:26px}
+  .ogf-cases{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:30px -20px 0;padding:0 20px 4px;scrollbar-width:none}
+  .ogf-case{flex:0 0 80%;scroll-snap-align:center}
   .modal{padding:0;align-items:flex-end}
   .modal .card.wide{max-height:92vh;max-width:none}
   .dt-hd{grid-template-columns:110px 1fr;padding:18px 54px 18px 18px;gap:14px}
@@ -367,6 +425,7 @@ body.show-no [data-sec]{outline:2px dashed var(--y);outline-offset:-2px}
   <nav class="nav" id="nav">
     <a href="#printers">现役机型</a>
     <a href="#materials">材料</a>
+    <a href="#onyxgf">新材料 Onyx GF</a>
     <a href="#apps">应用</a>
     <a href="#cases">客户案例</a>
     <a href="#contact">联系我们</a>
@@ -474,6 +533,7 @@ body.show-no [data-sec]{outline:2px dashed var(--y);outline-offset:-2px}
         <button class="mchip" type="button" data-mat="onyx">Onyx®</button>
         <button class="mchip" type="button" data-mat="onyx-fr">Onyx FR</button>
         <button class="mchip" type="button" data-mat="onyx-esd">Onyx ESD</button>
+        <button class="mchip" type="button" data-mat="onyx-gf">Onyx GF（六色 · 新）</button>
         <button class="mchip" type="button" data-mat="nylon-white-fs">尼龙白 FS</button>
         <button class="mchip" type="button" data-mat="ultem-9085">ULTEM™ 9085（FX20）</button>
       </div>
@@ -493,7 +553,44 @@ body.show-no [data-sec]{outline:2px dashed var(--y);outline-offset:-2px}
   </div>
 </div></section>
 
-<section class="sec dark" id="apps" data-sec="06"><span class="secno">06 工厂车间应用</span><div class="wrap">
+<section class="sec ogf" id="onyxgf" data-sec="06"><span class="secno">06 新材料 Onyx GF</span><div class="wrap">
+  <div class="ogf-top">
+    <div class="rv">
+      <span class="new en">NEW MATERIAL · 新材料</span>
+      <h2>Onyx GF™<small>专为工厂车间打造的彩色复合材料</small></h2>
+      <p>Onyx GF 是一款专为工业工具和最终零件打造的短切玻璃纤维填充尼龙线材，在延续 Onyx 表面光洁度、尺寸精度和打印可靠性的同时，还具备功能性配色和非导电特性。</p>
+      <p>提供六种颜色，无需增加任何工序，即可在工厂车间实现直观区分；对于将工具颜色编码和清晰标识作为运营要求的场景，有助于满足安全合规要求并支持防错工作流程。</p>
+      <div class="colors"><span>红</span><span>黄</span><span>绿</span><span>蓝</span><span>灰</span><span>白</span></div>
+    </div>
+    <div class="ogf-pic rv" style="--d:.15s"><img src="assets/onyxgf_spools.jpg" alt="Onyx GF 六色线材" loading="lazy"></div>
+  </div>
+  <div class="ogf-kv rv">
+    <div><b>56.5 MPa</b><span>拉伸强度（屈服）</span></div>
+    <div><b>3.1 GPa</b><span>拉伸模量</span></div>
+    <div><b>88.2 MPa</b><span>弯曲强度</span></div>
+    <div><b>138 °C</b><span>热变形温度（1.8 MPa）</span></div>
+  </div>
+  <p class="ogf-note">数据出处：Markforged Onyx GF 官方材料数据表 V01（FX10、层厚 125 µm、XY 方向、调湿状态）。搭配连续碳纤维可满足更高载荷的应用。</p>
+  <div class="ogf-mid">
+    <div class="rv">
+      <h3>典型应用</h3>
+      <ul><li>颜色编码夹具与固定装置</li><li>高可见度安全工具</li><li>传感器外壳</li><li>天线外壳</li></ul>
+      <div class="ogf-warn">适用机型：FX10、FX20。兼容连续纤维增强，专为汽车、航空航天及其他严苛的制造环境而设计。<br>打印 Onyx GF 需使用硬化型塑料喷嘴。</div>
+      <p style="margin-top:14px"><button class="btn" type="button" data-mat="onyx-gf">查看材料详情</button></p>
+    </div>
+    <div class="rv" style="--d:.15s">
+      <video controls muted playsinline preload="metadata" poster="assets/onyxgf_poster.jpg"><source src="assets/onyxgf_sc.mp4" type="video/mp4"></video>
+      <p class="vcap">Markforged 官方影片 · 认识 Onyx GF（28 秒，中文字幕）</p>
+    </div>
+  </div>
+  <div class="ogf-cases">
+    <div class="ogf-case rv"><img src="assets/cases/MF-OFF-132.jpg" alt="Vestas Onyx GF 检具" loading="lazy"><div><b>维斯塔斯 Vestas · 风电</b><small>跨国企业</small><p>Go/No-Go 检具改用高辨识度 Onyx GF，零件下机即符合 ISO 安全色标准，免喷漆、免染色；配合 2D 相机的色彩对比自动侦测遗留异物。模具停机每小时约损失 7,000 美元产值。</p></div></div>
+    <div class="ogf-case rv" style="--d:.1s"><img src="assets/cases/MF-OFF-057.jpg" alt="PakTech Onyx GF 拉力施加器" loading="lazy"><div><b>PakTech · 食品饮料包装</b><small>食品饮料</small><p>以 FX20 打印 Onyx GF＋连续碳纤维的彩色拉力施加器，用于包装提把的强度测试与品质检测。</p></div></div>
+    <div class="ogf-case rv" style="--d:.2s"><img src="assets/cases/MF-A2-029.jpg" alt="Subaru 色码碳纤维夹具" loading="lazy"><div><b>斯巴鲁 Subaru · 汽车</b><small>跨国企业</small><p>以 FX20 打印 Onyx GF＋连续碳纤维的产线色码夹具，在产线上用颜色直观区分工装。</p></div></div>
+  </div>
+</div></section>
+
+<section class="sec dark" id="apps" data-sec="07"><span class="secno">07 工厂车间应用</span><div class="wrap">
   <div class="sec-h rv"><div><span class="k en">APPLICATIONS</span><h2>工厂车间应用</h2><p>借助 3D 打印技术，制造商能够在内部以更低的成本更快速地生产零件，用于生产线上的数百种应用场景。</p></div></div>
   <div class="apps">
     <div class="app rv" style="--d:0s"><b class="en">01</b><h3>夹具与治具</h3><p>按需打印定制夹具，缩短制作周期。</p></div>
@@ -503,35 +600,19 @@ body.show-no [data-sec]{outline:2px dashed var(--y);outline-offset:-2px}
   </div>
 </div></section>
 
-<section class="sec" id="cases" data-sec="07"><span class="secno">07 客户案例</span><div class="wrap">
-  <div class="sec-h rv"><div><span class="k en">CUSTOMERS</span><h2>客户案例</h2><p>了解制造商如何运用 Markforged 技术降低成本、提高运营灵活性、保持生产线正常运转。</p><div class="rule"></div></div></div>
-  <div class="cases" id="caseTrack">
-    <article class="case rv" style="--d:0s"><div class="pic"><img src="assets/case_danone.jpg" alt="达能 3D 打印真空抓手" loading="lazy"></div><div class="body">
-      <div class="who">达能 · 乳品工厂</div><div class="num en">−80%</div>
-      <h3>3D 打印真空抓手，374 个零件成本降低 80%</h3>
-      <p>工厂为包装线 3D 打印了真空抓手，Markforged X7 在一年内收回了成本。</p></div></article>
-    <article class="case rv" style="--d:.1s"><div class="pic"><img src="assets/case_suntory.jpg" alt="三得利定制夹具" loading="lazy"></div><div class="body">
-      <div class="who">三得利 Suntory · 榛名工厂</div><div class="num en">−1/3</div>
-      <h3>3D 打印定制夹具，生产时间缩短 1/3</h3>
-      <p>Markforged 3D 打印机帮助三得利减少定制夹具的生产时间及成本，显著提高工厂效率。</p></div></article>
-    <article class="case rv" style="--d:.2s"><div class="pic"><img src="assets/case_farason.jpg" alt="Farason 连续碳纤维加固夹爪" loading="lazy"></div><div class="body">
-      <div class="who">Farason Corporation · 包装设备</div><div class="num en">CFR</div>
-      <h3>带定制卡圈法兰的夹爪，连续碳纤维加固</h3>
-      <p>团队在现场制作零件原型、测试和生产，夹爪以连续碳纤维加固，达到所需的强度和刚度。</p></div></article>
-    <article class="case rv" style="--d:0s"><div class="pic"><img src="assets/case_lean.jpg" alt="Lean Machine 定制夹爪" loading="lazy"></div><div class="body">
-      <div class="who">Lean Machine · 工装与夹爪</div><div class="num en">+66%</div>
-      <h3>3D 打印定制夹爪，生产速度提高 66%，成本削减 75%</h3>
-      <p>研发工程师利用 3D 打印的设计灵活性开发定制虎钳卡爪组合，将二十多种 3D 打印组件与现成零件相结合。</p></div></article>
-    <article class="case rv" style="--d:.1s"><div class="pic"><img src="assets/case_ampc.jpg" alt="AMPC 打印替换齿轮" loading="lazy"></div><div class="body">
-      <div class="who">AMPC · 设备备件</div><div class="num en">18 h</div>
-      <h3>齿轮故障停产，18 小时内打印并装上两个关键齿轮</h3>
-      <p>AMPC 采用 Markforged 3D 打印机生产替换零件，保持机器正常运转，避免代价高昂的停机。</p></div></article>
+<section class="sec" id="cases" data-sec="08"><span class="secno">08 客户案例</span><div class="wrap">
+  <div class="sec-h rv"><div><span class="k en">CUSTOMERS</span><h2>客户案例</h2><p>跨国企业与食品饮料工厂如何运用 Markforged 降低成本、缩短交期、保持生产线正常运转。</p><div class="rule"></div></div></div>
+  <div class="cfilter rv" role="tablist">
+    <button class="cf on" type="button" data-cf="all">全部 <span></span></button>
+    <button class="cf" type="button" data-cf="mnc">跨国企业 <span></span></button>
+    <button class="cf" type="button" data-cf="fb">食品饮料 <span></span></button>
   </div>
-  <div class="dots" id="caseDots"><button class="on" aria-label="案例 1"></button><button aria-label="案例 2"></button><button aria-label="案例 3"></button><button aria-label="案例 4"></button><button aria-label="案例 5"></button></div>
-  <p class="src">案例出处：Markforged 官网客户案例</p>
+  <div class="cases" id="caseTrack"></div>
+  <div class="cmore"><button class="btn ghost" type="button" id="caseMore">查看全部案例</button><span class="ccount" id="caseCount"></span></div>
+  <p class="src">案例内容与数据取自 Markforged 官方客户案例与应用焦点；点开卡片可看完整数据。</p>
 </div></section>
 
-<section class="sec dark" id="software" data-sec="08"><span class="secno">08 软件</span><div class="wrap sw">
+<section class="sec dark" id="software" data-sec="09"><span class="secno">09 软件</span><div class="wrap sw">
   <div class="rv">
     <div class="sec-h" style="margin-bottom:0"><div><span class="k en">SOFTWARE</span><h2>从设计到零件 — 轻松快捷</h2>
     <p>Eiger™ 为工业组织提供安全、易用的增材制造软件，契合制造工作流程。</p></div></div>
@@ -540,7 +621,7 @@ body.show-no [data-sec]{outline:2px dashed var(--y);outline-offset:-2px}
   <div class="pic rv" style="--d:.15s"><img src="assets/eiger.jpg" alt="Eiger 软件" loading="lazy"></div>
 </div></section>
 
-<section class="sec" id="contact" data-sec="09"><span class="secno">09 关于与联系方式</span><div class="wrap about">
+<section class="sec" id="contact" data-sec="10"><span class="secno">10 关于与联系方式</span><div class="wrap about">
   <div class="rv">
     <div class="sec-h" style="margin-bottom:18px"><div><span class="k en">ABOUT</span><h2>关于 Markforged</h2><div class="rule"></div></div></div>
     <p>Markforged 于 2013 年在美国创立，提供由打印机、材料与软件组成的工业级增材制造平台，专门用于集成到现有的制造生态系统中。</p>
@@ -558,7 +639,7 @@ body.show-no [data-sec]{outline:2px dashed var(--y);outline-offset:-2px}
   </div>
 </div></section>
 
-<section class="cta-band" data-sec="10"><span class="secno">10 页尾咨询条</span><div class="wrap rv">
+<section class="cta-band" data-sec="11"><span class="secno">11 页尾咨询条</span><div class="wrap rv">
   <h2>想了解哪款机型适合您的产线？</h2>
   <a class="btn lg blk" href="#form">立即咨询专家 <span class="arr">→</span></a>
 </div></section>
@@ -566,10 +647,10 @@ body.show-no [data-sec]{outline:2px dashed var(--y);outline-offset:-2px}
 <footer class="ft"><div class="wrap">
   <img src="assets/logo_w.png" alt="Markforged">
   <nav><a href="#printers">机型</a><a href="#materials">材料</a><a href="#cases">案例</a><a href="#form">咨询</a><a href="https://markforged.com/zh" target="_blank" rel="noopener">Markforged 官网（海外站点）↗</a></nav>
-  <span>© Markforged · 示范版 v1.2 · 2026-10-29</span>
+  <span>© Markforged · 示范版 v1.4 · 2026-10-29</span>
 </div></footer>
 
-<div class="sticky" id="sticky" data-sec="11"><span class="secno">11 底部固定条</span><span>工业级 3D 打印 · 免费咨询方案与报价</span><a class="btn" href="#form">立即咨询</a></div>
+<div class="sticky" id="sticky" data-sec="12"><span class="secno">12 底部固定条</span><span>工业级 3D 打印 · 免费咨询方案与报价</span><a class="btn" href="#form">立即咨询</a></div>
 
 <button class="totop" id="totop" aria-label="回到顶部">↑</button>
 
@@ -579,7 +660,7 @@ body.show-no [data-sec]{outline:2px dashed var(--y);outline-offset:-2px}
     <h4>改版讨论</h4>
     <label><input type="checkbox" id="showNo"> 显示区块编号</label>
     <a href="assets/Markforged_landing-page-assets_2026-10-29.zip" download>下载素材包（官方标志与 12 张图）</a>
-    <p>讨论时请用区块编号指出位置，例如「04 现役机型第 2 张卡」。示范版 v1.2 · 2026-10-29。</p>
+    <p>讨论时请用区块编号指出位置，例如「04 现役机型第 2 张卡」。示范版 v1.4 · 2026-10-29。</p>
   </div>
 </div>
 
@@ -695,16 +776,106 @@ body.show-no [data-sec]{outline:2px dashed var(--y);outline-offset:-2px}
     });
   });
 
-  /* case carousel dots (phone) */
-  var track = $("#caseTrack"), dots = $$("#caseDots button");
-  track.addEventListener("scroll", function () {
-    var cards = $$(".case", track), mid = track.scrollLeft + track.clientWidth / 2, best = 0, bd = 1e9;
-    cards.forEach(function (c, i) { var d = Math.abs(c.offsetLeft + c.offsetWidth / 2 - mid); if (d < bd) { bd = d; best = i; } });
-    dots.forEach(function (d, i) { d.classList.toggle("on", i === best); });
-  }, { passive: true });
-  dots.forEach(function (d, i) {
-    d.addEventListener("click", function () { var c = $$(".case", track)[i]; track.scrollTo({ left: c.offsetLeft - 20, behavior: "smooth" }); });
-  });
+  /* cases: official Markforged case studies & application spotlights (simplified Chinese) */
+  var CASES = [
+    { c: ["mnc"], img: "assets/cases/MF-OFF-004.jpg", who: "佳能 Canon", ind: "超精密设备制造", num: "1/20",
+      t: "定制夹具与维修件的采购时间缩短至原来的 1/20",
+      b: ["定制夹具与维修件的采购时间缩短至原来的 1/20", "2022 年改善项目的外购件成本降至原来的 1/5", "曝光设备本体约 2 m × 5 m × 3 m，所用元件极为昂贵"],
+      eq: "X7、Onyx、连续碳纤维", kind: "客户成功案例", url: "https://markforged.com/resources/case-studies/canon-inc" },
+    { c: ["mnc"], img: "assets/cases/MF-OFF-018.jpg", who: "西门子能源 Siemens Energy", ind: "燃气轮机", num: "48→18 h",
+      t: "燃气轮机叶片夹具：机加工 48 小时、$250，改为打印 18 小时、$52.79",
+      b: ["燃气轮机叶片夹具：机加工铝 48 小时 × $250，改为打印 Onyx＋连续碳纤维 18 小时 × $52.79", "导入仿真功能后，碳纤维用量最多减少 60%、打印时间最多缩短 75%", "取代原本机加工最长 6 周、硅胶垫片开模成本最高 $10,000 的夹具", "叶片平均重 15 磅、长达 3 英尺，测试气流温度最高 600°F"],
+      eq: "X7、Onyx、连续碳纤维、仿真功能", kind: "客户成功案例", url: "https://markforged.com/resources/case-studies/siemens-energy-technology-application-center" },
+    { c: ["mnc"], img: "assets/cases/MF-OFF-008.jpg", who: "费斯托 Festo", ind: "工业自动化", num: "€80,000",
+      t: "电子元件制造夹具，九个月内省下约 80,000 欧元",
+      b: ["九个月内省下约 80,000 欧元", "已增材制造超过 200 种不同零件，取代铣削或高价外购", "某支架 10 件：机械加工估约 4,000 欧元，改用 Onyx ESD 打印仅 385.88 欧元＋200 欧元人工"],
+      eq: "X7、FX20、Onyx ESD、Eiger", kind: "客户成功案例", url: "https://markforged.com/resources/case-studies/festo" },
+    { c: ["mnc"], img: "assets/cases/MF-OFF-051.jpg", who: "圣戈班 Saint-Gobain", ind: "材料制造", num: "−86%",
+      t: "主轴转接件成本节省 86%，6 个月内收回投资",
+      b: ["主轴转接件成本节省 86%，交期节省 90 天", "购机后 6 个月内达成 100% 投资回收", "400 个主轴转接件若内部机加工，约需 1,200 工时、人工加材料 $47,000", "单件打印 3 小时，下机即可上产线"],
+      eq: "X7、Onyx、连续碳纤维", kind: "客户成功案例", url: "https://markforged.com/resources/case-studies/saint-gobain" },
+    { c: ["mnc"], img: "assets/cases/MF-OFF-032.jpg", who: "维斯塔斯 Vestas", ind: "风电", num: "−85%",
+      t: "金属检具改为纤维增强 Onyx 打印，重量减少 85%",
+      b: ["原金属检具改用纤维增强 Onyx 打印后，重量减少 85%", "Eiger 云端数字库已存放逾 2,000 个 Vestas 零件", "按需检具生产将推广至全部 23 个制造据点", "避雷接收器原以铝材减材制造，至少需 12 周"],
+      eq: "X7、Onyx、连续碳纤维、Eiger", kind: "客户成功案例", url: "https://markforged.com/resources/case-studies/vestas" },
+    { c: ["mnc"], img: "assets/cases/MF-OFF-045.jpg", who: "瓦锡兰 Wärtsilä", ind: "船舶与能源", num: "−75%",
+      t: "CE 认证重载吊具，较实心钢吊具减重 75%",
+      b: ["较原实心钢加工吊具，总重量减少 75%", "八个月内仅工装就省下逾 €100,000，每支工具至少省下 €1,000", "实测吊挂 960 kg 无变形；认证吊挂能力 240 kg（安全系数 4）"],
+      eq: "X7、连续碳纤维", kind: "客户成功案例", url: "https://markforged.com/resources/case-studies/w%C3%A4rtsil%C3%A4-case-study" },
+    { c: ["mnc"], img: "assets/cases/MF-OFF-131.jpg", who: "雅马哈精密科技 Yamaha Fine Technologies", ind: "精密设备", num: "7→1 天",
+      t: "产线夹具交期从约 7 天缩短到 1 天",
+      b: ["夹具前置时间从约 7 天缩短到 1 天（−85%）", "夹具成本降至原本约 25%（−75%）", "代表性夹具由 22 kg 降至约 12 kg", "用于定位、固定、检查辅具、防护罩与配线导引"],
+      eq: "X7、Onyx、连续碳纤维", kind: "应用焦点", url: "https://markforged.com/resources/application-spotlights/sophisticated-production-systems-with-yamaha-fine-technologies" },
+    { c: ["mnc"], img: "assets/cases/MF-OFF-111.jpg", who: "伊顿 Eaton", ind: "电气与动力管理", num: "41×",
+      t: "装配线立柱转接件成本降至 1/4、速度提升 41 倍",
+      b: ["立柱转接件成本降至 1/4、速度提升 41 倍", "玻璃纤维增强使零件可承受原聚碳酸酯件无法承受的循环弯曲负载"],
+      eq: "Onyx、玻璃纤维、连续碳纤维", kind: "应用焦点", url: "https://markforged.com/resources/application-spotlights/stanchion-adapter-assembly-fixture" },
+    { c: ["mnc", "fb"], img: "assets/case_danone.jpg", who: "达能 Danone", ind: "乳品 · 波兰 Bieruń 工厂", num: "−80%",
+      t: "包装线末端工具，374 项零件成本降低 80%",
+      b: ["Bieruń 乳品厂 374 项零件成本降低 80%", "为包装线 3D 打印真空抓手等末端工具", "零件以数小时产出，取代传统定制零件所需的数周", "Markforged X7 在一年内收回了成本"],
+      eq: "X7、Onyx", kind: "应用焦点", url: "https://markforged.com/resources/application-spotlights/end-of-arm-tooling-food-and-beverage-packaging-industry" },
+    { c: ["mnc", "fb"], img: "assets/case_suntory.jpg", who: "三得利 Suntory", ind: "饮料 · 日本榛名工厂", num: "1 天",
+      t: "定制夹具从外包最长一个月，缩短到一天内完成",
+      b: ["单一夹具原外包需数万日元、交期最长一个月，现在一天内完成且成本极低", "定制夹具的生产时间缩短 1/3，显著提高工厂效率", "集团已导入 14 台打印机"],
+      eq: "", kind: "应用焦点", url: "https://markforged.com/resources/application-spotlights/suntory-3d-printing-end-use-jigs-and-fixtures" },
+    { c: ["fb"], img: "assets/case_ampc.jpg", who: "AMPC", ind: "肉类加工", num: "18 h",
+      t: "齿轮故障停产，18 小时内打印并装上两个关键齿轮",
+      b: ["2 个齿轮于 18 小时内打印并装回，产线未损失产能", "替换刀片原须向钢厂订制、单价最高 $10,000，改为打印后仅需数天，成本为其零头", "导入厂区日处理 1,200 头牛、员工逾 1,000 人"],
+      eq: "X7、Onyx、连续碳纤维", kind: "客户成功案例", url: "https://markforged.com/resources/case-studies/ampc-case-study" },
+    { c: ["fb"], img: "assets/cases/MF-OFF-074.jpg", who: "MHM Automation", ind: "食品包装自动化设备", num: "−93%",
+      t: "拆箱机真空歧管整合为单件打印，成本节省 93%",
+      b: ["拆箱机真空歧管整合为单件打印，成本节省 93%", "整体成本持续节省约 75%", "该零件生产时间较外包缩短 32 天"],
+      eq: "X7、Onyx", kind: "应用焦点", url: "https://markforged.com/resources/application-spotlights/mhm-automation" },
+    { c: ["fb"], img: "assets/cases/MF-OFF-088.jpg", who: "食品包装制造商", ind: "食品包装产线", num: "当天",
+      t: "三款定制推板，需求提出当天完成打印并装机",
+      b: ["三款定制推板均于需求提出当天完成打印并安装上线"],
+      eq: "FX10、FX20、X7、Onyx、Smooth TPU 95A、芳纶纤维", kind: "应用焦点", url: "https://markforged.com/resources/application-spotlights/pusher-spotlight" },
+    { c: ["fb"], img: "assets/case_farason.jpg", who: "Farason Corporation", ind: "包装设备", num: "CFR",
+      t: "带定制卡圈法兰的夹爪，连续碳纤维加固",
+      b: ["团队在现场制作零件原型、测试和生产，快速解决客户在制造过程中遇到的问题", "为防止袋子在卡爪闭合时滑落，设计带定制卡圈法兰的夹爪，并用连续碳纤维加固", "另一应用：快换安装板成本仅为传统 CNC 铣削的 25%"],
+      eq: "X7、Onyx、连续碳纤维", kind: "客户成功案例", url: "https://markforged.com/resources/application-spotlights/quick-change-mount-plate" },
+    { c: [], img: "assets/case_lean.jpg", who: "Lean Machine", ind: "工装与夹爪", num: "+66%",
+      t: "定制夹爪生产速度提高 66%，成本削减 75%",
+      b: ["生产速度提高 66%，生产成本削减 75%", "利用 3D 打印的设计灵活性开发定制虎钳卡爪组合，将二十多种 3D 打印组件与现成零件相结合"],
+      eq: "", kind: "应用焦点", url: "" }
+  ];
+  var track = $("#caseTrack"), CUT = 6, cFilter = "all", cAll = false;
+  var tagName = { mnc: "跨国企业", fb: "食品饮料" };
+  track.innerHTML = CASES.map(function (c, i) {
+    return '<article class="case rv" data-i="' + i + '" data-c="' + c.c.join(" ") + '" tabindex="0"><div class="pic"><img src="' + c.img + '" alt="' + esc(c.who) + '" loading="lazy"></div><div class="body">' +
+      '<div class="tags">' + c.c.map(function (k) { return '<i>' + tagName[k] + '</i>'; }).join("") + '</div>' +
+      '<div class="who">' + esc(c.who) + ' · ' + esc(c.ind) + '</div><div class="num en">' + esc(c.num) + '</div><h3>' + esc(c.t) + '</h3>' +
+      '<ul>' + c.b.slice(1, 3).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join("") + '</ul><span class="go">查看完整数据</span></div></article>';
+  }).join("");
+  $$(".cf").forEach(function (b) { var k = b.getAttribute("data-cf"); $("span", b).textContent = k === "all" ? CASES.length : CASES.filter(function (c) { return c.c.indexOf(k) >= 0; }).length; });
+  function applyCases() {
+    var mob = innerWidth <= 900, total = 0, shown = 0;
+    $$(".case", track).forEach(function (el) {
+      var hit = cFilter === "all" || el.getAttribute("data-c").split(" ").indexOf(cFilter) >= 0, vis = false;
+      if (hit) { total++; vis = mob || cFilter !== "all" || cAll || total <= CUT; }
+      el.style.display = vis ? "" : "none";
+      if (vis) { shown++; el.classList.add("in"); }
+    });
+    $("#caseMore").style.display = (!mob && shown < total) ? "" : "none";
+    $("#caseCount").textContent = mob ? ("左右滑动 · 共 " + total + " 个案例") : ("显示 " + shown + " / " + total + " 个案例");
+    track.scrollLeft = 0;
+  }
+  $$(".cf").forEach(function (b) { b.addEventListener("click", function () { $$(".cf").forEach(function (x) { x.classList.remove("on"); }); b.classList.add("on"); cFilter = b.getAttribute("data-cf"); applyCases(); }); });
+  $("#caseMore").addEventListener("click", function () { cAll = true; applyCases(); });
+  addEventListener("resize", applyCases);
+  applyCases();
+  function showCase(i) {
+    var c = CASES[i]; if (!c) return;
+    var h = '<div class="dt-hd light"><img src="' + c.img + '" alt="' + esc(c.who) + '" style="object-fit:cover"><div><h3>' + esc(c.who) + '</h3><div class="tg">' + esc(c.ind) + (c.c.length ? ' · ' + c.c.map(function (k) { return tagName[k]; }).join(" · ") : "") + '</div></div></div><div class="dt-bd">';
+    h += '<div class="kv"><div><b>' + esc(c.num) + '</b><span>' + esc(c.t) + '</span></div></div>';
+    h += '<h4>完整数据</h4><ul class="al" style="display:block">' + c.b.map(function (x) { return '<li style="margin-bottom:6px">' + esc(x) + '</li>'; }).join("") + '</ul>';
+    if (c.eq) h += '<h4>使用的设备与材料</h4><p>' + esc(c.eq) + '</p>';
+    h += '<div class="dt-cta"><a class="btn" href="#form" data-goform>咨询类似应用</a></div>';
+    h += '<p class="dt-src">出处：Markforged 官方' + esc(c.kind) + (c.url ? '（英文原文：<a href="' + c.url + '" target="_blank" rel="noopener">海外站点 ↗</a>）' : '（官网首页客户案例）') + '。数据为客户在其案例中的结果。</p></div>';
+    $("#dt").innerHTML = h; open("m-detail"); $("#m-detail .card").scrollTop = 0;
+  }
+  track.addEventListener("click", function (e) { var el = e.target.closest(".case"); if (el) showCase(+el.getAttribute("data-i")); });
+  track.addEventListener("keydown", function (e) { if (e.key === "Enter") { var el = e.target.closest(".case"); if (el) showCase(+el.getAttribute("data-i")); } });
 
   /* toast + copy */
   var toast = $("#toast"), tt;
@@ -786,7 +957,7 @@ body.show-no [data-sec]{outline:2px dashed var(--y);outline-offset:-2px}
         ["打印底板", "精密加工铝", "加热、自动调平、可更换打印板"],
         ["加热打印舱", "最高 60°C", "—"]
       ],
-      mats: [["复合材料", ["onyx", "onyx-fr", "onyx-esd", "continuous-carbon-fiber", "continuous-carbon-fiber-fr", "nylon-white-fs", "@尼龙"]],
+      mats: [["复合材料", ["onyx", "onyx-fr", "onyx-esd", "onyx-gf", "continuous-carbon-fiber", "continuous-carbon-fiber-fr", "nylon-white-fs", "@尼龙"]],
              ["金属（金属套件）", ["17-4-ph-stainless-steel", "316l-stainless-steel", "h13-tool-steel"]]] },
     fx20: { name: "FX20", img: "assets/fx20.jpg", tag: "大尺寸 · 高温复合材料",
       intro: [
@@ -800,7 +971,7 @@ body.show-no [data-sec]{outline:2px dashed var(--y);outline-offset:-2px}
         ["加热成型舱", "84 L"], ["Z 层厚", "50–250 微米"], ["打印流程", "丝材熔融制造、连续纤维增强"],
         ["打印介质", "聚合物丝材、连续纤维"], ["内部零件构造", "连续纤维增强的封闭内部填充"], ["打印底板", "精密加工铝"], ["操作", "7 英寸触摸屏，自动校准和调平"]
       ],
-      mats: [["兼容材料", ["@Vega™", "ultem-9085", "onyx", "onyx-fr", "onyx-esd", "continuous-carbon-fiber", "continuous-carbon-fiber-fr", "@碳纤维 HT-A", "fiberglass"]]],
+      mats: [["兼容材料", ["@Vega™", "ultem-9085", "onyx", "onyx-fr", "onyx-esd", "onyx-gf", "continuous-carbon-fiber", "continuous-carbon-fiber-fr", "@碳纤维 HT-A", "fiberglass"]]],
       note: "ULTEM™ 和 9085 商标的使用已获得 SABIC、其附属公司或子公司的许可。" },
     x7: { name: "X7", img: "assets/x7.jpg", tag: "工业级碳纤维",
       intro: [
@@ -859,6 +1030,11 @@ body.show-no [data-sec]{outline:2px dashed var(--y);outline-offset:-2px}
       desc: "Onyx FR 是 Onyx 的阻燃版本，适用于要求零件不易燃的应用。该材料已通过 UL 蓝卡认证，厚度不低于 3 mm 时视为 V-0（自熄型）材料，可使用任意连续纤维增强。",
       kv: [["V-0", "UL 阻燃等级（厚度 ≥ 3 mm）"], ["71 MPa", "弯曲强度"], ["145 °C", "热变形温度"]],
       apps: ["焊接夹具", "航空航天夹子和支架", "激光打标夹具", "能源 / 电气支架和夹具"], works: ["FX10", "FX20", "X7", "X7 Field Edition"] },
+    "onyx-gf": { name: "Onyx GF™（六色）", type: "复合基材 · 新材料", img: "assets/onyxgf_spools.jpg",
+      desc: "Onyx GF 是一款专为工业工具和最终零件打造的短切玻璃纤维填充尼龙线材，在延续 Onyx 表面光洁度、尺寸精度和打印可靠性的同时，还具备功能性配色和非导电特性。提供红、黄、绿、蓝、灰、白六种颜色，无需增加任何工序即可在车间实现颜色编码与防错；兼容连续纤维增强。",
+      kv: [["56.5 MPa", "拉伸强度（屈服）"], ["3.1 GPa", "拉伸模量"], ["88.2 MPa", "弯曲强度"], ["138 °C", "热变形温度（1.8 MPa）"], ["6 色", "红、黄、绿、蓝、灰、白"]],
+      apps: ["颜色编码夹具与固定装置", "高可见度安全工具", "传感器外壳", "天线外壳"], works: ["FX10", "FX20"],
+      note: "打印 Onyx GF 需使用硬化型塑料喷嘴。数据出处：Onyx GF 官方材料数据表 V01（FX10、层厚 125 µm、XY 方向、调湿状态）。" },
     "onyx-esd": { name: "Onyx ESD", type: "复合基材", img: "assets/mat_comp.jpg",
       desc: "Onyx ESD 是一种静电耗散型短碳纤维尼龙材料，表面电阻范围小，能够满足严格的静电安全要求。它比 Onyx 更坚固、更坚硬，适用于电子组装、工业机器人和过程自动化等应用。",
       kv: [["83 MPa", "弯曲强度"]],
