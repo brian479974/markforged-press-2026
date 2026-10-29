@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>艾斯特物聯科技以連續碳纖維 3D 列印 FPV 無人機機體：通過九級風抗風測試，改版、維修到量產都在台灣完成｜Markforged 媒體中心</title>
+<meta name="description" content="艾斯特物聯科技以 Markforged X7 Field Edition 列印 ASTER-SWARM 的全部機體結構件，在受力路徑上嵌入連續碳纖維。原型機完成高速飛行功能測試，並通過蒲福風級九級抗風測試，結果經中科院軍民通用中心量測驗證。">
+<meta property="og:title" content="艾斯特物聯科技以連續碳纖維 3D 列印 FPV 無人機機體：通過九級風抗風測試，改版、維修到量產都在台灣完成">
+<meta property="og:description" content="艾斯特物聯科技以 Markforged X7 Field Edition 列印 ASTER-SWARM 的全部機體結構件，在受力路徑上嵌入連續碳纖維。原型機完成高速飛行功能測試，並通過蒲福風級九級抗風測試，結果經中科院軍民通用中心量測驗證。">
+<meta property="og:image" content="https://news.markforged.tw/images/aster-swarm-hero.jpg">
+<meta property="og:type" content="article">
+<link rel="alternate" hreflang="zh-TW" href="https://news.markforged.tw/aster-swarm-fpv-airframe-x7-field-edition.html">
+<link rel="alternate" hreflang="en" href="https://news.markforged.tw/aster-swarm-fpv-airframe-x7-field-edition-en.html">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#e8e8e8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,'Noto Sans TC','Noto Sans SC',sans-serif;color:#1a1a1a}
+  .wrap{max-width:700px;margin:0 auto;background:#fff}
+  .hdr{background:#000;padding:20px 40px;display:flex;align-items:center;justify-content:space-between}
+  .hdr-logo{display:block;line-height:0}
+  .hdr-logo img{height:26px;width:auto;display:block}
+  .hdr-ev{color:rgba(255,255,255,.6);font-size:12px;text-align:right;line-height:1.6}
+  .langbar{background:#111;padding:8px 40px;display:flex;gap:6px;align-items:center;border-top:1px solid #222}
+  .langbar span{color:#666;font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-right:4px}
+  .langbar a{font-size:11.5px;font-weight:700;color:#888;text-decoration:none;padding:3px 10px;border-radius:20px;border:1px solid #333}
+  .langbar a:hover{color:#FFFF00;border-color:#FFFF00}
+  .langbar a.on{background:#FFFF00;color:#000;border-color:#FFFF00}
+  .hero{position:relative;overflow:hidden}
+  .hero img{width:100%;display:block}
+  .hero-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.68) 0%,rgba(0,0,0,.15) 50%,rgba(0,0,0,.72) 100%)}
+  .hero-top{position:absolute;top:0;left:0;right:0;padding:28px 38px}
+  .hero-kicker{color:#FFFF00;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px}
+  .hero-title{color:#fff;font-size:26px;font-weight:900;line-height:1.28;max-width:540px;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+  .hero-btm{position:absolute;bottom:0;left:0;right:0;padding:16px 38px;background:linear-gradient(transparent,rgba(0,0,0,.75))}
+  .hero-meta{color:rgba(255,255,255,.85);font-size:12px;letter-spacing:.04em}
+  .ds{background:#FFFF00;padding:10px 38px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}
+  .ds-l{font-size:12.5px;font-weight:700;color:#000}
+  .ds-r{font-size:11.5px;color:#333}
+  .body{padding:36px 38px 0}
+  .lead{font-size:16px;line-height:1.82;color:#222;margin-bottom:24px;padding-bottom:24px;border-bottom:2px solid #f0f0f0}
+  .qb{margin:6px 0 26px;padding:20px 24px;background:#000;border-radius:6px}
+  .qb p{color:#FFFF00;font-size:18px;font-weight:800;line-height:1.45;margin-bottom:5px}
+  .qb small{color:rgba(255,255,255,.45);font-size:10.5px;letter-spacing:.07em}
+  .sec{margin-bottom:30px}
+  h2{font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#111;margin-bottom:12px;padding-left:11px;border-left:4px solid #FFFF00}
+  h3{font-size:18px;font-weight:800;color:#111;margin-bottom:12px;line-height:1.32}
+  p{font-size:14.5px;line-height:1.82;color:#333;margin-bottom:14px}
+  strong{color:#111}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
+  .tag{background:#111;color:#FFFF00;font-size:10px;font-weight:700;letter-spacing:.07em;padding:4px 10px;border-radius:30px}
+  .tag.ol{background:#fff;color:#666;border:1.5px solid #ddd}
+  .ph-full img{width:100%;display:block}
+  .ph-2col{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+  .gi{width:100%;display:block;object-fit:cover}
+  .gi-43{aspect-ratio:4/3}
+  .cap{font-size:11px;color:#aaa;text-align:center;padding:8px 38px 22px;border-bottom:1px solid #eee;margin-bottom:26px;line-height:1.55}
+  .hl-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:30px}
+  .hl{background:#f7f7f7;border-left:4px solid #FFFF00;padding:16px 18px}
+  .hl b{display:block;font-size:24px;font-weight:900;color:#111;line-height:1.1;margin-bottom:5px}
+  .hl span{font-size:11.5px;color:#777;line-height:1.5;display:block}
+  .prof{display:flex;gap:18px;align-items:center;background:#111;padding:22px 24px;border-radius:6px;margin:8px 0 28px}
+  .prof img{width:92px;height:92px;object-fit:cover;border-radius:50%;flex-shrink:0;border:3px solid #FFFF00}
+  .prof-n{color:#fff;font-size:16px;font-weight:800;margin-bottom:4px}
+  .prof-t{color:#FFFF00;font-size:11.5px;font-weight:700;margin-bottom:7px}
+  .prof-d{color:rgba(255,255,255,.6);font-size:11.5px;line-height:1.6}
+  .cta{background:#FFFF00;padding:28px 32px;margin:6px 0 0}
+  .cta h4{font-size:17px;font-weight:900;color:#000;margin-bottom:8px}
+  .cta p{font-size:13px;color:#333;line-height:1.7;margin-bottom:16px}
+  .btn{display:inline-block;background:#000;color:#FFFF00;padding:12px 26px;font-size:13.5px;font-weight:800;text-decoration:none;letter-spacing:.04em}
+  .btn:hover{background:#222}
+  .srcbox{background:#fafafa;border-top:3px solid #111;padding:22px 38px 26px}
+  .srcbox h5{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#888;margin-bottom:10px}
+  .srcbox li{font-size:11.5px;color:#777;line-height:1.75;margin-left:16px}
+  .srcbox li a{color:#555;text-decoration:none;border-bottom:1px solid #ccc;word-break:break-all}
+  .srcbox li a:hover{color:#000;border-color:#FFFF00}
+  .sec p a{color:#111;text-decoration:none;border-bottom:2px solid #FFFF00;font-weight:600}
+  .sec p a:hover{background:#FFF6D6}
+  .ftr{background:#000;padding:24px 38px;color:rgba(255,255,255,.5);font-size:11.5px;line-height:1.7}
+  .ftr a{color:#FFFF00;text-decoration:none}
+  @media(max-width:620px){.hero-title{font-size:21px}.body{padding:26px 22px 0}.hl-grid{grid-template-columns:1fr}.prof{flex-direction:column;text-align:center}.langbar{padding:8px 22px}}
+
+  .dl{background:#111;padding:26px 38px;margin:6px 0 0}
+  .dl h4{color:#fff;font-size:16px;font-weight:900;margin-bottom:6px}
+  .dl>p{color:rgba(255,255,255,.55);font-size:12px;line-height:1.7;margin-bottom:16px}
+  .dl-row{display:flex;gap:10px;flex-wrap:wrap}
+  .dl-row a{flex:1;min-width:148px;background:#1c1c1c;border:1px solid #333;padding:14px 16px;text-decoration:none;display:block}
+  .dl-row a:hover{border-color:#FFFF00;background:#222}
+  .dl-l{color:#FFFF00;font-size:13.5px;font-weight:800;display:block;margin-bottom:3px}
+  .dl-s{color:rgba(255,255,255,.45);font-size:10.5px;display:block}
+  .note{background:#f7f7f7;border-left:4px solid #111;padding:14px 18px;margin:0 0 26px}
+  .note p{font-size:12.5px;color:#555;line-height:1.7;margin:0}
+  .orgs{background:#fff;border-top:3px solid #111;border-bottom:1px solid #e6e6e6;padding:26px 38px;margin:6px 0 0}
+  .orgs h5{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#888;font-weight:800;margin:0 0 20px}
+  .orgs-row{display:flex;align-items:center;gap:52px;flex-wrap:wrap}
+  .orgs-row a{display:block;opacity:.82;transition:opacity .18s}
+  .orgs-row a:hover{opacity:1}
+  .orgs-row img{width:auto;display:block}   /* height set per logo inline; see ORGS in content.py */
+  .orgs-note{font-size:10.5px;line-height:1.7;color:#999;margin:22px 0 0}
+  @media(max-width:640px){.orgs{padding:22px 20px}.orgs-row{gap:30px}.orgs-row img{transform:scale(.8);transform-origin:left center}}
+  .lead a{color:#111;text-decoration:none;border-bottom:2px solid #FFFF00;font-weight:600}
+  .vid{position:relative;width:100%;aspect-ratio:16/9;background:#000;margin:0 0 8px}
+  .vid.v{aspect-ratio:9/16;max-width:340px;margin:0 auto 8px}
+  .vid iframe,.vid video{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;background:#000}
+  .dl{background:#111;padding:26px 38px;margin:6px 0 0}
+  .dl h4{color:#fff;font-size:16px;font-weight:900;margin-bottom:6px}
+  .dl>p{color:rgba(255,255,255,.55);font-size:12px;line-height:1.7;margin-bottom:16px}
+  .dl-row{display:flex;gap:10px;flex-wrap:wrap}
+  .dl-row a{flex:1;min-width:148px;background:#1c1c1c;border:1px solid #333;padding:14px 16px;text-decoration:none;display:block}
+  .dl-row a:hover{border-color:#FFFF00;background:#222}
+  .dl-l{color:#FFFF00;font-size:13.5px;font-weight:800;display:block;margin-bottom:3px}
+  .dl-s{color:rgba(255,255,255,.45);font-size:10.5px;display:block}
+</style>
+</head>
+<body>
+<script src="/globalbar.js"></script>
+<div class="wrap">
+  <div class="hdr">
+    <a href="index.html" class="hdr-logo"><img src="images/markforged-logo-white.png" alt="Markforged"></a>
+    <div class="hdr-ev">大中華區暨越南　媒體中心<br>News &amp; Insights</div>
+  </div>
+  <div class="langbar"><span>語言</span><a href="aster-swarm-fpv-airframe-x7-field-edition.html" class='on'>繁體中文</a><a href="aster-swarm-fpv-airframe-x7-field-edition-en.html">English</a></div>
+
+  <div class="hero">
+    <img src="images/aster-swarm-hero.jpg" alt="艾斯特物聯科技以連續碳纖維 3D 列印 FPV 無人機機體：通過九級風抗風測試，改版、維修到量產都在台灣完成">
+    <div class="hero-ov"></div>
+    <div class="hero-top">
+      <div class="hero-kicker">客戶案例 · 國防 · 台灣</div>
+      <div class="hero-title">連續碳纖維 3D 列印的<br>FPV 無人機機體</div>
+    </div>
+    <div class="hero-btm"><div class="hero-meta">Markforged X7 Field Edition · 艾斯特物聯科技 ASTER-SWARM</div></div>
+  </div>
+
+  <div class="ds"><div class="ds-l">2026 年 10 月 29 日</div><div class="ds-r">台灣 · 國防無人機系統</div></div>
+
+  <div class="body">
+    <div class="lead"><a href='https://www.aster-iot.com.tw/' target='_blank' rel='noopener'>艾斯特物聯科技（ASTER Technology）</a>以 Markforged <a href='https://markforged.com/tw/3d-printers/x7-field-edition' target='_blank' rel='noopener'>X7 Field Edition（X7 現場版）</a>列印自家 FPV 無人機 ASTER-SWARM 的全部機體結構件，並在機臂根部、馬達座等受力路徑上嵌入連續碳纖維。<br><br>ASTER-SWARM 是一次性使用的 FPV 攻擊無人機，機體由五個標準化模組組成。原型機已完成起飛與高速飛行功能測試，並通過蒲福風級九級抗風測試（平均風速 20.8–24.4 m/s），結果經國家中山科學研究院軍民通用中心量測驗證。同一套機體加裝螺旋槳護罩，即可作為訓練機。</div>
+    <div class="qb"><p>「一般 3D 列印的機體，飛得快就會晃、會裂。導入 Markforged 的連續碳纖維列印後，我們第一次能用 3D 列印做出真正撐得住高速飛行的機體。加上模組化設計，ASTER-SWARM 從改版、維修到量產都能在台灣自己完成，這正是自主國防最需要的能力。」</p><small>戴家維，執行長，艾斯特物聯科技股份有限公司</small></div>
+    <div class="tags"><span class="tag">國防無人機</span><span class="tag">FPV</span><span class="tag ol">連續碳纖維</span><span class="tag ol">X7 Field Edition</span><span class="tag ol">模組化機體</span><span class="tag ol">現地維修</span></div>
+
+    <div class="sec">
+      <h2>挑戰</h2>
+<h3>一般 3D 列印機體，撐不住高速飛行</h3>
+<p>FPV（第一人稱視角）無人機要在數秒內完成全油門加速、急轉與俯衝。以 PLA、ABS、PETG 等一般線材列印的機體，在高速飛行的負載下會出現四類結構問題，直接影響飛控穩定度與任務成功率：</p>
+<p><b>機臂撓曲</b>：剛性不足的機臂在急加速與急轉時彎曲，馬達軸線偏移，造成推力損失與姿態失準。</p>
+<p><b>結構共振</b>：馬達高轉速引發機體共振，振動雜訊進入陀螺儀，導致 PID 振盪與 FPV 影像抖動。</p>
+<p><b>層間分層</b>：一般 FDM 零件的層間結合最弱，長時間振動與衝擊下會沿層線開裂。</p>
+<p><b>疲勞與熱潛變</b>：馬達座附近長期受熱與反覆應力，塑料零件逐漸潛變，造成螺絲鬆脫、機臂根部斷裂。</p>
+<p><b>另一條路：CNC 碳板機架</b>：強度足夠，但仰賴進口碳纖板材與外部加工。設計每改一次就要重新開料、等待交期，跟不上原型迭代的速度，也不利建立自主供應鏈。</p>
+    </div>
+
+    <div class="ph-full"><img class="gi" src="images/aster-swarm-topview.jpg" alt="ASTER-SWARM 原型機與動力電池（俯視）。照片：艾斯特物聯科技"></div>
+    <div class="cap">ASTER-SWARM 原型機與動力電池（俯視）。照片：艾斯特物聯科技</div>
+
+    <div class="sec">
+      <h2>解法</h2>
+<h3>連續纖維強化：把碳纖維鋪在受力路徑上</h3>
+<p>艾斯特選用 Markforged X7 Field Edition（X7 現場版）。X7 以 Onyx™（短切碳纖維強化尼龍）列印零件外形，並在指定層沿受力路徑嵌入連續碳纖維，讓機臂與機體得到一般 3D 列印達不到的剛性與強度。</p>
+<p><b>連續碳纖維強化</b>：機臂根部、馬達座等高應力區鋪設連續碳纖維。連續碳纖維拉伸強度 800 MPa，約為 6061-T6 鋁的 2.6 倍；密度 1.4 g/cm³，約為鋁的一半。</p>
+<p><b>製程中雷射檢測</b>：X7 Field Edition 內建雷射，在列印過程中量測零件尺寸，並用於列印校正與列印床調平，及早發現尺寸偏差。</p>
+<p><b>野戰部署</b>：整機裝於強化運輸箱，開箱至開始列印不到 3 分鐘，可在前進基地就地生產與更換零件。</p>
+<p><b>機敏環境作業</b>：提供無 Wi-Fi 硬體版本，並可選購離線版軟體；作業系統符合美國國防部 STIG 安全規範。</p>
+    </div>
+
+    <div class="hl-grid"><div class="hl"><b>100%</b><span>機體結構件 3D 列印</span></div><div class="hl"><b>9級</b><span>蒲福風級抗風測試 平均風速 20.8–24.4 m/s</span></div><div class="hl"><b>5個</b><span>標準化機體模組 M1–M5</span></div><div class="hl"><b>2種</b><span>同一機體 任務機・訓練機</span></div></div>
+
+    <div class="sec">
+      <h2>模組化</h2>
+<h3>為量產與快速補充設計的模組化機體</h3>
+<p>ASTER-SWARM 把機體拆成五個標準化模組，每個模組都能在 X7 上獨立列印、獨立更換。損壞時只重印單一零件；改版時只更新單一模組的檔案。</p>
+<p><b>M1 上蓋（TOP PLATE）</b>：保護飛控與電子設備，可依任務配置更換。</p>
+<p><b>M2 機體（BASE FRAME）</b>：X 型主架；機臂以連續碳纖維強化，承受高速飛行負載。</p>
+<p><b>M3 連接柱（STANDOFFS）</b>：標準化連接柱，上下層快速組裝與拆卸。</p>
+<p><b>M4 前罩（FRONT GUARD）</b>：鏡頭護罩，可依攝影模組型號更換。</p>
+<p><b>M5 任務模組介面（PAYLOAD INTERFACE）</b>：標準化掛載介面，同一機體可搭配不同任務模組。</p>
+    </div>
+
+    <div class="ph-full"><img class="gi" src="images/aster-swarm-exploded-cad.jpg" alt="ASTER-SWARM 機體爆炸圖（CAD 模型）。圖：艾斯特物聯科技"></div>
+    <div class="cap">ASTER-SWARM 機體爆炸圖（CAD 模型）。圖：艾斯特物聯科技</div>
+
+    <div class="sec">
+      <h2>一機兩用</h2>
+<h3>一機兩用：任務機與訓練機</h3>
+<p>同一套機體加裝 3D 列印螺旋槳護罩，即改為訓練機。操作手用與任務機相同的機型與飛行手感訓練；訓練中損壞的零件，可在現地重印更換。</p>
+<p><b>快速迭代</b>：改一個模組的 CAD 檔即可重新列印，不必重新開模或委外加工。</p>
+<p><b>現地維修</b>：X7 Field Edition 可隨部隊部署，損壞零件在前進基地就地重印更換。</p>
+<p><b>規模化生產</b>：標準化模組可由多台列印機並行生產，支撐大量部署所需的機隊數量。</p>
+    </div>
+
+    <div class="sec">
+      <h2>成果</h2>
+<h3>從原型到驗證：機體在台灣設計、列印、組裝</h3>
+<p><b>高速飛行驗證</b>：原型機完成起飛與高速飛行功能測試。連續碳纖維強化的機臂在高負載下維持剛性，未出現一般列印機體常見的撓曲與共振。</p>
+<p><b>獨立驗證</b>：九級風抗風測試結果，由國家中山科學研究院軍民通用中心量測驗證組出具驗證文件。</p>
+<p><b>在地生產</b>：機體設計、列印與組裝全數在台灣完成，不需外購碳板機架或委外加工。</p>
+<p><b>訓練與任務一致</b>：訓練機與任務機是同一套機體，操作手用實戰機型訓練，訓練損耗的零件就地重印。</p>
+    </div>
+
+    <div class="qb"><p>「3D 列印做無人機，問題不在印不印得出來，在印出來的機體撐不撐得住高速飛行。前提是纖維放在對的位置：連續碳纖維沿受力路徑鋪設，機臂才有承受負載的剛性。X7 Field Edition 隨部隊部署，機體損壞就在前進基地重印，不必等外部加工的交期。」</p><small>陳中欣（Brian Chen），Markforged 大中華區總經理</small></div>
+
+    <div class="ph-full"><img class="gi" src="images/x7fe-field-daylight.jpg" alt="X7 Field Edition 野外部署實景。圖片：Markforged"></div>
+    <div class="cap">X7 Field Edition 野外部署實景。圖片：Markforged</div>
+
+    <div class="sec">
+      <h2>設備</h2>
+<h3>X7 Field Edition 野戰部署規格</h3>
+<p>列印製程：熔融沉積（FFF）＋ 連續纖維強化（CFF）；建構尺寸 330 × 270 × 200 mm；雷射用於製程中檢測、列印校正、列印床調平。</p>
+<p>部署：開箱至開始列印 &lt; 3 分鐘；強化運輸箱，含箱 86 kg・外尺寸 914 × 914 × 762 mm；電源 100–240 VAC，150 W。</p>
+<p>可用材料：塑料：Onyx、Onyx FR、Onyx ESD、Nylon White；連續纖維：碳纖維、碳纖維 FR、玻璃纖維、克維拉（Kevlar®）、HSHT 玻璃纖維。</p>
+<p>環境測試：已納入美軍依 MIL-STD-810 執行之環境測試。作業系統符合美國國防部 STIG 安全規範，並提供無 Wi-Fi 硬體版本與可選購的離線版軟體。</p>
+    </div>
+
+    <div class="dl">
+    <h4>完整案例（A4 · 6 頁）</h4>
+    <p>Markforged 正式客戶案例全文，含客戶概要、挑戰、解法、模組化設計、成果、規格與出處註記。</p>
+    <div class="dl-row"><a href="downloads/Markforged-Customer-Story-ASTER-SWARM-CS-D27-v3-TC.pdf" target="_blank" rel="noopener"><span class="dl-l">繁體中文</span><span class="dl-s">PDF · A4</span></a><a href="downloads/Markforged-Customer-Story-ASTER-SWARM-CS-D27-v3-EN.pdf" target="_blank" rel="noopener"><span class="dl-l">English</span><span class="dl-s">PDF · A4</span></a></div>
+  </div>
+  </div>
+
+  <div class="cta">
+    <h4>無人機機體與結構件導入評估</h4>
+    <p>由 Markforged 工程團隊就機體設計、受力路徑與部署條件評估纖維鋪設與機型，並可安排操作演示。地點可安排於台灣、香港或越南。</p>
+    <a href="https://mfmk.markforged.tw" class="btn">與我們聯繫</a>
+  </div>
+
+  <div class="srcbox">
+    <h5>資料來源</h5>
+    <ul><li>Markforged X7 Field Edition 產品頁（繁中）<br><a href='https://markforged.com/tw/3d-printers/x7-field-edition' target='_blank' rel='noopener'>https://markforged.com/tw/3d-printers/x7-field-edition</a></li><li>Markforged X7 Field Edition 產品規格 F-PR-3013 REV 1.0a（2021/11/11）：雷射、連續碳纖維 800 MPa、建構尺寸、運輸箱、電源、可用材料、無 Wi-Fi 版本</li><li>Markforged X7 Field Edition 產品手冊 REV 1.5（2022/02/16）：開箱至列印不到 3 分鐘、MIL-STD-810 環境測試、STIG</li><li>蒲福風級九級：平均風速 20.8–24.4 m/s，依交通部中央氣象署風級表</li><li>艾斯特物聯科技官方網站；ASTER-SWARM 的測試結果、模組設計、CAD 圖與照片由艾斯特物聯科技提供<br><a href='https://www.aster-iot.com.tw/' target='_blank' rel='noopener'>https://www.aster-iot.com.tw/</a></li></ul>
+  </div>
+
+  <div class="ftr">
+    Markforged, Inc. 為工業級增材製造系統供應商，以連續纖維複合材料與金屬解決方案，協助製造與技術保障單位於使用現場自主生產功能性零件、工裝與備件。<br><br>本文由 Markforged 大中華區暨越南團隊整理。<br><br><a href="index.html">回到媒體中心</a>　·　<a href="https://www.markforged.tw/">www.markforged.tw</a>
+  </div>
+</div>
+</body>
+</html>
