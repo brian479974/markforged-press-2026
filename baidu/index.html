@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#000000">
+<title>Markforged 工业级 3D 打印机 · 百度落地页示范</title>
+<meta name="description" content="专为工厂车间打造的 3D 打印机：采用经连续碳纤维增强的金属和复合材料，打印工业级强度零件。">
+<!--
+  Markforged 百度落地页 · 全功能示范页 v1（2026-10-29）
+  用途：给推广代理商照着重建百度基木鱼落地页，也是后续讨论与调整的依据。
+  本页是手写源文件，没有产生器；改这里就是改源头。
+  文案出处：markforged.com/zh 首页、关于我们、FX10／FX20／X7／X7 Field Edition 产品页、材料页（2026-10-29 读取）；
+  打印尺寸与规格出自官网产品页与官方数据表。客户案例三则为 markforged.com/zh 首页原文。
+  表单只做前端验证，不送出任何资料。
+-->
+<style>
+@font-face{font-family:"MFRubik";src:url(assets/Rubik-Regular.ttf) format("truetype");font-weight:400;font-display:swap}
+:root{--y:#FFFF00;--k:#000;--w:#fff;--g1:#F4F4F4;--g2:#CCCCCC;--g3:#999999;--g4:#666666;--hd:60px;--ease:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--hd) + 8px)}
+body{font-family:"Helvetica Neue","PingFang SC","Noto Sans SC","Microsoft YaHei",sans-serif;color:var(--k);background:var(--w);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+.en{font-family:"MFRubik","Helvetica Neue",sans-serif;font-weight:400}
+h1,h2,h3{font-family:"MFRubik","PingFang SC","Noto Sans SC","Microsoft YaHei",sans-serif;font-weight:600;letter-spacing:.01em}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--y);color:var(--k);font:600 15px/1 "PingFang SC","Noto Sans SC",sans-serif;text-decoration:none;border:0;cursor:pointer;padding:12px 20px;border-radius:2px;transition:transform .2s var(--ease),box-shadow .2s var(--ease),background .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.18)}
+.btn:active{transform:translateY(0)}
+.btn.lg{font-size:17px;padding:16px 30px}
+.btn.blk{background:var(--k);color:var(--y)}
+.btn.line{background:transparent;color:var(--w);border:1px solid var(--g4)}
+.btn.line:hover{border-color:var(--y);color:var(--y)}
+.btn .arr{transition:transform .2s var(--ease)}
+.btn:hover .arr{transform:translateX(4px)}
+.lnk{color:var(--k);text-decoration:none;border-bottom:2px solid var(--y);font-weight:600;font-size:14px;padding-bottom:1px;transition:background .2s}
+.lnk:hover{background:var(--y)}
+.dark .lnk,.prod .lnk,.contact .lnk{color:var(--w)}
+.dark .lnk:hover,.prod .lnk:hover,.contact .lnk:hover{color:var(--k)}
+
+/* demo ribbon */
+.ribbon{background:var(--y);color:var(--k);font-size:13px;text-align:center;padding:7px 40px;position:relative}
+.ribbon b{font-weight:600}
+.ribbon button{position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:0;font-size:18px;cursor:pointer;line-height:1;padding:4px}
+
+/* header */
+.hd{position:sticky;top:0;z-index:40;background:var(--k);height:var(--hd);transition:box-shadow .3s,height .3s}
+.hd.scrolled{box-shadow:0 2px 18px rgba(0,0,0,.35)}
+.hd .wrap{display:flex;align-items:center;justify-content:space-between;height:100%}
+.hd .logo img{height:22px}
+.nav{display:flex;gap:28px;align-items:center}
+.nav a{color:var(--g2);text-decoration:none;font-size:14px;position:relative;padding:6px 0;transition:color .2s}
+.nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;background:var(--y);transition:right .25s var(--ease)}
+.nav a:hover,.nav a.on{color:var(--w)}
+.nav a:hover::after,.nav a.on::after{right:0}
+.hd .cta{padding:10px 18px}
+.burger{display:none;background:none;border:0;width:40px;height:40px;cursor:pointer;position:relative}
+.burger span{position:absolute;left:9px;right:9px;height:2px;background:var(--w);transition:transform .25s,opacity .2s}
+.burger span:nth-child(1){top:13px}.burger span:nth-child(2){top:19px}.burger span:nth-child(3){top:25px}
+.burger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+/* hero */
+.hero{background:var(--k);color:var(--w);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:44px;align-items:center;padding-top:72px;padding-bottom:72px}
+.eyebrow{display:inline-block;font-size:13px;letter-spacing:.12em;color:var(--y);border-left:3px solid var(--y);padding-left:10px;margin-bottom:18px}
+.hero h1{font-size:46px;line-height:1.2}
+.hero .sub{font-size:18px;color:var(--g2);max-width:540px;margin:18px 0 30px}
+.hero .btns{display:flex;gap:12px;flex-wrap:wrap}
+.stats{display:flex;gap:44px;margin-top:44px}
+.stat b{display:block;font-family:"MFRubik","PingFang SC",sans-serif;font-weight:400;font-size:36px;color:var(--y);line-height:1.1;font-variant-numeric:tabular-nums}
+.stat>span{font-size:14px;color:var(--g2)}
+.hero-pic{position:relative;aspect-ratio:1200/630;overflow:hidden;border-bottom:4px solid var(--y)}
+.hero-pic img{width:100%;height:100%;object-fit:cover;animation:kb 18s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.08) translate(-1.5%,-1%)}}
+.hero-pic .scan{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--y),transparent);opacity:.5;animation:scan 4.5s linear infinite}
+@keyframes scan{0%{top:-2%}100%{top:102%}}
+.ld{opacity:0;transform:translateY(18px);animation:up .8s var(--ease) forwards}
+@keyframes up{to{opacity:1;transform:none}}
+
+/* form */
+.form-sec{background:var(--g1);padding:60px 0}
+.form-card{background:var(--w);max-width:780px;margin:0 auto;padding:36px 38px 30px;border-top:4px solid var(--y);transition:box-shadow .4s}
+.form-card.pulse{box-shadow:0 0 0 4px var(--y)}
+.form-card h2{font-size:28px}
+.form-card .lead{color:var(--g4);font-size:15px;margin:8px 0 24px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px}
+.fld label{display:block;font-size:14px;font-weight:600;margin-bottom:6px}
+.fld label i{color:var(--k);font-style:normal;background:var(--y);padding:0 4px;margin-left:4px;font-size:12px;font-weight:600}
+.fld input,.fld select{width:100%;height:48px;border:1px solid var(--g2);background:var(--w);padding:0 12px;font:15px "PingFang SC","Noto Sans SC",sans-serif;color:var(--k);border-radius:0;outline:none;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none;appearance:none}
+.fld select{background:var(--w) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23000' stroke-width='2' fill='none'/%3E%3C/svg%3E") no-repeat right 14px center}
+.fld input:focus,.fld select:focus{border-color:var(--k);box-shadow:inset 0 -3px 0 var(--y)}
+.fld .msg{font-size:12px;min-height:16px;margin-top:4px;color:var(--g4)}
+.fld.bad input,.fld.bad select{border-color:var(--k);background:#FFFFE6}
+.fld.bad .msg{color:var(--k);font-weight:600}
+.fld.bad .msg::before{content:"! ";}
+.agree{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--g4);margin-top:16px}
+.agree input{width:16px;height:16px;margin-top:3px;accent-color:#000}
+.agree a{color:var(--k)}
+.agree.bad{color:var(--k);font-weight:600}
+.form-card .submit{width:100%;margin-top:18px}
+.form-card .note{font-size:12px;color:var(--g3);text-align:center;margin-top:10px}
+
+/* sections */
+.sec{padding:84px 0}
+.sec.grey{background:var(--g1)}
+.sec.dark{background:var(--k);color:var(--w)}
+.sec-h{margin-bottom:36px;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+.sec-h .k{font-size:13px;letter-spacing:.14em;color:var(--g4)}
+.dark .sec-h .k{color:var(--y)}
+.sec-h h2{font-size:34px;margin-top:6px}
+.sec-h p{color:var(--g4);margin-top:8px;max-width:700px}
+.dark .sec-h p{color:var(--g2)}
+.rule{width:44px;height:4px;background:var(--y);margin-top:14px;transform-origin:left;transform:scaleX(0);transition:transform .8s var(--ease) .2s}
+.in .rule,.rule.in{transform:scaleX(1)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+
+/* products */
+.prods{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.prod{background:var(--k);color:var(--w);display:flex;flex-direction:column;position:relative;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.prod:hover{transform:translateY(-6px);box-shadow:0 16px 34px rgba(0,0,0,.28)}
+.prod .pic{aspect-ratio:1/1;overflow:hidden;background:#000}
+.prod .pic img{width:100%;height:100%;object-fit:contain;transition:transform .6s var(--ease)}
+.prod:hover .pic img{transform:scale(1.06)}
+.prod .body{padding:18px 18px 20px;border-top:3px solid var(--y);flex:1;display:flex;flex-direction:column}
+.prod h3{font-size:22px}
+.prod .tag{font-size:13px;color:var(--y);margin:2px 0 10px}
+.prod p{font-size:14px;color:var(--g2)}
+.prod .spec{font-size:13px;border-top:1px solid #333;margin-top:14px;padding-top:10px}
+.prod .spec em{font-style:normal;color:var(--g3);display:block;font-size:12px}
+.more{margin-top:12px;border-top:1px solid #333}
+.more summary{list-style:none;cursor:pointer;font-size:13px;color:var(--y);padding:10px 0 4px;display:flex;justify-content:space-between}
+.more summary::-webkit-details-marker{display:none}
+.more summary::after{content:"+";font-size:16px;line-height:1;transition:transform .25s}
+.more[open] summary::after{transform:rotate(45deg)}
+.more ul{list-style:none;font-size:13px;color:var(--g2);padding:4px 0 2px}
+.more li{padding:4px 0;border-bottom:1px dashed #333}
+.prod .acts{display:flex;gap:14px;align-items:center;margin-top:14px;flex-wrap:wrap}
+.prod .acts a{font-size:13px}
+
+/* materials tabs */
+.tabs{display:flex;gap:0;border-bottom:2px solid var(--k);margin-bottom:26px;overflow-x:auto}
+.tab{background:none;border:0;padding:14px 22px;font:600 16px "PingFang SC","Noto Sans SC",sans-serif;cursor:pointer;color:var(--g4);position:relative;white-space:nowrap;transition:color .2s,background .2s}
+.tab:hover{color:var(--k)}
+.tab[aria-selected=true]{color:var(--k);background:var(--y)}
+.panel{display:none;grid-template-columns:1fr 1.1fr;gap:36px;align-items:center}
+.panel.on{display:grid;animation:fade .5s var(--ease)}
+@keyframes fade{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:none}}
+.panel .pic{background:var(--w);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid var(--g2)}
+.panel .pic img{width:100%;height:100%;object-fit:contain}
+.panel h3{font-size:26px}
+.panel p{color:var(--g4);margin:10px 0 16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.chips a,.chips span{font-size:14px;background:var(--w);padding:5px 10px;border-left:3px solid var(--y);text-decoration:none;color:var(--k);transition:background .2s}
+.chips a:hover{background:var(--y)}
+.panel .fine{font-size:13px;color:var(--g4);border-top:1px solid var(--g2);padding-top:10px}
+
+/* applications */
+.apps{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #333}
+.app{padding:26px 20px 28px;border-right:1px solid #333;position:relative;overflow:hidden;transition:background .3s}
+.app:last-child{border-right:0}
+.app::before{content:"";position:absolute;left:0;top:0;height:3px;width:0;background:var(--y);transition:width .4s var(--ease)}
+.app:hover{background:#111}
+.app:hover::before{width:100%}
+.app b{display:block;font-family:"MFRubik",sans-serif;font-weight:400;color:var(--y);font-size:15px}
+.app h3{font-size:20px;margin:8px 0}
+.app p{font-size:14px;color:var(--g2)}
+
+/* cases */
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.case{background:var(--w);border:1px solid var(--g2);display:flex;flex-direction:column;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.case:hover{transform:translateY(-6px);box-shadow:0 14px 30px rgba(0,0,0,.12)}
+.case .pic{aspect-ratio:3/2;overflow:hidden;border-bottom:1px solid var(--g2);background:#fff}
+.case .pic img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.case:hover .pic img{transform:scale(1.05)}
+.case .body{padding:18px;flex:1}
+.case .who{font-size:13px;color:var(--g4);letter-spacing:.04em}
+.case .num{font-family:"MFRubik",sans-serif;font-size:32px;line-height:1;background:var(--y);display:inline-block;padding:5px 9px;margin:10px 0}
+.case h3{font-size:19px;line-height:1.4;margin-bottom:8px}
+.case p{font-size:14px;color:var(--g4)}
+.dots{display:none;justify-content:center;gap:8px;margin-top:16px}
+.dots button{width:8px;height:8px;border-radius:50%;border:0;background:var(--g2);cursor:pointer;transition:width .25s,background .25s}
+.dots button.on{width:24px;border-radius:4px;background:var(--k)}
+.src{font-size:13px;color:var(--g4);margin-top:20px}
+
+/* software */
+.sw{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.sw .pic{aspect-ratio:16/9;overflow:hidden}
+.sw .pic img{width:100%;height:100%;object-fit:cover}
+.sw ul{list-style:none;margin:18px 0 22px}
+.sw li{padding:10px 0 10px 20px;position:relative;color:var(--g2);border-bottom:1px solid #222}
+.sw li::before{content:"";position:absolute;left:0;top:19px;width:8px;height:8px;background:var(--y)}
+
+/* about */
+.about{display:grid;grid-template-columns:1.2fr 1fr;gap:44px}
+.about p{color:var(--g4);margin-bottom:14px}
+.contact{background:var(--k);color:var(--w);padding:28px}
+.contact h3{font-size:22px;margin-bottom:14px}
+.crow{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid #333;padding:12px 0;font-size:15px}
+.crow span{color:var(--g3);font-size:14px}
+.crow .v{display:flex;align-items:center;gap:10px}
+.crow a{color:var(--w);text-decoration:none;border-bottom:1px solid var(--y)}
+.copy{background:var(--y);color:var(--k);border:0;font:600 12px "PingFang SC",sans-serif;padding:5px 9px;cursor:pointer}
+.qr{display:flex;gap:16px;margin-top:20px}
+.qr div{width:104px;height:104px;border:1px dashed var(--g3);display:flex;align-items:center;justify-content:center;text-align:center;font-size:12px;color:var(--g3);padding:6px}
+
+/* CTA band + footer */
+.cta-band{background:var(--y);padding:48px 0;overflow:hidden}
+.cta-band .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.cta-band h2{font-size:30px}
+.ft{background:var(--k);color:var(--g3);font-size:13px;padding:30px 0}
+.ft .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.ft img{height:18px}
+.ft nav{display:flex;gap:18px;flex-wrap:wrap}
+.ft a{color:var(--g2);text-decoration:none}
+.ft a:hover{color:var(--y)}
+
+/* floating: back to top, discussion tool, sticky bar, toast, modal */
+.totop{position:fixed;right:18px;bottom:22px;z-index:35;width:44px;height:44px;background:var(--k);color:var(--y);border:1px solid #333;font-size:20px;cursor:pointer;opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity .3s,transform .3s}
+.totop.show{opacity:1;pointer-events:auto;transform:none}
+.tool{position:fixed;left:18px;bottom:22px;z-index:35}
+.tool>button{background:var(--w);color:var(--k);border:1px solid var(--k);font:600 12px "PingFang SC",sans-serif;padding:8px 12px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.15)}
+.tool .box{position:absolute;left:0;bottom:44px;width:250px;background:var(--w);border:1px solid var(--k);padding:14px;font-size:13px;display:none;box-shadow:0 10px 30px rgba(0,0,0,.2)}
+.tool.open .box{display:block;animation:up .25s var(--ease)}
+.tool .box h4{font-size:13px;margin-bottom:8px}
+.tool .box label{display:flex;gap:8px;align-items:center;cursor:pointer;margin:6px 0}
+.tool .box a{display:block;margin:6px 0;color:var(--k)}
+.tool .box p{color:var(--g4);font-size:12px;margin-top:8px;border-top:1px solid var(--g2);padding-top:8px}
+[data-sec]:not(.hd):not(.sticky){position:relative}
+.secno{display:none;position:absolute;z-index:30;left:10px;top:10px;background:var(--y);color:var(--k);font:600 12px "MFRubik","PingFang SC",sans-serif;padding:3px 8px;border:1px solid var(--k);pointer-events:none}
+body.show-no .secno{display:block}
+body.show-no [data-sec]{outline:2px dashed var(--y);outline-offset:-2px}
+.sticky{display:none}
+.toast{position:fixed;left:50%;bottom:90px;transform:translate(-50%,20px);background:var(--k);color:var(--w);padding:10px 18px;font-size:14px;z-index:60;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;border-left:4px solid var(--y)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.modal{position:fixed;inset:0;z-index:70;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;padding:20px}
+.modal.show{display:flex;animation:fadein .25s}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+.modal .card{background:var(--w);max-width:440px;width:100%;padding:30px 28px 24px;border-top:5px solid var(--y);animation:up .35s var(--ease)}
+.modal h3{font-size:22px;margin-bottom:10px}
+.modal p{color:var(--g4);font-size:14px;margin-bottom:10px}
+.modal .ok{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.modal .ok svg{flex:none}
+.modal .chk path{stroke-dasharray:40;stroke-dashoffset:40;animation:draw .6s .15s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.modal .btn{margin-top:8px}
+
+@media (max-width:900px){
+  :root{--hd:56px}
+  .hide-m{display:none}
+  .ribbon{font-size:12px}
+  .nav{position:fixed;top:var(--hd);left:0;right:0;background:var(--k);flex-direction:column;gap:0;padding:6px 20px 16px;transform:translateY(-120%);visibility:hidden;transition:transform .3s var(--ease),visibility 0s .3s;z-index:39;align-items:stretch}
+  .nav.open{transform:none;visibility:visible;transition:transform .3s var(--ease)}
+  .nav a{padding:14px 0;border-bottom:1px solid #222;font-size:16px}
+  .burger{display:block}
+  .hd .cta{display:none}
+  .hero .wrap{grid-template-columns:1fr;gap:28px;padding-top:42px;padding-bottom:40px}
+  .hero h1{font-size:31px}
+  .hero .sub{font-size:16px;margin:14px 0 22px}
+  .stats{gap:26px;margin-top:30px}
+  .stat b{font-size:26px;white-space:nowrap}
+  .stat>span{font-size:13px;white-space:nowrap}
+  .form-sec{padding:28px 0}
+  .form-card{padding:24px 18px 20px}
+  .form-card h2{font-size:24px}
+  .grid2{grid-template-columns:1fr;gap:10px}
+  .sec{padding:52px 0}
+  .sec-h{margin-bottom:24px}
+  .sec-h h2{font-size:26px}
+  .prods{grid-template-columns:1fr 1fr;gap:12px}
+  .prod .body{padding:12px 12px 14px}
+  .prod h3{font-size:18px}
+  .prod p{font-size:13px}
+  .panel,.panel.on{grid-template-columns:1fr;gap:18px}
+  .tab{padding:12px 14px;font-size:15px}
+  .apps{grid-template-columns:1fr 1fr}
+  .app{border-bottom:1px solid #333;padding:20px 14px}
+  .app:nth-child(2n){border-right:0}
+  .cases{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:0 -20px;padding:0 20px 4px;scrollbar-width:none}
+  .cases::-webkit-scrollbar{display:none}
+  .case{flex:0 0 84%;scroll-snap-align:center}
+  .dots{display:flex}
+  .sw,.about{grid-template-columns:1fr;gap:26px}
+  .cta-band .wrap{flex-direction:column;align-items:flex-start}
+  .cta-band h2{font-size:23px}
+  .ft{padding:26px 0 96px}
+  .totop{bottom:84px;right:12px;width:38px;height:38px;font-size:17px}
+  .tool{bottom:84px;left:12px}
+  .tool>button{padding:6px 9px;font-size:11px;background:var(--k);color:var(--y);border-color:var(--y)}
+  .tool .box{bottom:38px;width:230px}
+  .toast{bottom:150px}
+  .sticky{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:36;background:var(--k);padding:10px 14px calc(10px + env(safe-area-inset-bottom));gap:10px;align-items:center;border-top:2px solid var(--y);transform:translateY(110%);transition:transform .35s var(--ease)}
+  .sticky.show{transform:none}
+  .sticky span{color:var(--w);font-size:13px;flex:1}
+  .sticky .btn{padding:12px 22px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv,.ld{opacity:1;transform:none}
+  .rule{transform:none}
+}
+</style>
+</head>
+<body>
+
+<div class="ribbon" id="ribbon"><b>示范页面</b><span class="hide-m"> · 百度落地页改版讨论用</span> · 表单不会送出任何资料<button aria-label="关闭" onclick="this.parentNode.remove()">×</button></div>
+
+<header class="hd" id="hd" data-sec="01"><span class="secno">01 顶栏</span><div class="wrap">
+  <a class="logo" href="#top" aria-label="Markforged"><img src="assets/logo_w.png" alt="Markforged"></a>
+  <nav class="nav" id="nav">
+    <a href="#printers">现役机型</a>
+    <a href="#materials">材料</a>
+    <a href="#apps">应用</a>
+    <a href="#cases">客户案例</a>
+    <a href="#contact">联系我们</a>
+  </nav>
+  <a class="btn cta" href="#form">获取报价</a>
+  <button class="burger" id="burger" aria-label="菜单"><span></span><span></span><span></span></button>
+</div></header>
+
+<section class="hero" id="top" data-sec="02"><span class="secno">02 首屏</span><div class="wrap">
+  <div>
+    <span class="eyebrow ld" style="animation-delay:.05s">工业级 3D 打印 · 复合材料与金属</span>
+    <h1 class="ld" style="animation-delay:.15s">专为工厂车间打造的<br>3D 打印机</h1>
+    <p class="sub ld" style="animation-delay:.3s">采用经连续碳纤维增强的金属和复合材料，打印工业级强度零件。</p>
+    <div class="btns ld" style="animation-delay:.45s">
+      <a class="btn lg" href="#form">预约专家咨询 <span class="arr">→</span></a>
+      <a class="btn lg line" href="#printers">查看机型</a>
+    </div>
+    <div class="stats ld" style="animation-delay:.6s">
+      <div class="stat"><b>约 <span data-count="10000" data-fmt="comma">0</span> 家</b><span>现有客户</span></div>
+      <div class="stat"><b><span data-count="70">0</span>+</b><span>国家使用 Markforged 平台</span></div>
+    </div>
+  </div>
+  <div class="hero-pic ld" style="animation-delay:.25s"><img src="assets/hero.jpg" alt="Markforged FX10 在工厂车间" width="1200" height="630"><i class="scan"></i></div>
+</div></section>
+
+<section class="form-sec" id="form" data-sec="03"><span class="secno">03 咨询表单</span><div class="wrap">
+  <form class="form-card rv" id="lead" novalidate>
+    <h2>立即咨询专家</h2>
+    <p class="lead">留下联系方式，我们会与您确认应用需求，并提供方案与报价。</p>
+    <div class="grid2">
+      <div class="fld"><label for="f-name">姓名<i>必填</i></label><input id="f-name" name="name" autocomplete="name" placeholder="请输入您的姓名"><div class="msg"></div></div>
+      <div class="fld"><label for="f-tel">手机号<i>必填</i></label><input id="f-tel" name="tel" inputmode="numeric" maxlength="11" autocomplete="tel" placeholder="请输入手机号"><div class="msg"></div></div>
+      <div class="fld"><label for="f-wx">微信号<i>必填</i></label><input id="f-wx" name="wx" placeholder="请输入微信号"><div class="msg"></div></div>
+      <div class="fld"><label for="f-co">公司<i>必填</i></label><input id="f-co" name="co" autocomplete="organization" placeholder="请输入公司全称"><div class="msg"></div></div>
+      <div class="fld"><label for="f-mail">公司邮箱<i>必填</i></label><input id="f-mail" name="mail" type="email" autocomplete="email" placeholder="请输入公司邮箱"><div class="msg"></div></div>
+      <div class="fld"><label for="f-ind">行业<i>必填</i></label><select id="f-ind" name="ind">
+        <option value="">请选择行业</option><option>汽车</option><option>工业设备</option><option>产品开发</option><option>航天</option><option>能源</option><option>教育</option><option>包装消费品</option><option>电子制造业</option><option>医疗</option><option>其他</option>
+      </select><div class="msg"></div></div>
+    </div>
+    <label class="agree" id="agree"><input type="checkbox" id="f-agree"> <span>我已阅读并同意<a href="#" data-modal="m-privacy">《个人信息授权与隐私政策》</a></span></label>
+    <button class="btn lg submit" type="submit">提交咨询 <span class="arr">→</span></button>
+    <p class="note">示范页面：只做格式检查，资料不会送出</p>
+  </form>
+</div></section>
+
+<section class="sec" id="printers" data-sec="04"><span class="secno">04 现役机型</span><div class="wrap">
+  <div class="sec-h rv"><div><span class="k en">PRINTERS</span><h2>现役工业级机型</h2><p>完整的打印机系列，具有制造所需的精度和可靠性。</p><div class="rule"></div></div>
+    <a class="lnk" href="https://markforged.com/zh/3d-printers" target="_blank" rel="noopener">官网查看全部机型 ↗</a></div>
+  <div class="prods">
+    <article class="prod rv" style="--d:0s"><div class="pic"><img src="assets/fx10.jpg" alt="Markforged FX10" loading="lazy"></div><div class="body">
+      <h3 class="en">FX10</h3><div class="tag">复合材料 + 金属（选配金属套件）</div>
+      <p>全球首个将工业级金属 3D 打印机与复合材料 3D 打印机合二为一的制造系统。</p>
+      <div class="spec"><em>打印尺寸</em>375 × 300 × 300 mm</div>
+      <details class="more"><summary>更多规格</summary><ul>
+        <li>Z 层厚：125–250 微米（复合材料）</li><li>加热打印舱：最高 60°C</li><li>金属套件：17-4PH、316L 不锈钢，H13 工具钢</li></ul></details>
+      <div class="acts"><a class="lnk" href="https://markforged.com/zh/3d-printers/fx10" target="_blank" rel="noopener">官网介绍 ↗</a><a class="lnk" href="#form">咨询此机型</a></div></div></article>
+    <article class="prod rv" style="--d:.1s"><div class="pic"><img src="assets/fx20.jpg" alt="Markforged FX20" loading="lazy"></div><div class="body">
+      <h3 class="en">FX20</h3><div class="tag">大尺寸 · 高温复合材料</div>
+      <p>兼容 ULTEM™ 丝材的大尺寸 3D 打印机，可打印大型、强度高、耐高温的零件。</p>
+      <div class="spec"><em>打印尺寸</em>525 × 400 × 400 mm</div>
+      <details class="more"><summary>更多规格</summary><ul>
+        <li>84 L 加热成型舱</li><li>兼容 ULTEM™ 9085 丝材</li><li>7 英寸触摸屏，自动校准和调平</li></ul></details>
+      <div class="acts"><a class="lnk" href="https://markforged.com/zh/3d-printers/fx20" target="_blank" rel="noopener">官网介绍 ↗</a><a class="lnk" href="#form">咨询此机型</a></div></div></article>
+    <article class="prod rv" style="--d:.2s"><div class="pic"><img src="assets/x7.jpg" alt="Markforged X7" loading="lazy"></div><div class="body">
+      <h3 class="en">X7</h3><div class="tag">工业级碳纤维</div>
+      <p>一款可打印坚固、可靠零件的工业级碳纤维 3D 打印机，开箱即用。</p>
+      <div class="spec"><em>打印尺寸</em>330 × 270 × 200 mm</div>
+      <details class="more"><summary>更多规格</summary><ul>
+        <li>打印媒体：复合基丝材、连续纤维</li><li>打印流程：连续纤维增强（CFR）</li><li>连续纤维增强的封闭内部填充</li></ul></details>
+      <div class="acts"><a class="lnk" href="https://markforged.com/zh/3d-printers/x7" target="_blank" rel="noopener">官网介绍 ↗</a><a class="lnk" href="#form">咨询此机型</a></div></div></article>
+    <article class="prod rv" style="--d:.3s"><div class="pic"><img src="assets/x7fe.jpg" alt="Markforged X7 Field Edition" loading="lazy"></div><div class="body">
+      <h3 class="en">X7 Field Edition</h3><div class="tag">可现场部署</div>
+      <p>一款坚固、可在现场部署的工业 3D 打印机，用于在偏远地区快速应对供应链挑战。</p>
+      <div class="spec"><em>打印尺寸</em>330 × 270 × 200 mm</div>
+      <details class="more"><summary>更多规格</summary><ul>
+        <li>使用标准电源：100–240 VAC，150 W</li><li>激光辅助校准，适应搬运、运输和温度波动</li><li>可使用 Markforged 全系列复合基材和连续纤维</li></ul></details>
+      <div class="acts"><a class="lnk" href="https://markforged.com/zh/3d-printers/x7-field-edition" target="_blank" rel="noopener">官网介绍 ↗</a><a class="lnk" href="#form">咨询此机型</a></div></div></article>
+  </div>
+</div></section>
+
+<section class="sec grey" id="materials" data-sec="05"><span class="secno">05 工业级材料</span><div class="wrap">
+  <div class="sec-h rv"><div><span class="k en">MATERIALS</span><h2>工业级材料</h2><p>精心开发的经连续碳纤维增强的金属和复合材料，可与 Markforged 打印机无缝配合。</p><div class="rule"></div></div>
+    <a class="lnk" href="https://markforged.com/zh/materials" target="_blank" rel="noopener">官网材料总览 ↗</a></div>
+  <div class="tabs rv" role="tablist">
+    <button class="tab" role="tab" aria-selected="true" data-tab="p-cf">连续纤维</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="p-comp">复合基材</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="p-metal">金属（FX10 金属套件）</button>
+  </div>
+  <div class="panel on" id="p-cf" role="tabpanel">
+    <div class="pic"><img src="assets/mat_cf.jpg" alt="连续碳纤维增强零件" loading="lazy"></div>
+    <div><h3>连续纤维</h3>
+      <p>连续纤维支持 Markforged 复合打印机打印金属强度零件。这种纤维不能单独使用，但是，当使用复合基材打印时，连续纤维能够大幅增加材料的坚固性。</p>
+      <div class="chips">
+        <a href="https://markforged.com/zh/materials/continuous-fibers/continuous-carbon-fiber" target="_blank" rel="noopener">碳纤维</a>
+        <a href="https://markforged.com/zh/materials/continuous-fibers/continuous-carbon-fiber-fr" target="_blank" rel="noopener">碳纤维 FR</a>
+        <a href="https://markforged.com/zh/materials/continuous-fibers/fiberglass" target="_blank" rel="noopener">玻璃纤维</a>
+        <a href="https://markforged.com/zh/materials/continuous-fibers/hsht-fiberglass" target="_blank" rel="noopener">HSHT 高温高强度玻纤</a>
+        <a href="https://markforged.com/zh/materials/continuous-fibers/kevlar" target="_blank" rel="noopener">芳纶纤维（Kevlar®）</a>
+      </div>
+      <p class="fine">点击材料名称可查看官网说明。</p></div>
+  </div>
+  <div class="panel" id="p-comp" role="tabpanel">
+    <div class="pic"><img src="assets/mat_comp.jpg" alt="复合材料零件" loading="lazy"></div>
+    <div><h3>复合基材</h3>
+      <p>复合基丝材是可用于传统 FFF（FDM 式）工艺的工程级打印材料。可以单独使用，或使用连续纤维增强以生产坚固的零件。</p>
+      <div class="chips">
+        <a href="https://markforged.com/zh/materials/plastics/onyx" target="_blank" rel="noopener">Onyx®</a>
+        <a href="https://markforged.com/zh/materials/plastics/onyx-fr" target="_blank" rel="noopener">Onyx FR</a>
+        <a href="https://markforged.com/zh/materials/plastics/onyx-esd" target="_blank" rel="noopener">Onyx ESD</a>
+        <a href="https://markforged.com/zh/materials/plastics/nylon-white-fs" target="_blank" rel="noopener">尼龙白 FS</a>
+        <a href="https://markforged.com/zh/materials/plastics/ultem-9085" target="_blank" rel="noopener">ULTEM™ 9085（FX20）</a>
+      </div>
+      <p class="fine">ULTEM™ 和 9085 商标的使用已获得 SABIC、其附属公司或子公司的许可。</p></div>
+  </div>
+  <div class="panel" id="p-metal" role="tabpanel">
+    <div class="pic"><img src="assets/mat_metal.jpg" alt="金属打印零件" loading="lazy"></div>
+    <div><h3>金属（FX10 金属套件）</h3>
+      <p>FX10 金属 3D 打印机系统采用金属熔丝制造（金属 FFF）技术，可使用 17-4 PH 不锈钢、316L 不锈钢或工具钢生产坚固的功能性零件。</p>
+      <div class="chips">
+        <a href="https://markforged.com/zh/materials/metals/17-4-ph-stainless-steel" target="_blank" rel="noopener">17-4PH 不锈钢</a>
+        <a href="https://markforged.com/zh/materials/metals/316l-stainless-steel" target="_blank" rel="noopener">316L 不锈钢</a>
+        <a href="https://markforged.com/zh/materials/metals/h13-tool-steel" target="_blank" rel="noopener">H13 工具钢</a>
+      </div>
+      <p class="fine">金属打印配置与 Wash-1 和 Sinter 系统集成，将绿模转化为可投入生产的金属组件；烧结后层高 127 微米。</p></div>
+  </div>
+</div></section>
+
+<section class="sec dark" id="apps" data-sec="06"><span class="secno">06 工厂车间应用</span><div class="wrap">
+  <div class="sec-h rv"><div><span class="k en">APPLICATIONS</span><h2>工厂车间应用</h2><p>借助 3D 打印技术，制造商能够在内部以更低的成本更快速地生产零件，用于生产线上的数百种应用场景。</p></div>
+    <a class="lnk" href="https://markforged.com/zh/industries" target="_blank" rel="noopener">按行业查看 ↗</a></div>
+  <div class="apps">
+    <div class="app rv" style="--d:0s"><b class="en">01</b><h3>夹具与治具</h3><p>按需打印定制夹具，缩短制作周期。</p></div>
+    <div class="app rv" style="--d:.1s"><b class="en">02</b><h3>机器人夹爪</h3><p>轻量、高强度的末端执行器与夹爪。</p></div>
+    <div class="app rv" style="--d:.2s"><b class="en">03</b><h3>设备备件</h3><p>快速打印替换零件，保持生产线正常运转。</p></div>
+    <div class="app rv" style="--d:.3s"><b class="en">04</b><h3>功能零件</h3><p>坚固的功能原型与小批量终端零件。</p></div>
+  </div>
+</div></section>
+
+<section class="sec" id="cases" data-sec="07"><span class="secno">07 客户案例</span><div class="wrap">
+  <div class="sec-h rv"><div><span class="k en">CUSTOMERS</span><h2>客户案例</h2><p>了解制造商如何运用 Markforged 技术降低成本、提高运营灵活性、保持生产线正常运转。</p><div class="rule"></div></div>
+    <a class="lnk" href="https://markforged.com/zh/resources/case-studies" target="_blank" rel="noopener">更多客户案例 ↗</a></div>
+  <div class="cases" id="caseTrack">
+    <article class="case rv" style="--d:0s"><div class="pic"><img src="assets/case_danone.jpg" alt="达能 3D 打印真空抓手" loading="lazy"></div><div class="body">
+      <div class="who">达能 · 乳品工厂</div><div class="num en">−80%</div>
+      <h3>3D 打印真空抓手，374 个零件成本降低 80%</h3>
+      <p>工厂为包装线 3D 打印了真空抓手，Markforged X7 在一年内收回了成本。</p></div></article>
+    <article class="case rv" style="--d:.1s"><div class="pic"><img src="assets/case_suntory.jpg" alt="三得利定制夹具" loading="lazy"></div><div class="body">
+      <div class="who">三得利 Suntory · 榛名工厂</div><div class="num en">−1/3</div>
+      <h3>3D 打印定制夹具，生产时间缩短 1/3</h3>
+      <p>Markforged 3D 打印机帮助三得利减少定制夹具的生产时间及成本，显著提高工厂效率。</p></div></article>
+    <article class="case rv" style="--d:.2s"><div class="pic"><img src="assets/case_farason.jpg" alt="Farason 连续碳纤维加固夹爪" loading="lazy"></div><div class="body">
+      <div class="who">Farason Corporation · 包装设备</div><div class="num en">CFR</div>
+      <h3>带定制卡圈法兰的夹爪，连续碳纤维加固</h3>
+      <p>团队在现场制作零件原型、测试和生产，夹爪以连续碳纤维加固，达到所需的强度和刚度。</p></div></article>
+  </div>
+  <div class="dots" id="caseDots"><button class="on" aria-label="案例 1"></button><button aria-label="案例 2"></button><button aria-label="案例 3"></button></div>
+  <p class="src">案例出处：markforged.com/zh 客户案例</p>
+</div></section>
+
+<section class="sec dark" id="software" data-sec="08"><span class="secno">08 软件</span><div class="wrap sw">
+  <div class="rv">
+    <div class="sec-h" style="margin-bottom:0"><div><span class="k en">SOFTWARE</span><h2>从设计到零件 — 轻松快捷</h2>
+    <p>Eiger™ 为工业组织提供安全、易用的增材制造软件，契合制造工作流程。</p></div></div>
+    <ul><li>通过单一、直观的界面，将 CAD 设计转化为打印零件</li><li>安全的数字零件库与远程打印机管理</li><li>可与 MIS 和其他系统集成</li></ul>
+    <a class="lnk" href="https://markforged.com/zh/software" target="_blank" rel="noopener">官网了解 Eiger ↗</a>
+  </div>
+  <div class="pic rv" style="--d:.15s"><img src="assets/eiger.jpg" alt="Eiger 软件" loading="lazy"></div>
+</div></section>
+
+<section class="sec" id="contact" data-sec="09"><span class="secno">09 关于与联系方式</span><div class="wrap about">
+  <div class="rv">
+    <div class="sec-h" style="margin-bottom:18px"><div><span class="k en">ABOUT</span><h2>关于 Markforged</h2><div class="rule"></div></div></div>
+    <p>Markforged 于 2013 年在美国创立，提供由打印机、材料与软件组成的工业级增材制造平台，专门用于集成到现有的制造生态系统中。</p>
+    <p>我们的使命是重塑今天的制造业，让客户在未来可以建造任何想要的产品。全球约 1 万家客户、超过 70 个国家使用 Markforged 平台。</p>
+    <a class="lnk" href="https://markforged.com/zh/about/company" target="_blank" rel="noopener">官网关于我们 ↗</a>
+  </div>
+  <div class="contact rv" style="--d:.15s">
+    <h3>联系方式</h3>
+    <div class="crow"><span>微信</span><div class="v"><b class="en">brian479974</b><button class="copy" data-copy="brian479974">复制</button></div></div>
+    <div class="crow"><span>邮箱</span><div class="v"><a href="mailto:brian.chen@markforged.com">brian.chen@markforged.com</a></div></div>
+    <div class="qr"><div>沿用现有<br>「联系我们」<br>二维码</div><div>沿用现有<br>「微信公众号」<br>二维码</div></div>
+  </div>
+</div></section>
+
+<section class="cta-band" data-sec="10"><span class="secno">10 页尾咨询条</span><div class="wrap rv">
+  <h2>想了解哪款机型适合您的产线？</h2>
+  <a class="btn lg blk" href="#form">立即咨询专家 <span class="arr">→</span></a>
+</div></section>
+
+<footer class="ft"><div class="wrap">
+  <img src="assets/logo_w.png" alt="Markforged">
+  <nav><a href="#printers">机型</a><a href="#materials">材料</a><a href="#cases">案例</a><a href="#form">咨询</a><a href="https://markforged.com/zh" target="_blank" rel="noopener">Markforged 官网 ↗</a></nav>
+  <span>© Markforged · 示范版 v1 · 2026-10-29</span>
+</div></footer>
+
+<div class="sticky" id="sticky" data-sec="11"><span class="secno">11 底部固定条</span><span>工业级 3D 打印 · 免费咨询方案与报价</span><a class="btn" href="#form">立即咨询</a></div>
+
+<button class="totop" id="totop" aria-label="回到顶部">↑</button>
+
+<div class="tool" id="tool">
+  <button type="button" id="toolBtn">讨论工具</button>
+  <div class="box">
+    <h4>改版讨论</h4>
+    <label><input type="checkbox" id="showNo"> 显示区块编号</label>
+    <a href="assets/Markforged_landing-page-assets_2026-10-29.zip" download>下载素材包（官方标志与 12 张图）</a>
+    <p>讨论时请用区块编号指出位置，例如「04 现役机型第 2 张卡」。示范版 v1 · 2026-10-29。</p>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<div class="modal" id="m-ok"><div class="card">
+  <div class="ok"><svg class="chk" width="34" height="34" viewBox="0 0 34 34"><rect width="34" height="34" fill="#FFFF00"/><path d="M9 17.5l5.5 5.5L25.5 11" stroke="#000" stroke-width="3" fill="none"/></svg><h3>提交成功（示范）</h3></div>
+  <p>正式页面会在这里显示提交成功，并由百度平台把资料送进线索后台。</p>
+  <p>这是示范页面，您填写的资料没有送出、也没有保存。</p>
+  <button class="btn" data-close>好的</button>
+</div></div>
+
+<div class="modal" id="m-privacy"><div class="card">
+  <h3>个人信息授权与隐私政策</h3>
+  <p>正式页面沿用百度基木鱼表单现有的《个人信息授权与隐私政策》条款。</p>
+  <p>Markforged 隐私政策可参考官网：<a class="lnk" href="https://markforged.com/zh/privacy-policy" target="_blank" rel="noopener">markforged.com/zh/privacy-policy ↗</a></p>
+  <button class="btn" data-close>关闭</button>
+</div></div>
+
+<script>
+(function () {
+  "use strict";
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* header shadow, back-to-top, sticky bar */
+  var hd = $("#hd"), totop = $("#totop"), sticky = $("#sticky"), form = $("#form");
+  function onScroll() {
+    var y = window.scrollY || 0;
+    hd.classList.toggle("scrolled", y > 10);
+    totop.classList.toggle("show", y > 700);
+    var fr = form.getBoundingClientRect();
+    var formInView = fr.top < innerHeight && fr.bottom > 0;
+    sticky.classList.toggle("show", y > 400 && !formInView);
+  }
+  addEventListener("scroll", onScroll, { passive: true }); onScroll();
+  totop.addEventListener("click", function () { scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" }); });
+
+  /* mobile menu */
+  var burger = $("#burger"), nav = $("#nav");
+  burger.addEventListener("click", function () { burger.classList.toggle("open"); nav.classList.toggle("open"); });
+  $$("#nav a").forEach(function (a) { a.addEventListener("click", function () { burger.classList.remove("open"); nav.classList.remove("open"); }); });
+
+  /* active nav item */
+  if ("IntersectionObserver" in window) {
+    var links = {}; $$("#nav a").forEach(function (a) { links[a.getAttribute("href").slice(1)] = a; });
+    var navIO = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting && links[e.target.id]) {
+          $$("#nav a").forEach(function (a) { a.classList.remove("on"); });
+          links[e.target.id].classList.add("on");
+        }
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    Object.keys(links).forEach(function (id) { var s = document.getElementById(id); if (s) navIO.observe(s); });
+  }
+
+  /* reveal on scroll */
+  var rvs = $$(".rv");
+  if (!("IntersectionObserver" in window) || reduce) { rvs.forEach(function (el) { el.classList.add("in"); }); }
+  else {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+    rvs.forEach(function (el) { io.observe(el); });
+  }
+
+  /* counters */
+  function fmt(n, comma) { return comma ? n.toLocaleString("en-US") : String(n); }
+  $$("[data-count]").forEach(function (el) {
+    var end = +el.getAttribute("data-count"), comma = el.getAttribute("data-fmt") === "comma";
+    if (reduce) { el.textContent = fmt(end, comma); return; }
+    var t0 = null, dur = 1600;
+    setTimeout(function () {
+      requestAnimationFrame(function step(t) {
+        if (!t0) t0 = t;
+        var p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+        el.textContent = fmt(Math.round(end * e), comma);
+        if (p < 1) requestAnimationFrame(step);
+      });
+    }, 700);
+  });
+
+  /* "咨询" links: highlight the form after scrolling to it */
+  $$('a[href="#form"]').forEach(function (a) {
+    a.addEventListener("click", function () {
+      var card = $("#lead"); card.classList.remove("pulse");
+      setTimeout(function () { card.classList.add("pulse"); setTimeout(function () { card.classList.remove("pulse"); }, 1400); }, 500);
+      setTimeout(function () { $("#f-name").focus({ preventScroll: true }); }, 700);
+    });
+  });
+
+  /* material tabs */
+  $$(".tab").forEach(function (t) {
+    t.addEventListener("click", function () {
+      $$(".tab").forEach(function (x) { x.setAttribute("aria-selected", "false"); });
+      t.setAttribute("aria-selected", "true");
+      $$(".panel").forEach(function (p) { p.classList.remove("on"); });
+      $("#" + t.getAttribute("data-tab")).classList.add("on");
+    });
+  });
+
+  /* case carousel dots (phone) */
+  var track = $("#caseTrack"), dots = $$("#caseDots button");
+  track.addEventListener("scroll", function () {
+    var cards = $$(".case", track), mid = track.scrollLeft + track.clientWidth / 2, best = 0, bd = 1e9;
+    cards.forEach(function (c, i) { var d = Math.abs(c.offsetLeft + c.offsetWidth / 2 - mid); if (d < bd) { bd = d; best = i; } });
+    dots.forEach(function (d, i) { d.classList.toggle("on", i === best); });
+  }, { passive: true });
+  dots.forEach(function (d, i) {
+    d.addEventListener("click", function () { var c = $$(".case", track)[i]; track.scrollTo({ left: c.offsetLeft - 20, behavior: "smooth" }); });
+  });
+
+  /* toast + copy */
+  var toast = $("#toast"), tt;
+  function say(msg) { toast.textContent = msg; toast.classList.add("show"); clearTimeout(tt); tt = setTimeout(function () { toast.classList.remove("show"); }, 2000); }
+  $$("[data-copy]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var v = b.getAttribute("data-copy");
+      function done() { say("已复制微信号：" + v); }
+      if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(v).then(done, fallback); } else { fallback(); }
+      function fallback() { var ta = document.createElement("textarea"); ta.value = v; document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); done(); } catch (e) { say("请长按复制：" + v); } ta.remove(); }
+    });
+  });
+
+  /* modals */
+  function open(id) { $("#" + id).classList.add("show"); }
+  function closeAll() { $$(".modal").forEach(function (m) { m.classList.remove("show"); }); }
+  $$("[data-modal]").forEach(function (a) { a.addEventListener("click", function (e) { e.preventDefault(); open(a.getAttribute("data-modal")); }); });
+  $$("[data-close]").forEach(function (b) { b.addEventListener("click", closeAll); });
+  $$(".modal").forEach(function (m) { m.addEventListener("click", function (e) { if (e.target === m) closeAll(); }); });
+  addEventListener("keydown", function (e) { if (e.key === "Escape") closeAll(); });
+
+  /* form validation — front end only, nothing is sent */
+  var FREE = /@(qq|163|126|yeah|sina|sohu|foxmail|139|aliyun|gmail|hotmail|outlook|yahoo|icloud)\./i;
+  var rules = {
+    "f-name": function (v) { return v ? "" : "请填写姓名"; },
+    "f-tel": function (v) { return !v ? "请填写手机号" : (/^1[3-9]\d{9}$/.test(v) ? "" : "请填写 11 位手机号"); },
+    "f-wx": function (v) { return v ? "" : "请填写微信号"; },
+    "f-co": function (v) { return !v ? "请填写公司全称" : (v.length < 4 ? "请填写公司全称" : ""); },
+    "f-mail": function (v) { return !v ? "请填写邮箱" : (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? "" : "邮箱格式不正确"); },
+    "f-ind": function (v) { return v ? "" : "请选择行业"; }
+  };
+  function check(id) {
+    var el = $("#" + id), f = el.closest(".fld"), m = $(".msg", f), v = el.value.trim(), err = rules[id](v);
+    f.classList.toggle("bad", !!err);
+    m.textContent = err || (id === "f-mail" && FREE.test(v) ? "建议填写公司邮箱，方便我们发送方案资料" : "");
+    return !err;
+  }
+  Object.keys(rules).forEach(function (id) {
+    var el = $("#" + id);
+    el.addEventListener("blur", function () { if (el.value.trim()) check(id); });
+    el.addEventListener("input", function () { if (el.closest(".fld").classList.contains("bad")) check(id); });
+    el.addEventListener("change", function () { check(id); });
+  });
+  $("#f-tel").addEventListener("input", function () { this.value = this.value.replace(/\D/g, "").slice(0, 11); });
+  $("#lead").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var ok = true, first = null;
+    Object.keys(rules).forEach(function (id) { if (!check(id)) { ok = false; first = first || id; } });
+    var ag = $("#f-agree"), agL = $("#agree");
+    agL.classList.toggle("bad", !ag.checked);
+    if (!ag.checked) { ok = false; }
+    if (!ok) { if (first) $("#" + first).focus(); say(first ? "请补全标示的栏位" : "请勾选同意隐私政策"); return; }
+    open("m-ok");
+    this.reset();
+    $$(".fld", this).forEach(function (f) { f.classList.remove("bad"); $(".msg", f).textContent = ""; });
+    agL.classList.remove("bad");
+  });
+
+  /* discussion tool */
+  var tool = $("#tool");
+  $("#toolBtn").addEventListener("click", function () { tool.classList.toggle("open"); });
+  $("#showNo").addEventListener("change", function () { document.body.classList.toggle("show-no", this.checked); });
+  if (/[?&]no=1/.test(location.search)) { $("#showNo").checked = true; document.body.classList.add("show-no"); }
+})();
+</script>
+<script src="/analytics.js" defer></script>
+</body>
+</html>
