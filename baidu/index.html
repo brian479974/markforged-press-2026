@@ -9,14 +9,15 @@
 <title>Markforged 工业级 3D 打印机 · 百度落地页示范</title>
 <meta name="description" content="专为工厂车间打造的 3D 打印机：采用经连续碳纤维增强的金属和复合材料，打印工业级强度零件。">
 <!--
-  Markforged 百度落地页 · 全功能示范页 v1.5（2026-10-29）
+  Markforged 百度落地页 · 全功能示范页 v1.6（2026-10-29）
   用途：给推广代理商照着重建百度基木鱼落地页，也是后续讨论与调整的依据。
   本页是手写源文件，没有产生器；改这里就是改源头。
   文案出处：markforged.com/zh 首页、关于我们、FX10／FX20／X7／X7 Field Edition 产品页、材料页（2026-10-29 读取）；
-  打印尺寸与规格出自官网产品页与官方数据表。客户案例 15 则：Markforged 官方客户案例与应用焦点（取自本站 case-library.html 的原厂资料，繁转简并改大陆用语），只收原厂案例、不收经销商案例；主角为停产机型（Metal X 等）的案例不收。
+  打印尺寸与规格出自官网产品页与官方数据表。客户案例 78 则：Markforged 官方客户案例与应用焦点（取自本站 case-library.html 的原厂资料，繁转简并改大陆用语），只收原厂案例、不收经销商案例；主角为停产机型（Metal X 等）的案例不收。
   中国网络可能连不上海外官网，所以机型、材料、案例的介绍都放在本页（详情用页内弹窗），页面只依赖本站自己的文件。
   广告法：不使用「全球首个、唯一、最大、最佳」等绝对用语；与铝、ABS 的对比说法不搬上页面。
   表单只做前端验证，不送出任何资料。
+  v1.6：Onyx GF 拉伸强度（屈服）改为 57.9 MPa（数据表 V01 第一页 XY 方向；原写 56.5 MPa 是断裂强度）。
 -->
 <style>
 @font-face{font-family:"MFRubik";src:url(assets/Rubik-Regular.ttf) format("truetype");font-weight:400;font-display:swap}
@@ -565,7 +566,7 @@ body.show-no [data-sec]{outline:2px dashed var(--y);outline-offset:-2px}
     <div class="ogf-pic rv" style="--d:.15s"><img src="assets/onyxgf_spools.jpg" alt="Onyx GF 六色线材" loading="lazy"></div>
   </div>
   <div class="ogf-kv rv">
-    <div><b>56.5 MPa</b><span>拉伸强度（屈服）</span></div>
+    <div><b>57.9 MPa</b><span>拉伸强度（屈服）</span></div>
     <div><b>3.1 GPa</b><span>拉伸模量</span></div>
     <div><b>88.2 MPa</b><span>弯曲强度</span></div>
     <div><b>138 °C</b><span>热变形温度（1.8 MPa）</span></div>
@@ -643,7 +644,7 @@ body.show-no [data-sec]{outline:2px dashed var(--y);outline-offset:-2px}
 <footer class="ft"><div class="wrap">
   <img src="assets/logo_w.png" alt="Markforged">
   <nav><a href="#printers">机型</a><a href="#materials">材料</a><a href="#cases">案例</a><a href="#form">咨询</a><a href="https://markforged.com/zh" target="_blank" rel="noopener">Markforged 官网（海外站点）↗</a></nav>
-  <span>© Markforged · 示范版 v1.5 · 2026-10-29</span>
+  <span>© Markforged · 示范版 v1.6 · 2026-10-29</span>
 </div></footer>
 
 <div class="sticky" id="sticky" data-sec="12"><span class="secno">12 底部固定条</span><span>工业级 3D 打印 · 免费咨询方案与报价</span><a class="btn" href="#form">立即咨询</a></div>
@@ -656,7 +657,7 @@ body.show-no [data-sec]{outline:2px dashed var(--y);outline-offset:-2px}
     <h4>改版讨论</h4>
     <label><input type="checkbox" id="showNo"> 显示区块编号</label>
     <a href="assets/Markforged_landing-page-assets_2026-10-29.zip" download>下载素材包（官方标志、二维码与全部图片）</a>
-    <p>讨论时请用区块编号指出位置，例如「04 现役机型第 2 张卡」。示范版 v1.5 · 2026-10-29。</p>
+    <p>讨论时请用区块编号指出位置，例如「04 现役机型第 2 张卡」。示范版 v1.6 · 2026-10-29。</p>
   </div>
 </div>
 
@@ -2632,7 +2633,7 @@ body.show-no [data-sec]{outline:2px dashed var(--y);outline-offset:-2px}
       apps: ["焊接夹具", "航空航天夹子和支架", "激光打标夹具", "能源 / 电气支架和夹具"], works: ["FX10", "FX20", "X7", "X7 Field Edition"] },
     "onyx-gf": { name: "Onyx GF™（六色）", type: "复合基材 · 新材料", img: "assets/onyxgf_spools.jpg",
       desc: "Onyx GF 是一款专为工业工具和最终零件打造的短切玻璃纤维填充尼龙线材，在延续 Onyx 表面光洁度、尺寸精度和打印可靠性的同时，还具备功能性配色和非导电特性。提供红、黄、绿、蓝、灰、白六种颜色，无需增加任何工序即可在车间实现颜色编码与防错；兼容连续纤维增强。",
-      kv: [["56.5 MPa", "拉伸强度（屈服）"], ["3.1 GPa", "拉伸模量"], ["88.2 MPa", "弯曲强度"], ["138 °C", "热变形温度（1.8 MPa）"], ["6 色", "红、黄、绿、蓝、灰、白"]],
+      kv: [["57.9 MPa", "拉伸强度（屈服）"], ["3.1 GPa", "拉伸模量"], ["88.2 MPa", "弯曲强度"], ["138 °C", "热变形温度（1.8 MPa）"], ["6 色", "红、黄、绿、蓝、灰、白"]],
       apps: ["颜色编码夹具与固定装置", "高可见度安全工具", "传感器外壳", "天线外壳"], works: ["FX10", "FX20"],
       note: "打印 Onyx GF 需使用硬化型塑料喷嘴。数据出处：Onyx GF 官方材料数据表 V01（FX10、层厚 125 µm、XY 方向、调湿状态）。" },
     "onyx-esd": { name: "Onyx ESD", type: "复合基材", img: "assets/mat_comp.jpg",
