@@ -12,7 +12,8 @@
     "yamaha-fine-technologies-x7-jigs",
     "wescad-fx10-jigs-fixtures",
     "fieldmade-nomad-lw-mobile-printing",
-    "british-army-project-convergence-22"
+    "british-army-project-convergence-22",
+    "aster-swarm-fpv-airframe-x7-field-edition"
    ],
    "more": {
     "zh": {
@@ -178,6 +179,10 @@
   "british-army-project-convergence-22": [
    "2022-11-04",
    "Mark3D YouTube 影片上架日"
+  ],
+  "aster-swarm-fpv-airframe-x7-field-edition": [
+   "2026-10-29",
+   "本站原創客戶案例首次公開日（CS-D27 v3.0，Markforged 正式版）"
   ]
  }
 }
