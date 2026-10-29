@@ -8,7 +8,7 @@ What it changes (and nothing else):
   - every assets/<file> reference (img src, data-qr, JS strings, CSS url) -> data URI
   - the Onyx GF <video> -> its poster image + a note (an 8.8 MB video would bloat the file)
   - the asset-pack download link -> text pointing to the email attachment
-  - drops /analytics.js (page-view counter; meaningless offline)
+  - drops /analytics.js (page-view counter; meaningless offline) and the internal header comment
   - demo ribbon text says this is the offline copy of the same design
 
 Usage:
@@ -40,6 +40,9 @@ def build(out):
     s, nz = re.subn(r'<a href="assets/Markforged_landing-page-assets_2026-10-29\.zip" download>[^<]*</a>',
                     '<span style="display:block;margin:6px 0">素材包：见邮件附件</span>', s)
     assert nz == 1, nz
+    # 2b) drop the internal header comment (rules / sources notes are for us, not the agency)
+    s, nc = re.subn(r"<!--\s*\n\s*Markforged 百度落地页.*?-->\n?", "", s, count=1, flags=re.S)
+    assert nc == 1, nc
     # 3) analytics off
     s = s.replace('<script src="/analytics.js" defer></script>', "")
     # 4) ribbon
