@@ -42,6 +42,7 @@ TAG_EN = {
     'Case Study · 低軌衛星': 'Case Study · LEO Satellite',
 }
 LOC_EN = {
+    '客戶案例 · 台灣': 'Customer Story · Taiwan',
     '客戶案例 · 英國': 'Customer Story · United Kingdom',
     '客戶案例 · 挪威': 'Customer Story · Norway',
     '客戶案例 · 德國': 'Customer Story · Germany',
