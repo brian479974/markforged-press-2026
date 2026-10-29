@@ -9,11 +9,13 @@
 <title>Markforged 工业级 3D 打印机 · 百度落地页示范</title>
 <meta name="description" content="专为工厂车间打造的 3D 打印机：采用经连续碳纤维增强的金属和复合材料，打印工业级强度零件。">
 <!--
-  Markforged 百度落地页 · 全功能示范页 v1（2026-10-29）
+  Markforged 百度落地页 · 全功能示范页 v1.2（2026-10-29）
   用途：给推广代理商照着重建百度基木鱼落地页，也是后续讨论与调整的依据。
   本页是手写源文件，没有产生器；改这里就是改源头。
   文案出处：markforged.com/zh 首页、关于我们、FX10／FX20／X7／X7 Field Edition 产品页、材料页（2026-10-29 读取）；
-  打印尺寸与规格出自官网产品页与官方数据表。客户案例三则为 markforged.com/zh 首页原文。
+  打印尺寸与规格出自官网产品页与官方数据表。客户案例五则为 markforged.com/zh 首页原文。
+  中国网络可能连不上海外官网，所以机型、材料、案例的介绍都放在本页（详情用页内弹窗），页面只依赖本站自己的文件。
+  广告法：不使用「全球首个、唯一、最大、最佳」等绝对用语；与铝、ABS 的对比说法不搬上页面。
   表单只做前端验证，不送出任何资料。
 -->
 <style>
@@ -104,6 +106,40 @@ h1,h2,h3{font-family:"MFRubik","PingFang SC","Noto Sans SC","Microsoft YaHei",sa
 .agree.bad{color:var(--k);font-weight:600}
 .form-card .submit{width:100%;margin-top:18px}
 .form-card .note{font-size:12px;color:var(--g3);text-align:center;margin-top:10px}
+
+/* detail modal */
+.modal .card.wide{max-width:760px;max-height:88vh;overflow:auto;padding:0;position:relative}
+.dt-hd{display:grid;grid-template-columns:200px 1fr;gap:20px;align-items:center;background:var(--k);color:var(--w);padding:22px 26px;border-top:5px solid var(--y)}
+.dt-hd img{width:200px;height:150px;object-fit:contain;background:#000}
+.dt-hd.light img{background:#fff}
+.dt-hd h3{font-size:26px;margin:0}
+.dt-hd .tg{color:var(--y);font-size:14px;margin-top:4px}
+.dt-bd{padding:22px 26px 26px}
+.dt-bd h4{font-size:15px;margin:18px 0 8px;padding-left:8px;border-left:4px solid var(--y)}
+.dt-bd h4:first-child{margin-top:0}
+.dt-bd p{font-size:14px;color:#333;margin:0 0 10px}
+.dt-x{position:absolute;right:10px;top:10px;width:36px;height:36px;border:0;background:var(--y);color:var(--k);font-size:20px;cursor:pointer;z-index:2}
+table.spec{width:100%;border-collapse:collapse;font-size:13px}
+table.spec th,table.spec td{border-bottom:1px solid var(--g2);padding:7px 8px;text-align:left;vertical-align:top}
+table.spec th{background:var(--g1);font-weight:600;width:30%}
+table.spec thead th{background:var(--k);color:var(--w)}
+.kv{display:flex;flex-wrap:wrap;gap:10px}
+.kv div{background:var(--g1);padding:10px 14px;min-width:140px;border-top:3px solid var(--y)}
+.kv b{display:block;font-family:"MFRubik",sans-serif;font-weight:400;font-size:24px;line-height:1.2}
+.kv span{font-size:12px;color:var(--g4)}
+.dt-bd ul.al{list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.dt-bd ul.al li{font-size:13px;background:var(--g1);padding:4px 9px}
+.mchip{font:14px "PingFang SC","Noto Sans SC",sans-serif;background:var(--w);padding:5px 10px;border:0;border-left:3px solid var(--y);cursor:pointer;color:var(--k);transition:background .2s}
+.mchip:hover{background:var(--y)}
+.dt-bd .mchip{background:var(--g1);font-size:13px;padding:4px 9px}
+.dt-bd .mchip:hover{background:var(--y)}
+.dt-src{font-size:12px;color:var(--g3);border-top:1px solid var(--g2);padding-top:10px;margin-top:18px}
+.dt-cta{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:14px 0 4px;counter-reset:f}
+.flow div{padding:10px 10px 10px 0;font-size:13px;color:var(--g4);position:relative}
+.flow div b{display:block;font-size:14px;color:var(--k)}
+.flow div::before{counter-increment:f;content:counter(f,decimal-leading-zero);display:block;font-family:"MFRubik",sans-serif;color:var(--k);background:var(--y);width:max-content;padding:0 6px;margin-bottom:6px;font-size:12px}
+.btn.ghost{background:var(--w);color:var(--k);border:1px solid var(--k)}
 
 /* sections */
 .sec{padding:84px 0}
@@ -209,7 +245,14 @@ h1,h2,h3{font-family:"MFRubik","PingFang SC","Noto Sans SC","Microsoft YaHei",sa
 .crow a{color:var(--w);text-decoration:none;border-bottom:1px solid var(--y)}
 .copy{background:var(--y);color:var(--k);border:0;font:600 12px "PingFang SC",sans-serif;padding:5px 9px;cursor:pointer}
 .qr{display:flex;gap:16px;margin-top:20px}
-.qr div{width:104px;height:104px;border:1px dashed var(--g3);display:flex;align-items:center;justify-content:center;text-align:center;font-size:12px;color:var(--g3);padding:6px}
+.qr figure{margin:0;text-align:center}
+.qr button{display:block;background:#fff;border:0;padding:6px;cursor:zoom-in;transition:transform .25s var(--ease),box-shadow .25s}
+.qr button:hover{transform:scale(1.04);box-shadow:0 0 0 3px var(--y)}
+.qr img{width:116px;height:116px;image-rendering:pixelated}
+.qr figcaption{font-size:13px;color:var(--g2);margin-top:8px}
+.qrtip{font-size:12px;color:var(--g3);margin-top:12px}
+#m-qr .card{text-align:center;max-width:360px}
+#m-qr img{width:260px;height:260px;margin:6px auto 12px;image-rendering:pixelated;border:8px solid #fff;box-shadow:0 0 0 1px var(--g2)}
 
 /* CTA band + footer */
 .cta-band{background:var(--y);padding:48px 0;overflow:hidden}
@@ -288,6 +331,13 @@ body.show-no [data-sec]{outline:2px dashed var(--y);outline-offset:-2px}
   .case{flex:0 0 84%;scroll-snap-align:center}
   .dots{display:flex}
   .sw,.about{grid-template-columns:1fr;gap:26px}
+  .modal{padding:0;align-items:flex-end}
+  .modal .card.wide{max-height:92vh;max-width:none}
+  .dt-hd{grid-template-columns:110px 1fr;padding:18px 54px 18px 18px;gap:14px}
+  .dt-hd img{width:110px;height:90px}
+  .dt-hd h3{font-size:21px}
+  .dt-bd{padding:18px}
+  .flow{grid-template-columns:1fr 1fr}
   .cta-band .wrap{flex-direction:column;align-items:flex-start}
   .cta-band h2{font-size:23px}
   .ft{padding:26px 0 96px}
@@ -363,43 +413,41 @@ body.show-no [data-sec]{outline:2px dashed var(--y);outline-offset:-2px}
 </div></section>
 
 <section class="sec" id="printers" data-sec="04"><span class="secno">04 现役机型</span><div class="wrap">
-  <div class="sec-h rv"><div><span class="k en">PRINTERS</span><h2>现役工业级机型</h2><p>完整的打印机系列，具有制造所需的精度和可靠性。</p><div class="rule"></div></div>
-    <a class="lnk" href="https://markforged.com/zh/3d-printers" target="_blank" rel="noopener">官网查看全部机型 ↗</a></div>
+  <div class="sec-h rv"><div><span class="k en">PRINTERS</span><h2>现役工业级机型</h2><p>完整的打印机系列，具有制造所需的精度和可靠性。</p><div class="rule"></div></div></div>
   <div class="prods">
     <article class="prod rv" style="--d:0s"><div class="pic"><img src="assets/fx10.jpg" alt="Markforged FX10" loading="lazy"></div><div class="body">
       <h3 class="en">FX10</h3><div class="tag">复合材料 + 金属（选配金属套件）</div>
-      <p>全球首个将工业级金属 3D 打印机与复合材料 3D 打印机合二为一的制造系统。</p>
+      <p>将金属 3D 打印与连续纤维复合材料打印功能集于一体的工业级制造系统。</p>
       <div class="spec"><em>打印尺寸</em>375 × 300 × 300 mm</div>
       <details class="more"><summary>更多规格</summary><ul>
-        <li>Z 层厚：125–250 微米（复合材料）</li><li>加热打印舱：最高 60°C</li><li>金属套件：17-4PH、316L 不锈钢，H13 工具钢</li></ul></details>
-      <div class="acts"><a class="lnk" href="https://markforged.com/zh/3d-printers/fx10" target="_blank" rel="noopener">官网介绍 ↗</a><a class="lnk" href="#form">咨询此机型</a></div></div></article>
+        <li>Z 层厚：125–250 微米（复合材料）</li><li>加热打印舱：最高 60°C</li><li>金属套件：17-4PH、316L 不锈钢，H13 工具钢</li><li>已获 UL、CE 及欧盟机械指令认证</li></ul></details>
+      <div class="acts"><button class="btn" type="button" data-prod="fx10">查看详情</button><a class="lnk" href="#form">咨询此机型</a></div></div></article>
     <article class="prod rv" style="--d:.1s"><div class="pic"><img src="assets/fx20.jpg" alt="Markforged FX20" loading="lazy"></div><div class="body">
       <h3 class="en">FX20</h3><div class="tag">大尺寸 · 高温复合材料</div>
       <p>兼容 ULTEM™ 丝材的大尺寸 3D 打印机，可打印大型、强度高、耐高温的零件。</p>
       <div class="spec"><em>打印尺寸</em>525 × 400 × 400 mm</div>
       <details class="more"><summary>更多规格</summary><ul>
         <li>84 L 加热成型舱</li><li>兼容 ULTEM™ 9085 丝材</li><li>7 英寸触摸屏，自动校准和调平</li></ul></details>
-      <div class="acts"><a class="lnk" href="https://markforged.com/zh/3d-printers/fx20" target="_blank" rel="noopener">官网介绍 ↗</a><a class="lnk" href="#form">咨询此机型</a></div></div></article>
+      <div class="acts"><button class="btn" type="button" data-prod="fx20">查看详情</button><a class="lnk" href="#form">咨询此机型</a></div></div></article>
     <article class="prod rv" style="--d:.2s"><div class="pic"><img src="assets/x7.jpg" alt="Markforged X7" loading="lazy"></div><div class="body">
       <h3 class="en">X7</h3><div class="tag">工业级碳纤维</div>
       <p>一款可打印坚固、可靠零件的工业级碳纤维 3D 打印机，开箱即用。</p>
       <div class="spec"><em>打印尺寸</em>330 × 270 × 200 mm</div>
       <details class="more"><summary>更多规格</summary><ul>
         <li>打印媒体：复合基丝材、连续纤维</li><li>打印流程：连续纤维增强（CFR）</li><li>连续纤维增强的封闭内部填充</li></ul></details>
-      <div class="acts"><a class="lnk" href="https://markforged.com/zh/3d-printers/x7" target="_blank" rel="noopener">官网介绍 ↗</a><a class="lnk" href="#form">咨询此机型</a></div></div></article>
+      <div class="acts"><button class="btn" type="button" data-prod="x7">查看详情</button><a class="lnk" href="#form">咨询此机型</a></div></div></article>
     <article class="prod rv" style="--d:.3s"><div class="pic"><img src="assets/x7fe.jpg" alt="Markforged X7 Field Edition" loading="lazy"></div><div class="body">
       <h3 class="en">X7 Field Edition</h3><div class="tag">可现场部署</div>
       <p>一款坚固、可在现场部署的工业 3D 打印机，用于在偏远地区快速应对供应链挑战。</p>
       <div class="spec"><em>打印尺寸</em>330 × 270 × 200 mm</div>
       <details class="more"><summary>更多规格</summary><ul>
         <li>使用标准电源：100–240 VAC，150 W</li><li>激光辅助校准，适应搬运、运输和温度波动</li><li>可使用 Markforged 全系列复合基材和连续纤维</li></ul></details>
-      <div class="acts"><a class="lnk" href="https://markforged.com/zh/3d-printers/x7-field-edition" target="_blank" rel="noopener">官网介绍 ↗</a><a class="lnk" href="#form">咨询此机型</a></div></div></article>
+      <div class="acts"><button class="btn" type="button" data-prod="x7fe">查看详情</button><a class="lnk" href="#form">咨询此机型</a></div></div></article>
   </div>
 </div></section>
 
 <section class="sec grey" id="materials" data-sec="05"><span class="secno">05 工业级材料</span><div class="wrap">
-  <div class="sec-h rv"><div><span class="k en">MATERIALS</span><h2>工业级材料</h2><p>精心开发的经连续碳纤维增强的金属和复合材料，可与 Markforged 打印机无缝配合。</p><div class="rule"></div></div>
-    <a class="lnk" href="https://markforged.com/zh/materials" target="_blank" rel="noopener">官网材料总览 ↗</a></div>
+  <div class="sec-h rv"><div><span class="k en">MATERIALS</span><h2>工业级材料</h2><p>精心开发的经连续碳纤维增强的金属和复合材料，可与 Markforged 打印机无缝配合。</p><div class="rule"></div></div></div>
   <div class="tabs rv" role="tablist">
     <button class="tab" role="tab" aria-selected="true" data-tab="p-cf">连续纤维</button>
     <button class="tab" role="tab" aria-selected="false" data-tab="p-comp">复合基材</button>
@@ -410,24 +458,24 @@ body.show-no [data-sec]{outline:2px dashed var(--y);outline-offset:-2px}
     <div><h3>连续纤维</h3>
       <p>连续纤维支持 Markforged 复合打印机打印金属强度零件。这种纤维不能单独使用，但是，当使用复合基材打印时，连续纤维能够大幅增加材料的坚固性。</p>
       <div class="chips">
-        <a href="https://markforged.com/zh/materials/continuous-fibers/continuous-carbon-fiber" target="_blank" rel="noopener">碳纤维</a>
-        <a href="https://markforged.com/zh/materials/continuous-fibers/continuous-carbon-fiber-fr" target="_blank" rel="noopener">碳纤维 FR</a>
-        <a href="https://markforged.com/zh/materials/continuous-fibers/fiberglass" target="_blank" rel="noopener">玻璃纤维</a>
-        <a href="https://markforged.com/zh/materials/continuous-fibers/hsht-fiberglass" target="_blank" rel="noopener">HSHT 高温高强度玻纤</a>
-        <a href="https://markforged.com/zh/materials/continuous-fibers/kevlar" target="_blank" rel="noopener">芳纶纤维（Kevlar®）</a>
+        <button class="mchip" type="button" data-mat="continuous-carbon-fiber">碳纤维</button>
+        <button class="mchip" type="button" data-mat="continuous-carbon-fiber-fr">碳纤维 FR</button>
+        <button class="mchip" type="button" data-mat="fiberglass">玻璃纤维</button>
+        <button class="mchip" type="button" data-mat="hsht-fiberglass">HSHT 高温高强度玻纤</button>
+        <button class="mchip" type="button" data-mat="kevlar">芳纶纤维（Kevlar®）</button>
       </div>
-      <p class="fine">点击材料名称可查看官网说明。</p></div>
+      <p class="fine">点击材料名称，查看说明、典型数据与适用机型。</p></div>
   </div>
   <div class="panel" id="p-comp" role="tabpanel">
     <div class="pic"><img src="assets/mat_comp.jpg" alt="复合材料零件" loading="lazy"></div>
     <div><h3>复合基材</h3>
       <p>复合基丝材是可用于传统 FFF（FDM 式）工艺的工程级打印材料。可以单独使用，或使用连续纤维增强以生产坚固的零件。</p>
       <div class="chips">
-        <a href="https://markforged.com/zh/materials/plastics/onyx" target="_blank" rel="noopener">Onyx®</a>
-        <a href="https://markforged.com/zh/materials/plastics/onyx-fr" target="_blank" rel="noopener">Onyx FR</a>
-        <a href="https://markforged.com/zh/materials/plastics/onyx-esd" target="_blank" rel="noopener">Onyx ESD</a>
-        <a href="https://markforged.com/zh/materials/plastics/nylon-white-fs" target="_blank" rel="noopener">尼龙白 FS</a>
-        <a href="https://markforged.com/zh/materials/plastics/ultem-9085" target="_blank" rel="noopener">ULTEM™ 9085（FX20）</a>
+        <button class="mchip" type="button" data-mat="onyx">Onyx®</button>
+        <button class="mchip" type="button" data-mat="onyx-fr">Onyx FR</button>
+        <button class="mchip" type="button" data-mat="onyx-esd">Onyx ESD</button>
+        <button class="mchip" type="button" data-mat="nylon-white-fs">尼龙白 FS</button>
+        <button class="mchip" type="button" data-mat="ultem-9085">ULTEM™ 9085（FX20）</button>
       </div>
       <p class="fine">ULTEM™ 和 9085 商标的使用已获得 SABIC、其附属公司或子公司的许可。</p></div>
   </div>
@@ -436,17 +484,17 @@ body.show-no [data-sec]{outline:2px dashed var(--y);outline-offset:-2px}
     <div><h3>金属（FX10 金属套件）</h3>
       <p>FX10 金属 3D 打印机系统采用金属熔丝制造（金属 FFF）技术，可使用 17-4 PH 不锈钢、316L 不锈钢或工具钢生产坚固的功能性零件。</p>
       <div class="chips">
-        <a href="https://markforged.com/zh/materials/metals/17-4-ph-stainless-steel" target="_blank" rel="noopener">17-4PH 不锈钢</a>
-        <a href="https://markforged.com/zh/materials/metals/316l-stainless-steel" target="_blank" rel="noopener">316L 不锈钢</a>
-        <a href="https://markforged.com/zh/materials/metals/h13-tool-steel" target="_blank" rel="noopener">H13 工具钢</a>
+        <button class="mchip" type="button" data-mat="17-4-ph-stainless-steel">17-4PH 不锈钢</button>
+        <button class="mchip" type="button" data-mat="316l-stainless-steel">316L 不锈钢</button>
+        <button class="mchip" type="button" data-mat="h13-tool-steel">H13 工具钢</button>
       </div>
+      <div class="flow"><div><b>打印</b>FX10 换上金属打印引擎</div><div><b>清洗</b>Wash-1</div><div><b>烧结</b>Sinter 系统</div><div><b>金属零件</b>近净成形，可投入使用</div></div>
       <p class="fine">金属打印配置与 Wash-1 和 Sinter 系统集成，将绿模转化为可投入生产的金属组件；烧结后层高 127 微米。</p></div>
   </div>
 </div></section>
 
 <section class="sec dark" id="apps" data-sec="06"><span class="secno">06 工厂车间应用</span><div class="wrap">
-  <div class="sec-h rv"><div><span class="k en">APPLICATIONS</span><h2>工厂车间应用</h2><p>借助 3D 打印技术，制造商能够在内部以更低的成本更快速地生产零件，用于生产线上的数百种应用场景。</p></div>
-    <a class="lnk" href="https://markforged.com/zh/industries" target="_blank" rel="noopener">按行业查看 ↗</a></div>
+  <div class="sec-h rv"><div><span class="k en">APPLICATIONS</span><h2>工厂车间应用</h2><p>借助 3D 打印技术，制造商能够在内部以更低的成本更快速地生产零件，用于生产线上的数百种应用场景。</p></div></div>
   <div class="apps">
     <div class="app rv" style="--d:0s"><b class="en">01</b><h3>夹具与治具</h3><p>按需打印定制夹具，缩短制作周期。</p></div>
     <div class="app rv" style="--d:.1s"><b class="en">02</b><h3>机器人夹爪</h3><p>轻量、高强度的末端执行器与夹爪。</p></div>
@@ -456,8 +504,7 @@ body.show-no [data-sec]{outline:2px dashed var(--y);outline-offset:-2px}
 </div></section>
 
 <section class="sec" id="cases" data-sec="07"><span class="secno">07 客户案例</span><div class="wrap">
-  <div class="sec-h rv"><div><span class="k en">CUSTOMERS</span><h2>客户案例</h2><p>了解制造商如何运用 Markforged 技术降低成本、提高运营灵活性、保持生产线正常运转。</p><div class="rule"></div></div>
-    <a class="lnk" href="https://markforged.com/zh/resources/case-studies" target="_blank" rel="noopener">更多客户案例 ↗</a></div>
+  <div class="sec-h rv"><div><span class="k en">CUSTOMERS</span><h2>客户案例</h2><p>了解制造商如何运用 Markforged 技术降低成本、提高运营灵活性、保持生产线正常运转。</p><div class="rule"></div></div></div>
   <div class="cases" id="caseTrack">
     <article class="case rv" style="--d:0s"><div class="pic"><img src="assets/case_danone.jpg" alt="达能 3D 打印真空抓手" loading="lazy"></div><div class="body">
       <div class="who">达能 · 乳品工厂</div><div class="num en">−80%</div>
@@ -471,17 +518,24 @@ body.show-no [data-sec]{outline:2px dashed var(--y);outline-offset:-2px}
       <div class="who">Farason Corporation · 包装设备</div><div class="num en">CFR</div>
       <h3>带定制卡圈法兰的夹爪，连续碳纤维加固</h3>
       <p>团队在现场制作零件原型、测试和生产，夹爪以连续碳纤维加固，达到所需的强度和刚度。</p></div></article>
+    <article class="case rv" style="--d:0s"><div class="pic"><img src="assets/case_lean.jpg" alt="Lean Machine 定制夹爪" loading="lazy"></div><div class="body">
+      <div class="who">Lean Machine · 工装与夹爪</div><div class="num en">+66%</div>
+      <h3>3D 打印定制夹爪，生产速度提高 66%，成本削减 75%</h3>
+      <p>研发工程师利用 3D 打印的设计灵活性开发定制虎钳卡爪组合，将二十多种 3D 打印组件与现成零件相结合。</p></div></article>
+    <article class="case rv" style="--d:.1s"><div class="pic"><img src="assets/case_ampc.jpg" alt="AMPC 打印替换齿轮" loading="lazy"></div><div class="body">
+      <div class="who">AMPC · 设备备件</div><div class="num en">18 h</div>
+      <h3>齿轮故障停产，18 小时内打印并装上两个关键齿轮</h3>
+      <p>AMPC 采用 Markforged 3D 打印机生产替换零件，保持机器正常运转，避免代价高昂的停机。</p></div></article>
   </div>
-  <div class="dots" id="caseDots"><button class="on" aria-label="案例 1"></button><button aria-label="案例 2"></button><button aria-label="案例 3"></button></div>
-  <p class="src">案例出处：markforged.com/zh 客户案例</p>
+  <div class="dots" id="caseDots"><button class="on" aria-label="案例 1"></button><button aria-label="案例 2"></button><button aria-label="案例 3"></button><button aria-label="案例 4"></button><button aria-label="案例 5"></button></div>
+  <p class="src">案例出处：Markforged 官网客户案例</p>
 </div></section>
 
 <section class="sec dark" id="software" data-sec="08"><span class="secno">08 软件</span><div class="wrap sw">
   <div class="rv">
     <div class="sec-h" style="margin-bottom:0"><div><span class="k en">SOFTWARE</span><h2>从设计到零件 — 轻松快捷</h2>
     <p>Eiger™ 为工业组织提供安全、易用的增材制造软件，契合制造工作流程。</p></div></div>
-    <ul><li>通过单一、直观的界面，将 CAD 设计转化为打印零件</li><li>安全的数字零件库与远程打印机管理</li><li>可与 MIS 和其他系统集成</li></ul>
-    <a class="lnk" href="https://markforged.com/zh/software" target="_blank" rel="noopener">官网了解 Eiger ↗</a>
+    <ul><li>通过单一、直观的界面，将 CAD 设计转化为打印零件</li><li>安全的数字零件库、高级切片工具与远程打印机管理</li><li>跨团队协作处理零件，并在全球范围内进行打印</li><li>可与 MIS 和其他系统集成</li></ul>
   </div>
   <div class="pic rv" style="--d:.15s"><img src="assets/eiger.jpg" alt="Eiger 软件" loading="lazy"></div>
 </div></section>
@@ -491,13 +545,16 @@ body.show-no [data-sec]{outline:2px dashed var(--y);outline-offset:-2px}
     <div class="sec-h" style="margin-bottom:18px"><div><span class="k en">ABOUT</span><h2>关于 Markforged</h2><div class="rule"></div></div></div>
     <p>Markforged 于 2013 年在美国创立，提供由打印机、材料与软件组成的工业级增材制造平台，专门用于集成到现有的制造生态系统中。</p>
     <p>我们的使命是重塑今天的制造业，让客户在未来可以建造任何想要的产品。全球约 1 万家客户、超过 70 个国家使用 Markforged 平台。</p>
-    <a class="lnk" href="https://markforged.com/zh/about/company" target="_blank" rel="noopener">官网关于我们 ↗</a>
   </div>
   <div class="contact rv" style="--d:.15s">
     <h3>联系方式</h3>
     <div class="crow"><span>微信</span><div class="v"><b class="en">brian479974</b><button class="copy" data-copy="brian479974">复制</button></div></div>
     <div class="crow"><span>邮箱</span><div class="v"><a href="mailto:brian.chen@markforged.com">brian.chen@markforged.com</a></div></div>
-    <div class="qr"><div>沿用现有<br>「联系我们」<br>二维码</div><div>沿用现有<br>「微信公众号」<br>二维码</div></div>
+    <div class="qr">
+      <figure><button type="button" data-qr="assets/qr_contact.png" data-cap="联系我们 · 微信扫码添加"><img src="assets/qr_contact.png" alt="联系我们 微信二维码" width="116" height="116"></button><figcaption>联系我们</figcaption></figure>
+      <figure><button type="button" data-qr="assets/qr_official.png" data-cap="微信公众号 · 微信扫码关注"><img src="assets/qr_official.png" alt="微信公众号二维码" width="116" height="116"></button><figcaption>微信公众号</figcaption></figure>
+    </div>
+    <p class="qrtip">微信扫码，或在微信内长按二维码识别</p>
   </div>
 </div></section>
 
@@ -508,8 +565,8 @@ body.show-no [data-sec]{outline:2px dashed var(--y);outline-offset:-2px}
 
 <footer class="ft"><div class="wrap">
   <img src="assets/logo_w.png" alt="Markforged">
-  <nav><a href="#printers">机型</a><a href="#materials">材料</a><a href="#cases">案例</a><a href="#form">咨询</a><a href="https://markforged.com/zh" target="_blank" rel="noopener">Markforged 官网 ↗</a></nav>
-  <span>© Markforged · 示范版 v1 · 2026-10-29</span>
+  <nav><a href="#printers">机型</a><a href="#materials">材料</a><a href="#cases">案例</a><a href="#form">咨询</a><a href="https://markforged.com/zh" target="_blank" rel="noopener">Markforged 官网（海外站点）↗</a></nav>
+  <span>© Markforged · 示范版 v1.2 · 2026-10-29</span>
 </div></footer>
 
 <div class="sticky" id="sticky" data-sec="11"><span class="secno">11 底部固定条</span><span>工业级 3D 打印 · 免费咨询方案与报价</span><a class="btn" href="#form">立即咨询</a></div>
@@ -522,7 +579,7 @@ body.show-no [data-sec]{outline:2px dashed var(--y);outline-offset:-2px}
     <h4>改版讨论</h4>
     <label><input type="checkbox" id="showNo"> 显示区块编号</label>
     <a href="assets/Markforged_landing-page-assets_2026-10-29.zip" download>下载素材包（官方标志与 12 张图）</a>
-    <p>讨论时请用区块编号指出位置，例如「04 现役机型第 2 张卡」。示范版 v1 · 2026-10-29。</p>
+    <p>讨论时请用区块编号指出位置，例如「04 现役机型第 2 张卡」。示范版 v1.2 · 2026-10-29。</p>
   </div>
 </div>
 
@@ -533,6 +590,18 @@ body.show-no [data-sec]{outline:2px dashed var(--y);outline-offset:-2px}
   <p>正式页面会在这里显示提交成功，并由百度平台把资料送进线索后台。</p>
   <p>这是示范页面，您填写的资料没有送出、也没有保存。</p>
   <button class="btn" data-close>好的</button>
+</div></div>
+
+<div class="modal" id="m-detail"><div class="card wide" role="dialog" aria-modal="true">
+  <button class="dt-x" data-close aria-label="关闭">×</button>
+  <div id="dt"></div>
+</div></div>
+
+<div class="modal" id="m-qr"><div class="card">
+  <h3 id="m-qr-cap">二维码</h3>
+  <img id="m-qr-img" src="" alt="二维码">
+  <p>微信扫码，或在微信内长按二维码识别</p>
+  <button class="btn" data-close>关闭</button>
 </div></div>
 
 <div class="modal" id="m-privacy"><div class="card">
@@ -650,8 +719,8 @@ body.show-no [data-sec]{outline:2px dashed var(--y);outline-offset:-2px}
   });
 
   /* modals */
-  function open(id) { $("#" + id).classList.add("show"); }
-  function closeAll() { $$(".modal").forEach(function (m) { m.classList.remove("show"); }); }
+  function open(id) { closeAll(); $("#" + id).classList.add("show"); document.body.style.overflow = "hidden"; }
+  function closeAll() { $$(".modal").forEach(function (m) { m.classList.remove("show"); }); document.body.style.overflow = ""; }
   $$("[data-modal]").forEach(function (a) { a.addEventListener("click", function (e) { e.preventDefault(); open(a.getAttribute("data-modal")); }); });
   $$("[data-close]").forEach(function (b) { b.addEventListener("click", closeAll); });
   $$(".modal").forEach(function (m) { m.addEventListener("click", function (e) { if (e.target === m) closeAll(); }); });
@@ -692,6 +761,171 @@ body.show-no [data-sec]{outline:2px dashed var(--y);outline-offset:-2px}
     this.reset();
     $$(".fld", this).forEach(function (f) { f.classList.remove("bad"); $(".msg", f).textContent = ""; });
     agL.classList.remove("bad");
+  });
+
+  /* ===== on-page product & material details (China network may not reach markforged.com) ===== */
+  var SRC = "资料出处：Markforged 官方产品页、材料页与数据表（2026-10-29 整理）。数值为典型测试值，以官方数据表为准。";
+  var PRODUCTS = {
+    fx10: { name: "FX10", img: "assets/fx10.jpg", tag: "复合材料 + 金属（选配金属套件）",
+      intro: [
+        "将金属 3D 打印与连续纤维复合材料打印功能集于一体的工业级制造系统，借助这款工厂车间中用途广泛的工具，打造坚固可靠的零件。",
+        "FX10 的模块化系统可让您从高性能复合材料打印起步，只需简单更换打印引擎，即可转向金属 3D 打印。购买金属套件后，即可在同一台设备上打印金属和复合材料。",
+        "FX10 配备 375 × 300 × 300 毫米打印尺寸，以及最高可维持 60°C 的加热舱，专为严苛的制造环境而设计。复合材料系统采用双喷嘴直驱打印头，可打印 Onyx®、Onyx FR、Onyx ESD 和尼龙白等高性能热塑性塑料，并通过连续碳纤维增强。FX10 具备材料自动切换功能，并支持通过 Wi-Fi 或以太网进行 OTA 更新。",
+        "金属配置采用金属熔丝制造（金属 FFF）技术，可使用 17-4PH 不锈钢、316L 不锈钢或 H13 工具钢生产坚固的功能性零件。可更换的金属打印引擎让材料处理更轻松；后处理可确保零件达到近净成形公差，烧结后层高为 127 微米。金属配置与 Wash-1 和 Sinter 系统集成。",
+        "FX10 的两种配置均已获得 UL、CE 及欧盟机械指令的认证，采用坚固的钢制机架，专为在生产环境中稳定可靠地运行而设计。"
+      ],
+      cols: ["", "复合材料", "金属（金属套件）"],
+      spec: [
+        ["机身尺寸（宽×深×高）", "760 × 640 × 1200 mm", "同左"],
+        ["重量", "122 kg", "同左"],
+        ["打印尺寸", "375 × 300 × 300 mm", "375 × 300 × 300 mm"],
+        ["打印流程", "丝材熔融制造、连续纤维增强", "金属熔丝制造"],
+        ["Z 层厚", "125–250 微米", "烧结后 127 微米"],
+        ["打印介质", "聚合物丝材、连续纤维", "结合粉末的金属线材"],
+        ["内部零件构造", "连续纤维增强的封闭内部填充", "封闭内部填充或实心填充"],
+        ["打印底板", "精密加工铝", "加热、自动调平、可更换打印板"],
+        ["加热打印舱", "最高 60°C", "—"]
+      ],
+      mats: [["复合材料", ["onyx", "onyx-fr", "onyx-esd", "continuous-carbon-fiber", "continuous-carbon-fiber-fr", "nylon-white-fs", "@尼龙"]],
+             ["金属（金属套件）", ["17-4-ph-stainless-steel", "316l-stainless-steel", "h13-tool-steel"]]] },
+    fx20: { name: "FX20", img: "assets/fx20.jpg", tag: "大尺寸 · 高温复合材料",
+      intro: [
+        "兼容 ULTEM™ 丝材的大尺寸 3D 打印机，可打印大型、强度高、耐高温的零件，从工厂车间到航空应用均可使用。",
+        "FX20 配有 84 L 加热成型舱和附着在打印板的大型平面真空底板。运动控制系统通过精密线性编码器提供闭环控制，可快速准确地移动重达 3 kg 的打印头。在 Turbo 模式下打印速度更快；新型超大卷材料提供四倍的材料量，减少换料。",
+        "FX20 操作简便：配备 7 英寸触摸屏，自动校准和调平功能可减少操作人员的输入，各种传感器提供机器性能的实时反馈。材料舱可调节湿度，内含两个活动的超大材料仓，还可再容纳另外两卷材料。"
+      ],
+      cols: ["", "规格"],
+      spec: [
+        ["机身尺寸（宽×深×高）", "1325 × 900 × 1925 mm"], ["重量", "530 kg"], ["打印尺寸", "525 × 400 × 400 mm"],
+        ["加热成型舱", "84 L"], ["Z 层厚", "50–250 微米"], ["打印流程", "丝材熔融制造、连续纤维增强"],
+        ["打印介质", "聚合物丝材、连续纤维"], ["内部零件构造", "连续纤维增强的封闭内部填充"], ["打印底板", "精密加工铝"], ["操作", "7 英寸触摸屏，自动校准和调平"]
+      ],
+      mats: [["兼容材料", ["@Vega™", "ultem-9085", "onyx", "onyx-fr", "onyx-esd", "continuous-carbon-fiber", "continuous-carbon-fiber-fr", "@碳纤维 HT-A", "fiberglass"]]],
+      note: "ULTEM™ 和 9085 商标的使用已获得 SABIC、其附属公司或子公司的许可。" },
+    x7: { name: "X7", img: "assets/x7.jpg", tag: "工业级碳纤维",
+      intro: [
+        "一款可打印坚固、可靠零件的工业级碳纤维 3D 打印机，开箱即用。",
+        "X7 结合了精密制造的硬件、先进的传感器和软件，可重复生产高精度零件。打印机配有精加工的加固龙门和精密研磨的打印底板，底板可以拆卸和更换，重复精度为 10 微米。线材挤出系统中的每一个硬件均经过优化，以避免短碳纤维填充尼龙丝材磨损，并在数千小时内保持打印质量；材料耗尽传感器可确保连续打印。",
+        "X7 配有第三代纤维增强系统，可将连续纤维铺设到零件中，支持碳纤维、玻璃纤维、芳纶纤维和 HSHT 高温高强度玻纤四种连续纤维。"
+      ],
+      cols: ["", "规格"],
+      spec: [
+        ["机身尺寸（宽×深×高）", "584 × 483 × 914 mm"], ["重量", "48 kg"], ["打印尺寸", "330 × 270 × 200 mm"],
+        ["Z 层厚", "50–250 微米"], ["打印流程", "连续纤维增强（CFR）"], ["打印介质", "复合基丝材、连续纤维"],
+        ["内部零件构造", "连续纤维增强的封闭内部填充"], ["打印底板", "精密研磨复合材料，可拆卸更换"]
+      ],
+      mats: [["兼容材料", ["onyx", "onyx-fr", "onyx-esd", "@尼龙", "@Precise PLA", "@Smooth TPU 95A", "continuous-carbon-fiber", "continuous-carbon-fiber-fr", "fiberglass", "kevlar", "hsht-fiberglass"]]] },
+    x7fe: { name: "X7 Field Edition", img: "assets/x7fe.jpg", tag: "可现场部署",
+      intro: [
+        "一款坚固、可在现场部署的工业 3D 打印机，用于在偏远地区快速应对供应链挑战。",
+        "无需笨重的加热舱，节省空间、重量和能源。坚固的轻型铝制一体成型结构，配有精加工龙门，占地约 914 × 914 mm。",
+        "使用标准电源：100–240 VAC，150 W（2 A 峰值）。激光辅助校准可帮助操作人员在粗暴搬运、运输和温度波动的情况下保持机器稳定。",
+        "使用 Markforged 的全系列复合基材和连续纤维进行打印。"
+      ],
+      cols: ["", "规格"],
+      spec: [
+        ["机身尺寸（宽×深×高）", "914 × 914 × 1220 mm"], ["重量（满载）", "86 kg"], ["打印尺寸", "330 × 270 × 200 mm"],
+        ["Z 层厚", "50–250 微米"], ["打印流程", "连续纤维增强（CFR）"], ["打印介质", "复合基丝材、连续纤维"],
+        ["内部零件构造", "连续纤维增强的封闭内部填充"], ["电源", "100–240 VAC，150 W（2 A 峰值）"]
+      ],
+      mats: [["兼容材料", ["onyx", "onyx-fr", "onyx-esd", "@尼龙", "@Precise PLA", "@Smooth TPU 95A", "continuous-carbon-fiber", "continuous-carbon-fiber-fr", "hsht-fiberglass", "kevlar", "fiberglass"]]] }
+  };
+  var MATS = {
+    "continuous-carbon-fiber": { name: "碳纤维", type: "连续纤维", img: "assets/mat_cf.jpg",
+      desc: "碳纤维是 Markforged 的高强度连续纤维。将其铺设到 Onyx 等复合基材中，可以生产出高强度、高刚度的零件，并由 Markforged 3D 打印机自动铺设成各种几何形状。",
+      kv: [["540 MPa", "弯曲强度（碳纤维增强）"], ["60 GPa", "弯曲刚度（碳纤维增强）"]],
+      apps: ["高强度工具和夹具", "支架和底座", "检测 / CMM 夹具", "定制最终零件", "功能原型"], works: ["FX10", "FX20", "X7", "X7 Field Edition"] },
+    "continuous-carbon-fiber-fr": { name: "碳纤维 FR", type: "连续纤维", img: "assets/mat_cf.jpg",
+      desc: "碳纤维 FR 是连续碳纤维的阻燃版本，用来增强 Onyx FR 等复合基材。刚度和强度高，可以准确铺设成各种几何形状；可通过编程方式跟踪弯曲结构、加固孔洞和模拟单向纤维铺陈。",
+      kv: [["540 MPa", "弯曲强度（碳纤维增强）"], ["50 GPa", "弯曲刚度（碳纤维增强）"]],
+      apps: ["客舱组件", "支架和底座", "MRO 与备件", "最终零件", "功能原型"], works: ["FX10", "FX20", "X7", "X7 Field Edition"] },
+    "fiberglass": { name: "玻璃纤维", type: "连续纤维", img: "assets/mat_cf.jpg",
+      desc: "玻璃纤维是 Markforged 的入门级连续纤维，铺设到 Onyx 等复合基材中可以生产出坚固的零件，是更加经济实惠的碳纤维替代品。",
+      kv: [["200 MPa", "弯曲强度（玻璃纤维增强）"], ["22 GPa", "弯曲刚度（玻璃纤维增强）"]],
+      apps: ["铁卡爪", "中等强度工具", "绝缘增强", "手工工具"], works: ["FX20", "X7", "X7 Field Edition"] },
+    "hsht-fiberglass": { name: "HSHT 高温高强度玻纤", type: "连续纤维", img: "assets/mat_cf.jpg",
+      desc: "高强度高温（HSHT）玻璃纤维兼具高强度和高温强度。通过 HSHT 增强的 Onyx 零件在低温和高温下都十分坚固，特别适合制造模具、高压灭菌器等高温环境中的零件。",
+      kv: [["420 MPa", "弯曲强度（HSHT 纤维增强）"], ["145 °C", "热变形温度（HSHT 纤维增强）"]],
+      apps: ["聚合物模具", "小批量注塑模具原型", "高温夹具", "高温原型"], works: ["X7", "X7 Field Edition"] },
+    "kevlar": { name: "芳纶纤维（Kevlar®）", type: "连续纤维", img: "assets/mat_cf.jpg",
+      desc: "芳纶纤维是一种基于芳纶的专用连续纤维，可以吸收能量且韧性很高。铺设在 Onyx 或其他复合基材中时，制造的防撞击零件不易出现断裂失效，特别适用于苛刻环境或承受重复负载的应用。",
+      kv: [["2000 J/m", "IZOD 冲击性能（缺口，芳纶纤维增强）"]],
+      apps: ["臂端工具", "支柱、支架和支撑", "Delrin® 更换零件", "磨损止挡"], works: ["X7", "X7 Field Edition"] },
+    "onyx": { name: "Onyx®", type: "复合基材", img: "assets/mat_comp.jpg",
+      desc: "Onyx 是 Markforged 的旗舰型复合基材，属于短碳纤维填充尼龙，可生产出表面光洁度好的精确零件。单独打印时具有高强度、韧性和耐化学腐蚀性，也可以使用连续纤维增强。",
+      kv: [["71 MPa", "弯曲强度"], ["145 °C", "热变形温度"]],
+      apps: ["塑料更换零件", "外壳", "传感器基架", "外观原型"], works: ["FX10", "FX20", "X7", "X7 Field Edition"] },
+    "onyx-fr": { name: "Onyx FR", type: "复合基材", img: "assets/mat_comp.jpg",
+      desc: "Onyx FR 是 Onyx 的阻燃版本，适用于要求零件不易燃的应用。该材料已通过 UL 蓝卡认证，厚度不低于 3 mm 时视为 V-0（自熄型）材料，可使用任意连续纤维增强。",
+      kv: [["V-0", "UL 阻燃等级（厚度 ≥ 3 mm）"], ["71 MPa", "弯曲强度"], ["145 °C", "热变形温度"]],
+      apps: ["焊接夹具", "航空航天夹子和支架", "激光打标夹具", "能源 / 电气支架和夹具"], works: ["FX10", "FX20", "X7", "X7 Field Edition"] },
+    "onyx-esd": { name: "Onyx ESD", type: "复合基材", img: "assets/mat_comp.jpg",
+      desc: "Onyx ESD 是一种静电耗散型短碳纤维尼龙材料，表面电阻范围小，能够满足严格的静电安全要求。它比 Onyx 更坚固、更坚硬，适用于电子组装、工业机器人和过程自动化等应用。",
+      kv: [["83 MPa", "弯曲强度"]],
+      apps: ["真空夹持器", "转移工具", "拾取和放置", "转移和包装托盘", "电子设备外壳"], works: ["FX10", "FX20", "X7", "X7 Field Edition"] },
+    "nylon-white-fs": { name: "尼龙白 FS", type: "复合基材 · 食品接触认证", img: "assets/mat_comp.jpg",
+      desc: "尼龙白 FS 是一种无填充、非研磨尼龙，经美国国家卫生基金会（NSF）认证，符合 NSF/ANSI 标准 51（食品加工设备材料），并符合美国 FDA 21 CFR 的规定。适用于食品和饮料工厂车间的生产工具与维护、维修和操作（MRO）应用，例如导轨、滑道、推杆和漏斗。",
+      kv: [["NSF/ANSI 51", "食品加工设备材料认证"]],
+      apps: ["食品和饮料车间生产工具和 MRO", "输送机导轨、推杆和分流器", "机械手臂末端", "初级包装用工具"], works: ["FX10"],
+      note: "NSF 认证仅适用于尼龙白 FS。最终用户有责任验证其打印的零件是否符合其公司的食品安全标准和要求。" },
+    "ultem-9085": { name: "ULTEM™ 9085", type: "高温热塑性塑料", img: "assets/mat_comp.jpg",
+      desc: "ULTEM™ 9085 是 Markforged 的高温打印聚合物，具有阻燃、低烟和低毒（FST）特性，适合航空航天生产应用，并与连续碳纤维兼容。采用 3200cc 超大卷筒包装，是标准卷筒的四倍。",
+      kv: [["FST", "阻燃、低烟、低毒"], ["3200 cc", "超大卷筒"]],
+      apps: ["高温工具", "飞机内饰板", "飞机托架、手柄和旋钮", "定制风管", "复合材料模具和叠层工具"], works: ["FX20"],
+      note: "ULTEM™ 和 9085 商标的使用已获得 SABIC、其附属公司或子公司的许可。" },
+    "17-4-ph-stainless-steel": { name: "17-4PH 不锈钢", type: "金属（FX10 金属套件）", img: "assets/mat_metal.jpg",
+      desc: "17-4PH 不锈钢是一种专为工业应用打造的多用途钢，经过热处理后可打印出坚固耐用的高强度金属零件，满足多种应用需求。",
+      apps: ["臂端工具", "轻型支架", "通用高磨损工具", "功能原型", "定制扳手和套筒"], works: ["FX10（金属套件）"] },
+    "316l-stainless-steel": { name: "316L 不锈钢", type: "金属（FX10 金属套件）", img: "assets/mat_metal.jpg",
+      desc: "316L 是一种广泛用于制造业的低碳不锈钢，耐腐蚀性优异，并具有良好的强度和韧性，常用于食品和饮料加工、汽车、化工与石化、医疗设备以及海洋环境中的零件。Markforged 316L 可用于 FX10。",
+      apps: ["末端执行器", "功能原型", "工装", "叶轮", "输送设备零件", "MRO", "海洋部件"], works: ["FX10（金属套件）"] },
+    "h13-tool-steel": { name: "H13 工具钢", type: "金属（FX10 金属套件）", img: "assets/mat_metal.jpg",
+      desc: "H13 模具钢的硬度高于 17-4PH 不锈钢，并且能够在高温下保持材料特性，用途广泛。客户将其用于制造工具本体、钎焊夹具和其他需要硬度或耐热性的零件。",
+      apps: ["切削刀具本体", "钎焊夹具", "模具插件", "耐磨工具", "高强度零件"], works: ["FX10（金属套件）"] }
+  };
+  function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function chip(k) { return k.charAt(0) === "@" ? '<li>' + esc(k.slice(1)) + '</li>' : '<li><button class="mchip" type="button" data-mat="' + k + '">' + esc(MATS[k].name) + '</button></li>'; }
+  function showProduct(k) {
+    var P = PRODUCTS[k]; if (!P) return;
+    var h = '<div class="dt-hd"><img src="' + P.img + '" alt="' + esc(P.name) + '"><div><h3 class="en">' + esc(P.name) + '</h3><div class="tg">' + esc(P.tag) + '</div></div></div><div class="dt-bd">';
+    h += '<h4>产品介绍</h4>' + P.intro.map(function (t) { return '<p>' + esc(t) + '</p>'; }).join("");
+    h += '<h4>规格</h4><table class="spec"><thead><tr>' + P.cols.map(function (c) { return '<th>' + esc(c) + '</th>'; }).join("") + '</tr></thead><tbody>' +
+      P.spec.map(function (r) { return '<tr><th>' + esc(r[0]) + '</th>' + r.slice(1).map(function (c) { return '<td>' + esc(c) + '</td>'; }).join("") + '</tr>'; }).join("") + '</tbody></table>';
+    P.mats.forEach(function (g) { h += '<h4>' + esc(g[0]) + '<span style="font-weight:400;color:#666;font-size:12px">　点击查看材料说明</span></h4><ul class="al">' + g[1].map(chip).join("") + '</ul>'; });
+    if (P.note) h += '<p style="font-size:12px;color:#999;margin-top:10px">' + esc(P.note) + '</p>';
+    h += '<div class="dt-cta"><a class="btn" href="#form" data-goform>咨询 ' + esc(P.name) + '</a></div><p class="dt-src">' + SRC + '</p></div>';
+    $("#dt").innerHTML = h; open("m-detail"); $("#m-detail .card").scrollTop = 0;
+  }
+  function showMat(k) {
+    var M = MATS[k]; if (!M) return;
+    var h = '<div class="dt-hd light"><img src="' + M.img + '" alt="' + esc(M.name) + '"><div><h3>' + esc(M.name) + '</h3><div class="tg">' + esc(M.type) + '</div></div></div><div class="dt-bd">';
+    h += '<h4>材料说明</h4><p>' + esc(M.desc) + '</p>';
+    if (M.kv) h += '<h4>典型数据</h4><div class="kv">' + M.kv.map(function (x) { return '<div><b>' + esc(x[0]) + '</b><span>' + esc(x[1]) + '</span></div>'; }).join("") + '</div>';
+    h += '<h4>典型应用</h4><ul class="al">' + M.apps.map(function (a) { return '<li>' + esc(a) + '</li>'; }).join("") + '</ul>';
+    h += '<h4>适用机型</h4><ul class="al">' + M.works.map(function (w) { var key = { "FX10": "fx10", "FX10（金属套件）": "fx10", "FX20": "fx20", "X7": "x7", "X7 Field Edition": "x7fe" }[w]; return '<li><button class="mchip" type="button" data-prod="' + key + '">' + esc(w) + '</button></li>'; }).join("") + '</ul>';
+    if (M.note) h += '<p style="font-size:12px;color:#999;margin-top:10px">' + esc(M.note) + '</p>';
+    h += '<div class="dt-cta"><a class="btn" href="#form" data-goform>咨询这种材料的应用</a></div><p class="dt-src">' + SRC + '</p></div>';
+    $("#dt").innerHTML = h; open("m-detail"); $("#m-detail .card").scrollTop = 0;
+  }
+  document.addEventListener("click", function (e) {
+    var t = e.target.closest("[data-prod],[data-mat],[data-goform]"); if (!t) return;
+    if (t.hasAttribute("data-prod")) { e.preventDefault(); showProduct(t.getAttribute("data-prod")); }
+    else if (t.hasAttribute("data-mat")) { e.preventDefault(); showMat(t.getAttribute("data-mat")); }
+    else if (t.hasAttribute("data-goform")) {
+      e.preventDefault(); closeAll();
+      document.getElementById("form").scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
+      var card = $("#lead"); setTimeout(function () { card.classList.add("pulse"); setTimeout(function () { card.classList.remove("pulse"); }, 1400); }, 500);
+      setTimeout(function () { $("#f-name").focus({ preventScroll: true }); }, 800);
+    }
+  });
+
+  /* QR enlarge */
+  $$("[data-qr]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      $("#m-qr-img").src = b.getAttribute("data-qr");
+      $("#m-qr-cap").textContent = b.getAttribute("data-cap");
+      open("m-qr");
+    });
   });
 
   /* discussion tool */
