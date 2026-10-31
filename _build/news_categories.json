@@ -42,6 +42,7 @@
    "zh": "觀點與專訪",
    "en": "Perspectives & Interviews",
    "slugs": [
+    "non-red-three-checks-2026-10",
     "fleet-qualified-process-2026-10",
     "supply-chain-three-layers-2026-10",
     "physical-ai-body",
@@ -183,6 +184,10 @@
   "aster-swarm-fpv-airframe-x7-field-edition": [
    "2026-10-29",
    "本站原創客戶案例首次公開日（CS-D27 v3.0，Markforged 正式版）"
+  ],
+  "non-red-three-checks-2026-10": [
+   "2026-10-31",
+   "Markforged 產業觀點文發布日（新聞事件：2026-10-29 聯合報報導三起案件）"
   ]
  }
 }
