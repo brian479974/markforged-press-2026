@@ -373,6 +373,18 @@ form.f button{grid-column:1 / -1;justify-content:space-between}
 .contact dt{font-family:var(--mono);font-size:11px;letter-spacing:.1em;padding-top:4px;white-space:nowrap}
 .contact .qr{text-align:center;font-size:12px;max-width:120px}
 .contact .qr img{width:104px;height:104px;background:var(--w);padding:6px;margin:0 auto 6px}
+.q{display:flex;flex-direction:column;gap:10px;border-top:1px solid rgba(255,255,255,.14);padding-top:16px}
+.q:first-child{border-top:0;padding-top:0}
+.ql{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--g3)}
+.q .seg span{border-radius:22px;padding:8px 15px;font-size:14px}
+.q .seg label:hover span{border-color:var(--y)}
+.done{grid-column:7 / span 6;grid-row:1 / span 3;background:var(--k);color:var(--w);padding:clamp(28px,3vw,44px);align-self:start}
+.done h3{color:var(--y);font-size:28px;margin:10px 0 8px}
+.done p{font-size:16px;opacity:.85}
+.done ul{margin:18px 0 0;padding:0;list-style:none;border-top:1px solid rgba(255,255,255,.2)}
+.done li{font-size:14px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.12);display:flex;gap:14px}
+.done li b{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--g3);min-width:88px;padding-top:3px}
+@media(max-width:1080px){.done{grid-column:1 / -1;grid-row:auto}}
 .toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,24px);background:var(--k);color:var(--y);padding:14px 22px;font-weight:600;opacity:0;transition:all .3s var(--ease);z-index:99;border:1px solid var(--y)}
 .toast.on{opacity:1;transform:translate(-50%,0)}
 
@@ -790,22 +802,28 @@ footer .lg .mf{height:20px}
     <h2 class="disp mask">让设备<br>回家看看。</h2>
     <p class="lead rv">留下设备与联系方式，上海睿淮工程师会与您联系，安排健诊或旧机评估。</p>
     <form class="f rv d1" id="form">
-      <div class="full"><label>服务类型</label>
-        <div class="seg" style="margin-top:10px">
+      <div class="full q"><div class="ql">服务类型</div>
+        <div class="seg">
           <label><input type="radio" name="svc" value="health" checked><span>回娘家健诊</span></label>
           <label><input type="radio" name="svc" value="tradein"><span>旧换新评估</span></label>
           <label><input type="radio" name="svc" value="both"><span>两项都要</span></label>
         </div>
       </div>
+      <div class="full q"><div class="ql">设备品牌</div><div class="seg"><label><input type="radio" name="brand" value="0" checked><span>Markforged</span></label><label><input type="radio" name="brand" value="1"><span>其他品牌</span></label></div></div>
+      <div class="full q"><div class="ql">机型（可复选）</div><div class="seg"><label><input type="checkbox" name="mdl" value="0"><span>Mark Two</span></label><label><input type="checkbox" name="mdl" value="1"><span>Onyx 系列</span></label><label><input type="checkbox" name="mdl" value="2"><span>X3 · X5 · X7</span></label><label><input type="checkbox" name="mdl" value="3"><span>FX10 · FX20</span></label><label><input type="checkbox" name="mdl" value="4"><span>Metal X</span></label><label><input type="checkbox" name="mdl" value="5"><span>其他机型</span></label></div></div>
+      <div class="full q"><div class="ql">台数</div><div class="seg"><label><input type="radio" name="qty" value="0"><span>1 台</span></label><label><input type="radio" name="qty" value="1"><span>2–3 台</span></label><label><input type="radio" name="qty" value="2"><span>4 台以上</span></label></div></div>
+      <div class="full q"><div class="ql">目前状况（可复选）</div><div class="seg"><label><input type="checkbox" name="st" value="0"><span>正常使用</span></label><label><input type="checkbox" name="st" value="1"><span>成品不稳定</span></label><label><input type="checkbox" name="st" value="2"><span>故障停机</span></label><label><input type="checkbox" name="st" value="3"><span>闲置未用</span></label><label><input type="checkbox" name="st" value="4"><span>想换新机</span></label></div></div>
+      <div class="full q"><div class="ql">希望何时联系</div><div class="seg"><label><input type="radio" name="when" value="0"><span>本周</span></label><label><input type="radio" name="when" value="1"><span>两周内</span></label><label><input type="radio" name="when" value="2"><span>一个月内</span></label><label><input type="radio" name="when" value="3"><span>先了解</span></label></div></div>
       <label>公司名称<input name="company" required></label>
       <label>联系人<input name="name" required></label>
       <label>手机<input name="phone" type="tel" required></label>
       <label>邮箱<input name="email" type="email"></label>
-      <label>设备品牌与型号<input name="model" id="fModel" placeholder="例：Markforged Mark Two"></label>
+      <label>型号或序列号（选填）<input name="model" id="fModel" placeholder="例：Markforged Mark Two"></label>
       <label>所在城市<input name="city"></label>
-      <label class="full">设备使用情况（选填）<textarea name="note" rows="2"></textarea></label>
+      <label class="full">补充说明（选填）<textarea name="note" rows="2"></textarea></label>
       <button class="btn btn-y" type="submit">提交预约 <span class="arrow">→</span></button>
     </form>
+    <div class="done" id="done" hidden><div class="ql">预约已送出</div><h3>谢谢，我们收到了。</h3><p>上海睿淮工程师会尽快与您联系，确认健诊或评估的时间。</p><ul id="doneList"></ul></div>
     <div class="contact rv d2"><div><span class="chip"><img src="../assets/intellengine_logo.png" alt="Intellengine"></span><h3>上海睿淮工业装备有限公司</h3><div class="s">Markforged 中国区钻石级合作伙伴</div><dl><dt>电话</dt><dd>021-6223 9858</dd><dt>邮箱</dt><dd>info@intellengine.cn</dd><dt>网站</dt><dd>www.intellengine.cn</dd><dt>地址</dt><dd>上海市青浦区华徐路 605 号 B 栋 202 室</dd></dl></div><div class="qr"><img src="../assets/qr_intellengine.svg" alt="QR Code">扫码访问官网</div></div>
   </div>
 </section>
@@ -1050,19 +1068,30 @@ addEventListener("scroll", hzMove, {passive: true}); addEventListener("resize", 
 /* ── 表单 ── */
 $("#form").addEventListener("submit", e => {
   e.preventDefault();
-  const f = new FormData(e.target), svcName = {health: "回娘家健诊", tradein: "旧换新评估", both: "健诊 + 旧换新评估"}[f.get("svc")];
-  const body = [["服务类型", svcName], ["公司名称", f.get("company")], ["联系人", f.get("name")], [FACTS.labels.phone, f.get("phone")], [FACTS.labels.email, f.get("email")],
-                ["设备品牌与型号", f.get("model")], [FACTS.labels.city, f.get("city")], ["设备使用情况", f.get("note")]].map(([k, v]) => `${k}：${v || ""}`).join("\n");
+  const fm = e.target, f = new FormData(fm), svcName = {health: "回娘家健诊", tradein: "旧换新评估", both: "健诊 + 旧换新评估"}[f.get("svc")];
+  const pick = n => [...fm.querySelectorAll(`input[name=${n}]:checked`)].map(x => x.nextElementSibling.textContent).join("、");
+  const L = {brand: "设备品牌", mdl: "机型", qty: "台数", st: "目前状况", when: "希望何时联系"};
+  const rows = [["服务类型", svcName], [L.brand, pick("brand")], [L.mdl, pick("mdl")], [L.qty, pick("qty")], [L.st, pick("st")], [L.when, pick("when")],
+                ["公司名称", f.get("company")], ["联系人", f.get("name")], [FACTS.labels.phone, f.get("phone")], [FACTS.labels.email, f.get("email")],
+                ["型号或序列号", f.get("model")], [FACTS.labels.city, f.get("city")], ["补充说明", f.get("note")]];
+  const body = rows.map(([k, v]) => `${k}：${v || ""}`).join("\n");
   const t = $("#toast"), show = msg => { if (msg) t.textContent = msg; t.classList.add("on"); setTimeout(() => t.classList.remove("on"), 4200); };
   if (FACTS.form && FACTS.form.action) {
     const E = FACTS.form.entries, p = new URLSearchParams(),
-          v = {region: ({tw: "TW Taiwan", cn: "CN Mainland China", hk: "HK Hong Kong"})[FACTS.region] || FACTS.region, partner: FACTS.partner.email, svc: svcName, company: f.get("company"), name: f.get("name"),
-               phone: f.get("phone"), email: f.get("email"), model: f.get("model"), city: f.get("city"), note: f.get("note"),
+          v = {region: ({tw: "TW Taiwan", cn: "CN Mainland China", hk: "HK Hong Kong"})[FACTS.region] || FACTS.region, partner: FACTS.partner.email,
+               svc: svcName, company: f.get("company"), name: f.get("name"), phone: f.get("phone"), email: f.get("email"),
+               model: [pick("brand"), pick("mdl"), pick("qty"), f.get("model")].filter(Boolean).join(" | "),
+               city: f.get("city"),
+               note: [[L.st, pick("st")], [L.when, pick("when")], ["补充说明", f.get("note")]].filter(r => r[1]).map(r => r[0] + "：" + r[1]).join("｜"),
                page: location.href.split("#")[0]};
     Object.keys(E).forEach(k => p.append(E[k], v[k] || ""));
     try { fetch("https://hits.sh/news.markforged.tw/homecoming-" + FACTS.region + "-booking.svg?_=" + Date.now(), {mode: "no-cors"}).catch(() => {}); } catch (x) {}
     fetch(FACTS.form.action, {method: "POST", mode: "no-cors", body: p})
-      .then(() => { show($("#toastOk").textContent); e.target.reset(); })
+      .then(() => {
+        $("#doneList").innerHTML = rows.filter(r => r[1]).map(([k, x]) => `<li><b>${k}</b><span>${String(x).replace(/[<&]/g, "")}</span></li>`).join("");
+        fm.style.display = "none"; $("#done").hidden = false; show($("#toastOk").textContent);
+        $("#book").scrollIntoView({behavior: "smooth", block: "start"});
+      })
       .catch(() => show($("#toastErr").textContent));
     return;
   }
