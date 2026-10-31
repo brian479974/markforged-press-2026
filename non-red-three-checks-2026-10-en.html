@@ -280,7 +280,7 @@ f.addEventListener('submit',function(ev){
     f.style.display='none'; var r=document.getElementById('svr'); r.style.display='block';
     r.scrollIntoView({behavior:'smooth',block:'start'});
   }
-  if(C.mode!=='full'){show(C.lite_next+'<br><a id="svl" href="'+C.lite_href+'&stage='+stage+'" target="_blank" rel="noopener">'+C.lite_btn+' →</a>');return;}
+  if(C.mode!=='full'){show(C.lite_next+'<br><a id="svl" href="'+C.lite_href+'&stage='+stage+'#register" target="_blank" rel="noopener">'+C.lite_btn+' →</a>');return;}
   var ans={lang:C.lang,role:one('role').t,buyer:many('buyer'),struct:one('struct').t,fixture:one('fixture').t,
     freq:one('freq').t,wait:one('wait').t,trace:one('trace').t,data:one('data').t,plan:many('plan'),want:many('want'),
     result:C.stages[stage],name:val('name'),company:val('company'),title:val('title'),email:val('email'),phone:val('phone'),
