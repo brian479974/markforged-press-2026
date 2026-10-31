@@ -828,9 +828,11 @@ footer .lg .mf{height:20px}
 </footer>
 
 <div class="toast" id="toast">已為您打開郵件，請確認後發送</div>
+<div id="toastOk" hidden>已收到您的預約，工程師會盡快與您聯絡</div>
+<div id="toastErr" hidden>網絡不穩定，請稍後再提交一次</div>
 
 <script>
-const FACTS = {"region": "hk", "ldos": {"today": "2026-10-27", "rows": [{"model": "X5", "ldos": "2027-12-31", "bulletin": "EOL000001"}, {"model": "Metal X（第一代）", "ldos": "2027-12-31", "bulletin": "EOL0000013"}, {"model": "Onyx One（第二代）", "ldos": "2028-12-31", "bulletin": "EOL000008"}, {"model": "Metal X（第二代）", "ldos": "2030-12-31", "bulletin": "EOL0000013"}, {"model": "Sinter-1 燒結爐", "ldos": "2030-12-31", "bulletin": "EOL0000014"}]}, "build_volume": {"rows": [{"model": "Mark Two", "liters": 6.5, "dims": "320 × 132 × 154 mm", "old": true}, {"model": "X7", "liters": 17.8, "dims": "330 × 270 × 200 mm"}, {"model": "FX10", "liters": 33.8, "dims": "375 × 300 × 300 mm", "highlight": true}, {"model": "FX20", "liters": 84, "dims": "525 × 400 × 400 mm"}]}, "partner": {"email": "info@uno-tech.com.hk"}, "labels": {"phone": "聯絡電話", "email": "電郵", "city": "所在地區"}};
+const FACTS = {"region": "hk", "ldos": {"today": "2026-10-27", "rows": [{"model": "X5", "ldos": "2027-12-31", "bulletin": "EOL000001"}, {"model": "Metal X（第一代）", "ldos": "2027-12-31", "bulletin": "EOL0000013"}, {"model": "Onyx One（第二代）", "ldos": "2028-12-31", "bulletin": "EOL000008"}, {"model": "Metal X（第二代）", "ldos": "2030-12-31", "bulletin": "EOL0000013"}, {"model": "Sinter-1 燒結爐", "ldos": "2030-12-31", "bulletin": "EOL0000014"}]}, "build_volume": {"rows": [{"model": "Mark Two", "liters": 6.5, "dims": "320 × 132 × 154 mm", "old": true}, {"model": "X7", "liters": 17.8, "dims": "330 × 270 × 200 mm"}, {"model": "FX10", "liters": 33.8, "dims": "375 × 300 × 300 mm", "highlight": true}, {"model": "FX20", "liters": 84, "dims": "525 × 400 × 400 mm"}]}, "partner": {"email": "info@uno-tech.com.hk"}, "labels": {"phone": "聯絡電話", "email": "電郵", "city": "所在地區"}, "form": {"action": "https://docs.google.com/forms/d/e/1FAIpQLSez--f4O6ecniXLurXM5M_UHghULwXdeC5rHSt2hZuv7KOZEg/formResponse", "entries": {"region": "entry.1350384529", "partner": "entry.1936839429", "svc": "entry.40154", "company": "entry.760002440", "name": "entry.597202131", "phone": "entry.228028920", "email": "entry.541561098", "model": "entry.27214055", "city": "entry.1416806496", "note": "entry.225176898", "page": "entry.301302045"}}};
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 
 /* 標題逐字進場 */
@@ -1051,9 +1053,22 @@ $("#form").addEventListener("submit", e => {
   const f = new FormData(e.target), svcName = {health: "回娘家健診", tradein: "舊換新評估", both: "健診 + 舊換新評估"}[f.get("svc")];
   const body = [["服務類型", svcName], ["公司名稱", f.get("company")], ["聯絡人", f.get("name")], [FACTS.labels.phone, f.get("phone")], [FACTS.labels.email, f.get("email")],
                 ["設備品牌與型號", f.get("model")], [FACTS.labels.city, f.get("city")], ["設備使用情況", f.get("note")]].map(([k, v]) => `${k}：${v || ""}`).join("\n");
+  const t = $("#toast"), show = msg => { if (msg) t.textContent = msg; t.classList.add("on"); setTimeout(() => t.classList.remove("on"), 4200); };
+  if (FACTS.form && FACTS.form.action) {
+    const E = FACTS.form.entries, p = new URLSearchParams(),
+          v = {region: ({tw: "TW Taiwan", cn: "CN Mainland China", hk: "HK Hong Kong"})[FACTS.region] || FACTS.region, partner: FACTS.partner.email, svc: svcName, company: f.get("company"), name: f.get("name"),
+               phone: f.get("phone"), email: f.get("email"), model: f.get("model"), city: f.get("city"), note: f.get("note"),
+               page: location.href.split("#")[0]};
+    Object.keys(E).forEach(k => p.append(E[k], v[k] || ""));
+    try { fetch("https://hits.sh/news.markforged.tw/homecoming-" + FACTS.region + "-booking.svg?_=" + Date.now(), {mode: "no-cors"}).catch(() => {}); } catch (x) {}
+    fetch(FACTS.form.action, {method: "POST", mode: "no-cors", body: p})
+      .then(() => { show($("#toastOk").textContent); e.target.reset(); })
+      .catch(() => show($("#toastErr").textContent));
+    return;
+  }
   const subj = `【${svcName}預約】${f.get("company") || ""}`;
   location.href = `mailto:${FACTS.partner.email}?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;
-  const t = $("#toast"); t.classList.add("on"); setTimeout(() => t.classList.remove("on"), 4200);
+  show();
 });
 </script>
 </body>
