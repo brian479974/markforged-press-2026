@@ -40,6 +40,7 @@ TAG_EN = {
     '活動報導 · 廣東': 'Event Report · Guangdong',
     '產業專訪 · Physical AI': 'Interview · Physical AI',
     'Case Study · 低軌衛星': 'Case Study · LEO Satellite',
+    '產業觀點 · 生產韌性': 'Industry Insight · Production Resilience',  # 2026-10-31 非紅觀點文 v3（Bella）
 }
 LOC_EN = {
     '客戶案例 · 台灣': 'Customer Story · Taiwan',
@@ -55,6 +56,7 @@ LOC_EN = {
     '產業報導 · 美國密西根州': 'Industry News · Michigan, USA',
     '產業報導 · 澳洲昆士蘭': 'Industry News · Queensland, Australia',
     '作者觀點 · 台灣': 'Perspective · Taiwan',
+    '產業觀點 · 台灣': 'Industry Insight · Taiwan',  # 2026-10-31 非紅觀點文卡片（10-31 首發時漏登，產生器因此一直跑不動）
     '台灣 · 中國 · 香港': 'Taiwan · China · Hong Kong',
     'Liberty Flexible Workspaces，伯斯，澳洲': 'Liberty Flexible Workspaces, Perth, Australia',
     '越南': 'Vietnam',
