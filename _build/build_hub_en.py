@@ -41,6 +41,7 @@ TAG_EN = {
     '產業專訪 · Physical AI': 'Interview · Physical AI',
     'Case Study · 低軌衛星': 'Case Study · LEO Satellite',
     '產業觀點 · 生產韌性': 'Industry Insight · Production Resilience',  # 2026-10-31 非紅觀點文 v3（Bella）
+    '產業觀點 · 非紅供應鏈': 'Industry Insight · Non-Red Supply Chain',  # 2026-10-31 v3.1 Brian「主題要與非紅有關」
 }
 LOC_EN = {
     '客戶案例 · 台灣': 'Customer Story · Taiwan',
