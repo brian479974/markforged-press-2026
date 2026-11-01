@@ -22,6 +22,7 @@ ROOT = Path(__file__).resolve().parent.parent
 SRC, OUT = ROOT / 'index.html', ROOT / 'index-en.html'
 
 TAG_EN = {
+    '專題報導 · 人形機器人': 'Feature · Humanoid Robots',  # 2026-11-01 Asimov 1 專題（Bella）
     '客戶案例 · 國防': 'Customer Story · Defense',
     '客戶案例 · 汽車治具': 'Customer Story · Automotive Fixtures',
     '客戶案例 · 汽車內裝': 'Customer Story · Automotive Interiors',
@@ -44,6 +45,7 @@ TAG_EN = {
     '產業觀點 · 非紅供應鏈': 'Industry Insight · Non-Red Supply Chain',  # 2026-10-31 v3.1 Brian「主題要與非紅有關」
 }
 LOC_EN = {
+    '產業報導 · 新加坡': 'Industry News · Singapore',  # 2026-11-01 Asimov 1 專題（Bella）
     '客戶案例 · 台灣': 'Customer Story · Taiwan',
     '客戶案例 · 英國': 'Customer Story · United Kingdom',
     '客戶案例 · 挪威': 'Customer Story · Norway',

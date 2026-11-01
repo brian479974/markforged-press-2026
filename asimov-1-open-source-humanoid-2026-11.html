@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>兩萬美元、自己組的人形機器人，設計圖卻免費：它的 100 個零件，你印得出幾個？ — Markforged</title>
+<meta name="description" content="新加坡 Menlo Research 的 Asimov 1，是一台寄到府上自己組裝的人形機器人，機構、電路、程式全部開源。我們下載它公開的設計檔，把 100 個自製零件逐一分類、估尺寸，看哪些適合在自己的工廠裡印，要用什麼材料才扛得住。">
+<meta property="og:title" content="兩萬美元、自己組的人形機器人，設計圖卻免費：它的 100 個零件，你印得出幾個？">
+<meta property="og:description" content="新加坡 Menlo Research 的 Asimov 1，是一台寄到府上自己組裝的人形機器人，機構、電路、程式全部開源。我們下載它公開的設計檔，把 100 個自製零件逐一分類、估尺寸，看哪些適合在自己的工廠裡印，要用什麼材料才扛得住。">
+<meta property="og:image" content="https://news.markforged.tw/images/asimov-1-open-source-humanoid-2026-11-og.jpg">
+<meta property="og:type" content="article">
+<link rel="canonical" href="https://news.markforged.tw/asimov-1-open-source-humanoid-2026-11.html">
+<script src="analytics.js" defer></script>
+<style>/* 沿用 2026-10-31 非紅觀點文的站台版型（base.css＋圖表樣式），拿掉問卷樣式 */
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#e8e8e8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,'Noto Sans TC','Noto Sans SC',sans-serif;color:#1a1a1a}
+.wrap{max-width:700px;margin:0 auto;background:#fff}
+.hdr{background:#000;padding:20px 40px;display:flex;align-items:center;justify-content:space-between}
+.hdr img{height:26px;display:block}
+.hdr-ev{color:rgba(255,255,255,.6);font-size:12px;text-align:right;line-height:1.6}
+.langbar{background:#111;padding:8px 40px;display:flex;gap:6px;align-items:center;border-top:1px solid #222}
+.langbar span{color:#666;font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-right:4px}
+.langbar a{font-size:11.5px;font-weight:700;color:#888;text-decoration:none;padding:3px 10px;border-radius:20px;border:1px solid #333}
+.langbar a:hover{color:#FFFF00;border-color:#FFFF00}
+.langbar a.on{background:#FFFF00;color:#000;border-color:#FFFF00}
+.hero{position:relative;overflow:hidden}
+.hero img{width:100%;display:block}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(100deg,rgba(0,0,0,.93) 0%,rgba(0,0,0,.84) 42%,rgba(0,0,0,.34) 70%,rgba(0,0,0,.08) 92%)}
+.hero-top{position:absolute;top:0;left:0;right:0;padding:30px 38px}
+.hero-kicker{color:#FFFF00;font-size:10px;font-weight:700;letter-spacing:.14em;margin-bottom:10px}
+.hero-title{color:#fff;font-size:27px;font-weight:900;line-height:1.3;max-width:64%;text-shadow:0 2px 12px rgba(0,0,0,.6)}
+.hero-title .y{color:#FFFF00}
+.hero-btm{position:absolute;bottom:0;left:0;right:0;padding:15px 38px;background:linear-gradient(transparent,rgba(0,0,0,.78))}
+.hero-meta{color:rgba(255,255,255,.85);font-size:12px;letter-spacing:.04em}
+.ds{background:#FFFF00;padding:10px 38px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}
+.ds-l{font-size:12.5px;font-weight:700;color:#000}
+.ds-r{font-size:11.5px;color:#333}
+.body{padding:34px 38px 0}
+.lead{font-size:16px;line-height:1.85;color:#222;margin-bottom:22px;padding-bottom:22px;border-bottom:2px solid #f0f0f0}
+.qb{margin:4px 0 28px;padding:21px 24px;background:#000;border-radius:6px}
+.qb p{color:#FFFF00;font-size:18.5px;font-weight:800;line-height:1.48;margin-bottom:6px}
+.qb small{color:rgba(255,255,255,.42);font-size:10.5px;letter-spacing:.08em}
+.sec{margin-bottom:30px}
+h2{font-size:11px;font-weight:700;letter-spacing:.13em;color:#111;margin-bottom:11px;padding-left:11px;border-left:5px solid #FFFF00}
+h3{font-size:19px;font-weight:800;color:#111;margin-bottom:13px;line-height:1.34}
+p{font-size:14.6px;line-height:1.85;color:#333;margin-bottom:14px}
+strong{color:#111;font-weight:700}
+figure{margin:20px 0 22px}
+figure img{width:100%;display:block}
+figcaption{font-size:11.5px;color:#777;line-height:1.6;margin-top:8px;padding-left:10px;border-left:3px solid #FFFF00}
+.ly{border:2px solid #111;margin:22px 0}
+.ly-h{background:#111;color:#fff;padding:11px 18px;font-size:12px;font-weight:700;letter-spacing:.09em}
+.ly-r{display:flex;border-top:1px solid #ddd;align-items:stretch}
+.ly-r:first-of-type{border-top:0}
+.ly-n{flex:none;width:58px;background:#f5f5f5;display:flex;align-items:center;justify-content:center;font-size:21px;font-weight:900;color:#bbb;border-right:1px solid #ddd}
+.ly-r.on .ly-n{background:#FFFF00;color:#000}
+.ly-b{padding:14px 18px;flex:1}
+.ly-t{font-size:15.5px;font-weight:800;color:#111;margin-bottom:4px}
+.ly-d{font-size:13px;color:#555;line-height:1.65;margin-bottom:7px}
+.ly-s{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.05em;padding:3px 9px;border-radius:20px;background:#eee;color:#666}
+.ly-s.hot{background:#111;color:#FFFF00}
+.ly-f{background:#fafafa;border-top:2px solid #111;padding:12px 18px;font-size:12.5px;color:#444;line-height:1.7}
+.df{display:grid;grid-template-columns:1fr 1fr;border:2px solid #111;margin:22px 0}
+.df>div{padding:16px 18px}
+.df>div:first-child{border-right:2px solid #111;background:#fafafa}
+.df .t{font-size:12.5px;font-weight:800;margin-bottom:11px;letter-spacing:.04em}
+.df .t.k{color:#999}
+.df ul{list-style:none}
+.df li{font-size:12.5px;line-height:1.6;color:#555;padding:5px 0 5px 15px;position:relative}
+.df li:before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;background:#ccc;border-radius:50%}
+.df .ok li:before{background:#FFFF00;border:1px solid #111}
+.df .ok li{color:#222}
+.df .vd{margin-top:11px;padding-top:10px;border-top:1px dashed #ccc;font-size:11.5px;font-weight:700;color:#999}
+.df .ok .vd{color:#111}
+.pc{display:grid;grid-template-columns:1fr 1fr;border:2px solid #111;margin:22px 0}
+.pc>div{padding:16px 18px}
+.pc>div:first-child{border-right:2px solid #111}
+.pc .h{font-size:12px;font-weight:800;margin-bottom:8px;letter-spacing:.04em}
+.pc .n{font-size:25px;font-weight:900;letter-spacing:-.02em;line-height:1.15}
+.pc .n small{font-size:12px;font-weight:700}
+.pc .y .n{background:linear-gradient(transparent 62%,#FFFF00 62%);display:inline}
+.pc .d{font-size:12px;color:#666;margin-top:9px;line-height:1.65}
+.cta{margin:30px 0 0;border:3px solid #111;background:#111;color:#fff;padding:24px 26px}
+.cta h4{color:#FFFF00;font-size:18px;font-weight:900;margin-bottom:10px}
+.cta p{color:rgba(255,255,255,.82);font-size:13.5px;line-height:1.78;margin-bottom:13px}
+.cta ul{list-style:none;margin-bottom:17px}
+.cta li{color:rgba(255,255,255,.9);font-size:13px;line-height:1.6;padding:6px 0 6px 18px;position:relative}
+.cta li:before{content:"";position:absolute;left:0;top:13px;width:7px;height:7px;background:#FFFF00}
+.cta a{display:inline-block;background:#FFFF00;color:#000;font-size:13.5px;font-weight:800;padding:12px 24px;text-decoration:none;letter-spacing:.02em}
+.au{margin-top:26px;padding:18px 0 0;border-top:2px solid #f0f0f0}
+.au .n{font-size:14px;font-weight:800;color:#111;margin-bottom:4px}
+.au .r{font-size:12px;color:#777;line-height:1.6}
+.src{margin-top:14px;font-size:10.8px;color:#999;line-height:1.7}
+.tags{display:flex;flex-wrap:wrap;gap:6px;padding:22px 38px 30px}
+.tag{background:#111;color:#FFFF00;font-size:10px;font-weight:700;letter-spacing:.06em;padding:4px 10px;border-radius:30px}
+.ft{background:#000;color:rgba(255,255,255,.45);font-size:11px;padding:18px 38px;line-height:1.7}
+@media(max-width:700px){
+  .hero-title{max-width:100%;font-size:21px} .body{padding:26px 22px 0}
+  .hdr,.ds,.tags,.ft,.langbar{padding-left:22px;padding-right:22px}
+  .df,.pc{grid-template-columns:1fr}
+  .df>div:first-child,.pc>div:first-child{border-right:0;border-bottom:2px solid #111}
+}
+
+
+.hero-sub{color:rgba(255,255,255,.9);font-size:14px;font-weight:700;margin-top:10px;letter-spacing:.04em}
+.tk{background:#f6f6f6;border-left:6px solid #FFFF00;padding:18px 22px;margin:0 0 24px}
+.tk h4{font-size:12px;letter-spacing:.12em;color:#111;margin-bottom:8px}
+.tk li{font-size:14px;line-height:1.75;color:#222;margin:0 0 6px 18px}
+.st4{display:grid;grid-template-columns:repeat(4,1fr);border:2px solid #111;margin:6px 0 8px}
+.st4>div{padding:14px 12px;border-right:1px solid #ddd}
+.st4>div:last-child{border-right:0}
+.st4 .n{font-size:28px;font-weight:900;line-height:1.05;letter-spacing:-.02em}
+.st4 .n small{font-size:12px;font-weight:800;margin-left:2px}
+.st4 .n span{background:linear-gradient(transparent 60%,#FFFF00 60%)}
+.st4 .d{font-size:11.5px;color:#555;line-height:1.55;margin-top:7px}
+.stn{font-size:10.5px;color:#999;margin-bottom:24px}
+.tl{border:2px solid #111;margin:20px 0 22px}
+.tl-h{background:#111;color:#fff;padding:10px 16px;font-size:12px;font-weight:700;letter-spacing:.08em}
+.tl-r{display:flex;border-top:1px solid #ddd}
+.tl-r:first-of-type{border-top:0}
+.tl-w{flex:none;width:86px;padding:12px 10px;font-size:13px;font-weight:900;background:#f5f5f5;border-right:1px solid #ddd}
+.tl-r.on .tl-w{background:#FFFF00}
+.tl-b{padding:11px 14px}
+.tl-t{font-size:14px;font-weight:800;color:#111}
+.tl-d{font-size:12.5px;color:#555;line-height:1.6;margin-top:2px}
+.bc{border:2px solid #111;padding:16px 18px;margin:20px 0 6px}
+.bc-h{font-size:12.5px;font-weight:800;margin-bottom:12px;letter-spacing:.03em}
+.bc-r{display:grid;grid-template-columns:150px 1fr;gap:10px;align-items:center;margin:9px 0}
+.bc-l{font-size:12.5px;color:#333;font-weight:700}
+.bc-t{background:#eee;height:30px;position:relative}
+.bc-b{height:100%;background:#bbb;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;
+  font-size:13px;font-weight:900;color:#111;min-width:78px;white-space:nowrap}
+.bc-r.on .bc-b{background:#FFFF00}
+.fc{font-size:11.5px;color:#777;line-height:1.6;margin:6px 0 20px;padding-left:10px;border-left:3px solid #FFFF00}
+.ly-r.no .ly-n{background:#e9e9e9;color:#999}
+.ly-r.no .ly-t{color:#777}
+.pf{display:grid;gap:12px;margin:18px 0 20px}
+.pf.n2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.pf.n3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pf .c{border:2px solid #111;display:flex;flex-direction:column;background:#fff}
+.pf .c img{width:100%;height:122px;object-fit:cover;display:block;border-bottom:2px solid #111}
+.pf.n1 .c{flex-direction:row}
+.pf.n1 .c img{width:44%;height:auto;min-height:150px;border-bottom:0;border-right:2px solid #111}
+.pf .b{padding:10px 12px 11px;display:flex;flex-direction:column;flex:1}
+.pf .g{font-size:10px;font-weight:800;letter-spacing:.06em;color:#666;margin-bottom:4px}
+.pf .t{font-size:13.5px;font-weight:900;color:#111;line-height:1.42;margin-bottom:8px;flex:1}
+.pf .s{font-size:10.5px;color:#666;line-height:1.75;border-top:1px dashed #ccc;padding-top:6px}
+.pf .s a{color:#111;text-decoration:underline;text-decoration-color:#FFFF00;text-decoration-thickness:2px;margin-right:7px;white-space:nowrap}
+.as{margin:20px 0 6px}
+.as .im{border:2px solid #111;border-bottom:0}
+.as .im img{width:100%;height:250px;object-fit:cover;display:block}
+.as .df{margin:0}
+.qt{margin:6px 0 24px;padding:18px 22px 16px;border-left:6px solid #FFFF00;background:#f6f6f6}
+.qt p{font-size:14.6px;line-height:1.85;color:#111;font-weight:600;margin-bottom:8px}
+.qt .w{font-size:12px;color:#555;font-weight:700}
+.pd{display:grid;grid-template-columns:42% 1fr;border:2px solid #111;margin:16px 0 6px}
+.pd .im{background:#fff;display:flex;align-items:center;justify-content:center;border-right:2px solid #111;padding:10px}
+.pd .im img{width:100%;display:block}
+.pd .tx{padding:16px 18px}
+.pd .nm{font-size:19px;font-weight:900}
+.pd .tg{font-size:12.5px;color:#555;margin:2px 0 10px}
+.pd li{font-size:12.5px;line-height:1.65;color:#222;margin:0 0 5px 16px}
+.pd .lk{display:inline-block;margin-top:8px;font-size:12.5px;font-weight:800;color:#111;text-decoration:underline;
+  text-decoration-color:#FFFF00;text-decoration-thickness:3px}
+  border-radius:20px;padding:6px 12px;cursor:pointer;background:#fff}
+  padding:12px 26px;cursor:pointer;letter-spacing:.02em}
+.srcs{margin:10px 0 0 18px}
+.srcs li{font-size:11px;color:#888;line-height:1.7}
+.srcs a, .sec p a{color:#111;text-decoration:underline;text-decoration-color:#FFFF00;text-decoration-thickness:2px}
+@media(max-width:700px){
+  .st4{grid-template-columns:1fr 1fr} .st4>div:nth-child(2){border-right:0} .st4>div:nth-child(-n+2){border-bottom:1px solid #ddd}
+  .pf.n2,.pf.n3,.pd{grid-template-columns:1fr}
+  .pf.n1 .c{flex-direction:column} .pf.n1 .c img{width:100%;height:150px;min-height:0;border-right:0;border-bottom:2px solid #111}
+  .pd .im{border-right:0;border-bottom:2px solid #111} .bc-r{grid-template-columns:110px 1fr}
+  .as .im img{height:180px}
+}
+.hero-sub{color:rgba(255,255,255,.9);font-size:14px;font-weight:700;margin-top:10px;letter-spacing:.04em;max-width:60%}
+.hc{font-size:10.5px;color:#888;padding:6px 38px 0;background:#fff}
+.sp{border:2px solid #111;margin:18px 0 8px}
+.sp-h{background:#111;color:#fff;padding:9px 16px;font-size:12px;font-weight:700;letter-spacing:.08em}
+.sp-r{display:grid;grid-template-columns:150px 1fr;border-top:1px solid #e3e3e3}
+.sp-r:first-of-type{border-top:0}
+.sp-k{background:#f5f5f5;padding:9px 14px;font-size:12.5px;font-weight:800;color:#111;border-right:1px solid #e3e3e3}
+.sp-v{padding:9px 14px;font-size:13px;color:#222;line-height:1.55}
+.pm{margin:18px 0 6px}
+.pm-h{font-size:12.5px;font-weight:800;margin-bottom:10px;letter-spacing:.03em}
+.pm-bar{display:flex;height:46px;border:2px solid #111}
+.pm-seg{display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900;color:#111;border-right:2px solid #111}
+.pm-seg:last-child{border-right:0}
+.pm-seg.pa12{background:#FFFF00} .pm-seg.alu{background:#d9d9d9} .pm-seg.ss{background:#9e9e9e;color:#fff}
+.pm-lg{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:9px}
+.pm-lg span{font-size:12px;color:#333;display:inline-flex;align-items:center;gap:6px}
+.pm-lg i{display:inline-block;width:12px;height:12px;border:1.5px solid #111}
+.pm-b{font-size:11.5px;color:#777;margin-top:6px}
+.bc-x{font-size:11.5px;color:#555;margin-top:8px;line-height:1.6}
+.bc-r.over .bc-b{background:#111;color:#FFFF00}
+.kj{margin:18px 0 6px;border:2px solid #111}
+.kj img{width:100%;display:block;border-bottom:2px solid #111}
+.kj-s{display:grid;grid-template-columns:repeat(3,1fr)}
+.kj-s>div{padding:12px 12px 13px;border-right:1px solid #ddd}
+.kj-s>div:last-child{border-right:0}
+.kj-s .n{font-size:24px;font-weight:900;line-height:1.1}
+.kj-s .n span{background:linear-gradient(transparent 60%,#FFFF00 60%)}
+.kj-s .d{font-size:12px;font-weight:800;margin-top:5px}
+.kj-s .m{font-size:11px;color:#777;margin-top:2px}
+.kj-c{font-size:11px;color:#777;padding:8px 12px;border-top:1px solid #ddd}
+.cl p{font-size:15.5px;line-height:1.95;color:#111;margin-bottom:14px}
+.cl p:first-child{font-weight:700}
+.sn{font-size:11px;color:#888;line-height:1.7;margin-top:10px}
+@media(max-width:700px){
+  .hero-sub{max-width:92%} .sp-r{grid-template-columns:110px 1fr} .kj-s .n{font-size:20px}
+  .hc{padding:6px 18px 0} .pd .im img{max-height:230px;width:auto;max-width:100%;margin:0 auto}
+}
+</style>
+<link rel="alternate" hreflang="zh-TW" href="asimov-1-open-source-humanoid-2026-11.html"><link rel="alternate" hreflang="zh-CN" href="asimov-1-open-source-humanoid-2026-11-sc.html"><link rel="alternate" hreflang="en" href="asimov-1-open-source-humanoid-2026-11-en.html">
+</head>
+<body>
+<script src="/globalbar.js"></script><div class="wrap">
+<div class="hdr"><img src="images/markforged-logo-white.png" alt="Markforged">
+  <div class="hdr-ev">Markforged<br>Greater China</div></div>
+  <div class="langbar"><span>語言</span><a href="asimov-1-open-source-humanoid-2026-11.html" class="on">繁體中文</a><a href="asimov-1-open-source-humanoid-2026-11-sc.html">简体中文</a><a href="asimov-1-open-source-humanoid-2026-11-en.html">English</a></div>
+
+  <div class="hero"><img src="images/asimov-1-open-source-humanoid-2026-11-hero.jpg" alt="依 Asimov 1 開源模擬模型渲染的機器人全身圖">
+  <div class="hero-ov"></div>
+  <div class="hero-top"><div class="hero-kicker">FEATURE · 專題報導</div>
+    <div class="hero-title">設計圖<span class='y'>免費</span><br>的人形機器人</div><div class="hero-sub">Asimov 1 把 100 個自製零件全放上網：哪些適合自己印</div></div>
+  <div class="hero-btm"><div class="hero-meta">Markforged 專題｜2026 年 11 月 1 日</div></div></div>
+<div class="hc">圖：依 Asimov 1 開源模擬模型（CERN-OHL-S-2.0）以 Blender 渲染，造型未修改</div>
+<div class="ds"><div class="ds-l">人形機器人 · 開源硬體 · 積層製造</div><div class="ds-r">閱讀 6 分鐘</div></div>
+<div class="body">
+<div class="tk"><h4>重點摘要</h4><ul><li>Asimov 1 是新加坡 Menlo Research 推出的開源人形機器人：1.2 公尺、35 公斤、25 個關節，自組套件兩萬美元，設計檔與程式全部公開。</li><li>它要另外加工的 100 個零件裡，39 個本來就是 3D 列印的尼龍件，其餘是 CNC 鋁件與不鏽鋼件。零件是檔案，在哪裡做、用什麼做，買家可以自己決定。</li><li>外觀件用什麼列印都行；扛力的零件才是重點。連續碳纖維補強可以讓列印件承受結構負載，部分鋁件值得拿來實測比較。</li></ul></div>
+<p class="lead">Asimov 1 是一台兩萬美元、寄到府上自己組裝的人形機器人，但它的機構設計圖、電路圖、模擬模型和控制程式，任何人都能免費下載（<a href="https://github.com/asimovinc/asimov-1" target="_blank" rel="noopener">GitHub</a>）。社群上介紹它的影片，形容它像組樂高，週末還能自己 3D 列印一顆新的頭。換一顆頭確實不難；真正值得看的，是機器人身上那些要扛力的零件。</p>
+<div class="st4" data-fig="stats"><div><div class="n"><span>20,000</span><small>美元</small></div><div class="d">Asimov 1 自組套件價格，零件未組裝寄出</div></div><div><div class="n"><span>100</span><small>件</small></div><div class="d">要另外加工的零件（不含馬達、軸承等外購件）</div></div><div><div class="n"><span>39</span><small>件</small></div><div class="d">其中原本就是 3D 列印的尼龍件</div></div><div><div class="n"><span>38×25×22</span><small>cm</small></div><div class="d">最大的尼龍件：軀幹外殼（估算）</div></div></div><div class="stn">零件數依官方設計檔的製造分類計算；尺寸為本文依公開 3D 檔估算，方法見內文。</div>
+<div class="qb"><p>零件是檔案。<br>在哪裡做、用什麼做，買家自己決定。</p><small>OPEN HARDWARE · PARTS AS FILES</small></div>
+<div class="sec"><h2>WHAT IT IS · 這是一台什麼樣的機器人</h2><h3>寄來一箱零件，自己組成 1.2 公尺的人形機器人</h3><p>Asimov 1 由新加坡的 Menlo Research 推出。官方規格是身高 1.2 公尺、重 35 公斤，全身 25 個主動關節：雙腿各 6 個、雙臂各 5 個、腰 1 個、脖子 2 個；單臂額定負重 5 公斤，峰值 15 公斤（<a href="https://github.com/asimovinc/asimov-1" target="_blank" rel="noopener">官方設計檔說明</a>）。</p><p>買家拿到的是一整箱未組裝的零件，加上組裝手冊與教學影片（<a href="https://docs.menlo.ai/asimov/1" target="_blank" rel="noopener">官方手冊</a>）。Menlo 在發表時說，每天花幾個小時、大約一週可以組完（<a href="https://www.producthunt.com/products/asimov-1" target="_blank" rel="noopener">Product Hunt 發表頁</a>）；也有報導指出實際組裝要超過 100 小時（<a href="https://runtimewire.com/article/menlo-asimov-1-open-source-humanoid-ships-august" target="_blank" rel="noopener">RuntimeWire</a>）。組裝與維修夥伴設在美國與新加坡（<a href="https://menlo.ai/asimov-1" target="_blank" rel="noopener">Menlo 官網</a>）。</p><p>它和一般商用機器人最大的不同，是開源授權：硬體採 CERN-OHL-S-2.0，軟體採 GPL-2.0。不想買套件的人，可以照公開的零件清單自己備料、自己找工廠加工。</p><div class="sp" data-fig="spec"><div class="sp-h">ASIMOV 1 · 官方規格</div><div class="sp-r"><div class="sp-k">身高／重量</div><div class="sp-v">1.2 m／35 kg</div></div><div class="sp-r"><div class="sp-k">主動關節</div><div class="sp-v">25 個（腿 6×2、臂 5×2、腰 1、頸 2）</div></div><div class="sp-r"><div class="sp-k">單臂負重</div><div class="sp-v">額定 5 kg，峰值 15 kg</div></div><div class="sp-r"><div class="sp-k">運算</div><div class="sp-v">Raspberry Pi 5＋Radxa CM5</div></div><div class="sp-r"><div class="sp-k">結構材料</div><div class="sp-v">7075 鋁＋MJF PA12 尼龍</div></div><div class="sp-r"><div class="sp-k">授權</div><div class="sp-v">硬體 CERN-OHL-S-2.0／軟體 GPL-2.0</div></div><div class="sp-r"><div class="sp-k">價格</div><div class="sp-v">自組套件 20,000 美元</div></div></div></div><div class="sec"><h2>TEARDOWN · 我們把設計檔拆開來數</h2><h3>100 個自製零件裡，39 個本來就是 3D 列印</h3><p>我們下載了 Asimov 1 公開的機構設計檔，照它自己的製造分類逐一清點。要另外加工的零件共 100 個：39 個是 MJF 列印的 PA12 尼龍件，43 個是 CNC 加工的 7075 鋁件，18 個是 316L 不鏽鋼件；另外還有 67 個馬達、軸承、螺絲之類的外購件。</p><div class="pm" data-fig="parts"><div class="pm-h">100 個自製零件，按官方製造分類</div><div class="pm-bar"><div class="pm-seg pa12" style="width:39.0%">39</div><div class="pm-seg alu" style="width:43.0%">43</div><div class="pm-seg ss" style="width:18.0%">18</div></div><div class="pm-lg"><span><i class="pm-seg pa12" style="border:1.5px solid #111"></i>MJF 列印 PA12 尼龍　39</span><span><i class="pm-seg alu" style="border:1.5px solid #111"></i>CNC 7075 鋁　43</span><span><i class="pm-seg ss" style="border:1.5px solid #111"></i>316L 不鏽鋼　18</span></div><div class="pm-b">另有 67 個外購件（馬達、軸承、螺絲等）</div></div><p>這份清單本身就是一張製造工單。零件以 3D 檔的形式公開，誰來做、在哪裡做，買家可以自己選；開發團隊把近四成零件交給 3D 列印，代表他們自己也判斷這些零件不需要開模。</p><p>我們再從 3D 檔估了每個尼龍件的外框尺寸。39 件裡，有 38 件最長邊在 33 公分以內；最大的是軀幹外殼，約 38 × 25 × 22 公分。</p><div class="bc" data-fig="sizes"><div class="bc-h">39 個尼龍件的最長邊（mm，估算）</div><div class="bc-r on"><div class="bc-l">≤ 100</div><div class="bc-t"><div class="bc-b" style="width:40%">8</div></div></div><div class="bc-r on"><div class="bc-l">100–200</div><div class="bc-t"><div class="bc-b" style="width:100%">20</div></div></div><div class="bc-r on"><div class="bc-l">200–330</div><div class="bc-t"><div class="bc-b" style="width:50%">10</div></div></div><div class="bc-r over"><div class="bc-l">> 330</div><div class="bc-t"><div class="bc-b" style="width:6%">1</div></div></div><div class="bc-x">■ X7 長邊上限 330 mm　■ 超過 330 mm 的 1 件（軀幹外殼）→ FX20</div></div></div><div class="sec"><h2>STRENGTH · 自己印，要印得出能扛的零件</h2><h3>換一顆頭不難，難的是扛力的那幾件</h3><p>影片說的「自己印一顆頭」是外觀件，用什麼材料印都可以。Asimov 1 的尼龍件包覆著關節與連桿，鋁件則撐著馬達和負重；如果要在自己的工廠裡做這些零件，問題不在印不印得出形狀，而在印出來能不能扛。</p><p>Markforged 的做法分兩段。底材 Onyx 是微碳纖維填充的尼龍，強度和一般工程尼龍在同一個量級，勝在剛性與耐熱：拉伸模數 2.4 GPa，熱變形溫度 145°C。需要扛力的路徑，再沿著受力方向鋪進連續碳纖維；官方材料資料上，連續碳纖維的拉伸強度是 800 MPa，拉伸模數 60 GPa（ASTM D3039，<a href="https://s3.amazonaws.com/mf.product.doc.images/Datasheets/Material+Datasheets/CompositesMaterialDatasheet.pdf" target="_blank" rel="noopener">Markforged 複合材料規格書</a>）。</p><p>對 Asimov 1 這類機器人來說，前者適合外殼與一般支架，後者讓部分原本用 CNC 鋁件做的支架，有了實測比較的價值。能不能取代，要用實際負載測過才算數。</p><div data-fig="products"><div class="pd"><div class="im" style="background:#000"><img src="images/asimov-1-open-source-humanoid-2026-11-x7.jpg" alt="Markforged X7"></div><div class="tx"><div class="nm">X7</div><div class="tg">連續纖維複合材料主力機種</div><ul><li>列印空間 330 × 270 × 200 mm</li><li>適合：大多數尼龍件、支架、治具</li></ul><a class="lk" href="https://markforged.com/3d-printers/x7" target="_blank" rel="noopener">產品頁 →</a></div></div><div class="pd"><div class="im" style="background:#000"><img src="images/asimov-1-open-source-humanoid-2026-11-fx20.jpg" alt="Markforged FX20"></div><div class="tx"><div class="nm">FX20</div><div class="tg">大尺寸、高溫腔體的複合材料機種</div><ul><li>列印空間 525 × 400 × 400 mm</li><li>適合：軀幹外殼這類大件一次印完</li></ul><a class="lk" href="https://markforged.com/3d-printers/fx20" target="_blank" rel="noopener">產品頁 →</a></div></div></div><p>尺寸上，大多數尼龍件放得進 <a href="https://markforged.com/3d-printers/x7" target="_blank" rel="noopener">X7</a>（列印空間 330 × 270 × 200 mm）；軀幹外殼這種大件，用 <a href="https://markforged.com/3d-printers/fx20" target="_blank" rel="noopener">FX20</a>（525 × 400 × 400 mm）一次印完。改設計時不用重開模、不用重排 CNC，換一份檔案就好。</p><p>對一台全世界都有人在組、在改的開源機器人，還有一件事比單件成本更重要：同一份檔案在不同地方印出來要一樣。Markforged 的 <a href="https://markforged.com/software" target="_blank" rel="noopener">Eiger</a> 列印軟體把零件和列印參數存在一起，同一份檔在任何一台 Markforged 印表機上都照同一組參數列印。</p></div><div class="sec"><h2>CASE · 一個例子講透</h2><h3>小島沖壓工業：機器人夾爪改用列印，零件成本降 67%</h3><p>小島沖壓工業（Kojima Industries）是日本的汽車零件製造商。產線上的機器人夾爪原本用金屬做，夾爪越重，機器人就得選更大的規格，設備費跟著墊高。</p><p>改用 Markforged 列印之後，夾爪零件的製作費用比傳統機械加工降低 67%，零件交期從委外加工的 14 天，縮短到在廠內 1 天印完；部分零件的設計工時也少了約三成，因為委外要先畫 2D 加工圖，列印直接用 3D 檔（<a href="https://markforged.com/resources/case-studies/robotic-tooling-with-kojima-industries-corporation" target="_blank" rel="noopener">Markforged 官方案例</a>、<a href="https://news.markforged.tw/kojima-robot-hands.html" target="_blank" rel="noopener">媒體中心中文報導</a>）。</p><div class="kj" data-fig="kojima"><img src="images/kojima-robot-hands-card.jpg" alt="小島沖壓工業生產技術部 設備技術課係長 鹿島章（圖：Markforged 官方案例）"><div class="kj-s"><div><div class="n"><span>−67%</span></div><div class="d">夾爪零件製作費用</div><div class="m">對比傳統機械加工</div></div><div><div class="n"><span>14 → 1</span></div><div class="d">天，零件交期</div><div class="m">委外加工對比廠內列印</div></div><div><div class="n"><span>約 −30%</span></div><div class="d">設計工時</div><div class="m">部分零件</div></div></div><div class="kj-c">小島沖壓工業生產技術部 設備技術課係長 鹿島章（圖：Markforged 官方案例）</div></div><p>人形機器人的手臂和產線夾爪面對的是同一筆帳：末端每減一分重量，馬達與結構就少扛一分。</p></div>
+<div class="sec cl"><p>如果你在做機器人、自動化設備，或手上正有一台 Asimov 1，可以先把零件清單照三個條件篩一遍：會改版、數量少、委外交期以週計，挑出其中一件來印。</p><p>判準很簡單：零件重量接近負載上限，或外包一次要等兩週以上的，就值得拿來比。</p></div>
+<div class="cta"><h4>帶一件你的零件來，看它印出來的樣子</h4><p>Markforged 原廠工程師一對一，依你的零件與負載安排實機展示；台灣、中國、香港、越南與線上都可預約。</p>
+  <a href="https://mfmk.markforged.tw/vip/index.html?utm_source=news&utm_medium=article&utm_campaign=asimov-1#register">預約實機展示 →</a></div>
+<div class="au"><div class="n">Markforged</div><div class="r">工業級連續纖維複合材料與金屬 3D 列印</div>
+  <div class="src"><strong>資料來源</strong><ol class="srcs"><li><a href="https://menlo.ai/asimov-1" target="_blank" rel="noopener">Menlo Research：Asimov 1 產品頁</a></li><li><a href="https://docs.menlo.ai/asimov/1" target="_blank" rel="noopener">Asimov 1 官方手冊</a></li><li><a href="https://github.com/asimovinc/asimov-1" target="_blank" rel="noopener">Asimov 1 開源設計檔（GitHub，含規格與零件分類）</a></li><li><a href="https://www.producthunt.com/products/asimov-1" target="_blank" rel="noopener">Product Hunt：Asimov 1 發表頁</a></li><li><a href="https://runtimewire.com/article/menlo-asimov-1-open-source-humanoid-ships-august" target="_blank" rel="noopener">RuntimeWire：Asimov 1 出貨與組裝時數報導</a></li><li><a href="https://s3.amazonaws.com/mf.product.doc.images/Datasheets/Material+Datasheets/CompositesMaterialDatasheet.pdf" target="_blank" rel="noopener">Markforged 複合材料規格書（REV 5.3）</a></li><li><a href="https://markforged.com/3d-printers/x7" target="_blank" rel="noopener">Markforged X7 產品頁</a></li><li><a href="https://markforged.com/3d-printers/fx20" target="_blank" rel="noopener">Markforged FX20 產品頁</a></li><li><a href="https://markforged.com/software" target="_blank" rel="noopener">Markforged Eiger 軟體</a></li><li><a href="https://markforged.com/resources/case-studies/robotic-tooling-with-kojima-industries-corporation" target="_blank" rel="noopener">Markforged 案例：小島沖壓工業機器人夾爪</a></li><li><a href="https://news.markforged.tw/kojima-robot-hands.html" target="_blank" rel="noopener">Markforged 媒體中心：小島沖壓工業案例中文報導</a></li></ol><p class='sn'>零件數依官方設計檔 mechanical/ASV1 各子組件的製造分類計算。尺寸為本文依公開 STEP 檔的頂點、曲面控制點與圓弧估算外框，並以官方工程圖（ASV1_100_05A 厚度 5.00 mm）與官方模擬模型的軀幹外框（382 × 250 × 219 mm）交叉核對；31–32 公分的 3 件接近 X7 上限，實際擺放需再確認。</p></div></div>
+</div>
+<div class="tags"><span class="tag">人形機器人</span><span class="tag">開源硬體</span><span class="tag">Physical AI</span><span class="tag">積層製造</span><span class="tag">連續碳纖維</span><span class="tag">X7</span><span class="tag">FX20</span></div>
+<div class="ft">© 2026 Markforged, Inc. Asimov 與 Menlo 為 Menlo Research 之名稱；本文為產業報導，Menlo Research 與 Markforged 無合作關係。</div>
+</div>
+</body></html>
