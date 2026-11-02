@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unmanned Vehicles and Industrial 3D Printing: Talk Video from SOLIDWORKS 2027 IV Day Taiwan — Markforged</title>
+<meta name="description" content="Brian Chen of Markforged at SOLIDWORKS 2027 IV Day Taiwan (Taipei, Hsinchu, Tainan): where Taiwan's drone industry stands, where drone programmes stall, and an FPV airframe designed, printed and assembled in Taiwan. Video in Chinese and English, with the slides to download.">
+<meta property="og:title" content="Unmanned Vehicles and Industrial 3D Printing: IV Day Talk Video">
+<meta property="og:description" content="Taiwan's drone numbers, why programmes wait on parts, and an FPV airframe built in Taiwan. In Chinese and English.">
+<meta property="og:image" content="https://news.markforged.tw/images/solidworks-2027-iv-day-drone-talk.jpg">
+<meta property="og:type" content="article">
+<link rel="alternate" hreflang="zh-TW" href="https://news.markforged.tw/solidworks-2027-iv-day-drone-talk.html">
+<link rel="alternate" hreflang="zh-CN" href="https://news.markforged.tw/solidworks-2027-iv-day-drone-talk-sc.html">
+<link rel="alternate" hreflang="en" href="https://news.markforged.tw/solidworks-2027-iv-day-drone-talk-en.html">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#e8e8e8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,'Noto Sans TC','Noto Sans SC',sans-serif;color:#1a1a1a}
+  .wrap{max-width:700px;margin:0 auto;background:#fff}
+  .hdr{background:#000;padding:20px 40px;display:flex;align-items:center;justify-content:space-between}
+  .hdr-logo{display:block;line-height:0}
+  .hdr-logo img{height:26px;width:auto;display:block}
+  .hdr-ev{color:rgba(255,255,255,.6);font-size:12px;text-align:right;line-height:1.6}
+  .langbar{background:#111;padding:8px 40px;display:flex;gap:6px;align-items:center;border-top:1px solid #222}
+  .langbar span{color:#666;font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-right:4px}
+  .langbar a{font-size:11.5px;font-weight:700;color:#888;text-decoration:none;padding:3px 10px;border-radius:20px;border:1px solid #333}
+  .langbar a:hover{color:#FFFF00;border-color:#FFFF00}
+  .langbar a.on{background:#FFFF00;color:#000;border-color:#FFFF00}
+  .hero{position:relative;overflow:hidden}
+  .hero img{width:100%;display:block}
+  .hero-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.68) 0%,rgba(0,0,0,.15) 50%,rgba(0,0,0,.72) 100%)}
+  .hero-top{position:absolute;top:0;left:0;right:0;padding:28px 38px}
+  .hero-kicker{color:#FFFF00;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px}
+  .hero-title{color:#fff;font-size:26px;font-weight:900;line-height:1.28;max-width:540px;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+  .hero-btm{position:absolute;bottom:0;left:0;right:0;padding:16px 38px;background:linear-gradient(transparent,rgba(0,0,0,.75))}
+  .hero-meta{color:rgba(255,255,255,.85);font-size:12px;letter-spacing:.04em}
+  .ds{background:#FFFF00;padding:10px 38px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}
+  .ds-l{font-size:12.5px;font-weight:700;color:#000}
+  .ds-r{font-size:11.5px;color:#333}
+  .body{padding:36px 38px 0}
+  .lead{font-size:16px;line-height:1.82;color:#222;margin-bottom:24px;padding-bottom:24px;border-bottom:2px solid #f0f0f0}
+  .qb{margin:6px 0 26px;padding:20px 24px;background:#000;border-radius:6px}
+  .qb p{color:#FFFF00;font-size:18px;font-weight:800;line-height:1.45;margin-bottom:5px}
+  .qb small{color:rgba(255,255,255,.45);font-size:10.5px;letter-spacing:.07em}
+  .sec{margin-bottom:30px}
+  h2{font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#111;margin-bottom:12px;padding-left:11px;border-left:4px solid #FFFF00}
+  h3{font-size:18px;font-weight:800;color:#111;margin-bottom:12px;line-height:1.32}
+  p{font-size:14.5px;line-height:1.82;color:#333;margin-bottom:14px}
+  strong{color:#111}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
+  .tag{background:#111;color:#FFFF00;font-size:10px;font-weight:700;letter-spacing:.07em;padding:4px 10px;border-radius:30px}
+  .tag.ol{background:#fff;color:#666;border:1.5px solid #ddd}
+  .ph-full img{width:100%;display:block}
+  /* 直式照片滿版會把整個視窗撐掉（2026-09-24 FX10 轉正後實測 624→937px 高）→ 收窄置中 */
+  .ph-port{background:#f4f4f4;padding:22px 0;display:flex;justify-content:center}
+  .ph-port img{width:auto;max-width:62%;max-height:620px;display:block}
+  @media(max-width:620px){.ph-port img{max-width:82%}}
+  .ph-2col{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+  .gi{width:100%;display:block;object-fit:cover}
+  .gi-43{aspect-ratio:4/3}
+  .gi-34{aspect-ratio:3/4}
+  .cap{font-size:11px;color:#aaa;text-align:center;padding:8px 38px 22px;border-bottom:1px solid #eee;margin-bottom:26px;line-height:1.55}
+  .hl-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:30px}
+  .hl{background:#f7f7f7;border-left:4px solid #FFFF00;padding:16px 18px}
+  .hl b{display:block;font-size:24px;font-weight:900;color:#111;line-height:1.1;margin-bottom:5px}
+  .hl span{font-size:11.5px;color:#777;line-height:1.5;display:block}
+  .prof{display:flex;gap:18px;align-items:center;background:#111;padding:22px 24px;border-radius:6px;margin:8px 0 28px}
+  .prof img{width:92px;height:92px;object-fit:cover;border-radius:50%;flex-shrink:0;border:3px solid #FFFF00}
+  .prof-n{color:#fff;font-size:16px;font-weight:800;margin-bottom:4px}
+  .prof-t{color:#FFFF00;font-size:11.5px;font-weight:700;margin-bottom:7px}
+  .prof-d{color:rgba(255,255,255,.6);font-size:11.5px;line-height:1.6}
+  .cta{background:#FFFF00;padding:28px 32px;margin:6px 0 0}
+  .cta h4{font-size:17px;font-weight:900;color:#000;margin-bottom:8px}
+  .cta p{font-size:13px;color:#333;line-height:1.7;margin-bottom:16px}
+  .btn{display:inline-block;background:#000;color:#FFFF00;padding:12px 26px;font-size:13.5px;font-weight:800;text-decoration:none;letter-spacing:.04em}
+  .btn:hover{background:#222}
+  .vid{position:relative;width:100%;padding-top:56.25%;background:#000}
+  .vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .vid video{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;background:#000}
+  .srcbox{background:#fafafa;border-top:3px solid #111;padding:22px 38px 26px}
+  .srcbox h5{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#888;margin-bottom:10px}
+  .srcbox li{font-size:11.5px;color:#777;line-height:1.75;margin-left:16px}
+  .ftr{background:#000;padding:24px 38px;color:rgba(255,255,255,.5);font-size:11.5px;line-height:1.7}
+  .ftr a{color:#FFFF00;text-decoration:none}
+  /* ── 雙方表述：官方引言雙卡 ── */
+  .quotes{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:4px 0 30px}
+  .qc{background:#111;padding:22px 22px 20px;border-top:4px solid #FFFF00;display:flex;flex-direction:column}
+  .qc p{color:#fff;font-size:13.5px;line-height:1.78;margin:0 0 16px;flex:1}
+  .qc-who{display:flex;gap:12px;align-items:center}
+  .qc-who img{width:54px;height:54px;object-fit:cover;border-radius:50%;flex-shrink:0;border:2px solid #FFFF00}
+  .qc-n{color:#FFFF00;font-size:12.5px;font-weight:800;line-height:1.4;margin-bottom:3px}
+  .qc-t{color:rgba(255,255,255,.5);font-size:10.5px;line-height:1.55}
+  /* ── 活動資料 fact sheet ── */
+  .fs{border-top:3px solid #111;margin:4px 0 8px}
+  .fs-h{font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#111;padding:14px 0 10px}
+  .fs-row{display:flex;gap:18px;padding:10px 0;border-top:1px solid #f0f0f0}
+  .fs-k{flex:0 0 92px;font-size:11px;font-weight:700;color:#999;letter-spacing:.05em;line-height:1.75;text-transform:uppercase}
+  .fs-v{font-size:13.5px;color:#222;line-height:1.75}
+  /* ── 完稿記號（通訊社慣例）── */
+  .endmark{text-align:center;letter-spacing:.4em;color:#c4c4c4;font-size:11px;font-weight:700;padding:22px 0 24px}
+  /* ── 關於雙方 ── */
+  .about{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 14px}
+  .ab{background:#fafafa;border-top:4px solid #111;padding:18px 20px}
+  .ab h6{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#999;margin-bottom:9px}
+  .ab p{font-size:11.5px;line-height:1.8;color:#555;margin:0}
+  /* ── 媒體聯絡 ── */
+  .mc{background:#111;padding:20px 24px;margin:0 0 4px}
+  .mc h6{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#FFFF00;margin-bottom:10px}
+  .mc-o{color:#fff;font-size:13px;font-weight:800;margin-bottom:7px}
+  .mc p{color:rgba(255,255,255,.6);font-size:11.5px;line-height:1.9;margin:0}
+  .mc a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.28)}
+  @media(max-width:620px){.hero-title{font-size:21px}.body{padding:26px 22px 0}.hl-grid{grid-template-columns:1fr}.quotes{grid-template-columns:1fr}.about{grid-template-columns:1fr}.prof{flex-direction:column;text-align:center}.langbar{padding:8px 22px}}
+</style>
+<script src="analytics.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hdr">
+    <a href="index.html" class="hdr-logo"><img src="images/markforged-logo-white.png" alt="Markforged"></a>
+    <div class="hdr-ev">Greater China Media Hub<br>News &amp; Insights</div>
+  </div>
+
+  <div class="langbar"><span>Language</span><a href="solidworks-2027-iv-day-drone-talk.html">繁體中文</a><a href="solidworks-2027-iv-day-drone-talk-sc.html">简体中文</a><a href="solidworks-2027-iv-day-drone-talk-en.html" class="on">English</a></div>
+
+  <div class="hero">
+    <img src="images/solidworks-2027-iv-day-drone-talk.jpg" alt="Brian Chen holding the ASTER-SWARM FPV airframe, with Markforged printers behind him">
+    <div class="hero-ov"></div>
+    <div class="hero-top">
+      <div class="hero-kicker">Events · SOLIDWORKS 2027 IV Day</div>
+      <div class="hero-title">Unmanned Vehicles and Industrial 3D Printing: The Talk</div>
+    </div>
+    <div class="hero-btm"><div class="hero-meta">SOLIDWORKS 2027 IV Day | Taiwan | 2026.11.03</div></div>
+  </div>
+
+  <div class="ds"><div class="ds-l">Chinese 7 min 41 s · English 8 min 16 s</div><div class="ds-r">Taipei 11/3 · Hsinchu 11/12 · Tainan 11/13</div></div>
+
+  <div class="body">
+
+    <div class="lead">SOLIDWORKS 2027 IV Day runs three sessions in Taiwan this year: Taipei, Hsinchu and Tainan. Brian Chen, Markforged Country Manager for Greater China and Vietnam, uses ten minutes on unmanned vehicles and industrial 3D printing to cover three things: where Taiwan's drone industry stands, where drone programmes get stuck, and a case designed, printed and assembled in Taiwan.<br><br>This page carries the video version of the talk: the slides with narration and motion graphics, <strong>one in Chinese and one in English</strong>, with two official Markforged videos played in full inside. The slides are available to download at the end of the page.</div>
+
+    <div class="prof">
+      <img src="brian-chen.jpg" alt="Brian Chen">
+      <div><div class="prof-n">Brian Chen</div><div class="prof-t">Country Manager, Greater China and Vietnam, Markforged</div><div class="prof-d">Responsible for Markforged across Taiwan, China, Hong Kong and Vietnam, working with manufacturers in aerospace, defence and precision manufacturing.</div></div>
+    </div>
+
+    <div class="tags"><span class="tag">SOLIDWORKS</span><span class="tag">IV Day</span><span class="tag ol">Drones</span><span class="tag ol">Continuous Carbon Fiber</span><span class="tag ol">Made in Taiwan</span></div>
+
+    <div class="vid"><video src="video/solidworks-2027-iv-day-drone-talk-en.mp4" poster="images/solidworks-2027-iv-day-drone-talk-poster-en.jpg" title="SOLIDWORKS 2027 IV Day talk video, English version, 8 minutes 16 seconds" controls playsinline preload="metadata"></video></div>
+    <div class="cap">IV Day talk video | English version, 8 min 16 s | Markforged Greater China</div>
+
+    <div class="sec">
+      <h2>Chapters</h2>
+      <h3>Fifteen slides in twelve chapters</h3>
+      <p>Times are where each chapter starts in the video. The chain-link pull test and Gamma Rotors segments are official Markforged videos, played with their original audio.</p>
+      <div class="hl-grid">
+        <div class="hl"><b>0:00</b><span>Opening: how long from design to mission</span></div>
+        <div class="hl"><b>0:33</b><span>Taiwan's drone industry in numbers</span></div>
+        <div class="hl"><b>1:09</b><span>The bottleneck: waiting for parts</span></div>
+        <div class="hl"><b>1:35</b><span>Which parts can be printed directly</span></div>
+        <div class="hl"><b>2:03</b><span>Continuous fiber reinforcement</span></div>
+        <div class="hl"><b>2:59</b><span>Strength on film: the chain-link pull test</span></div>
+        <div class="hl"><b>3:36</b><span>Three equipment lines</span></div>
+        <div class="hl"><b>4:11</b><span>What drone makers worldwide are doing</span></div>
+        <div class="hl"><b>4:42</b><span>Gamma Rotors in their own words</span></div>
+        <div class="hl"><b>5:28</b><span>Taiwan case: ASTER-SWARM</span></div>
+        <div class="hl"><b>7:11</b><span>The design side: SOLIDWORKS and AI</span></div>
+        <div class="hl"><b>7:39</b><span>Back to the opening question</span></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <h2>Taiwan's numbers, and the real bottleneck</h2>
+      <h3>The opportunity is in the supply chain; iteration speed sets programme speed</h3>
+      <p>Taiwan's drone output reached NT$12.9 billion in 2025, 2.56 times the year before; exports in the first five months of 2026 reached US$153 million, already more than all of 2025. More than 260 companies are involved, and the government's six-year programme is NT$44.2 billion, targeting NT$40 billion in output by 2030.</p>
+      <p>Anyone who has run a drone programme knows the hold-up is usually parts, not design: arms, motor mounts, landing gear, the avionics mount, centre frame, battery mount and payload mount are all low-volume and high-mix. Each design change often means new tooling, more machining or another import.</p>
+    </div>
+
+    <div class="sec">
+      <h2>Continuous fiber and three equipment lines</h2>
+      <h3>Continuous carbon fiber, laid in the layers and regions you choose</h3>
+      <p>Markforged printers have two nozzles: one extrudes Onyx, a nylon filled with micro carbon fiber, for the shape; the other lays a single continuous strand of carbon fiber inside the part. Along the fiber, a continuous carbon fiber test coupon reaches 800 MPa in tension, against about 310 MPa for 6061-T6 aluminium. These are coupon values; a real part depends on how much fiber is laid and in which direction.</p>
+      <div class="hl-grid">
+        <div class="hl"><b>FX10</b><span>Starts with composites; add the Metal Kit for metal, with Wash-1 debinding and Sinter-2 sintering</span></div>
+        <div class="hl"><b>FX20</b><span>Large format, heated chamber up to 200°C, prints ULTEM 9085</span></div>
+        <div class="hl"><b>X7</b><span>The continuous fiber workhorse; the X7 Field Edition ships in a rugged case, unbox to print in under three minutes</span></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <h2>Global cases, and one from Taiwan</h2>
+      <h3>The figures are each company's own published numbers; the Taiwan case is provided by ASTER Technology</h3>
+      <p>Raphe mPhibr in India cut tooling lead time by 60%; BRINC in the US prints the main structural parts of its first-responder drones; BODUK in Japan cut production time for its wall-climbing inspection drones by 50–66%; AeroG Lab in Japan cut part cost by 90% and lead time from two or three weeks to one or two days. Gamma Rotors in India grew from one printer to more than ten.</p>
+      <p>ASTER Technology printed its ASTER-SWARM FPV airframe on the X7 Field Edition, with continuous carbon fiber concentrated at the arm roots and motor mounts and the airframe split into five modules. The prototype passed a Beaufort force 9 wind test, measured and verified by a unit of NCSIST, and was designed, printed and assembled in Taiwan. <a href="aster-swarm-fpv-airframe-x7-field-edition-en.html">Full case →</a></p>
+    </div>
+
+    <div class="sec">
+      <h2>Download the slides</h2>
+      <h3>Fifteen slides, PDF</h3>
+      <p><a href="downloads/Markforged-SOLIDWORKS-2027-IV-Day-Drone-Talk-EN.pdf">Download the slides (PDF)</a> · <a href="downloads/Markforged-SOLIDWORKS-2027-IV-Day-Drone-Talk-TC.pdf">Chinese version (PDF)</a></p>
+    </div>
+
+  </div>
+
+  <div class="cta">
+    <h4>Bring a part, and let us assess it</h4>
+    <p>Bring a drawing or a non-confidential STL file, and tell us the use, loads, temperature and quantity. We will assess whether it can be printed, in which material and how long it takes; if machining or tooling is the better deal, we will say so.</p>
+    <a href="https://mfmk.markforged.tw" class="btn">Contact us</a>
+  </div>
+
+  <div class="srcbox">
+    <h5>Sources</h5>
+    <ul><li>Taiwan drone industry figures: Ministry of Economic Affairs (Taiwan), Aerospace Industry Development Office, status of Taiwan's drone industry and policy priorities, 30 June 2026.</li><li>Global case figures are from Markforged's official drone industry deck (2026); baselines differ by case, and each figure applies to that case's conditions.</li><li>The chain-link pull test and Gamma Rotors footage are from Markforged's official YouTube channel.</li><li>ASTER-SWARM test results were provided by ASTER Technology; the wind test was measured and verified by a unit of NCSIST. The header photo is from an iThome interview in September 2026.</li><li>The video was produced by Markforged Greater China from the talk's slides; the narration was synthesised from Brian Chen's own voice. The drone backgrounds are illustrations, not Markforged products or any customer's aircraft; product imagery is official Markforged material.</li></ul>
+  </div>
+
+  <div class="ftr">
+    Markforged builds industrial additive manufacturing systems and continuous fiber composites for aerospace, defence, automotive and precision manufacturing. Published by the Markforged Greater China Media Hub.<br><br>
+    <a href="index.html">Back to the Media Hub</a>　·　<a href="https://markforged.tw">markforged.tw</a>
+  </div>
+
+</div>
+</body>
+</html>
