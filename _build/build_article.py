@@ -228,14 +228,16 @@ def render(lang):
                 A(f'      <p>{t(p, lang, f"blk{i}.pa{j}")}</p>')
             A('    </div>\n')
         elif b["kind"] == "img_full":
+            # 2026-11-03：img 可給 {lang: 路徑}（中英文頁放各自語言的簡報畫面）；給字串＝三語同一張（既有文章不受影響）
+            _img = b["img"][lang] if isinstance(b["img"], dict) else b["img"]
             # 直式／橫式自動分流：直式走 .ph-port 收窄置中，不讓它撐掉一整屏
             try:
                 from PIL import Image as _Im
-                with _Im.open(os.path.join(OUT_DIR, b["img"])) as _i:
+                with _Im.open(os.path.join(OUT_DIR, _img)) as _i:
                     _cls = "ph-full ph-port" if _i.height > _i.width else "ph-full"
             except Exception:
                 _cls = "ph-full"
-            A(f'    <div class="{_cls}"><img src="{b["img"]}" alt="{t(b["alt"], lang, f"blk{i}.alt")}"></div>')
+            A(f'    <div class="{_cls}"><img src="{_img}" alt="{t(b["alt"], lang, f"blk{i}.alt")}"></div>')
             A(f'    <div class="cap">{t(b["cap"], lang, f"blk{i}.cap")}</div>\n')
         elif b["kind"] == "video":
             _src = b["src"][lang] if isinstance(b["src"], dict) else b["src"]
@@ -365,12 +367,16 @@ def main():
     print("  ✅ G3 英文純度：英文版零 CJK／全形字元")
 
     # G4 簡繁殘留 —— 以 OpenCC t2s 轉換後比對，有差異即代表殘留繁體
-    cn_body = text_of(out["cn"])
-    converted = _T2S.convert(cn_body)
-    if converted != cn_body:
-        diff = sorted({a for a, b in zip(cn_body, converted) if a != b})
-        sys.exit(f"✗ G4 簡繁閘：簡中版殘留繁體字 {''.join(diff)}")
-    print("  ✅ G4 簡繁：簡中版經 OpenCC t2s 回驗零差異")
+    # 2026-11-03：文章可以不出簡中版（LANGS 不含 "cn"，例：IV Day 演講 Brian「不做簡體中文版」）→ 本閘明講 SKIP，不假裝驗過
+    if "cn" not in LANGS:
+        print("  ⏭  G4 簡繁：本篇不出簡中版（LANGS 無 cn），本閘不適用")
+    else:
+        cn_body = text_of(out["cn"])
+        converted = _T2S.convert(cn_body)
+        if converted != cn_body:
+            diff = sorted({a for a, b in zip(cn_body, converted) if a != b})
+            sys.exit(f"✗ G4 簡繁閘：簡中版殘留繁體字 {''.join(diff)}")
+        print("  ✅ G4 簡繁：簡中版經 OpenCC t2s 回驗零差異")
 
     # G5 冒名引言閘 —— 2026-09-07 事故：v1 有 10 處掛 Brian 名字的直接引言全是代寫的。
     # 檢查的是「這句話他說過沒有」，不是數幾組引號。
@@ -429,8 +435,20 @@ def main():
     except ImportError:
         sys.exit("✗ G7 照片重複閘：缺 Pillow，無法驗證照片是否重複（閘壞掉一律紅燈，不跳過）")
 
-    def _ahash(path, n=16):
-        im = Image.open(path).convert("L").resize((n, n), Image.LANCZOS)
+    # 2026-11-03：簡報頁畫面（img_full 標 "slide": True）共用同一套版型（上方標題帶＋下方頁尾），
+    # 整張比對時版型把距離拉近（IV Day 九頁：不同頁最近 46–52，誤判 5–10 對）。改比對單位不調門檻：
+    # 簡報頁只比內容區（高度 26%–86%）→ 不同頁最近 71–72（> 60），同一頁換畫質重存最遠 6–7（仍 ≤ 60，照樣擋）。
+    _SLIDES = set()
+    for _b in BLOCKS:
+        if _b.get("kind") == "img_full" and _b.get("slide"):
+            _SLIDES |= set(_b["img"].values()) if isinstance(_b["img"], dict) else {_b["img"]}
+
+    def _ahash(path, n=16, rel=None):
+        im = Image.open(path)
+        if rel in _SLIDES:
+            w, h = im.size
+            im = im.crop((0, int(h * 0.26), w, int(h * 0.86)))
+        im = im.convert("L").resize((n, n), Image.LANCZOS)
         px = list(im.getdata()); avg = sum(px) / len(px)
         return sum(1 << i for i, v in enumerate(px) if v > avg)
 
@@ -444,7 +462,7 @@ def main():
         f = os.path.join(OUT_DIR, rel)
         if not os.path.exists(f):
             sys.exit(f"✗ G7 照片重複閘：圖檔不存在 {rel}（圖掉了不會有錯誤訊息，所以在這裡擋）")
-        hashes[rel] = _ahash(f)
+        hashes[rel] = _ahash(f, rel=rel)
     near = []
     keys = list(hashes)
     for i2 in range(len(keys)):
