@@ -19,6 +19,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import langbar as LB  # noqa: E402
 
 
+import json as _json
+EXC = {k: v for k, v in _json.loads((Path(__file__).with_name("langbar_lang_exceptions.json")).read_text(encoding="utf-8")).items() if not k.startswith("_")}
+
+
 def audit(dirs):
     fails, passes, skips = [], [], []
     for d in dirs:
@@ -35,16 +39,20 @@ def audit(dirs):
             if len(present) < 2:
                 skips.append(f"{d.name}/{slug}：單語頁，本閘不管")
                 continue
-            missing = [F[L] for L in LB.LANGS if L not in present]
+            exp = tuple(EXC.get(slug, {}).get("langs", LB.LANGS))   # 2026-11-03：登記過的文章才可少語言
+            missing = [F[L] for L in exp if L not in present]
             if missing:
                 fails.append(f"{d.name}/{slug}：有兄弟檔卻缺 {missing}")
+            extra = [F[L] for L in present if L not in exp]
+            if extra:
+                fails.append(f"{d.name}/{slug}：登記不出卻有檔 {extra}")
             for L, p in present.items():
                 try:
                     html = p.read_text(encoding="utf-8")
                 except Exception as e:                       # 讀不到＝查不了＝FAIL
                     fails.append(f"{p}：讀取失敗 {e}")
                     continue
-                bad = LB.check(html, slug, L)
+                bad = LB.check(html, slug, L, langs=exp)
                 (fails if bad else passes).extend(bad or [f"{d.name}/{F[L]}"])
     return fails, passes, skips
 
