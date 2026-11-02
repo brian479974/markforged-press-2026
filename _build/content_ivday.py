@@ -21,7 +21,8 @@
 """
 import opencc
 
-LANGS = ("tw", "cn", "en")
+# 2026-11-03 Brian「不做簡體中文版」→ 只出繁中＋英文（站上艾斯特案例頁同樣是雙語）；cn 字串保留在內容源但不產頁
+LANGS = ("tw", "en")
 SLUG = "solidworks-2027-iv-day-drone-talk"
 _TW2SP = opencc.OpenCC("tw2sp")
 _CN_TERMS = [("列印", "打印"), ("影片", "视频"), ("簡報", "演示文稿"), ("简报", "演示文稿"), ("專案", "项目"), ("专案", "项目"),
@@ -80,7 +81,7 @@ UI = {
                      "Unmanned Vehicles and Industrial 3D Printing: The Talk"),
     "hero_meta": L3("SOLIDWORKS 2027 創新日 IV Day ｜ 台灣 ｜ 2026.11.03",
                     "SOLIDWORKS 2027 IV Day | Taiwan | 2026.11.03"),
-    "ds_l": L3("中文版 7 分 41 秒 · 英文版 8 分 16 秒", "Chinese 7 min 41 s · English 8 min 16 s"),
+    "ds_l": L3("十分鐘專題演講 · 中英文影片 · 簡報下載", "A ten-minute talk · video in Chinese and English · slides"),
     "ds_r": L3("台北 11/3 · 新竹 11/12 · 台南 11/13", "Taipei 11/3 · Hsinchu 11/12 · Tainan 11/13"),
 }
 
@@ -92,11 +93,11 @@ LEAD = {
              "Markforged Country Manager for Greater China and Vietnam, uses ten minutes on unmanned vehicles and "
              "industrial 3D printing to cover three things: where Taiwan's drone industry stands, where drone "
              "programmes get stuck, and a case designed, printed and assembled in Taiwan."),
-    "p2": L3("本頁收錄這場演講的影片版：以簡報內容配上旁白與動態圖文，<strong>中文版與英文版各一支</strong>，"
-             "片中直接播放兩段 Markforged 官方影片；頁末附簡報 PDF 下載。",
-             "This page carries the video version of the talk: the slides with narration and motion graphics, "
-             "<strong>one in Chinese and one in English</strong>, with two official Markforged videos played in full "
-             "inside. The slides are available to download at the end of the page."),
+    "p2": L3("以下照簡報順序整理這場演講的重點，配上對應的簡報頁面；<strong>演講影片有中文版與英文版</strong>，"
+             "片中直接播放兩段 Markforged 官方影片；頁末可下載簡報 PDF。",
+             "Below are the key points of the talk in slide order, each with its slide. <strong>The talk video comes in "
+             "Chinese and English</strong>, with two official Markforged videos played in full inside; the slides are "
+             "available to download at the end of the page."),
 }
 
 PROF = {
@@ -123,106 +124,121 @@ TAGS = [
     {"tw": "台灣案例", "cn": "台湾案例", "en": "Made in Taiwan", "solid": False},
 ]
 
-# 章節：起點取自兩支影片各自的場景時間軸（_qa/cues.json 的 scenes.a），中英文長度不同各算各的
-_CH = [  # (中文起點, 英文起點, 繁中, 英文)
-    ("0:00", "0:00", "開場：一架無人機從設計到出任務要多久", "Opening: how long from design to mission"),
-    ("0:29", "0:33", "台灣無人機產業的數字", "Taiwan's drone industry in numbers"),
-    ("1:00", "1:09", "瓶頸：專案卡在等零件", "The bottleneck: waiting for parts"),
-    ("1:27", "1:35", "哪些零件可以直接印", "Which parts can be printed directly"),
-    ("1:55", "2:03", "連續纖維強化", "Continuous fiber reinforcement"),
-    ("2:42", "2:59", "強度實測：鏈環拉力影片", "Strength on film: the chain-link pull test"),
-    ("3:16", "3:36", "三條設備線", "Three equipment lines"),
-    ("3:51", "4:11", "全球無人機製造商的做法", "What drone makers worldwide are doing"),
-    ("4:18", "4:42", "Gamma Rotors 客戶自述", "Gamma Rotors in their own words"),
-    ("5:05", "5:28", "台灣案例：艾斯特 ASTER-SWARM", "Taiwan case: ASTER-SWARM"),
-    ("6:33", "7:11", "設計端：SOLIDWORKS 與 AI", "The design side: SOLIDWORKS and AI"),
-    ("7:05", "7:39", "回到開場的問題", "Back to the opening question"),
-]
+# 2026-11-03 06:1x Brian 退稿：「幾分幾秒什麼內容？這種呈現方式要幹嘛？直接把簡報內容重點整理進來就好…很奇怪？很單調」
+#   → 拿掉章節時間碼與片長；改成照簡報順序的 9 段重點，每段配該頁簡報畫面（中文頁放中文簡報、英文頁放英文簡報）。
+def SLIDE(n):
+    return {"tw": f"images/{SLUG}-p{n:02d}-tc.jpg", "cn": f"images/{SLUG}-p{n:02d}-tc.jpg", "en": f"images/{SLUG}-p{n:02d}-en.jpg"}
+
+
+def SEC(h2, h3, paras):
+    return {"kind": "sec", "h2": h2, "h3": h3, "paras": paras}
+
+
+def IMG(n, alt_tw, alt_en):
+    return {"kind": "img_full", "slide": True, "img": SLIDE(n), "alt": L3(alt_tw, alt_en),
+            "cap": {"tw": f"簡報第 {n} 頁", "cn": f"演示文稿第 {n} 页", "en": f"Slide {n}"}}
+
 
 BLOCKS = [
     {
         "kind": "mp4",
         "src": MP4,
         "poster": POSTER,
-        "alt": L3("SOLIDWORKS 2027 創新日 IV Day 專題演講影片，中文版 7 分 41 秒",
-                  "SOLIDWORKS 2027 IV Day talk video, English version, 8 minutes 16 seconds"),
-        "cap": {"tw": "IV Day 專題演講影片 ｜ 中文版 7 分 41 秒 ｜ Markforged 大中華區",
-                "cn": "IV Day 专题演讲视频 ｜ 中文版 7 分 41 秒（字幕为繁体中文）｜ Markforged 大中华区",
-                "en": "IV Day talk video | English version, 8 min 16 s | Markforged Greater China"},
+        "alt": L3("SOLIDWORKS 2027 創新日 IV Day 專題演講影片，中文版",
+                  "SOLIDWORKS 2027 IV Day talk video, English version"),
+        "cap": {"tw": "IV Day 專題演講影片（中文版）｜ Markforged 大中華區",
+                "cn": "IV Day 专题演讲视频（中文版，字幕为繁体中文）｜ Markforged 大中华区",
+                "en": "IV Day talk video (English) | Markforged Greater China"},
     },
-    {
-        "kind": "sec",
-        "h2": L3("影片章節", "Chapters"),
-        "h3": L3("十五頁簡報，十二個段落", "Fifteen slides in twelve chapters"),
-        "paras": [L3("時間為影片中的起點。鏈環拉力測試與 Gamma Rotors 兩段是 Markforged 官方影片，片中直接播放原音。",
-                     "Times are where each chapter starts in the video. The chain-link pull test and Gamma Rotors "
-                     "segments are official Markforged videos, played with their original audio.")],
-        "hl": [{"b": {"tw": a, "cn": a, "en": b}, "s": L3(c, d)} for a, b, c, d in _CH],
-    },
-    {
-        "kind": "sec",
-        "h2": L3("台灣的數字，與專案真正的瓶頸", "Taiwan's numbers, and the real bottleneck"),
-        "h3": L3("機會在供應鏈；改版的速度，決定整個專案的速度",
-                 "The opportunity is in the supply chain; iteration speed sets programme speed"),
-        "paras": [
-            L3("2025 年台灣無人機產值 129 億元，是前一年的 2.56 倍；2026 年前五個月出口 1.53 億美元，已超過 2025 年全年。"
-               "投入的廠商超過 260 家，政府六年統籌型計畫 442 億元，目標 2030 年產值 400 億元。",
-               "Taiwan's drone output reached NT$12.9 billion in 2025, 2.56 times the year before; exports in the first "
-               "five months of 2026 reached US$153 million, already more than all of 2025. More than 260 companies are "
-               "involved, and the government's six-year programme is NT$44.2 billion, targeting NT$40 billion in output by 2030."),
-            L3("做過無人機專案的人都知道，最常卡住的不是設計，而是零件：機臂、馬達座、起落架、飛控固定座、中心機架、"
-               "電池固定架、酬載支架，全都是少量多樣。設計每改一次，常常就要改模具、重新加工或再進口一次。",
-               "Anyone who has run a drone programme knows the hold-up is usually parts, not design: arms, motor mounts, "
-               "landing gear, the avionics mount, centre frame, battery mount and payload mount are all low-volume and "
-               "high-mix. Each design change often means new tooling, more machining or another import."),
-        ],
-    },
-    {
-        "kind": "sec",
-        "h2": L3("連續纖維與三條設備線", "Continuous fiber and three equipment lines"),
-        "h3": L3("在你指定的層與區域鋪進連續碳纖維", "Continuous carbon fiber, laid in the layers and regions you choose"),
-        "paras": [
-            L3("Markforged 的列印機有兩個噴頭：一個擠出 Onyx（加了短碳纖的尼龍）做外形，另一個把一整條連續碳纖維鋪進零件裡。"
-               "沿纖維方向，連續碳纖維試片的拉伸強度是 800 MPa，6061-T6 鋁約為 310 MPa；這是材料試片值，"
-               "實際零件取決於纖維鋪多少、往哪個方向。",
-               "Markforged printers have two nozzles: one extrudes Onyx, a nylon filled with micro carbon fiber, for the "
-               "shape; the other lays a single continuous strand of carbon fiber inside the part. Along the fiber, a "
-               "continuous carbon fiber test coupon reaches 800 MPa in tension, against about 310 MPa for 6061-T6 "
-               "aluminium. These are coupon values; a real part depends on how much fiber is laid and in which direction."),
-        ],
-        "hl": [
-            {"b": L3("FX10", "FX10"), "s": L3("從複合材料起步，加裝 Metal Kit 印金屬，接 Wash-1 脫脂與 Sinter-2 燒結",
-                                               "Starts with composites; add the Metal Kit for metal, with Wash-1 debinding and Sinter-2 sintering")},
-            {"b": L3("FX20", "FX20"), "s": L3("大尺寸、加熱腔體最高 200°C，可印 ULTEM 9085 高溫材料",
-                                               "Large format, heated chamber up to 200°C, prints ULTEM 9085")},
-            {"b": L3("X7", "X7"), "s": L3("連續纖維主力機型；X7 Field Edition 裝在強化運輸箱裡，開箱到列印不到三分鐘",
-                                           "The continuous fiber workhorse; the X7 Field Edition ships in a rugged case, unbox to print in under three minutes")},
-        ],
-    },
-    {
-        "kind": "sec",
-        "h2": L3("全球案例，與台灣自己的案例", "Global cases, and one from Taiwan"),
-        "h3": L3("數字都是各家公開發佈的；台灣案例由艾斯特物聯科技提供",
-                 "The figures are each company's own published numbers; the Taiwan case is provided by ASTER Technology"),
-        "paras": [
-            L3("印度 Raphe mPhibr 工裝交期縮短 60%；美國 BRINC 的第一線應急無人機，主要結構件採用列印；日本 BODUK 的爬牆式巡檢無人機，"
-               "生產時間減少 50–66%；日本 AeroG Lab 零件成本降低 90%，交期從兩三週縮到一兩天。印度 Gamma Rotors 的列印機從一台增加到十台以上。",
-               "Raphe mPhibr in India cut tooling lead time by 60%; BRINC in the US prints the main structural parts of its "
-               "first-responder drones; BODUK in Japan cut production time for its wall-climbing inspection drones by 50–66%; "
-               "AeroG Lab in Japan cut part cost by 90% and lead time from two or three weeks to one or two days. Gamma Rotors "
-               "in India grew from one printer to more than ten."),
-            {"tw": f'艾斯特物聯科技的 FPV 無人機 ASTER-SWARM 以 X7 Field Edition 列印，連續碳纖維集中在機臂根部與馬達座，機體拆成五個模組；'
-                   f'原型機通過蒲福九級風抗風測試，經中科院軍民通用中心量測驗證，機體在台灣設計、列印、組裝。'
-                   f'<a href="{ASTER["tw"]}">完整案例 →</a>',
-             "cn": cn('艾斯特物聯科技的 FPV 無人機 ASTER-SWARM 以 X7 Field Edition 列印，連續碳纖維集中在機臂根部與馬達座，機體拆成五個模組；'
-                      '原型機通過蒲福九級風抗風測試，經中科院軍民通用中心量測驗證，機體在台灣設計、列印、組裝。')
-                   + f'<a href="{ASTER["cn"]}">完整案例 →</a>',
-             "en": f'ASTER Technology printed its ASTER-SWARM FPV airframe on the X7 Field Edition, with continuous carbon fiber '
-                   f'concentrated at the arm roots and motor mounts and the airframe split into five modules. The prototype passed '
-                   f'a Beaufort force 9 wind test, measured and verified by a unit of NCSIST, and was designed, printed and '
-                   f'assembled in Taiwan. <a href="{ASTER["en"]}">Full case →</a>'},
-        ],
-    },
+    SEC(L3("台灣：無人機已經是出口數字", "In Taiwan, drones are now an export number"),
+        L3("機會在供應鏈：可驗證、可量產、可持續交貨", "The opportunity is in the supply chain: verified, scalable, reliable delivery"),
+        [L3("2025 年台灣無人機產值 129 億元，是前一年的 2.56 倍；2026 年前五個月出口 1.53 億美元，已超過 2025 年全年。"
+            "投入的廠商超過 260 家，從零組件到整機系統整合；政府六年統籌型計畫 442 億元，目標 2030 年產值 400 億元。"
+            "客戶要的是可驗證、可量產、可以持續交貨的供應商。",
+            "Taiwan's drone output reached NT$12.9 billion in 2025, 2.56 times the year before; exports in the first five months "
+            "of 2026 reached US$153 million, already more than all of 2025. More than 260 companies are involved, from components "
+            "to full system integration, and the government's six-year programme is NT$44.2 billion, targeting NT$40 billion in "
+            "output by 2030. Customers want suppliers who can verify, scale and keep delivering.")]),
+    IMG(3, "簡報第 3 頁：台灣無人機產值、出口、廠商數與政府計畫", "Slide 3: Taiwan drone output, exports, companies and government programme"),
+    SEC(L3("專案卡住的，通常不是設計，是零件", "Programmes stall on parts, not design"),
+        L3("改版的速度，決定整個專案的速度", "Iteration speed sets the speed of the whole programme"),
+        [L3("機臂、馬達座、起落架、飛控固定座、中心機架、電池固定架、酬載支架，全都是少量多樣。"
+            "設計每改一次，常常就要改模具、重新加工，或再進口一次，然後就是等。",
+            "Arms, motor mounts, landing gear, the avionics mount, centre frame, battery mount and payload mount are all "
+            "low-volume and high-mix. Every design change often means new tooling, more machining or another import, and then you wait.")]),
+    IMG(4, "簡報第 4 頁：旋翼式無人機主要結構拆解示意圖", "Slide 4: main structural parts of a multirotor drone"),
+    SEC(L3("哪些零件可以直接印", "Which parts can be printed directly"),
+        L3("不必為每一版開模：設計改完就排印，受力件印出來再驗證", "No new tooling for every revision: change the design, print, then test the load-bearing parts"),
+        [L3("機身框架與機臂、涵道護罩與中間的馬達座、電池盒，以及內部鋪了連續碳纖維的底板，都是 Markforged 原廠展示樣品的列印檔。"
+            "起落架、產線上的治具與夾具，也一樣可以印。",
+            "A frame with arms, a duct guard with the motor mount at its centre, a battery box, and a base plate with continuous "
+            "carbon fiber inside: all are print files of Markforged sample parts. Landing gear and the jigs and fixtures on a "
+            "production line can be printed too.")]),
+    IMG(5, "簡報第 5 頁：可直接列印的無人機零件", "Slide 5: drone parts that can be printed directly"),
+    SEC(L3("連續纖維強化：跟一般 3D 列印最大的不同", "Continuous fiber: the biggest difference"),
+        L3("纖維鋪在哪幾層、哪些區域，由你指定", "You choose the layers and regions that get fiber"),
+        [L3("列印機有兩個噴頭：一個擠出 Onyx（加了短碳纖的尼龍）做外形，另一個把一整條連續碳纖維鋪進零件裡。"
+            "沿纖維方向，連續碳纖維試片的拉伸強度是 800 MPa，6061-T6 鋁約為 310 MPa；這是材料試片值，實際零件取決於纖維鋪多少、往哪個方向。"
+            "上下夾層、同心環、只補孔、只補外殼四種鋪法，在切層軟體裡逐層選。",
+            "The printer has two nozzles: one extrudes Onyx, a nylon filled with micro carbon fiber, for the shape; the other "
+            "lays a single continuous strand of carbon fiber inside the part. Along the fiber, a continuous carbon fiber test "
+            "coupon reaches 800 MPa in tension, against about 310 MPa for 6061-T6 aluminium; these are coupon values, and a real "
+            "part depends on how much fiber is laid and in which direction. Sandwich, concentric, holes-only and outer-wall "
+            "patterns are chosen layer by layer in the slicer.")]),
+    IMG(6, "簡報第 6 頁：連續纖維強化與四種鋪法", "Slide 6: continuous fiber reinforcement and four layup patterns"),
+    SEC(L3("強度，用看的最清楚", "Strength is easiest to see"),
+        L3("連續碳纖維鏈環，拉到 22,000 磅力才斷", "A continuous carbon fiber chain link breaks at 22,000 lbf"),
+        [L3("大約是十公噸重物的拉力。影片中直接播放 Markforged 官方的鏈環拉力測試。",
+            "That is about the pull of a ten-tonne weight. The video plays Markforged's official chain-link pull test in full.")]),
+    IMG(7, "簡報第 7 頁：連續碳纖維鏈環拉力測試", "Slide 7: continuous carbon fiber chain-link pull test"),
+    SEC(L3("從複材到金屬：三條設備線", "From composites to metal: three equipment lines"),
+        L3("FX10、FX20、X7", "FX10, FX20 and X7"),
+        [L3("FX10 從複合材料起步，加裝 Metal Kit 就能印金屬，再接 Wash-1 脫脂、Sinter-2 燒結，就是完整的金屬流程。"
+            "FX20 是大尺寸機型，加熱腔體最高 200°C，可以印 ULTEM 9085 高溫材料。"
+            "X7 是連續纖維的主力機型；野戰版 X7 Field Edition 整台裝在強化運輸箱裡，開箱到開始列印不到三分鐘。",
+            "FX10 starts with composites; add the Metal Kit and it prints metal, with Wash-1 debinding and Sinter-2 sintering "
+            "completing the metal workflow. FX20 is the large-format machine, with a heated chamber up to 200°C, and prints "
+            "ULTEM 9085. X7 is the continuous fiber workhorse; the X7 Field Edition ships in a rugged transit case and goes from "
+            "unboxing to printing in under three minutes.")]),
+    IMG(8, "簡報第 8 頁：FX10、FX20、X7 三條設備線", "Slide 8: the FX10, FX20 and X7 equipment lines"),
+    SEC(L3("全球的無人機製造商，已經這樣做", "Drone makers worldwide already do this"),
+        L3("數字都是他們自己公開發佈的", "These are their own published numbers"),
+        [L3("印度 Raphe mPhibr 工裝交期縮短 60%；美國 BRINC 的第一線應急無人機，主要結構件採用列印；"
+            "日本 BODUK 的爬牆式巡檢無人機，生產時間減少 50–66%；日本 AeroG Lab 零件成本降低 90%，交期從兩三週縮到一兩天。"
+            "印度 Gamma Rotors 的列印機從一台增加到十台以上，影片中播放他們的自述。",
+            "Raphe mPhibr in India cut tooling lead time by 60%; BRINC in the US prints the main structural parts of its "
+            "first-responder drones; BODUK in Japan cut production time for its wall-climbing inspection drones by 50–66%; "
+            "AeroG Lab in Japan cut part cost by 90% and lead time from two or three weeks to one or two days. Gamma Rotors in "
+            "India grew from one printer to more than ten, and the video plays them telling it in their own words.")]),
+    IMG(9, "簡報第 9 頁：全球四家無人機製造商案例", "Slide 9: four drone makers worldwide"),
+    {"kind": "sec",
+     "h2": L3("台灣案例：艾斯特 ASTER-SWARM", "Taiwan case: ASTER-SWARM"),
+     "h3": L3("通過九級風抗風測試，機體在台灣設計、列印、組裝", "Force 9 wind test passed; designed, printed and assembled in Taiwan"),
+     "paras": [
+        L3("FPV 無人機飛行時，幾秒內就要全油門加速、急轉、俯衝；一般線材印的機體，容易機臂彎曲、結構共振、沿層線開裂，"
+           "馬達座一帶受熱慢慢變形。另一條路是 CNC 碳板，強度夠，但每改一次設計就要重新開料、再等一次交期。",
+           "An FPV drone goes to full throttle, turns hard and dives within seconds. Frames printed in ordinary filament tend "
+           "to flex at the arms, resonate, crack along layer lines and deform around the motor mounts as they heat up. The "
+           "alternative, CNC carbon plate, is strong enough, but every design change means a new cut and another wait."),
+        {"tw": f'艾斯特物聯科技以 X7 Field Edition 列印，連續碳纖維集中在機臂根部與馬達座，機體拆成五個標準模組；'
+               f'原型機通過蒲福九級風抗風測試，經中科院軍民通用中心量測驗證。<a href="{ASTER["tw"]}">完整案例 →</a>',
+         "cn": cn('艾斯特物聯科技以 X7 Field Edition 列印，連續碳纖維集中在機臂根部與馬達座，機體拆成五個標準模組；'
+                  '原型機通過蒲福九級風抗風測試，經中科院軍民通用中心量測驗證。') + f'<a href="{ASTER["cn"]}">完整案例 →</a>',
+         "en": f'ASTER Technology printed the airframe on the X7 Field Edition, with continuous carbon fiber concentrated at the '
+               f'arm roots and motor mounts and the airframe split into five standard modules. The prototype passed a Beaufort '
+               f'force 9 wind test, measured and verified by a unit of NCSIST. <a href="{ASTER["en"]}">Full case →</a>'},
+     ]},
+    IMG(13, "簡報第 13 頁：艾斯特 ASTER-SWARM 的測試結果", "Slide 13: ASTER-SWARM test results"),
+    SEC(L3("設計越來越快，瓶頸移到製造", "Faster design moves the bottleneck to manufacturing"),
+        L3("Markforged 自己也用 SOLIDWORKS 設計列印機", "Markforged designs its own printers in SOLIDWORKS"),
+        [L3("Premium 做設計、PDM 管檔案、Simulation 做模擬，當時新產品開發週期縮到六個月以內。"
+            "接下來 AI 會讓候選設計變多，生成式設計、拓樸最佳化一次就能出好幾個版本；但關鍵設計還是要做出來、裝上去、飛一次。"
+            "設計端變快，製造端就要跟上同一個節拍。",
+            "Premium for design, PDM for files and Simulation for analysis cut the new-product development cycle to under six "
+            "months at the time. AI will multiply candidate designs, with generative design and topology optimisation producing "
+            "several versions at once; but the key design still has to be built, fitted and flown. When design speeds up, "
+            "manufacturing has to keep the same pace.")]),
+    IMG(14, "簡報第 14 頁：設計端的 SOLIDWORKS 與 AI", "Slide 14: SOLIDWORKS and AI on the design side"),
     {
         "kind": "sec",
         "h2": L3("簡報下載", "Download the slides"),
