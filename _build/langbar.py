@@ -79,9 +79,12 @@ def inject(html, slug, lang):
     return html
 
 
-def check(html, slug, lang):
-    """回傳違規清單（空 list ＝ 合標準）。給佈署閘用。"""
+def check(html, slug, lang, langs=None):
+    """回傳違規清單（空 list ＝ 合標準）。給佈署閘用。
+    langs＝這篇應有的語言（預設三語；登記在 langbar_lang_exceptions.json 的文章才可少，2026-11-03 起）。
+    不出的語言：頁面上不得有連到它的連結或 hreflang（會變成壞連結）。"""
     F, bad = files(slug), []
+    langs = tuple(langs) if langs else LANGS
     if 'class="langbar"' not in html:
         return [f"{F[lang]}：沒有語言列"]
     if not re.search(r'</div>\s*<div class="langbar">.*?</div>\s*<div class="hero">',
@@ -90,6 +93,10 @@ def check(html, slug, lang):
     if f"<span>{SWITCH_LABEL[lang]}</span>" not in html:
         bad.append(f"{F[lang]}：缺語言標籤「{SWITCH_LABEL[lang]}」")
     for L in LANGS:
+        if L not in langs:
+            if f'href="{F[L]}"' in html or f'hreflang="{LANG_ATTR[L]}"' in html:
+                bad.append(f"{F[lang]}：本篇不出 {F[L]}，頁面卻還連到它（壞連結）")
+            continue
         if f'href="{F[L]}"' not in html:
             bad.append(f"{F[lang]}：沒有指向 {F[L]} 的切換連結")
         if f'hreflang="{LANG_ATTR[L]}"' not in html:
