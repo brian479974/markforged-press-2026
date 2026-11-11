@@ -79,6 +79,28 @@ h2.section-title { font-size: 18px; font-weight: 900; color: #111; margin: 36px 
 .footer-bottom { border-top: 1px solid #222; padding-top: 20px; display: flex; justify-content: space-between; align-items: center; }
 .footer-bottom p { color: #555; font-size: 12px; }
 .footer-logo { color: #FFFF00; font-size: 16px; font-weight: 900; }
+
+/* 2026-11-11 手機版面：五格數字改兩列、標籤可換行；夥伴表與徽章可換行；資訊格與頁尾改單欄 */
+@media (max-width:600px){
+ .header{padding:28px 20px 22px}
+ .header h1{font-size:21px;text-wrap:balance}
+ .hero-img{height:260px}
+ .hero-overlay{padding:32px 20px 18px}
+ .content{padding:28px 20px}
+ .stats{flex-wrap:wrap}
+ .stat{flex:1 1 30%;min-width:0;padding:16px 6px}
+ .stat .num{font-size:22px}
+ .stat .label{white-space:normal}
+ .partner-table{font-size:13px}
+ .partner-table th,.partner-table td{padding:9px 8px}
+ .badge-gold,.badge-silver{white-space:normal;display:inline-block;line-height:1.5}
+ .photo-half{height:160px}
+ .info-box{padding:24px 20px}
+ .info-grid{grid-template-columns:1fr}
+ .footer{padding:26px 20px}
+ .footer-grid{grid-template-columns:1fr;gap:20px}
+ .footer-bottom{flex-wrap:wrap;gap:8px}
+}
 </style>
 </head>
 <body>
