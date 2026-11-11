@@ -55,6 +55,7 @@
    "zh": "產品方案",
    "en": "Product Solutions",
    "slugs": [
+    "fx10-it-starts-here",
     "fx10-sinter2-bundle"
    ]
   },
@@ -198,6 +199,10 @@
   "solidworks-2027-iv-day-drone-talk": [
    "2026-11-03",
    "SOLIDWORKS 2027 創新日 IV Day 台北場當天（新竹 11/12、台南 11/13 同一場演講）"
+  ],
+  "fx10-it-starts-here": [
+   "2026-11-09",
+   "HQ FX Series Campaign-in-a-Box 交付夥伴日（Showpad 素材上傳 11-06、通知信 11-10）；本站依此做的 FX10 活動頁"
   ]
  }
 }
