@@ -231,17 +231,49 @@ html[lang=en] .hero h1{font-size:clamp(32px,3.3vw,50px)}  /* 字級跟欄寬走�
 .chh .big{font-size:clamp(44px,8vw,120px);font-weight:900;line-height:.95;letter-spacing:-.03em;margin:8px 0 16px}
 .chh h2{font-size:clamp(22px,2.6vw,32px);font-weight:900}
 .chh p{font-size:clamp(15px,1.5vw,18px);color:#cfcfcf;max-width:46em;margin-top:10px;line-height:1.75}
-.opinion{background:#fff;padding:88px 0 8px}
-.op{display:grid;grid-template-columns:220px 1fr;gap:56px;align-items:start}
-.op .by{position:sticky;top:96px}
-.op .by img{width:132px;height:132px;border-radius:50%;object-fit:cover;border:4px solid var(--y);display:block}
-.op .by b{display:block;font-size:19px;font-weight:900;margin-top:16px}
-.op .by small{display:block;color:#666;font-size:13px;line-height:1.6;margin-top:6px}
-.op .k{display:inline-block;background:var(--y);color:#000;font-size:12px;font-weight:900;letter-spacing:.18em;padding:5px 12px}
-.op h2{font-size:clamp(24px,2.7vw,38px);font-weight:900;line-height:1.32;margin:16px 0 8px;text-wrap:balance;max-width:24em}  /* 長中文題不用 keep-all：整句沒空格會擠出孤字 */
-.op p{font-size:17.5px;line-height:1.95;color:#222;margin-top:20px;max-width:700px;text-wrap:pretty}
+/* ── 總經理觀點（11/11 Brian：「這個編排要做好」「總經理觀點」「專業一點」）── */
+.gm-hd{background:#000;color:#fff;padding:76px 0 52px;border-top:6px solid var(--y)}
+.gm-hd .k{color:var(--y);font-size:13px;font-weight:900;letter-spacing:.16em}
+.gm-hd h2{font-size:clamp(28px,3.3vw,46px);font-weight:900;line-height:1.28;margin:16px 0 34px;max-width:23em;text-wrap:balance}
+.gm-by{display:flex;align-items:center;gap:16px;border-top:1px solid #2e2e2e;padding-top:24px}
+.gm-by img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--y);flex:none}
+.gm-by b{display:block;font-size:17px;font-weight:900}
+.gm-by small{display:block;color:#a8a8a8;font-size:13px;margin-top:4px;line-height:1.5}
+.gm-bd{background:#fff;padding:64px 0 8px}
+.gm-col{max-width:none}
+.gm .gm-lead{max-width:880px}
+.gm p{font-size:17.5px;line-height:1.95;color:#222;text-wrap:pretty}
+.gm .gm-lead{font-size:clamp(19px,1.75vw,22px);font-weight:700;line-height:1.8;color:#000}
+.gm-case{margin-top:44px;background:var(--g1);border-top:4px solid #000;padding:32px 36px;display:grid;grid-template-columns:1.5fr 1fr;gap:40px;align-items:center}
+.gm-case .lb,.gm-sec .lb{font-size:13px;font-weight:900;letter-spacing:.08em;color:#000}
+.gm-case p{margin-top:12px}
+.gm-st{display:grid;grid-template-columns:1fr;gap:2px;background:#d9d9d9}
+.gm-st div{background:#fff;padding:18px 22px}
+.gm-st small{display:block;font-size:12.5px;color:#777;font-weight:700;letter-spacing:.06em}
+.gm-st b{display:inline-block;font-size:clamp(22px,2.3vw,30px);font-weight:900;line-height:1.15;margin-top:6px;background:linear-gradient(transparent 62%,var(--y) 62%)}
+.gm-sec{margin-top:64px;border-top:2px solid #000;padding-top:16px}
+.gm-adv{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:44px 0;border-bottom:1px solid #e3e3e3}
+.gm-adv .hd{display:flex;align-items:baseline;gap:14px;margin-bottom:14px}
+.gm-adv .no{font-size:52px;font-weight:900;line-height:1;letter-spacing:-.02em}
+.gm-adv .hd b{font-size:24px;font-weight:900}
+.gm-adv .hd i{flex:1;height:3px;background:var(--y);align-self:center;font-style:normal}
+.gm-fig img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
+.gm-fig figcaption{font-size:12.5px;color:#888;margin-top:8px}
+.gm-loop{display:grid;gap:0}
+.gm-loop .st{border:2px solid #000;padding:13px 18px;font-weight:900;font-size:16.5px;display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fff}
+.gm-loop .st small,.gm-hub .md small{font-weight:600;color:#666;font-size:13px;text-align:right}
+.gm-loop .ar,.gm-hub .ar{text-align:center;font-weight:900;font-size:18px;line-height:28px;color:#000}
+.gm-loop .bk{margin-top:12px;background:var(--y);padding:11px 18px;font-weight:900;font-size:14.5px}
+.gm-hub .fr{border:2px solid #000;padding:13px 18px;font-weight:900;font-size:16px}
+.gm-hub .md{background:#000;color:var(--y);padding:16px 18px;font-weight:900;font-size:17px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.gm-hub .md small{color:#cfcfcf}
+.gm-hub .to{border:2px solid #000;padding:14px 18px;font-weight:900;font-size:16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.gm-hub .dots{display:flex;gap:7px}
+.gm-hub .dots span{width:14px;height:14px;border-radius:50%;background:var(--y);border:2px solid #000}
+.gm-cta{margin:56px 0 0;background:#000;color:#fff;border-left:8px solid var(--y);padding:34px 40px;display:grid;grid-template-columns:1fr auto;gap:36px;align-items:center}
+.gm-cta p{color:#eaeaea;font-size:17px}
+.gm-cta a{background:var(--y);color:#000;font-weight:900;font-size:15px;text-decoration:none;padding:16px 24px;white-space:nowrap}
 .nw{white-space:nowrap}
-.op p:first-of-type{font-size:21px;font-weight:800;color:#000;line-height:1.75}
 .view{padding:76px 0;background:#fff}
 .vbox{border-left:6px solid var(--y);background:var(--g1);padding:34px 36px}
 .vbox .k{font-size:12px;font-weight:900;letter-spacing:.18em;color:#000}
@@ -255,11 +287,13 @@ html[lang=en] .hero h1{font-size:clamp(32px,3.3vw,50px)}  /* 字級跟欄寬走�
  .hero .pic{order:-1;min-height:46vw}
  .hero .txt{padding:36px 20px 40px}
  .c3,.a5{grid-template-columns:1fr 1fr}
- .op{grid-template-columns:1fr;gap:20px}
- .op .by{position:static;display:flex;gap:16px;align-items:center}
- .op .by img{width:84px;height:84px}
- .op .by b{margin-top:0}
- .opinion{padding:60px 0 0}
+ .gm-hd{padding:52px 0 36px}
+ .gm-bd{padding:44px 0 0}
+ .gm-adv{grid-template-columns:1fr;gap:22px;padding:34px 0}
+ .gm-adv .no{font-size:42px}
+ .gm-case{padding:24px 20px;grid-template-columns:1fr;gap:22px}
+ .gm-cta{grid-template-columns:1fr;gap:20px;padding:28px 24px}
+ .gm-cta a{justify-self:start}
 }
 @media (max-width:560px){.c3,.a5{grid-template-columns:1fr}}
 </style>
@@ -286,7 +320,7 @@ html[lang=en] .hero h1{font-size:clamp(32px,3.3vw,50px)}  /* 字級跟欄寬走�
 <div class="chbody"><div class="wrapx">
 <div class="cards"><article class="card rv ft" id="case-dana"><div class="im"><img src="images/fx10-it-starts-here-case-dana.jpg" alt="Dana 以复合材料打印的工件夹持夹具" loading="lazy"></div><div class="bd"><div class="badges"><span class="bdg m">X7</span></div><h3>Dana：七个国家的基地，共用同一套设计与打印参数</h3><div class="tg">车用传动与动力系统 ・ 全球</div><p>百年以上的行动产业供应商 Dana 在七个国家部署 Markforged 打印机，通过云端平台 Eiger 在各地工程基地之间共用 CAD 设计、打印参数与生产数据，需要时就近打印出夹具与零件。意大利 Rovereto 工程中心用 X7 印的复合材料夹具，上线超过一年没有故障，每件夹具成本降 70%、交期缩短 90%。</p><div class="mt"><b>7 国同步</b><a href="https://markforged.com/resources/case-studies/dana-incorporated">原厂案例（英文）&nbsp;→</a></div></div></article></div>
 <div class="chcta"><a href="mailto:brian.chen@markforged.com?subject=%E6%B1%BD%E8%BD%A6%E4%B8%93%E9%A2%98%EF%BD%9C%E5%8F%91%E9%9B%B6%E4%BB%B6%E5%9B%BE%E6%A1%A3%E8%AF%84%E4%BC%B0&amp;body=%E6%82%A8%E5%A5%BD%EF%BC%8C%0A%0A%E8%A1%8C%E4%B8%9A%EF%BC%9A%0A%E9%9B%B6%E4%BB%B6%E6%88%96%E5%A4%B9%E5%85%B7%E7%94%A8%E9%80%94%EF%BC%9A%0A%E9%A2%84%E8%AE%A1%E6%9D%90%E6%96%99%EF%BC%9A%0A%E6%89%80%E5%9C%A8%E5%9C%B0%E5%8C%BA%EF%BC%88%E5%8F%B0%E6%B9%BE%EF%BC%8F%E4%B8%AD%E5%9B%BD%EF%BC%8F%E9%A6%99%E6%B8%AF%EF%BC%8F%E8%B6%8A%E5%8D%97%EF%BC%89%EF%BC%9A%0A%0A%EF%BC%88%E5%A6%82%E6%9C%89%E5%9B%BE%E6%A1%A3%E8%AF%B7%E4%B8%80%E5%B9%B6%E9%99%84%E4%B8%8A%EF%BC%89%0A">你的产线也有这种零件？寄图档给我们&nbsp;→</a></div></div></div>
-<section class="opinion" id="viewpoint"><div class="wrapx"><div class="op"><div class="by rv"><img src="brian-chen.jpg" alt="陈中欣 Brian Chen"><div><b>陈中欣 Brian Chen</b><small>Markforged 大中华区暨越南区总经理</small></div></div><div class="tx"><div class="k">陈中欣观点</div><h2>AI 正在改善汽车产业的设计与生产流程，<br>Markforged <span class="nw">工业增材制造</span>能带给客户哪些优势？</h2><p>AI 让汽车设计变快了，你的工厂却不一定跟着变快。设计软件一个晚上就能提出好几个新外形，但要把其中一个做成实体的原型、夹具或模具，很多工厂还是得排外包、等两三周。设计端每快一步，等待就多一轮。</p><p>Garry Rogers Motorsport 把这个落差讲得很清楚。这支澳大利亚历史最悠久的赛车队没有 CNC，工程师依 CFD 仿真的建议改出刹车导风管的新外形，过去每改一次，玻璃纤维模具的母模就要外包一次，1,000 澳元、两周。改用 Markforged 碳纤维打印后，同一个母模 24 小时、75 澳元。仿真提出新外形的速度，第一次和工厂做出实体的速度对上了。</p><p>速度只是第一个优势。汽车厂要的不是拿来看的模型，是能装上产线的夹具和零件。连续纤维增强是 Markforged 的专利技术：碳纤维沿着受力路径连续铺放，强度直接长在零件里。FX10 把复合材料和金属放进同一台设备，加装 Metal Kit 就能打印 17-4PH、316L 不锈钢与 H13 工具钢，设备就放在工厂现场。CAD 画好、隔夜打印完成、第二天就用。</p><p>第二个优势是数据。AI 要改善生产，实体零件也得变成数据。Markforged 的 Simulation 在打印前验证零件性能、优化打印参数；FX10 在打印过程中用激光测微仪扫描零件，Inspection 软件做尺寸验证，零件一打印完就有测量报告。从设计、验证到测量，每一步都留下能反馈给下一轮设计的数据。</p><p>第三个优势是复制。Eiger 是云端平台，设计文件、打印参数和零件库集中管理。Dana 在七个国家的工厂共用同一套设计与参数，需要时就地打印出夹具和零件。一个厂验证过的做法，可以直接送到另一个厂，不必重新摸索。</p><p>如果你在台湾、中国、香港或越南的产线也在等外包夹具，从一个零件开始：挑一个等得最久、最常改版的夹具，把图纸发给我们，我们用 FX10 打印一次、测量一次。判断标准很简单：第二天能装上产线，测量数据与图纸一致。</p></div></div></div></section>
+<section class="gm" id="viewpoint"><div class="gm-hd"><div class="wrapx"><div class="k">总经理观点</div><h2>AI 正在改善汽车产业的设计与生产流程，<br>Markforged <span class="nw">工业增材制造</span>能带给客户哪些优势？</h2><div class="gm-by"><img src="brian-chen.jpg" alt="陈中欣 Brian Chen"><div><b>陈中欣 Brian Chen</b><small>Markforged 大中华区暨越南区总经理</small></div></div></div></div><div class="gm-bd"><div class="wrapx"><div class="gm-col"><p class="gm-lead">AI 让汽车设计变快了，你的工厂却不一定跟着变快。设计软件一个晚上就能提出好几个新外形，但要把其中一个做成实体的原型、夹具或模具，很多工厂还是得排外包、等两三周。设计端每快一步，等待就多一轮。</p><div class="gm-case rv"><div><div class="lb">案例｜Garry Rogers Motorsport</div><p>Garry Rogers Motorsport 把这个落差讲得很清楚。这支澳大利亚历史最悠久的赛车队没有 CNC，工程师依 CFD 仿真的建议改出刹车导风管的新外形，过去每改一次，玻璃纤维模具的母模就要外包一次，1,000 澳元、两周。改用 Markforged 碳纤维打印后，同一个母模 24 小时、75 澳元。仿真提出新外形的速度，第一次和工厂做出实体的速度对上了。</p></div><div class="gm-st"><div><small>母模交期</small><b>两周 → 24 小时</b></div><div><small>母模成本</small><b>1,000 → 75 澳元</b></div></div></div></div><div class="gm-sec"><div class="lb">Markforged 的三个优势</div></div><div class="gm-adv rv"><div><div class="hd"><span class="no">01</span><b>速度</b><i></i></div><p>速度只是第一个优势。汽车厂要的不是拿来看的模型，是能装上产线的夹具和零件。连续纤维增强是 Markforged 的专利技术：碳纤维沿着受力路径连续铺放，强度直接长在零件里。FX10 把复合材料和金属放进同一台设备，加装 Metal Kit 就能打印 17-4PH、316L 不锈钢与 H13 工具钢，设备就放在工厂现场。CAD 画好、隔夜打印完成、第二天就用。</p></div><figure class="gm-fig"><img src="images/fx10-it-starts-here-hero-poster.jpg" alt="FX10 取出一整盘打印零件（Markforged 原厂视频画面）" loading="lazy"><figcaption>FX10 取出一整盘打印零件（Markforged 原厂视频画面）</figcaption></figure></div><div class="gm-adv rv"><div><div class="hd"><span class="no">02</span><b>数据</b><i></i></div><p>第二个优势是数据。AI 要改善生产，实体零件也得变成数据。Markforged 的 Simulation 在打印前验证零件性能、优化打印参数；FX10 在打印过程中用激光测微仪扫描零件，Inspection 软件做尺寸验证，零件一打印完就有测量报告。从设计、验证到测量，每一步都留下能反馈给下一轮设计的数据。</p></div><div class="gm-loop"><div class="st"><span>设计</span></div><div class="ar">↓</div><div class="st"><span>Simulation</span><small>打印前验证</small></div><div class="ar">↓</div><div class="st"><span>FX10 激光测微仪</span><small>打印中扫描</small></div><div class="ar">↓</div><div class="st"><span>Inspection</span><small>测量报告</small></div><div class="bk">↺ 反馈给下一轮设计</div></div></div><div class="gm-adv rv"><div><div class="hd"><span class="no">03</span><b>拷贝</b><i></i></div><p>第三个优势是复制。Eiger 是云端平台，设计文件、打印参数和零件库集中管理。Dana 在七个国家的工厂共用同一套设计与参数，需要时就地打印出夹具和零件。一个厂验证过的做法，可以直接送到另一个厂，不必重新摸索。</p></div><div class="gm-hub"><div class="fr">一个厂验证过的做法</div><div class="ar">↓</div><div class="md"><span>Eiger 云端</span><small>设计文件・打印参数・零件库</small></div><div class="ar">↓</div><div class="to"><span>七个国家的工厂（Dana）</span><span class="dots"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></div></div></div><div class="gm-cta rv"><p>如果你在台湾、中国、香港或越南的产线也在等外包夹具，从一个零件开始：挑一个等得最久、最常改版的夹具，把图纸发给我们，我们用 FX10 打印一次、测量一次。判断标准很简单：第二天能装上产线，测量数据与图纸一致。</p><a href="mailto:brian.chen@markforged.com?subject=%E6%B1%BD%E8%BD%A6%E4%B8%93%E9%A2%98%EF%BD%9C%E5%8F%91%E9%9B%B6%E4%BB%B6%E5%9B%BE%E6%A1%A3%E8%AF%84%E4%BC%B0&amp;body=%E6%82%A8%E5%A5%BD%EF%BC%8C%0A%0A%E8%A1%8C%E4%B8%9A%EF%BC%9A%0A%E9%9B%B6%E4%BB%B6%E6%88%96%E5%A4%B9%E5%85%B7%E7%94%A8%E9%80%94%EF%BC%9A%0A%E9%A2%84%E8%AE%A1%E6%9D%90%E6%96%99%EF%BC%9A%0A%E6%89%80%E5%9C%A8%E5%9C%B0%E5%8C%BA%EF%BC%88%E5%8F%B0%E6%B9%BE%EF%BC%8F%E4%B8%AD%E5%9B%BD%EF%BC%8F%E9%A6%99%E6%B8%AF%EF%BC%8F%E8%B6%8A%E5%8D%97%EF%BC%89%EF%BC%9A%0A%0A%EF%BC%88%E5%A6%82%E6%9C%89%E5%9B%BE%E6%A1%A3%E8%AF%B7%E4%B8%80%E5%B9%B6%E9%99%84%E4%B8%8A%EF%BC%89%0A">把图纸发给我们&nbsp;→</a></div></div></div></section>
 <section class="view"><div class="wrapx"><div class="vbox rv"><div class="k">编辑部观点</div><h2>给大中华区与越南制造业的三个问题</h2><ol><li>你的夹具与工装，外包一次要等多久？规格改一次，又要再等多久？</li><li>产在线有哪些零件，一坏就停整条线？它们有没有现成的设计档？</li><li>售后与维修件，有没有可能在离客户最近的厂区直接做出来？</li></ol></div><p class="adopt">原厂汽车产业页列出的采用者，包括 Bentley、Porsche、Toyota、Harley-Davidson 等车厂与品牌。<a href="https://markforged.com/icp/automotive">看原厂汽车产业页（英文）&nbsp;→</a></p></div></section>
 <section class="cta" id="contact"><div class="wrapx"><div class="cg"><div class="rv"><h2>从一个夹具开始。</h2><p>寄一个零件或夹具图档，我们可以安排测试打印与 FX10 机台展示，并提供报价。来信请附产业、用途、预计材料与所在地区（台湾、中国、香港、越南）。</p><div class="btns"><a class="btn k" href="mailto:brian.chen@markforged.com?subject=%E6%B1%BD%E8%BD%A6%E4%B8%93%E9%A2%98%EF%BD%9C%E9%A2%84%E7%BA%A6%20FX10%20%E6%BC%94%E7%A4%BA%EF%BC%8F%E6%8A%A5%E4%BB%B7&amp;body=%E6%82%A8%E5%A5%BD%EF%BC%8C%0A%0A%E8%A1%8C%E4%B8%9A%EF%BC%9A%0A%E9%9B%B6%E4%BB%B6%E6%88%96%E5%A4%B9%E5%85%B7%E7%94%A8%E9%80%94%EF%BC%9A%0A%E9%A2%84%E8%AE%A1%E6%9D%90%E6%96%99%EF%BC%9A%0A%E6%89%80%E5%9C%A8%E5%9C%B0%E5%8C%BA%EF%BC%88%E5%8F%B0%E6%B9%BE%EF%BC%8F%E4%B8%AD%E5%9B%BD%EF%BC%8F%E9%A6%99%E6%B8%AF%EF%BC%8F%E8%B6%8A%E5%8D%97%EF%BC%89%EF%BC%9A%0A%0A%EF%BC%88%E5%A6%82%E6%9C%89%E5%9B%BE%E6%A1%A3%E8%AF%B7%E4%B8%80%E5%B9%B6%E9%99%84%E4%B8%8A%EF%BC%89%0A">预约演示／索取报价</a><a class="btn ok" href="mailto:brian.chen@markforged.com?subject=%E6%B1%BD%E8%BD%A6%E4%B8%93%E9%A2%98%EF%BD%9C%E5%8F%91%E9%9B%B6%E4%BB%B6%E5%9B%BE%E6%A1%A3%E8%AF%84%E4%BC%B0&amp;body=%E6%82%A8%E5%A5%BD%EF%BC%8C%0A%0A%E8%A1%8C%E4%B8%9A%EF%BC%9A%0A%E9%9B%B6%E4%BB%B6%E6%88%96%E5%A4%B9%E5%85%B7%E7%94%A8%E9%80%94%EF%BC%9A%0A%E9%A2%84%E8%AE%A1%E6%9D%90%E6%96%99%EF%BC%9A%0A%E6%89%80%E5%9C%A8%E5%9C%B0%E5%8C%BA%EF%BC%88%E5%8F%B0%E6%B9%BE%EF%BC%8F%E4%B8%AD%E5%9B%BD%EF%BC%8F%E9%A6%99%E6%B8%AF%EF%BC%8F%E8%B6%8A%E5%8D%97%EF%BC%89%EF%BC%9A%0A%0A%EF%BC%88%E5%A6%82%E6%9C%89%E5%9B%BE%E6%A1%A3%E8%AF%B7%E4%B8%80%E5%B9%B6%E9%99%84%E4%B8%8A%EF%BC%89%0A">发零件图档</a></div><p class="eb">想看更多 FX10 实绩？<a href="fx10-it-starts-here-sc.html">看 FX10 活动页的原厂案例&nbsp;→</a></p><p class="eb">延伸阅读：<a href="https://web-objects.markforged.com/craft/common/Markforged-Automotive-E-Book.pdf">原厂汽车行业电子书（英文 PDF，20 页）&nbsp;→</a></p></div><div class="win rv"><img src="brian-chen.jpg" alt="陈中欣 Brian Chen"><div><small>你的窗口</small><b>陈中欣 Brian Chen</b><div class="t">Markforged 大中华区暨越南区总经理</div><div class="d">台湾、中国、香港、越南的 FX10 展示与报价，都可以直接找我。</div><a href="mailto:brian.chen@markforged.com">brian.chen@markforged.com</a></div></div></div></div></section>
 <section class="read"><div class="wrapx"><h2>延伸阅读</h2><div class="rg"><a class="rv" href="fx10-it-starts-here-sc.html"><b>不能出错的零件，从这里开始：FX10 活动页</b><small>汽车与航空航天原厂案例</small></a></div></div></section>
