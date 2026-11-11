@@ -114,6 +114,9 @@ figcaption{font-size:11.5px;color:#777;line-height:1.6;margin-top:8px;padding-le
 .st4 .n small{font-size:12px;font-weight:800;margin-left:2px}
 .st4 .n span{background:linear-gradient(transparent 60%,#FFFF00 60%)}
 .st4 .d{font-size:11.5px;color:#555;line-height:1.55;margin-top:7px}
+/* 2026-11-11 手機版面：兩欄時數字格不准被長數字撐寬（只在 ≤700px 生效，桌機四欄維持原樣）*/
+@media(max-width:700px){.st4>div{min-width:0}}
+@media(max-width:480px){.st4 .n{font-size:20px}.st4 .n small{display:inline-block}}
 .stn{font-size:10.5px;color:#999;margin-bottom:24px}
 .tl{border:2px solid #111;margin:20px 0 22px}
 .tl-h{background:#111;color:#fff;padding:10px 16px;font-size:12px;font-weight:700;letter-spacing:.08em}
