@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>From R&amp;D to Service: Where Automotive Puts 3D Printing to Work | Weekly Feature | Markforged Media Hub</title>
+<meta name="description" content="Weekly feature, industry perspective: how automotive uses 3D printing in R&amp;D, on the line and in service, with Markforged cases from Volkswagen, Larsen Motorsports, Garry Rogers Motorsport, Dunlop, GRP, Subaru, Kojima and Dana.">
+<meta property="og:title" content="From R&amp;D to service: where automotive puts 3D printing to work">
+<meta property="og:description" content="Volkswagen die lifters cut from 60 kg to 4, a jet dragster steering wheel in 2 days instead of 8, a brake duct pattern in 24 hours instead of two weeks.">
+<meta property="og:image" content="https://news.markforged.tw/images/automotive-am-perspective-2026-11-og.jpg">
+<meta property="og:type" content="article">
+<link rel="alternate" hreflang="zh-TW" href="https://news.markforged.tw/automotive-am-perspective-2026-11.html">
+<link rel="alternate" hreflang="zh-CN" href="https://news.markforged.tw/automotive-am-perspective-2026-11-sc.html">
+<link rel="alternate" hreflang="en" href="https://news.markforged.tw/automotive-am-perspective-2026-11-en.html">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--y:#FFFF00;--k:#000;--w:#fff;--g1:#f3f3f1;--g2:#e7e7e4;--mut:#8f8f8f;--line:rgba(255,255,255,.14)}
+html{scroll-behavior:smooth}
+body{background:#fff;color:#111;font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Arial,'PingFang TC','PingFang SC','Noto Sans TC','Noto Sans SC',sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6}
+a{color:inherit}
+img{display:block;max-width:100%}
+.wrapx{max-width:1200px;margin:0 auto;padding:0 32px}
+/* 頂部列 */
+.top{background:#000;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:14px 32px;gap:16px;flex-wrap:wrap}
+.top .logo img{height:24px}
+.top .ev{font-size:11px;color:rgba(255,255,255,.55);text-align:right;line-height:1.5}
+.langbar{display:flex;gap:6px;align-items:center;background:#111;padding:8px 32px;border-top:1px solid #222}   /* 全站標準版位：header 之下、hero 之上（langbar.py） */
+.langbar span{color:#777;font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-right:4px}
+.langbar a{font-size:11.5px;font-weight:700;color:#999;text-decoration:none;padding:3px 10px;border-radius:20px;border:1px solid #333}
+.langbar a:hover{color:var(--y);border-color:var(--y)}
+.langbar a.on{background:var(--y);color:#000;border-color:var(--y)}
+/* 首屏 */
+.hero{position:relative;min-height:max(540px,calc(100vh - 170px));min-height:max(540px,calc(100svh - 170px));display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:#000}   /* 170px＝官網導覽列 64＋頁首＋語言列，讓按鈕落在首屏內 */
+.hero video,.hero .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.25) 35%,rgba(0,0,0,.82) 100%)}
+.hero-in{position:relative;z-index:2;width:100%;max-width:1200px;margin:0 auto;padding:0 32px 52px}
+.kicker{display:inline-block;color:var(--y);font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;margin-bottom:18px}
+.hero h1{font-size:clamp(40px,7.2vw,104px);line-height:1.04;font-weight:900;letter-spacing:-.01em;max-width:13em}
+.hero p.sub{font-size:clamp(16px,1.6vw,20px);line-height:1.7;color:rgba(255,255,255,.9);max-width:46em;margin-top:22px}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-block;font-weight:800;font-size:15px;text-decoration:none;padding:15px 26px;border-radius:2px;letter-spacing:.02em;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.y{background:var(--y);color:#000}
+.btn.o{border:2px solid #fff;color:#fff}
+.btn.k{background:#000;color:var(--y)}
+.btn.ok{border:2px solid #000;color:#000}
+/* 跑馬燈 */
+.ticker{background:var(--y);color:#000;overflow:hidden;white-space:nowrap;border-top:1px solid #000;border-bottom:1px solid #000}
+.ticker div{display:inline-block;padding:14px 0;font-weight:900;font-size:clamp(18px,2.2vw,28px);letter-spacing:-.01em;animation:tk 38s linear infinite}
+.ticker span{margin:0 28px}
+.ticker i{font-style:normal;margin:0 6px}
+@keyframes tk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* 章節導覽 */
+.nav{background:#000;position:sticky;top:64px;z-index:20;border-bottom:1px solid #222}   /* 64px＝官網導覽列 globalbar 高度（sticky、z-index 10000），貼它下方 */
+[id]{scroll-margin-top:122px}
+.nav .wrapx{display:flex;gap:4px;overflow-x:auto}
+.nav a{color:#bbb;text-decoration:none;font-size:13px;font-weight:700;padding:13px 14px;white-space:nowrap;border-bottom:3px solid transparent}
+.nav a:hover{color:#fff;border-bottom-color:var(--y)}
+/* FX10 一句話 */
+.line3{background:#0b0b0b;color:#fff;padding:64px 0}
+.line3 h2{font-size:clamp(24px,3vw,38px);font-weight:900;line-height:1.25;max-width:22em}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:34px;background:#222}
+.g3 > div{background:#0b0b0b;padding:26px 24px 28px;border-top:3px solid var(--y)}
+.g3 b{display:block;font-size:20px;font-weight:900;margin-bottom:8px}
+.g3 span{color:#bdbdbd;font-size:14.5px;line-height:1.7}
+/* 數字帶 */
+.stats{background:#000;color:#fff;padding:80px 0 72px}
+.sec-h{font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--y);margin-bottom:10px}
+.stats h2{font-size:clamp(28px,3.4vw,44px);font-weight:900}
+.stats .note{color:#9a9a9a;font-size:13.5px;margin-top:10px;max-width:60em}
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#262626;margin-top:36px;border:1px solid #262626}
+.sg > div{background:#000;padding:30px 26px}
+.sg .n{font-size:clamp(28px,3.6vw,48px);font-weight:900;color:var(--y);line-height:1.1;letter-spacing:-.01em}
+.sg .l{font-size:15px;color:#e6e6e6;margin-top:10px;line-height:1.6}
+.sg .src{display:inline-block;margin-top:12px;font-size:11.5px;font-weight:700;color:#000;background:#d9d9d9;padding:2px 8px;border-radius:2px}
+.sg .src.fx{background:var(--y)}
+/* 零件入口 */
+.finder{background:var(--g1);padding:72px 0}
+.finder h2{font-size:clamp(26px,3vw,40px);font-weight:900}
+.finder p.sub{color:#555;margin-top:6px}
+.fg{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+.fg a{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;background:#fff;text-decoration:none;padding:22px 22px 20px;border:1px solid var(--g2);transition:all .15s;min-height:112px}
+.fg a:hover{background:#000;color:#fff;border-color:#000}
+.fg a:hover .ar{background:var(--y);color:#000}
+.fg b{display:block;font-size:19px;font-weight:900;line-height:1.35}
+.fg small{display:block;color:#888;font-size:12.5px;margin-top:6px}
+.fg .ar{flex:none;width:36px;height:36px;border-radius:50%;background:#000;color:var(--y);display:flex;align-items:center;justify-content:center;font-weight:900}
+/* 章節橫幅 */
+.chap{position:relative;min-height:74vh;display:flex;align-items:flex-end;color:#fff;background:#000 center/cover no-repeat;overflow:hidden}
+.chap:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.2) 0%,rgba(0,0,0,.15) 40%,rgba(0,0,0,.88) 100%)}
+.chap-in{position:relative;width:100%;max-width:1200px;margin:0 auto;padding:0 32px 64px}
+.chap .no{font-size:14px;font-weight:900;color:var(--y);letter-spacing:.2em}
+.chap .big{font-size:clamp(48px,10vw,150px);font-weight:900;line-height:.95;letter-spacing:-.03em;margin:10px 0 18px}
+.chap h2{font-size:clamp(22px,2.6vw,32px);font-weight:900}
+.chap p{font-size:clamp(15px,1.5vw,19px);color:rgba(255,255,255,.88);max-width:44em;margin-top:10px;line-height:1.7}
+/* 章節內容 */
+.chbody{padding:64px 0 76px;background:#fff}
+.vid{position:relative;padding-top:56.25%;background:#000;margin-bottom:12px}
+.vid video{position:absolute;inset:0;width:100%;height:100%}
+.vcap{font-size:12.5px;color:#888;margin-bottom:46px}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.card{background:#fff;border:1px solid var(--g2);display:flex;flex-direction:column}
+.card .im{aspect-ratio:16/9;overflow:hidden;background:#111}
+.card .im img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.card:hover .im img{transform:scale(1.04)}
+.card .bd{padding:24px 26px 26px;display:flex;flex-direction:column;flex:1}
+.badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.bdg{font-size:11.5px;font-weight:800;padding:3px 9px;border-radius:2px;background:#ececea;color:#333}
+.bdg.m{background:#111;color:#fff}
+.bdg.m.fx{background:var(--y);color:#000}
+.bdg.mat{background:#fff;border:1px solid #bbb}
+.card h3{font-size:20px;font-weight:900;line-height:1.4}
+.card .tg{font-size:12.5px;color:#888;margin-top:6px}
+.card p{font-size:15px;color:#333;margin-top:12px;line-height:1.75;flex:1}
+.card .mt{margin-top:18px;padding-top:16px;border-top:2px solid #000;display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
+.card .mt b{font-size:clamp(22px,2.4vw,30px);font-weight:900;line-height:1.1;background:linear-gradient(transparent 62%,var(--y) 62%)}
+.card .mt a{font-size:13px;font-weight:800;color:#000;text-decoration:none;border-bottom:2px solid #000;white-space:nowrap}
+.card .ex{font-size:13px;margin-top:12px}
+.card .ex a{color:#000;font-weight:700}
+.card.ft{grid-column:1 / -1;flex-direction:row}
+.card.ft .im{flex:0 0 56%;aspect-ratio:auto;min-height:380px}
+.card.ft h3{font-size:clamp(22px,2.2vw,28px)}
+.chcta{margin-top:30px;text-align:right}
+.chcta a{font-weight:900;font-size:16px;color:#000;text-decoration:none;background:var(--y);padding:13px 20px;display:inline-block}
+/* Onyx GF */
+.onyx{background:var(--g1);padding:84px 0}
+.og{display:grid;grid-template-columns:1.1fr 1fr;gap:44px;align-items:center}
+.og img{width:100%;background:#000}
+.onyx h2{font-size:clamp(30px,3.8vw,52px);font-weight:900;line-height:1.1}
+.onyx p.in{font-size:17px;color:#333;margin-top:14px;line-height:1.75}
+.onyx .facts{font-size:13px;color:#555;margin-top:16px;padding:12px 14px;background:#fff;border-left:4px solid #000}
+.u4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
+.u4 div{background:#fff;padding:22px 20px;border-top:4px solid #000}
+.u4 b{display:block;font-size:17px;font-weight:900;margin-bottom:6px}
+.u4 span{font-size:14px;color:#555;line-height:1.65}
+/* 產品 */
+.prod{background:#000;color:#fff;padding:92px 0}
+.pg{display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:start}
+.pg img{width:100%;background:#111}
+.prod h2{font-size:clamp(30px,3.8vw,52px);font-weight:900;line-height:1.12;margin-top:6px}
+.prod p.b{font-size:16px;color:#cfcfcf;margin-top:18px;line-height:1.8}
+.spec{margin-top:30px;border-top:3px solid var(--y)}
+.spec h3{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#9a9a9a;font-weight:800;margin:16px 0 4px}
+.spec .r{display:grid;grid-template-columns:9em 1fr;gap:14px;padding:11px 0;border-bottom:1px solid #262626;font-size:14.5px}
+.spec .r span:first-child{color:#9a9a9a}
+.prod .bundle{margin-top:22px;font-size:14.5px;color:#ddd}
+.prod .bundle a{color:var(--y);font-weight:800;text-decoration:none}
+/* 下一步 */
+.steps{padding:76px 0;background:#fff}
+.steps h2{font-size:clamp(26px,3vw,40px);font-weight:900}
+.s3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:28px;counter-reset:s}
+.s3 div{border-top:3px solid #000;padding-top:18px}
+.s3 div:before{counter-increment:s;content:"0" counter(s);display:block;font-size:44px;font-weight:900;line-height:1;margin-bottom:10px;color:#000;-webkit-text-stroke:0}
+.s3 b{display:block;font-size:19px;font-weight:900}
+.s3 span{color:#555;font-size:14.5px}
+/* 行動區 */
+.cta{background:var(--y);color:#000;padding:92px 0}
+.cg{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:center}
+.cta h2{font-size:clamp(32px,4.6vw,64px);font-weight:900;line-height:1.08;letter-spacing:-.01em}
+.cta p{font-size:17px;margin-top:18px;line-height:1.75;max-width:40em}
+.cta .eb{font-size:14.5px;margin-top:18px}
+.cta .eb a{font-weight:800}
+.win{background:#000;color:#fff;padding:28px;display:flex;gap:18px;align-items:center}
+.win img{width:84px;height:84px;border-radius:50%;object-fit:cover;border:3px solid var(--y);flex:none}
+.win small{display:block;color:var(--y);font-weight:800;font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+.win b{display:block;font-size:19px;margin-top:4px}
+.win .t{font-size:13px;color:#ccc}
+.win .d{font-size:13.5px;color:#eee;margin-top:8px;line-height:1.6}
+.win a{color:var(--y);font-size:13.5px;font-weight:700}
+/* 延伸閱讀 */
+.read{padding:68px 0;background:#fff}
+.read h2{font-size:22px;font-weight:900;margin-bottom:18px}
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.rg a{display:block;text-decoration:none;padding:20px 20px 22px;border:1px solid var(--g2);border-left:4px solid #000;transition:border-color .15s}
+.rg a:hover{border-left-color:var(--y);background:var(--g1)}
+.rg b{display:block;font-size:16px;line-height:1.45}
+.rg small{display:block;color:#888;margin-top:8px;font-size:12.5px}
+/* 頁尾 */
+.ftr{background:#000;color:#888;font-size:12.5px;line-height:1.8;padding:38px 0 46px}
+.ftr a{color:var(--y);text-decoration:none;font-weight:700}
+/* 進場動畫（沒有 JS 時內容照常可見） */
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.ticker div{animation:none}.js .rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+@media (max-width:900px){
+ .wrapx,.hero-in,.chap-in{padding-left:20px;padding-right:20px}
+ .langbar{padding:8px 20px}
+ .g3,.sg,.fg,.u4,.s3,.rg{grid-template-columns:1fr 1fr}
+ .og,.pg,.cg{grid-template-columns:1fr}
+ .cards{grid-template-columns:1fr}
+ .card.ft{flex-direction:column}.card.ft .im{flex:none;min-height:0;aspect-ratio:16/9}
+ .top{padding:12px 20px}
+}
+@media (max-width:560px){
+ .g3,.sg,.fg,.u4,.s3,.rg{grid-template-columns:1fr}
+ .hero-in{padding-bottom:40px}
+ .chap{min-height:62vh}
+ .spec .r{grid-template-columns:7.5em 1fr}
+}
+
+.hero{display:grid;grid-template-columns:1.05fr 1fr;align-items:stretch;min-height:max(520px,calc(100vh - 170px))}
+.hero:after{display:none}
+.hero .txt{display:flex;flex-direction:column;justify-content:flex-end;padding:56px 48px 56px max(32px,calc((100vw - 1200px)/2 + 32px));background:#000}
+.hero .pic{background:#111 center/cover no-repeat;min-height:320px}
+.hero h1{font-size:clamp(36px,4.8vw,72px);line-height:1.08}
+.hero .meta{color:#8f8f8f;font-size:13px;margin-top:22px;letter-spacing:.04em}
+.chain{background:#0b0b0b;color:#fff;padding:76px 0}
+.chain h2{font-size:clamp(24px,2.8vw,36px);font-weight:900}
+.c3{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:#222;margin-top:30px}
+.c3 > a{display:block;background:#0b0b0b;padding:28px 26px 30px;text-decoration:none;color:#fff;border-top:3px solid var(--y);transition:background .15s}
+.c3 > a:hover{background:#151515}
+.c3 .no{color:var(--y);font-weight:900;font-size:13px;letter-spacing:.2em}
+.c3 .eb{font-size:clamp(24px,2.6vw,34px);font-weight:900;line-height:1.05;margin:8px 0 6px}
+.c3 b{display:block;font-size:18px;margin-bottom:8px}
+.c3 span{color:#bdbdbd;font-size:14.5px;line-height:1.7}
+.apps{background:var(--g1);padding:72px 0}
+.apps h2{font-size:clamp(24px,2.8vw,36px);font-weight:900}
+.apps .src{color:#888;font-size:12.5px;margin-top:6px}
+.a5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:26px}
+.a5 div{background:#fff;padding:22px 18px 24px;border-top:4px solid #000}
+.a5 i{display:block;font-style:normal;color:#aaa;font-size:12px;font-weight:900;margin-bottom:6px}
+.a5 b{display:block;font-size:18px;font-weight:900;margin-bottom:10px}
+.a5 span{font-size:14px;color:#444;line-height:1.85}
+.chh{background:#000;color:#fff;padding:72px 0 56px}
+.chh .no{font-size:14px;font-weight:900;color:var(--y);letter-spacing:.2em}
+.chh .big{font-size:clamp(44px,8vw,120px);font-weight:900;line-height:.95;letter-spacing:-.03em;margin:8px 0 16px}
+.chh h2{font-size:clamp(22px,2.6vw,32px);font-weight:900}
+.chh p{font-size:clamp(15px,1.5vw,18px);color:#cfcfcf;max-width:46em;margin-top:10px;line-height:1.75}
+.view{padding:76px 0;background:#fff}
+.vbox{border-left:6px solid var(--y);background:var(--g1);padding:34px 36px}
+.vbox .k{font-size:12px;font-weight:900;letter-spacing:.18em;color:#000}
+.vbox h2{font-size:clamp(24px,2.8vw,36px);font-weight:900;margin-top:6px}
+.vbox ol{margin:20px 0 0 1.2em}
+.vbox li{font-size:18px;font-weight:700;line-height:1.6;margin-bottom:10px}
+.adopt{font-size:14.5px;color:#555;margin-top:22px}
+.adopt a{color:#000;font-weight:800}
+@media (max-width:900px){
+ .hero{grid-template-columns:1fr}
+ .hero .pic{order:-1;min-height:46vw}
+ .hero .txt{padding:36px 20px 40px}
+ .c3,.a5{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){.c3,.a5{grid-template-columns:1fr}}
+</style>
+<script src="analytics.js" defer></script>
+</head>
+<body>
+<script src="/globalbar.js"></script>
+<script>document.documentElement.classList.add('js');</script>
+<div class="top"><a href="index.html" class="logo"><img src="images/markforged-logo-white.png" alt="Markforged"></a><div class="ev">Greater China Media Hub<br>News &amp; Insights</div></div>
+<div class="langbar"><span>Language</span><a href="automotive-am-perspective-2026-11.html">繁體中文</a><a href="automotive-am-perspective-2026-11-sc.html">简体中文</a><a href="automotive-am-perspective-2026-11-en.html" class="on">English</a></div>
+<div class="hero"><div class="txt"><div class="kicker">Weekly feature · Industry perspective</div><h1>From R&amp;D to service:<br>where automotive puts<br>3D printing to work</h1><p class="sub">In automotive, 3D printing is worth far more than prototypes. Markforged breaks it into three stages, iterating in R&amp;D, producing on the line and serving in the field, with value that scales from Tier 3 suppliers to OEMs. This week we walk through each stage with eight Markforged cases.</p><div class="meta">2026.11.11 | Automotive | Editorial</div></div><div class="pic" role="img" aria-label="Larsen Motorsports jet dragster (official Markforged photo)" style="background-image:url('images/automotive-am-perspective-2026-11-hero.jpg')"></div></div>
+<section class="chain"><div class="wrapx"><h2>The Markforged view: three stages of value</h2><div class="c3"><a class="rv" href="#ch-iterate"><div class="no">01</div><div class="eb">Iterate Better</div><b>R&amp;D</b><span>More iterations to refine concepts and tooling before production, and complex designs you could not reasonably take on before</span></a><a class="rv" href="#ch-produce"><div class="no">02</div><div class="eb">Produce Better</div><b>Production</b><span>Production-critical parts on the line when needed, less downtime and retooling risk, and robust printed fixtures in place of makeshift tooling</span></a><a class="rv" href="#ch-service"><div class="no">03</div><div class="eb">Service Better</div><b>Service</b><span>Replacement and service parts made close to where they are needed, for faster repairs and a better service experience</span></a></div></div></section>
+<section class="apps"><div class="wrapx"><h2>The fixtures and tools automotive lines print most</h2><p class="src">From Markforged automotive industry material</p><div class="a5"><div class="rv"><i>01</i><b>Assembly jigs and fixtures</b><span>Door alignment · Dashboard positioning · Seat mounting · Wiring harness routing · Windshield and bumper installation</span></div><div class="rv"><i>02</i><b>Inspection fixtures</b><span>Panel gap and flushness gauges · Go/no-go gauges · Hole location checks · Weld bead inspection</span></div><div class="rv"><i>03</i><b>Manufacturing aids</b><span>Robot end-of-arm tooling · Vacuum grippers · Conveyor guides and diverters · Sensor brackets · Masking and painting tools</span></div><div class="rv"><i>04</i><b>Welding and bonding fixtures</b><span>Spot welding guides · Adhesive curing fixtures · Seam sealing guides</span></div><div class="rv"><i>05</i><b>Maintenance and repair tools</b><span>Custom spanners and wrenches · Engine lifting brackets · Brake rotor alignment jigs · Transmission alignment tools</span></div></div></div></section>
+<section class="chh" id="ch-iterate"><div class="wrapx"><div class="no">01</div><div class="big">Iterate Better.</div><h2>R&amp;D: faster iterations, bolder designs</h2><p>In R&amp;D, waiting is the most expensive part. Every few weeks spent waiting on an outsourced low-volume part is a few fewer design rounds. Bring printing in-house and each iteration is measured in days, not weeks.</p></div></section>
+<div class="chbody"><div class="wrapx">
+<div class="cards"><article class="card rv" id="case-larsen"><div class="im"><img src="images/automotive-am-perspective-2026-11-larsen-wheels.jpg" alt="The original aluminum steering wheel and the 3D printed composite one" loading="lazy"></div><div class="bd"><div class="badges"><span class="bdg m">X7</span><span class="bdg mat">Material: Onyx (prints on FX10)</span></div><h3>Larsen Motorsports: a steering wheel fitted to one driver, in 2 days instead of 8</h3><div class="tg">Jet dragster racing · U.S.</div><p>A jet dragster runs at 280 mph, and its off-the-shelf butterfly steering wheel is built to standard hand dimensions, so driver Josette Roach could not reliably reach critical controls. The team printed a fitted wheel on an X7, with Onyx as the base and continuous carbon fiber laid along the load paths, cutting part lead time from 8 days to 2. In real-world testing it was stiffer than the aluminum original, which flexed under load. Simulation software predicted the loads up front, so the team did not need to print ten intermediate versions to find the failure point.</p><div class="mt"><b>8 days → 2</b><a href="https://markforged.com/resources/case-studies/jet-dragster-teams-replacing-metal-parts-with-3d-printed-composites">Read the original&nbsp;→</a></div></div></article><article class="card rv" id="case-grm"><div class="im"><img src="images/automotive-am-perspective-2026-11-grm.jpg" alt="A Garry Rogers Motorsport race car" loading="lazy"></div><div class="bd"><div class="badges"><span class="bdg m">Markforged platform</span></div><h3>Garry Rogers Motorsport: a brake duct pattern in 24 hours instead of two weeks</h3><div class="tg">Racing team · Australia</div><p>Australia's oldest motorsport team has no CNC machining, so low-volume complex parts used to be outsourced. Complex shapes suggested by the engineers' CFD software cost money and two weeks each time. With Markforged carbon fiber printing, a brake duct pattern for a fiberglass mold went from AUD 1,000 (about USD 670) and two weeks to AUD 75 (about USD 50) and 24 hours. Around half or more of what the team now prints is end-use, including door lock covers, gearbox housings, steering wheel handles and camera mounts.</p><div class="mt"><b>2 weeks → 24 hours</b><a href="https://markforged.com/resources/case-studies/garry-rogers-motorsport">Read the original&nbsp;→</a></div></div></article></div>
+<div class="chcta"><a href="mailto:brian.chen@markforged.com?subject=Automotive%20feature%20%7C%20part%20file%20review&amp;body=Hello%2C%0A%0AIndustry%3A%0AWhat%20the%20part%20or%20fixture%20does%3A%0AIntended%20material%3A%0ALocation%20%28Taiwan%20/%20China%20/%20Hong%20Kong%20/%20Vietnam%29%3A%0A%0A%28Please%20attach%20a%20file%20if%20you%20have%20one.%29%0A">Have a part like this? Send us the file&nbsp;→</a></div></div></div>
+<section class="chh" id="ch-produce"><div class="wrapx"><div class="no">02</div><div class="big">Produce Better.</div><h2>Production: tooling without the wait, and less downtime risk</h2><p>What holds up a line is often not the equipment but the fixtures and tooling. Outsourcing means two or three weeks each time, and a spec change starts the clock again. Make fixtures in-house and a revision can be on the line the same day.</p></div></section>
+<div class="chbody"><div class="wrapx">
+<div class="vid rv"><video src="video/automotive-am-perspective-2026-11-vw-en.mp4" poster="images/automotive-am-perspective-2026-11-vw-poster.jpg" controls playsinline preload="metadata"></video></div><div class="vcap">Film: Volkswagen Autoeuropa (English narration, about 100 seconds) | <a href="https://www.youtube.com/watch?v=0GITnf0jLDM">Public version (YouTube)</a></div>
+<div class="cards"><article class="card rv ft" id="case-vw"><div class="im"><img src="images/automotive-am-perspective-2026-11-vw-card.jpg" alt="A die lifter in the Volkswagen Autoeuropa stamping area" loading="lazy"></div><div class="bd"><div class="badges"><span class="bdg m">Markforged platform</span></div><h3>Volkswagen Autoeuropa: die lifters cut from 60 kg to 4 kg</h3><div class="tg">Vehicle plant · Portugal</div><p>Volkswagen's Palmela plant in Portugal introduced 3D printing in 2014 and continuous carbon fiber printing in June 2024. The first success was in stamping: die lifters went from 60 kg to just 4, improving ergonomics, efficiency and sustainability. It has since spread to a Y-connector for pipes in the body shop, a chemically resistant high-tension ring for paint shop robots and a universal tray in logistics, ready to be transferred across the Volkswagen Group.</p><div class="ex"><a href="europe-oem-continuous-fiber-vw-claas-thyssenkrupp-en.html">Our story: continuous fiber at three European manufacturers&nbsp;→</a></div><div class="mt"><b>60 kg → 4 kg</b><a href="https://www.youtube.com/watch?v=0GITnf0jLDM">Public video (YouTube)&nbsp;→</a></div></div></article><article class="card rv" id="case-dunlop"><div class="im"><img src="images/automotive-am-perspective-2026-11-dunlop.jpg" alt="Dunlop Systems and Components site" loading="lazy"></div><div class="bd"><div class="badges"><span class="bdg m">Markforged platform</span></div><h3>Dunlop Systems and Components: more tooling in six months than in the previous five years</h3><div class="tg">Automotive components · U.K.</div><p>U.K. automotive component maker Dunlop used to outsource internal and customer tooling, waiting two or three weeks each time, only for the customer to change the spec. Printing its own tooling in Onyx and continuous carbon fiber on Markforged, the team produced more tooling in six months than in the previous five years and saved tens of thousands of dollars; when it helped build an electric vehicle for a large automaker, the custom tooling was printed in-house too.</p><div class="mt"><b>6 months > 5 years</b><a href="https://markforged.com/resources/news-events/dunlop">Read the original&nbsp;→</a></div></div></article><article class="card rv" id="case-grp"><div class="im"><img src="images/fx10-it-starts-here-case-grp.jpg" alt="GRP&#x27;s X-pipe exhaust for a Lamborghini Revuelto" loading="lazy"></div><div class="bd"><div class="badges"><span class="bdg m fx">FX10</span></div><h3>Graham Rahal Performance: fixtures printed overnight instead of 20–40 hours by hand</h3><div class="tg">Supercar fabrication · U.S.</div><p>Supercar fabricator GRP prints composite and metal fixtures on the FX10: designed in CAD, printed overnight, used the next day, reclaiming hundreds of hours once spent hand-building fixtures.</p><div class="mt"><b>20–40 hrs → overnight</b><a href="https://markforged.com/resources/blog/the-24-hour-fixture-how-high-performance-automotive-shops-are-bypassing-the-machine-shop">Read the original&nbsp;→</a></div></div></article><article class="card rv" id="case-subaru"><div class="im"><img src="images/fx10-it-starts-here-case-subaru.jpg" alt="Assembly line at Subaru of Indiana Automotive" loading="lazy"></div><div class="bd"><div class="badges"><span class="bdg m">Printer not stated</span><span class="bdg mat">Material: Onyx GF (prints on FX10)</span></div><h3>Subaru of Indiana: telling jigs apart by color on a mixed-model line</h3><div class="tg">Vehicle assembly · U.S.</div><p>Several models share one line and their jigs differ by millimeters. Printed in six-color Onyx GF, each model gets its own color, so operators grab the right tool on the first pass; the bumper QR-label jigs hold 0.1 mm.</p><div class="mt"><b>0.1 mm</b><a href="https://markforged.com/resources/blog/keeping-the-line-moving-color-coded-tooling-at-subaru">Read the original&nbsp;→</a></div></div></article><article class="card rv" id="case-kojima"><div class="im"><img src="images/kojima-robot-hands-card.jpg" alt="Robot hands 3D printed by Kojima Industries" loading="lazy"></div><div class="bd"><div class="badges"><span class="bdg m">Markforged platform</span></div><h3>Kojima Industries: in-house robot hands, lead time from 14 days to 1</h3><div class="tg">Automotive components · Japan</div><p>Aichi-based automotive component maker Kojima Industries prints its robot hands in-house on Markforged. The hands keep the strength the line needs while losing weight, so robots no longer have to be oversized. Part cost fell 67% and lead time went from 14 days to 1.</p><div class="mt"><b>−67% / 14 days → 1</b><a href="kojima-robot-hands-en.html">Our full story&nbsp;→</a></div></div></article></div>
+<div class="chcta"><a href="mailto:brian.chen@markforged.com?subject=Automotive%20feature%20%7C%20part%20file%20review&amp;body=Hello%2C%0A%0AIndustry%3A%0AWhat%20the%20part%20or%20fixture%20does%3A%0AIntended%20material%3A%0ALocation%20%28Taiwan%20/%20China%20/%20Hong%20Kong%20/%20Vietnam%29%3A%0A%0A%28Please%20attach%20a%20file%20if%20you%20have%20one.%29%0A">Have a part like this? Send us the file&nbsp;→</a></div></div></div>
+<section class="chh" id="ch-service"><div class="wrapx"><div class="no">03</div><div class="big">Service Better.</div><h2>Service: replacement parts made close to where they are needed</h2><p>The Markforged view is to turn service into a competitive advantage: make replacement and service parts where they are needed for faster repairs. That only works if designs and print settings stay in sync between sites, so every site prints the same part.</p></div></section>
+<div class="chbody"><div class="wrapx">
+<div class="cards"><article class="card rv ft" id="case-dana"><div class="im"><img src="images/fx10-it-starts-here-case-dana.jpg" alt="Composite workholding fixture printed by Dana" loading="lazy"></div><div class="bd"><div class="badges"><span class="bdg m">X7</span></div><h3>Dana: one set of designs and print settings, shared across seven countries</h3><div class="tg">Drivetrain and power systems · Global</div><p>Dana, a mobility supplier with more than a century of history, runs Markforged printers in seven countries and uses the cloud-based Eiger platform to share CAD designs, print settings and production data between engineering hubs, so each site prints tools and parts where they are needed. Composite fixtures printed on an X7 at its Rovereto, Italy engineering center ran for over a year without failure, at 70% lower cost and 90% shorter lead time per fixture.</p><div class="mt"><b>7 countries, in sync</b><a href="https://markforged.com/resources/case-studies/dana-incorporated">Read the original&nbsp;→</a></div></div></article></div>
+<div class="chcta"><a href="mailto:brian.chen@markforged.com?subject=Automotive%20feature%20%7C%20part%20file%20review&amp;body=Hello%2C%0A%0AIndustry%3A%0AWhat%20the%20part%20or%20fixture%20does%3A%0AIntended%20material%3A%0ALocation%20%28Taiwan%20/%20China%20/%20Hong%20Kong%20/%20Vietnam%29%3A%0A%0A%28Please%20attach%20a%20file%20if%20you%20have%20one.%29%0A">Have a part like this? Send us the file&nbsp;→</a></div></div></div>
+<section class="view"><div class="wrapx"><div class="vbox rv"><div class="k">Our take</div><h2>Three questions for manufacturers in Greater China and Vietnam</h2><ol><li>How long does an outsourced fixture take today, and how long again after a spec change?</li><li>Which parts stop the whole line when they fail, and do you have design files for them?</li><li>Could your service and repair parts be made at the site closest to the customer?</li></ol></div><p class="adopt">Adopters listed on the Markforged automotive page include Bentley, Porsche, Toyota and Harley-Davidson. <a href="https://markforged.com/icp/automotive">See the automotive industry page&nbsp;→</a></p></div></section>
+<section class="cta" id="contact"><div class="wrapx"><div class="cg"><div class="rv"><h2>Start with one fixture.</h2><p>Send us a part or fixture file and we can arrange a test print and a live FX10 demonstration, and quote it. Tell us your industry, what it does, the material you have in mind and where you are: Taiwan, China, Hong Kong or Vietnam.</p><div class="btns"><a class="btn k" href="mailto:brian.chen@markforged.com?subject=Automotive%20feature%20%7C%20FX10%20demo%20/%20quote&amp;body=Hello%2C%0A%0AIndustry%3A%0AWhat%20the%20part%20or%20fixture%20does%3A%0AIntended%20material%3A%0ALocation%20%28Taiwan%20/%20China%20/%20Hong%20Kong%20/%20Vietnam%29%3A%0A%0A%28Please%20attach%20a%20file%20if%20you%20have%20one.%29%0A">Book a demo / Get a quote</a><a class="btn ok" href="mailto:brian.chen@markforged.com?subject=Automotive%20feature%20%7C%20part%20file%20review&amp;body=Hello%2C%0A%0AIndustry%3A%0AWhat%20the%20part%20or%20fixture%20does%3A%0AIntended%20material%3A%0ALocation%20%28Taiwan%20/%20China%20/%20Hong%20Kong%20/%20Vietnam%29%3A%0A%0A%28Please%20attach%20a%20file%20if%20you%20have%20one.%29%0A">Send a part file</a></div><p class="eb">Want more FX10 results? <a href="fx10-it-starts-here-en.html">See nine Markforged cases on the FX10 page&nbsp;→</a></p><p class="eb">Further reading: <a href="https://web-objects.markforged.com/craft/common/Markforged-Automotive-E-Book.pdf">the automotive e-book (PDF, 20 pages)&nbsp;→</a></p></div><div class="win rv"><img src="brian-chen.jpg" alt="Brian Chen"><div><small>Your contact</small><b>Brian Chen</b><div class="t">Country Manager, Greater China and Vietnam, Markforged</div><div class="d">For FX10 demos and quotes in Taiwan, China, Hong Kong and Vietnam, reach me directly.</div><a href="mailto:brian.chen@markforged.com">brian.chen@markforged.com</a></div></div></div></div></section>
+<section class="read"><div class="wrapx"><h2>Further reading</h2><div class="rg"><a class="rv" href="fx10-it-starts-here-en.html"><b>If it has to work, it starts here: the FX10 page</b><small>Nine Markforged cases</small></a><a class="rv" href="europe-oem-continuous-fiber-vw-claas-thyssenkrupp-en.html"><b>A lifting device cut from 60 kg to 4 kg: continuous fiber at three European manufacturers</b><small>Volkswagen, CLAAS, thyssenkrupp</small></a><a class="rv" href="wescad-fx10-jigs-fixtures-en.html"><b>Reference fixtures up to 75% cheaper than milling: WESCAD and the FX10</b><small>Another FX10 fixture case</small></a></div></div></section>
+<footer class="ftr"><div class="wrapx">This weekly feature was compiled by the Markforged Greater China Media Hub from the Markforged automotive industry page and original case studies; figures and printer models are as stated in the sources.<br><br><a href="index.html">Back to the Media Hub</a>　·　<a href="https://www.markforged.tw/">markforged.tw</a></div></footer>
+<script>
+document.documentElement.classList.add('js');
+(function(){
+  var els=document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){io.observe(e)});
+  // 保險：捲到接近頁底時，還沒出場的一律顯示（避免頁尾前的元素永遠進不了觀察範圍）
+  window.addEventListener('scroll',function(){
+    if(window.innerHeight+window.scrollY>=document.body.scrollHeight-400){els.forEach(function(e){e.classList.add('in')});}
+  },{passive:true});
+})();
+</script>
+</body>
+</html>
