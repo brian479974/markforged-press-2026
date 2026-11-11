@@ -3,253 +3,243 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>必须可靠的零件，从这里开始：FX10 与汽车、航空航天的六个原厂案例｜Markforged 媒体中心</title>
-<meta name="description" content="FX10 把金属与连续碳纤维复合材料放进同一台设备、放在工厂现场。本页整理 Markforged 原厂发布的六个案例：Graham Rahal Performance、Subaru、Dana、Plane Support、Cabin Management Solutions、Hangar One Avionics，附原厂视频。">
-<meta property="og:title" content="必须可靠的零件，从这里开始｜FX10">
-<meta property="og:description" content="汽车：性能关键。航空航天：任务关键。六个原厂案例与原厂视频。">
+<title>不能出错的零件，从这里开始｜FX10｜Markforged 媒体中心</title>
+<meta name="description" content="FX10 把连续碳纤维复合材料与金属打印放进同一台设备、放在工厂现场。汽车与航空航天六个 Markforged 原厂案例，每个数字都标明机型与原文出处。">
+<meta property="og:title" content="不能出错的零件，从这里开始｜FX10">
+<meta property="og:description" content="隔夜打印完成的夹具、可直接焊接的 316L 法兰、获澳大利亚民航批准的直升机风管，都出自 FX10。">
 <meta property="og:image" content="https://news.markforged.tw/images/fx10-it-starts-here-hero.jpg">
 <meta property="og:type" content="article">
 <link rel="alternate" hreflang="zh-TW" href="https://news.markforged.tw/fx10-it-starts-here.html">
 <link rel="alternate" hreflang="zh-CN" href="https://news.markforged.tw/fx10-it-starts-here-sc.html">
 <link rel="alternate" hreflang="en" href="https://news.markforged.tw/fx10-it-starts-here-en.html">
 <style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{background:#e8e8e8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,'Noto Sans TC','Noto Sans SC',sans-serif;color:#1a1a1a}
-  .wrap{max-width:700px;margin:0 auto;background:#fff}
-  .hdr{background:#000;padding:20px 40px;display:flex;align-items:center;justify-content:space-between}
-  .hdr-logo{display:block;line-height:0}
-  .hdr-logo img{height:26px;width:auto;display:block}
-  .hdr-ev{color:rgba(255,255,255,.6);font-size:12px;text-align:right;line-height:1.6}
-  .langbar{background:#111;padding:8px 40px;display:flex;gap:6px;align-items:center;border-top:1px solid #222}
-  .langbar span{color:#666;font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-right:4px}
-  .langbar a{font-size:11.5px;font-weight:700;color:#888;text-decoration:none;padding:3px 10px;border-radius:20px;border:1px solid #333}
-  .langbar a:hover{color:#FFFF00;border-color:#FFFF00}
-  .langbar a.on{background:#FFFF00;color:#000;border-color:#FFFF00}
-  .hero{position:relative;overflow:hidden}
-  .hero img{width:100%;display:block}
-  .hero-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.68) 0%,rgba(0,0,0,.15) 50%,rgba(0,0,0,.72) 100%)}
-  .hero-top{position:absolute;top:0;left:0;right:0;padding:28px 38px}
-  .hero-kicker{color:#FFFF00;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px}
-  .hero-title{color:#fff;font-size:26px;font-weight:900;line-height:1.28;max-width:540px;text-shadow:0 2px 12px rgba(0,0,0,.5)}
-  .hero-btm{position:absolute;bottom:0;left:0;right:0;padding:16px 38px;background:linear-gradient(transparent,rgba(0,0,0,.75))}
-  .hero-meta{color:rgba(255,255,255,.85);font-size:12px;letter-spacing:.04em}
-  .ds{background:#FFFF00;padding:10px 38px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}
-  .ds-l{font-size:12.5px;font-weight:700;color:#000}
-  .ds-r{font-size:11.5px;color:#333}
-  .body{padding:36px 38px 0}
-  .lead{font-size:16px;line-height:1.82;color:#222;margin-bottom:24px;padding-bottom:24px;border-bottom:2px solid #f0f0f0}
-  .qb{margin:6px 0 26px;padding:20px 24px;background:#000;border-radius:6px}
-  .qb p{color:#FFFF00;font-size:18px;font-weight:800;line-height:1.45;margin-bottom:5px}
-  .qb small{color:rgba(255,255,255,.45);font-size:10.5px;letter-spacing:.07em}
-  .sec{margin-bottom:30px}
-  h2{font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#111;margin-bottom:12px;padding-left:11px;border-left:4px solid #FFFF00}
-  h3{font-size:18px;font-weight:800;color:#111;margin-bottom:12px;line-height:1.32}
-  p{font-size:14.5px;line-height:1.82;color:#333;margin-bottom:14px}
-  strong{color:#111}
-  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
-  .tag{background:#111;color:#FFFF00;font-size:10px;font-weight:700;letter-spacing:.07em;padding:4px 10px;border-radius:30px}
-  .tag.ol{background:#fff;color:#666;border:1.5px solid #ddd}
-  .ph-full img{width:100%;display:block}
-  /* 直式照片滿版會把整個視窗撐掉（2026-09-24 FX10 轉正後實測 624→937px 高）→ 收窄置中 */
-  .ph-port{background:#f4f4f4;padding:22px 0;display:flex;justify-content:center}
-  .ph-port img{width:auto;max-width:62%;max-height:620px;display:block}
-  @media(max-width:620px){.ph-port img{max-width:82%}}
-  .ph-2col{display:grid;grid-template-columns:1fr 1fr;gap:3px}
-  .gi{width:100%;display:block;object-fit:cover}
-  .gi-43{aspect-ratio:4/3}
-  .gi-34{aspect-ratio:3/4}
-  .cap{font-size:11px;color:#aaa;text-align:center;padding:8px 38px 22px;border-bottom:1px solid #eee;margin-bottom:26px;line-height:1.55}
-  .hl-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:30px}
-  .hl{background:#f7f7f7;border-left:4px solid #FFFF00;padding:16px 18px}
-  .hl b{display:block;font-size:24px;font-weight:900;color:#111;line-height:1.1;margin-bottom:5px}
-  .hl span{font-size:11.5px;color:#777;line-height:1.5;display:block}
-  .prof{display:flex;gap:18px;align-items:center;background:#111;padding:22px 24px;border-radius:6px;margin:8px 0 28px}
-  .prof img{width:92px;height:92px;object-fit:cover;border-radius:50%;flex-shrink:0;border:3px solid #FFFF00}
-  .prof-n{color:#fff;font-size:16px;font-weight:800;margin-bottom:4px}
-  .prof-t{color:#FFFF00;font-size:11.5px;font-weight:700;margin-bottom:7px}
-  .prof-d{color:rgba(255,255,255,.6);font-size:11.5px;line-height:1.6}
-  .cta{background:#FFFF00;padding:28px 32px;margin:6px 0 0}
-  .cta h4{font-size:17px;font-weight:900;color:#000;margin-bottom:8px}
-  .cta p{font-size:13px;color:#333;line-height:1.7;margin-bottom:16px}
-  .btn{display:inline-block;background:#000;color:#FFFF00;padding:12px 26px;font-size:13.5px;font-weight:800;text-decoration:none;letter-spacing:.04em}
-  .btn:hover{background:#222}
-  .vid{position:relative;width:100%;padding-top:56.25%;background:#000}
-  .vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-  .vid video{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;background:#000}
-  .srcbox{background:#fafafa;border-top:3px solid #111;padding:22px 38px 26px}
-  .srcbox h5{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#888;margin-bottom:10px}
-  .srcbox li{font-size:11.5px;color:#777;line-height:1.75;margin-left:16px}
-  .ftr{background:#000;padding:24px 38px;color:rgba(255,255,255,.5);font-size:11.5px;line-height:1.7}
-  .ftr a{color:#FFFF00;text-decoration:none}
-  /* ── 雙方表述：官方引言雙卡 ── */
-  .quotes{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:4px 0 30px}
-  .qc{background:#111;padding:22px 22px 20px;border-top:4px solid #FFFF00;display:flex;flex-direction:column}
-  .qc p{color:#fff;font-size:13.5px;line-height:1.78;margin:0 0 16px;flex:1}
-  .qc-who{display:flex;gap:12px;align-items:center}
-  .qc-who img{width:54px;height:54px;object-fit:cover;border-radius:50%;flex-shrink:0;border:2px solid #FFFF00}
-  .qc-n{color:#FFFF00;font-size:12.5px;font-weight:800;line-height:1.4;margin-bottom:3px}
-  .qc-t{color:rgba(255,255,255,.5);font-size:10.5px;line-height:1.55}
-  /* ── 活動資料 fact sheet ── */
-  .fs{border-top:3px solid #111;margin:4px 0 8px}
-  .fs-h{font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#111;padding:14px 0 10px}
-  .fs-row{display:flex;gap:18px;padding:10px 0;border-top:1px solid #f0f0f0}
-  .fs-k{flex:0 0 92px;font-size:11px;font-weight:700;color:#999;letter-spacing:.05em;line-height:1.75;text-transform:uppercase}
-  .fs-v{font-size:13.5px;color:#222;line-height:1.75}
-  /* ── 完稿記號（通訊社慣例）── */
-  .endmark{text-align:center;letter-spacing:.4em;color:#c4c4c4;font-size:11px;font-weight:700;padding:22px 0 24px}
-  /* ── 關於雙方 ── */
-  .about{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 14px}
-  .ab{background:#fafafa;border-top:4px solid #111;padding:18px 20px}
-  .ab h6{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#999;margin-bottom:9px}
-  .ab p{font-size:11.5px;line-height:1.8;color:#555;margin:0}
-  /* ── 媒體聯絡 ── */
-  .mc{background:#111;padding:20px 24px;margin:0 0 4px}
-  .mc h6{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#FFFF00;margin-bottom:10px}
-  .mc-o{color:#fff;font-size:13px;font-weight:800;margin-bottom:7px}
-  .mc p{color:rgba(255,255,255,.6);font-size:11.5px;line-height:1.9;margin:0}
-  .mc a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.28)}
-  @media(max-width:620px){.hero-title{font-size:21px}.body{padding:26px 22px 0}.hl-grid{grid-template-columns:1fr}.quotes{grid-template-columns:1fr}.about{grid-template-columns:1fr}.prof{flex-direction:column;text-align:center}.langbar{padding:8px 22px}}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--y:#FFFF00;--k:#000;--w:#fff;--g1:#f3f3f1;--g2:#e7e7e4;--mut:#8f8f8f;--line:rgba(255,255,255,.14)}
+html{scroll-behavior:smooth}
+body{background:#fff;color:#111;font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Arial,'PingFang TC','PingFang SC','Noto Sans TC','Noto Sans SC',sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6}
+a{color:inherit}
+img{display:block;max-width:100%}
+.wrapx{max-width:1200px;margin:0 auto;padding:0 32px}
+/* 頂部列 */
+.top{background:#000;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:14px 32px;gap:16px;flex-wrap:wrap}
+.top .logo img{height:24px}
+.top .ev{font-size:11px;color:rgba(255,255,255,.55);text-align:right;line-height:1.5}
+.langbar{display:flex;gap:6px;align-items:center;background:#111;padding:8px 32px;border-top:1px solid #222}   /* 全站標準版位：header 之下、hero 之上（langbar.py） */
+.langbar span{color:#777;font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-right:4px}
+.langbar a{font-size:11.5px;font-weight:700;color:#999;text-decoration:none;padding:3px 10px;border-radius:20px;border:1px solid #333}
+.langbar a:hover{color:var(--y);border-color:var(--y)}
+.langbar a.on{background:var(--y);color:#000;border-color:var(--y)}
+/* 首屏 */
+.hero{position:relative;min-height:max(540px,calc(100vh - 170px));min-height:max(540px,calc(100svh - 170px));display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:#000}   /* 170px＝官網導覽列 64＋頁首＋語言列，讓按鈕落在首屏內 */
+.hero video,.hero .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.25) 35%,rgba(0,0,0,.82) 100%)}
+.hero-in{position:relative;z-index:2;width:100%;max-width:1200px;margin:0 auto;padding:0 32px 52px}
+.kicker{display:inline-block;color:var(--y);font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;margin-bottom:18px}
+.hero h1{font-size:clamp(40px,7.2vw,104px);line-height:1.04;font-weight:900;letter-spacing:-.01em;max-width:13em}
+.hero p.sub{font-size:clamp(16px,1.6vw,20px);line-height:1.7;color:rgba(255,255,255,.9);max-width:46em;margin-top:22px}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-block;font-weight:800;font-size:15px;text-decoration:none;padding:15px 26px;border-radius:2px;letter-spacing:.02em;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.y{background:var(--y);color:#000}
+.btn.o{border:2px solid #fff;color:#fff}
+.btn.k{background:#000;color:var(--y)}
+.btn.ok{border:2px solid #000;color:#000}
+/* 跑馬燈 */
+.ticker{background:var(--y);color:#000;overflow:hidden;white-space:nowrap;border-top:1px solid #000;border-bottom:1px solid #000}
+.ticker div{display:inline-block;padding:14px 0;font-weight:900;font-size:clamp(18px,2.2vw,28px);letter-spacing:-.01em;animation:tk 38s linear infinite}
+.ticker span{margin:0 28px}
+.ticker i{font-style:normal;margin:0 6px}
+@keyframes tk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* 章節導覽 */
+.nav{background:#000;position:sticky;top:64px;z-index:20;border-bottom:1px solid #222}   /* 64px＝官網導覽列 globalbar 高度（sticky、z-index 10000），貼它下方 */
+[id]{scroll-margin-top:122px}
+.nav .wrapx{display:flex;gap:4px;overflow-x:auto}
+.nav a{color:#bbb;text-decoration:none;font-size:13px;font-weight:700;padding:13px 14px;white-space:nowrap;border-bottom:3px solid transparent}
+.nav a:hover{color:#fff;border-bottom-color:var(--y)}
+/* FX10 一句話 */
+.line3{background:#0b0b0b;color:#fff;padding:64px 0}
+.line3 h2{font-size:clamp(24px,3vw,38px);font-weight:900;line-height:1.25;max-width:22em}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:34px;background:#222}
+.g3 > div{background:#0b0b0b;padding:26px 24px 28px;border-top:3px solid var(--y)}
+.g3 b{display:block;font-size:20px;font-weight:900;margin-bottom:8px}
+.g3 span{color:#bdbdbd;font-size:14.5px;line-height:1.7}
+/* 數字帶 */
+.stats{background:#000;color:#fff;padding:80px 0 72px}
+.sec-h{font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--y);margin-bottom:10px}
+.stats h2{font-size:clamp(28px,3.4vw,44px);font-weight:900}
+.stats .note{color:#9a9a9a;font-size:13.5px;margin-top:10px;max-width:60em}
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#262626;margin-top:36px;border:1px solid #262626}
+.sg > div{background:#000;padding:30px 26px}
+.sg .n{font-size:clamp(28px,3.6vw,48px);font-weight:900;color:var(--y);line-height:1.1;letter-spacing:-.01em}
+.sg .l{font-size:15px;color:#e6e6e6;margin-top:10px;line-height:1.6}
+.sg .src{display:inline-block;margin-top:12px;font-size:11.5px;font-weight:700;color:#000;background:#d9d9d9;padding:2px 8px;border-radius:2px}
+.sg .src.fx{background:var(--y)}
+/* 零件入口 */
+.finder{background:var(--g1);padding:72px 0}
+.finder h2{font-size:clamp(26px,3vw,40px);font-weight:900}
+.finder p.sub{color:#555;margin-top:6px}
+.fg{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+.fg a{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;background:#fff;text-decoration:none;padding:22px 22px 20px;border:1px solid var(--g2);transition:all .15s;min-height:112px}
+.fg a:hover{background:#000;color:#fff;border-color:#000}
+.fg a:hover .ar{background:var(--y);color:#000}
+.fg b{display:block;font-size:19px;font-weight:900;line-height:1.35}
+.fg small{display:block;color:#888;font-size:12.5px;margin-top:6px}
+.fg .ar{flex:none;width:36px;height:36px;border-radius:50%;background:#000;color:var(--y);display:flex;align-items:center;justify-content:center;font-weight:900}
+/* 章節橫幅 */
+.chap{position:relative;min-height:74vh;display:flex;align-items:flex-end;color:#fff;background:#000 center/cover no-repeat;overflow:hidden}
+.chap:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.2) 0%,rgba(0,0,0,.15) 40%,rgba(0,0,0,.88) 100%)}
+.chap-in{position:relative;width:100%;max-width:1200px;margin:0 auto;padding:0 32px 64px}
+.chap .no{font-size:14px;font-weight:900;color:var(--y);letter-spacing:.2em}
+.chap .big{font-size:clamp(48px,10vw,150px);font-weight:900;line-height:.95;letter-spacing:-.03em;margin:10px 0 18px}
+.chap h2{font-size:clamp(22px,2.6vw,32px);font-weight:900}
+.chap p{font-size:clamp(15px,1.5vw,19px);color:rgba(255,255,255,.88);max-width:44em;margin-top:10px;line-height:1.7}
+/* 章節內容 */
+.chbody{padding:64px 0 76px;background:#fff}
+.vid{position:relative;padding-top:56.25%;background:#000;margin-bottom:12px}
+.vid video{position:absolute;inset:0;width:100%;height:100%}
+.vcap{font-size:12.5px;color:#888;margin-bottom:46px}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.card{background:#fff;border:1px solid var(--g2);display:flex;flex-direction:column}
+.card .im{aspect-ratio:16/9;overflow:hidden;background:#111}
+.card .im img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.card:hover .im img{transform:scale(1.04)}
+.card .bd{padding:24px 26px 26px;display:flex;flex-direction:column;flex:1}
+.badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.bdg{font-size:11.5px;font-weight:800;padding:3px 9px;border-radius:2px;background:#ececea;color:#333}
+.bdg.m{background:#111;color:#fff}
+.bdg.m.fx{background:var(--y);color:#000}
+.bdg.mat{background:#fff;border:1px solid #bbb}
+.card h3{font-size:20px;font-weight:900;line-height:1.4}
+.card .tg{font-size:12.5px;color:#888;margin-top:6px}
+.card p{font-size:15px;color:#333;margin-top:12px;line-height:1.75;flex:1}
+.card .mt{margin-top:18px;padding-top:16px;border-top:2px solid #000;display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
+.card .mt b{font-size:clamp(22px,2.4vw,30px);font-weight:900;line-height:1.1;background:linear-gradient(transparent 62%,var(--y) 62%)}
+.card .mt a{font-size:13px;font-weight:800;color:#000;text-decoration:none;border-bottom:2px solid #000;white-space:nowrap}
+.card .ex{font-size:13px;margin-top:12px}
+.card .ex a{color:#000;font-weight:700}
+.card.ft{grid-column:1 / -1;flex-direction:row}
+.card.ft .im{flex:0 0 56%;aspect-ratio:auto;min-height:380px}
+.card.ft h3{font-size:clamp(22px,2.2vw,28px)}
+.chcta{margin-top:30px;text-align:right}
+.chcta a{font-weight:900;font-size:16px;color:#000;text-decoration:none;background:var(--y);padding:13px 20px;display:inline-block}
+/* Onyx GF */
+.onyx{background:var(--g1);padding:84px 0}
+.og{display:grid;grid-template-columns:1.1fr 1fr;gap:44px;align-items:center}
+.og img{width:100%;background:#000}
+.onyx h2{font-size:clamp(30px,3.8vw,52px);font-weight:900;line-height:1.1}
+.onyx p.in{font-size:17px;color:#333;margin-top:14px;line-height:1.75}
+.onyx .facts{font-size:13px;color:#555;margin-top:16px;padding:12px 14px;background:#fff;border-left:4px solid #000}
+.u4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
+.u4 div{background:#fff;padding:22px 20px;border-top:4px solid #000}
+.u4 b{display:block;font-size:17px;font-weight:900;margin-bottom:6px}
+.u4 span{font-size:14px;color:#555;line-height:1.65}
+/* 產品 */
+.prod{background:#000;color:#fff;padding:92px 0}
+.pg{display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:start}
+.pg img{width:100%;background:#111}
+.prod h2{font-size:clamp(30px,3.8vw,52px);font-weight:900;line-height:1.12;margin-top:6px}
+.prod p.b{font-size:16px;color:#cfcfcf;margin-top:18px;line-height:1.8}
+.spec{margin-top:30px;border-top:3px solid var(--y)}
+.spec h3{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#9a9a9a;font-weight:800;margin:16px 0 4px}
+.spec .r{display:grid;grid-template-columns:9em 1fr;gap:14px;padding:11px 0;border-bottom:1px solid #262626;font-size:14.5px}
+.spec .r span:first-child{color:#9a9a9a}
+.prod .bundle{margin-top:22px;font-size:14.5px;color:#ddd}
+.prod .bundle a{color:var(--y);font-weight:800;text-decoration:none}
+/* 下一步 */
+.steps{padding:76px 0;background:#fff}
+.steps h2{font-size:clamp(26px,3vw,40px);font-weight:900}
+.s3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:28px;counter-reset:s}
+.s3 div{border-top:3px solid #000;padding-top:18px}
+.s3 div:before{counter-increment:s;content:"0" counter(s);display:block;font-size:44px;font-weight:900;line-height:1;margin-bottom:10px;color:#000;-webkit-text-stroke:0}
+.s3 b{display:block;font-size:19px;font-weight:900}
+.s3 span{color:#555;font-size:14.5px}
+/* 行動區 */
+.cta{background:var(--y);color:#000;padding:92px 0}
+.cg{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:center}
+.cta h2{font-size:clamp(32px,4.6vw,64px);font-weight:900;line-height:1.08;letter-spacing:-.01em}
+.cta p{font-size:17px;margin-top:18px;line-height:1.75;max-width:40em}
+.cta .eb{font-size:14.5px;margin-top:18px}
+.cta .eb a{font-weight:800}
+.win{background:#000;color:#fff;padding:28px;display:flex;gap:18px;align-items:center}
+.win img{width:84px;height:84px;border-radius:50%;object-fit:cover;border:3px solid var(--y);flex:none}
+.win small{display:block;color:var(--y);font-weight:800;font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+.win b{display:block;font-size:19px;margin-top:4px}
+.win .t{font-size:13px;color:#ccc}
+.win .d{font-size:13.5px;color:#eee;margin-top:8px;line-height:1.6}
+.win a{color:var(--y);font-size:13.5px;font-weight:700}
+/* 延伸閱讀 */
+.read{padding:68px 0;background:#fff}
+.read h2{font-size:22px;font-weight:900;margin-bottom:18px}
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.rg a{display:block;text-decoration:none;padding:20px 20px 22px;border:1px solid var(--g2);border-left:4px solid #000;transition:border-color .15s}
+.rg a:hover{border-left-color:var(--y);background:var(--g1)}
+.rg b{display:block;font-size:16px;line-height:1.45}
+.rg small{display:block;color:#888;margin-top:8px;font-size:12.5px}
+/* 頁尾 */
+.ftr{background:#000;color:#888;font-size:12.5px;line-height:1.8;padding:38px 0 46px}
+.ftr a{color:var(--y);text-decoration:none;font-weight:700}
+/* 進場動畫（沒有 JS 時內容照常可見） */
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.ticker div{animation:none}.js .rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+@media (max-width:900px){
+ .wrapx,.hero-in,.chap-in{padding-left:20px;padding-right:20px}
+ .langbar{padding:8px 20px}
+ .g3,.sg,.fg,.u4,.s3,.rg{grid-template-columns:1fr 1fr}
+ .og,.pg,.cg{grid-template-columns:1fr}
+ .cards{grid-template-columns:1fr}
+ .card.ft{flex-direction:column}.card.ft .im{flex:none;min-height:0;aspect-ratio:16/9}
+ .top{padding:12px 20px}
+}
+@media (max-width:560px){
+ .g3,.sg,.fg,.u4,.s3,.rg{grid-template-columns:1fr}
+ .hero-in{padding-bottom:40px}
+ .chap{min-height:62vh}
+ .spec .r{grid-template-columns:7.5em 1fr}
+}
 </style>
 <script src="analytics.js" defer></script>
 </head>
 <body>
 <script src="/globalbar.js"></script>
-<div class="wrap">
-
-  <div class="hdr">
-    <a href="index.html" class="hdr-logo"><img src="images/markforged-logo-white.png" alt="Markforged"></a>
-    <div class="hdr-ev">大中华区媒体中心<br>News &amp; Insights</div>
-  </div>
-
-  <div class="langbar"><span>语言</span><a href="fx10-it-starts-here.html">繁體中文</a><a href="fx10-it-starts-here-sc.html" class="on">简体中文</a><a href="fx10-it-starts-here-en.html">English</a></div>
-
-  <div class="hero">
-    <img src="images/fx10-it-starts-here-hero.jpg" alt="FX10 放在工厂现场（Markforged 原厂照片）">
-    <div class="hero-ov"></div>
-    <div class="hero-top">
-      <div class="hero-kicker">产品方案 · FX10</div>
-      <div class="hero-title">必须可靠的零件，<br>从这里开始</div>
-    </div>
-    <div class="hero-btm"><div class="hero-meta">FX10 ｜ 汽车 · 航空航天 ｜ 2026.11.09</div></div>
-  </div>
-
-  <div class="ds"><div class="ds-l">汽车：性能关键　｜　航空航天：任务关键</div><div class="ds-r">金属＋连续碳纤维，同一台 FX10</div></div>
-
-  <div class="body">
-
-    <div class="lead">汽车装配线一停，每分钟都是损失；卫星升空没有重来的机会，航班也不会等缺件。在这些地方，零件不只要做得出来，还要在需要的时候就在现场，装上去就能用。<br><br><strong>FX10</strong> 是 Markforged 为工厂现场设计的工业级 3D 打印机：以连续碳纤维增强复合材料打印夹具与零件，加装 Metal Kit 后，同一台设备也能打印 316L、17-4PH 不锈钢与 H13 工具钢。以下是 Markforged 原厂发布的六个汽车与航空航天案例，每一则都附原文链接；案例使用的机型按原文标示。</div>
-
-    <div class="prof">
-      <img src="brian-chen.jpg" alt="陈中欣">
-      <div><div class="prof-n">陈中欣 Brian Chen</div><div class="prof-t">Markforged 大中华区暨越南区总经理</div><div class="prof-d">负责 Markforged 在台湾、中国、香港与越南的市场，长期与航空航天与精密制造领域的制造商合作。</div></div>
-    </div>
-
-    <div class="tags"><span class="tag">FX10</span><span class="tag ol">汽车</span><span class="tag ol">航空航天</span><span class="tag ol">连续碳纤维</span><span class="tag ol">金属打印</span></div>
-
-    <div class="vid"><video src="video/fx10-it-starts-here-automotive.mp4" poster="images/fx10-it-starts-here-auto-poster.jpg" title="Markforged 原厂视频：汽车篇，约 21 秒" controls playsinline preload="metadata"></video></div>
-    <div class="cap">原厂视频 · 汽车篇 Performance Critical ｜ 约 21 秒 ｜ Markforged</div>
-
-    <div class="sec">
-      <h2>汽车：性能关键</h2>
-      <h3>产线不能停，夹具和零件就得撑得住</h3>
-      <p><strong>Graham Rahal Performance（美国，超跑改装｜FX10）</strong>　过去师傅手工做一组夹具、支架或排气零件，要花 20 到 40 小时切割、成形、焊接；导入 FX10 后，同样的夹具在 CAD 画好、隔夜打印完成、隔天就用。为 1,000 匹马力的混动超跑 Lamborghini Revuelto 制作 X-pipe 排气时，GRP 用 FX10 以 316L 不锈钢打印出法兰，表面可直接焊接，几乎不需后加工。 <a href="https://markforged.com/resources/blog/automotive-additive-manufacturing-high-end-fabrication">原厂案例（英文）&nbsp;→</a></p>
-      <p><strong>Subaru of Indiana Automotive（美国，整车组装）</strong>　同一条线同时组装多个车型，夹具之间只差几毫米。原本用 ABS 打印的彩色夹具耐不住产线使用、容易开裂；改用 Onyx GF 后，每个车型配一种颜色，操作员第一次伸手就拿对夹具。用来贴保险杠 QR 追踪标签的定位夹具，精度做到 0.1 mm。 <a href="https://markforged.com/resources/blog/keeping-the-line-moving-color-coded-tooling-at-subaru">原厂案例（英文）&nbsp;→</a></p>
-      <p><strong>Dana Incorporated（全球车用传动与动力系统供应商｜X7）</strong>　Dana 在七个国家的基地部署 Markforged 打印机。意大利 Rovereto 工程中心用 X7 打印加工时固定零件的复合材料夹具，上线超过一年没有故障，每件夹具成本降低 70%、交期缩短 90%。 <a href="https://markforged.com/resources/case-studies/dana-incorporated">原厂案例（英文）&nbsp;→</a></p>
-      <div class="hl-grid">
-        <div class="hl"><b>20–40 小时 → 隔夜</b><span>GRP：手工夹具改用 FX10 打印</span></div>
-        <div class="hl"><b>0.1 mm</b><span>Subaru：Onyx GF 色码定位夹具的精度</span></div>
-        <div class="hl"><b>−70% ／ −90%</b><span>Dana：每件夹具的成本／交期</span></div>
-        <div class="hl"><b>316L 法兰</b><span>GRP：FX10 为 Revuelto 打印的排气法兰，可直接焊接</span></div>
-      </div>
-    </div>
-
-    <div class="ph-2col">
-      <img class="gi gi-43" src="images/fx10-it-starts-here-auto-bracket.jpg" alt="工程师在车辆引擎室安装打印支架">
-      <img class="gi gi-43" src="images/fx10-it-starts-here-auto-line.jpg" alt="汽车组装线">
-    </div>
-    <div class="cap">原厂视频画面：引擎室里的打印支架、汽车组装线</div>
-
-    <div class="sec">
-      <h2>Onyx GF：工厂现场一眼分得清</h2>
-      <h3>六种颜色、Onyx 等级的强度，还能加连续纤维增强</h3>
-      <p>Onyx GF 是以短切玻璃纤维增强的尼龙线材，保有 Onyx 的表面质量、尺寸精度与打印稳定性，而且不导电。共有红、黄、绿、蓝、灰、白六种颜色，夹具与零件直接用颜色区分，不必多一道标示工序；需要承受更高负荷时，也能在 FX10 上加入连续纤维增强。热变形温度 138 °C（1.8 MPa）。上面 Subaru 印第安纳厂的色码夹具，用的就是 Onyx GF。</p>
-      <div class="hl-grid">
-        <div class="hl"><b>安全警示</b><span>危险设备旁的护罩与支架用醒目的红、黄色打印</span></div>
-        <div class="hl"><b>产线区分</b><span>A 线、B 线的夹具用颜色分开，不会拿错</span></div>
-        <div class="hl"><b>版本管理</b><span>设计改版就换一个颜色打印，旧版夹具一眼就能淘汰</span></div>
-        <div class="hl"><b>工具管理</b><span>工具看板上颜色对不上，就知道少了哪一件或放错位置</span></div>
-      </div>
-    </div>
-
-    <div class="ph-full"><img src="images/fx10-it-starts-here-onyxgf.jpg" alt="Onyx GF 六色线材与绿色打印零件"></div>
-    <div class="cap">Onyx GF 六色线材与打印零件 ｜ Markforged 原厂图片</div>
-
-    <div class="sec">
-      <h2>航空航天：任务关键</h2>
-      <h3>飞上去之前，零件就得通过每一道检验</h3>
-      <p><strong>Plane Support × McDermott Aviation（澳大利亚，直升机工程与维修｜FX10）</strong>　Plane Support 以 FX10 为核心建立航空航天增材制造实验室，用具批次追溯的阻燃材料 Onyx FR-A 打印 Bell 214B 直升机的机舱空调风管，取得澳大利亚民航安全局（CASA）批准，可用增材制造生产这项零件。合作伙伴 McDermott Aviation 拥有全球最大的 214B 机队，主要投入森林火灾空中灭火。 <a href="https://markforged.com/resources/news-events/casa-approval-for-flight-ready-3d-printed-components">原厂案例（英文）&nbsp;→</a>　本站专文：<a href="casa-additive-airworthiness-sc.html">一截风管，换来亚太第一张民航增材制造批准</a></p>
-      <p><strong>Cabin Management Solutions（美国，私人飞机与公务机客舱系统｜X7）</strong>　CMS 为私人飞机与公务机提供客舱管理与机上娱乐系统的维修、升级与替换，取代原厂动辄漫长的交期与高价。公司 2019 年成立后购入两台 X7，以 UL 94 V-0 阻燃等级的 Onyx FR 打印机上娱乐系统改装件等最终使用零件，符合美国联邦航空管理局（FAA）的要求。 <a href="https://markforged.com/resources/case-studies/cabin-management-solutions">原厂案例（英文）&nbsp;→</a></p>
-      <p><strong>Hangar One Avionics（美国，航电维修与安装）</strong>　Hangar One 以碳纤维增强复合材料零件取代铝件，为直升机减重；并用 Markforged 的 Blacksmith 检测软件在打印过程中自动测量。原本每件人工测量要 30 到 45 分钟，导入后平均每件省下约 30 分钟。 <a href="https://markforged.com/resources/case-studies/hangar-one-avionics-implements-blacksmith-for-digitizing-part-inspection">原厂案例（英文）&nbsp;→</a></p>
-      <div class="hl-grid">
-        <div class="hl"><b>CASA 批准</b><span>Plane Support：FX10＋Onyx FR-A 生产 214B 风管</span></div>
-        <div class="hl"><b>UL 94 V-0</b><span>CMS：Onyx FR 阻燃等级，零件符合 FAA 要求</span></div>
-        <div class="hl"><b>每件省 30 分钟</b><span>Hangar One：打印中自动检测取代人工测量</span></div>
-        <div class="hl"><b>批次可追溯</b><span>Onyx FR-A：每批材料可追溯，备齐适航所需文件</span></div>
-      </div>
-    </div>
-
-    <div class="ph-full"><img src="images/fx10-it-starts-here-aero-cockpit.jpg" alt="技师在驾驶舱进行航电作业"></div>
-    <div class="cap">原厂视频画面：驾驶舱航电作业</div>
-
-    <div class="sec">
-      <h2>为什么是 FX10</h2>
-      <h3>金属和连续碳纤维在同一台机器上，就放在工厂现场</h3>
-      <p>上面六个案例的共同点，是零件在要用的地方做出来，不必等外协或等原厂备件。FX10 把复合材料与金属两种工艺放进同一台设备，让这件事从一个项目变成产线上的日常。</p>
-      <div class="hl-grid">
-        <div class="hl"><b>一机双料</b><span>平时用连续碳纤维增强复合材料打印夹具与零件；换上 Metal Kit 金属打印引擎，同一台打印 316L、17-4PH 不锈钢与 H13 工具钢（金属件搭配 Wash-1 清洗与 Sinter-2 烧结）</span></div>
-        <div class="hl"><b>边打印边测量</b><span>打印头上的激光测微仪在打印过程中扫描零件，搭配 Inspection 软件做尺寸验证；校正时也用它测量平台上的精密沟槽并自动补偿</span></div>
-        <div class="hl"><b>少人值守</b><span>自动调平、自动校正，四个独立密封料仓自动换料，工程师与现场操作员都能上手</span></div>
-        <div class="hl"><b>为工厂设计</b><span>腔体加热至 60 °C、精密研磨铝制真空平台、单相普通插座供电</span></div>
-      </div>
-      <p>复合材料可用 Onyx、Onyx FR／FR-A、Onyx ESD、Onyx GF 等材料，并可加入连续碳纤维增强。同时需要复合材料与金属零件，可参考 <a href="fx10-sinter2-bundle-sc.html">FX10 Sinter-2 Bundle</a>。</p>
-    </div>
-
-    <div class="ph-full"><img src="images/fx10-it-starts-here-fx10-interior.jpg" alt="FX10 打印头与打印平台（Markforged 原厂照片）"></div>
-    <div class="cap">FX10 打印头与打印平台 ｜ Markforged 原厂照片</div>
-
-    <div class="fs">
-      <div class="fs-h">FX10 主要规格</div>
-      <div class="fs-row"><div class="fs-k">可打印空间</div><div class="fs-v">375 × 300 × 300 mm（33.8 L）</div></div>
-      <div class="fs-row"><div class="fs-k">设备外形尺寸</div><div class="fs-v">760 × 640 × 1200 mm</div></div>
-      <div class="fs-row"><div class="fs-k">腔体</div><div class="fs-v">加热至 60 °C</div></div>
-      <div class="fs-row"><div class="fs-k">打印平台</div><div class="fs-v">加热、精密研磨铝制真空平台，自动调平</div></div>
-      <div class="fs-row"><div class="fs-k">材料仓</div><div class="fs-v">4 个 800 cc 料盘位，湿度控制，自动换料</div></div>
-      <div class="fs-row"><div class="fs-k">电源</div><div class="fs-v">单相，普通插座</div></div>
-      <div class="fs-row"><div class="fs-k">复合材料</div><div class="fs-v">Onyx、Onyx FR／FR-A、Onyx ESD、Onyx GF（六色），可加连续碳纤维增强</div></div>
-      <div class="fs-row"><div class="fs-k">金属材料</div><div class="fs-v">加购 Metal Kit：316L、17-4PH 不锈钢，H13 工具钢</div></div>
-    </div>
-
-    <div class="sec">
-      <h2>下载与延伸阅读</h2>
-      <h3>原厂电子书与本站相关报道</h3>
-      <p><a href="https://web-objects.markforged.com/craft/common/Markforged-Automotive-E-Book.pdf">下载原厂电子书：汽车行业的增材制造（英文 PDF，20 页）</a>　收录 GRP、Subaru、Dana 三个案例与 FX10、FX20、X7 机型介绍。</p>
-      <p><a href="casa-additive-airworthiness-sc.html">一截风管，换来亚太第一张民航增材制造批准</a>　Plane Support 案的完整报道。</p>
-      <p><a href="wescad-fx10-jigs-fixtures.html">参考夹具比铣削便宜最多 75%：德国夹具厂 WESCAD 导入 FX10</a>　另一个 FX10 夹具案例（繁体中文页面）。</p>
-    </div>
-
-  </div>
-
-  <div class="cta">
-    <h4>预约 FX10 演示或索取报价</h4>
-    <p>如果你的产线或维修现场也有不能出错的零件，发一个零件图档给我们，我们可以安排测试打印与设备演示。</p>
-    <a href="mailto:brian.chen@markforged.com?subject=FX10%20Demo%20%2F%20Quote" class="btn">发邮件给我们</a>
-  </div>
-
-  <div class="ftr">
-    Markforged 提供工业级增材制造系统与连续纤维复合材料，应用于航空航天、汽车与精密制造。本页由 Markforged 大中华区媒体中心发布；案例与视频来自 Markforged 原厂。<br><br>
-    <a href="index.html">返回媒体中心</a>　·　<a href="https://www.markforged.tw/">markforged.tw</a>
-  </div>
-
-</div>
+<script>document.documentElement.classList.add('js');</script>
+<div class="top"><a href="index.html" class="logo"><img src="images/markforged-logo-white.png" alt="Markforged"></a><div class="ev">大中华区媒体中心<br>News &amp; Insights</div></div>
+<div class="langbar"><span>语言</span><a href="fx10-it-starts-here.html">繁體中文</a><a href="fx10-it-starts-here-sc.html" class="on">简体中文</a><a href="fx10-it-starts-here-en.html">English</a></div>
+<div class="hero"><img class="poster" src="images/fx10-it-starts-here-hero-poster.jpg" alt="FX10 取出一整盘打印零件（Markforged 原厂视频画面）"><video autoplay muted loop playsinline preload="auto" poster="images/fx10-it-starts-here-hero-poster.jpg" aria-hidden="true"><source src="video/fx10-it-starts-here-hero-loop.mp4" type="video/mp4"></video><div class="hero-in"><div class="kicker">FX10 ・ 工业级复合材料＋金属 3D 打印</div><h1>不能出错的零件，<br>从这里开始。</h1><p class="sub">FX10 把连续碳纤维复合材料与金属打印放进同一台设备、放在工厂现场。隔夜打印完成的夹具、可直接焊接的 316L 法兰、获澳大利亚民航批准的直升机风管，都出自这台设备。</p><div class="btns"><a class="btn y" href="mailto:brian.chen@markforged.com?subject=FX10%20%E9%A2%84%E7%BA%A6%E6%BC%94%E7%A4%BA%EF%BC%8F%E7%B4%A2%E5%8F%96%E6%8A%A5%E4%BB%B7%EF%BD%9C%E9%A6%96%E5%B1%8F&amp;body=%E6%82%A8%E5%A5%BD%EF%BC%8C%0A%0A%E8%A1%8C%E4%B8%9A%EF%BC%9A%0A%E9%9B%B6%E4%BB%B6%E7%94%A8%E9%80%94%EF%BC%9A%0A%E9%A2%84%E8%AE%A1%E6%9D%90%E6%96%99%EF%BC%9A%0A%E6%89%80%E5%9C%A8%E5%9C%B0%E5%8C%BA%EF%BC%88%E5%8F%B0%E6%B9%BE%EF%BC%8F%E4%B8%AD%E5%9B%BD%EF%BC%8F%E9%A6%99%E6%B8%AF%EF%BC%8F%E8%B6%8A%E5%8D%97%EF%BC%89%EF%BC%9A%0A%0A%EF%BC%88%E5%A6%82%E6%9C%89%E9%9B%B6%E4%BB%B6%E5%9B%BE%E6%A1%A3%E8%AF%B7%E4%B8%80%E5%B9%B6%E9%99%84%E4%B8%8A%EF%BC%89%0A">预约演示／索取报价</a><a class="btn o" href="#cases">看六个原厂案例&nbsp;↓</a></div></div></div>
+<div class="ticker" aria-hidden="true"><div><span>Performance Critical</span><i>／</i><span>Mission Critical</span><i>／</i><span>Zero Compromise</span><i>／</i><span>If it has to work, it starts here</span><i>／</i><span>Performance Critical</span><i>／</i><span>Mission Critical</span><i>／</i><span>Zero Compromise</span><i>／</i><span>If it has to work, it starts here</span><i>／</i><span>Performance Critical</span><i>／</i><span>Mission Critical</span><i>／</i><span>Zero Compromise</span><i>／</i><span>If it has to work, it starts here</span><i>／</i><span>Performance Critical</span><i>／</i><span>Mission Critical</span><i>／</i><span>Zero Compromise</span><i>／</i><span>If it has to work, it starts here</span><i>／</i></div></div>
+<nav class="nav"><div class="wrapx"><a href="#ch-auto">汽车</a><a href="#onyx-gf">Onyx GF</a><a href="#ch-aero">航空航天</a><a href="#fx10">FX10 规格</a><a href="#contact">预约展示</a></div></nav>
+<section class="line3"><div class="wrapx"><h2 class="rv">FX10：一台机器，两种制程，就放在工厂现场</h2><div class="g3"><div class="rv"><b>一机双料</b><span>连续碳纤维复合材料印夹具与零件；换上 Metal Kit，同一台打印 316L、17-4PH 与 H13</span></div><div class="rv"><b>边打印边测量</b><span>打印头上的激光测微仪在打印中扫描零件，搭配 Inspection 软件验证尺寸</span></div><div class="rv"><b>为工厂设计</b><span>腔体加热至 60 °C、自动调平与自动换料、单相普通插座供电</span></div></div></div></section>
+<section class="stats" id="cases"><div class="wrapx"><div class="sec-h">机型照原文标示</div><h2>原厂案例实绩</h2><p class="note">数字取自 Markforged 原厂案例原文；机型照原文标示，并非每一案都是 FX10。</p><div class="sg"><div class="rv"><div class="n">20–40 小时 → 隔夜</div><div class="l">手工夹具改成 CAD 画好、隔夜打印完成</div><span class="src fx">GRP ・ FX10</span></div><div class="rv"><div class="n">CASA 批准</div><div class="l">Bell 214B 机舱空调风管获准以增材制造生产</div><span class="src fx">Plane Support ・ FX10</span></div><div class="rv"><div class="n">−70% ／ −90%</div><div class="l">每件夹具的成本／交期</div><span class="src">Dana ・ X7</span></div><div class="rv"><div class="n">0.1 mm</div><div class="l">Onyx GF 保险杠标签定位夹具的精度</div><span class="src">Subaru ・ 原文未写机型</span></div><div class="rv"><div class="n">约 30 分钟</div><div class="l">每件省下的人工测量时间</div><span class="src">Hangar One ・ 原文未写机型</span></div><div class="rv"><div class="n">UL 94 V-0</div><div class="l">Onyx FR 阻燃等级，零件符合 FAA 要求</div><span class="src">CMS ・ X7</span></div></div></div></section>
+<section class="finder"><div class="wrapx"><h2>你的零件是哪一种？</h2><p class="sub">点一下，直接看同类零件的原厂案例。</p><div class="fg"><a class="rv" href="#case-grp"><span><b>产线夹具与夹具</b><small>GRP · Subaru · Dana</small></span><span class="ar">→</span></a><a class="rv" href="#onyx-gf"><span><b>色码夹具</b><small>Subaru · Onyx GF</small></span><span class="ar">→</span></a><a class="rv" href="#case-grp"><span><b>可直接焊接的金属件</b><small>GRP · 316L</small></span><span class="ar">→</span></a><a class="rv" href="#case-plane"><span><b>阻燃、适航零件</b><small>Plane Support · CMS</small></span><span class="ar">→</span></a><a class="rv" href="#case-hangar"><span><b>以复合材料取代铝件</b><small>Hangar One</small></span><span class="ar">→</span></a></div></div></section>
+<section class="chap" id="ch-auto" style="background-image:url('images/fx10-it-starts-here-ch-auto.jpg')"><div class="chap-in"><div class="no">01</div><div class="big">Performance Critical.</div><h2>汽车：性能关键</h2><p>产线不停，夹具就不能先倒下。超跑改装厂、整车组装线、跨国传动系统供应商，三家都把夹具改成自己印。</p></div></section>
+<div class="chbody"><div class="wrapx">
+<div class="vid rv"><video src="video/fx10-it-starts-here-automotive.mp4" poster="images/fx10-it-starts-here-auto-poster.jpg" controls playsinline preload="metadata"></video></div><div class="vcap">原厂视频 · 汽车篇 Performance Critical ｜ 约 21 秒</div>
+<div class="cards"><article class="card rv ft" id="case-grp"><div class="im"><img src="images/fx10-it-starts-here-case-grp.jpg" alt="GRP 为 Lamborghini Revuelto 制作的 X-pipe 排气管" loading="lazy"></div><div class="bd"><div class="badges"><span class="bdg m fx">FX10</span></div><h3>Graham Rahal Performance：手工 20–40 小时的夹具，改成隔夜印好</h3><div class="tg">超跑改装 ・ 美国</div><p>师傅过去要花 20 到 40 小时切割、成形、焊接一组夹具、支架或排气零件；导入 FX10 后，CAD 画好、隔夜打印完成、隔天就用。为 1,000 匹马力的混动超跑 Lamborghini Revuelto 制作 X-pipe 排气时，GRP 用 FX10 以 316L 不锈钢打印出法兰，表面可直接焊接，几乎不需后加工。</p><div class="mt"><b>20–40 小时 → 隔夜</b><a href="https://markforged.com/resources/blog/automotive-additive-manufacturing-high-end-fabrication">原厂案例（英文）&nbsp;→</a></div></div></article><article class="card rv" id="case-subaru"><div class="im"><img src="images/fx10-it-starts-here-case-subaru.jpg" alt="Subaru 印第安纳厂组装线" loading="lazy"></div><div class="bd"><div class="badges"><span class="bdg m">原文未写机型</span><span class="bdg mat">材料 Onyx GF（FX10 可打印）</span></div><h3>Subaru of Indiana：ABS 夹具会裂，改用六色 Onyx GF</h3><div class="tg">整车组装 ・ 美国</div><p>同一条线同时组装多个车型，夹具之间只差几毫米。改用 Onyx GF 后，每个车型配一种颜色，操作员第一次伸手就拿对；保险杠 QR 追踪标签的定位夹具，精度做到 0.1 mm。</p><div class="mt"><b>0.1 mm</b><a href="https://markforged.com/resources/blog/keeping-the-line-moving-color-coded-tooling-at-subaru">原厂案例（英文）&nbsp;→</a></div></div></article><article class="card rv" id="case-dana"><div class="im"><img src="images/fx10-it-starts-here-case-dana.jpg" alt="Dana 以复合材料打印的工件夹持齿轮夹具" loading="lazy"></div><div class="bd"><div class="badges"><span class="bdg m">X7</span></div><h3>Dana：工件夹持夹具自己印，上线一年以上没坏</h3><div class="tg">车用传动系统 ・ 意大利</div><p>全球传动与动力系统供应商 Dana 在七个国家部署 Markforged 打印机。意大利 Rovereto 工程中心用 X7 印的复合材料夹具，上线超过一年没有故障，每件夹具成本降 70%、交期缩短 90%。</p><div class="mt"><b>−70% ／ −90%</b><a href="https://markforged.com/resources/case-studies/dana-incorporated">原厂案例（英文）&nbsp;→</a></div></div></article></div>
+<div class="chcta"><a href="mailto:brian.chen@markforged.com?subject=FX10%20%E9%9B%B6%E4%BB%B6%E8%AF%84%E4%BC%B0%EF%BC%88%E5%8F%91%E5%9B%BE%E6%A1%A3%EF%BC%89%EF%BD%9C%E6%B1%BD%E8%BD%A6&amp;body=%E6%82%A8%E5%A5%BD%EF%BC%8C%0A%0A%E8%A1%8C%E4%B8%9A%EF%BC%9A%0A%E9%9B%B6%E4%BB%B6%E7%94%A8%E9%80%94%EF%BC%9A%0A%E9%A2%84%E8%AE%A1%E6%9D%90%E6%96%99%EF%BC%9A%0A%E6%89%80%E5%9C%A8%E5%9C%B0%E5%8C%BA%EF%BC%88%E5%8F%B0%E6%B9%BE%EF%BC%8F%E4%B8%AD%E5%9B%BD%EF%BC%8F%E9%A6%99%E6%B8%AF%EF%BC%8F%E8%B6%8A%E5%8D%97%EF%BC%89%EF%BC%9A%0A%0A%EF%BC%88%E5%A6%82%E6%9C%89%E9%9B%B6%E4%BB%B6%E5%9B%BE%E6%A1%A3%E8%AF%B7%E4%B8%80%E5%B9%B6%E9%99%84%E4%B8%8A%EF%BC%89%0A">你的产线也有这种零件？寄图档给我们&nbsp;→</a></div>
+</div></div>
+<section class="onyx" id="onyx-gf"><div class="wrapx"><div class="og"><img class="rv" src="images/fx10-it-starts-here-onyxgf.jpg" alt="Onyx GF 六色线材与绿色打印零件（Markforged 原厂图片）" loading="lazy"><div class="rv"><div class="sec-h" style="color:#000">材料焦点</div><h2>Onyx GF：颜色就是管理</h2><p class="in">六色 Onyx GF 让夹具一眼看出属于哪条线、哪个版本、哪个危险区；Subaru 印第安纳厂的色码夹具就是用它印的。</p><div class="facts">短切玻璃纤维增强尼龙 ・ 不导电 ・ 红黄绿蓝灰白六色 ・ 可加连续纤维增强 ・ 热变形温度 138 °C（1.8 MPa）</div></div></div><div class="u4"><div class="rv"><b>安全警示</b><span>危险设备旁的护罩与支架用醒目的红、黄色打印</span></div><div class="rv"><b>产线区分</b><span>A 线、B 线的夹具用颜色分开，不会拿错</span></div><div class="rv"><b>版本管理</b><span>改版就换一个颜色打印，旧版夹具一眼就能淘汰</span></div><div class="rv"><b>工具管理</b><span>工具看板上颜色对不上，就知道少了哪一件</span></div></div></div></section>
+<section class="chap" id="ch-aero" style="background-image:url('images/fx10-it-starts-here-ch-aero.jpg')"><div class="chap-in"><div class="no">02</div><div class="big">Mission Critical.</div><h2>航空航天：任务关键</h2><p>飞上去之前，每一件都要过关。一家取得澳大利亚民航批准，一家符合美国 FAA 要求，一家把测量搬进打印过程。</p></div></section>
+<div class="chbody"><div class="wrapx">
+<div class="cards"><article class="card rv ft" id="case-plane"><div class="im"><img src="images/casa-214b-parts.jpg" alt="以 FX10 打印的 Bell 214B 机舱空调风管" loading="lazy"></div><div class="bd"><div class="badges"><span class="bdg m fx">FX10</span></div><h3>Plane Support：直升机风管用 FX10 印，取得 CASA 批准</h3><div class="tg">直升机工程与维修 ・ 澳大利亚</div><p>Plane Support 以 FX10 为核心建立航空航天增材制造实验室，用具批次追溯的阻燃材料 Onyx FR-A 印 Bell 214B 机舱空调风管，取得澳大利亚民航安全局（CASA）批准，可用增材制造生产这项零件。合作伙伴 McDermott Aviation 拥有全球最大的 214B 机队，主要投入森林火灾空中灭火。</p><div class="ex"><a href="casa-additive-airworthiness-sc.html">本站专文：一截风管，换来亚太第一张民航增材制造批准&nbsp;→</a></div><div class="mt"><b>CASA 批准</b><a href="https://markforged.com/resources/news-events/casa-approval-for-flight-ready-3d-printed-components">原厂案例（英文）&nbsp;→</a></div></div></article><article class="card rv" id="case-cms"><div class="im"><img src="images/fx10-it-starts-here-case-cms.jpg" alt="公务机" loading="lazy"></div><div class="bd"><div class="badges"><span class="bdg m">X7</span><span class="bdg mat">材料 Onyx FR（FX10 可打印）</span></div><h3>Cabin Management Solutions：公务机客舱改装件，用阻燃 Onyx FR 印</h3><div class="tg">私人与商务航空 ・ 美国</div><p>CMS 为私人飞机与公务机维修、升级与替换客舱管理和机上娱乐系统。2019 年成立后购入两台 X7，以 UL 94 V-0 阻燃等级的 Onyx FR 打印机上娱乐系统改装件等最终使用零件，符合美国联邦航空管理局（FAA）要求。</p><div class="mt"><b>UL 94 V-0</b><a href="https://markforged.com/resources/case-studies/cabin-management-solutions">原厂案例（英文）&nbsp;→</a></div></div></article><article class="card rv" id="case-hangar"><div class="im"><img src="images/fx10-it-starts-here-case-hangar.jpg" alt="Hangar One 以复合材料打印的座舱控制台零件" loading="lazy"></div><div class="bd"><div class="badges"><span class="bdg m">原文未写机型</span></div><h3>Hangar One Avionics：以碳纤维复合材料取代铝件，测量搬进打印过程</h3><div class="tg">航电维修与安装 ・ 美国</div><p>以碳纤维增强复合材料零件取代铝件，为直升机减重；并用 Markforged 的 Blacksmith 检测软件在打印过程中自动测量。原本每件人工测量要 30 到 45 分钟，导入后平均每件省下约 30 分钟。</p><div class="mt"><b>每件省约 30 分钟</b><a href="https://markforged.com/resources/case-studies/hangar-one-avionics-implements-blacksmith-for-digitizing-part-inspection">原厂案例（英文）&nbsp;→</a></div></div></article></div>
+<div class="chcta"><a href="mailto:brian.chen@markforged.com?subject=FX10%20%E9%9B%B6%E4%BB%B6%E8%AF%84%E4%BC%B0%EF%BC%88%E5%8F%91%E5%9B%BE%E6%A1%A3%EF%BC%89%EF%BD%9C%E8%88%AA%E7%A9%BA%E8%88%AA%E5%A4%A9&amp;body=%E6%82%A8%E5%A5%BD%EF%BC%8C%0A%0A%E8%A1%8C%E4%B8%9A%EF%BC%9A%0A%E9%9B%B6%E4%BB%B6%E7%94%A8%E9%80%94%EF%BC%9A%0A%E9%A2%84%E8%AE%A1%E6%9D%90%E6%96%99%EF%BC%9A%0A%E6%89%80%E5%9C%A8%E5%9C%B0%E5%8C%BA%EF%BC%88%E5%8F%B0%E6%B9%BE%EF%BC%8F%E4%B8%AD%E5%9B%BD%EF%BC%8F%E9%A6%99%E6%B8%AF%EF%BC%8F%E8%B6%8A%E5%8D%97%EF%BC%89%EF%BC%9A%0A%0A%EF%BC%88%E5%A6%82%E6%9C%89%E9%9B%B6%E4%BB%B6%E5%9B%BE%E6%A1%A3%E8%AF%B7%E4%B8%80%E5%B9%B6%E9%99%84%E4%B8%8A%EF%BC%89%0A">你的产线也有这种零件？寄图档给我们&nbsp;→</a></div>
+</div></div>
+<section class="prod" id="fx10"><div class="wrapx"><div class="pg"><img class="rv" src="images/fx10-it-starts-here-fx10.jpg" alt="FX10（Markforged 原厂产品照）" loading="lazy"><div class="rv"><div class="sec-h">为什么是 FX10</div><h2>一台机器，两种制程，<br>就在你的厂房。</h2><p class="b">平时用连续碳纤维复合材料印夹具与零件；换上 Metal Kit 金属打印引擎，同一台打印 316L、17-4PH 不锈钢与 H13 工具钢，金属件再经 Wash-1 清洗与 Sinter-2 烧结完成。打印头上的激光测微仪边印边量，自动调平、自动换料，工程师与现场操作员都能上手。</p><div class="spec"><h3>FX10 主要规格</h3><div class="r"><span>可打印空间</span><span>375 × 300 × 300 mm（33.8 L）</span></div><div class="r"><span>设备外形尺寸</span><span>760 × 640 × 1200 mm</span></div><div class="r"><span>腔体</span><span>加热至 60 °C</span></div><div class="r"><span>打印平台</span><span>加热、精密研磨铝制真空平台，自动调平</span></div><div class="r"><span>材料仓</span><span>4 个 800 cc 料盘位，湿度控制，自动换料</span></div><div class="r"><span>电源</span><span>单相，普通插座</span></div><div class="r"><span>复合材料</span><span>Onyx、Onyx FR／FR-A、Onyx ESD、Onyx GF（六色），可加连续碳纤维增强</span></div><div class="r"><span>金属材料</span><span>加购 Metal Kit：316L、17-4PH 不锈钢，H13 工具钢</span></div></div><p class="bundle">同时要做复合材料与金属零件？<a href="fx10-sinter2-bundle-sc.html">看 FX10 Sinter-2 Bundle&nbsp;→</a></p></div></div></div></section>
+<section class="steps"><div class="wrapx"><h2>下一步怎么走</h2><div class="s3"><div class="rv"><b>寄零件图档</b><span>附上产业、零件用途、预计材料与所在地区</span></div><div class="rv"><b>测试打印</b><span>我们依你的零件安排测试打印</span></div><div class="rv"><b>机台展示与报价</b><span>安排 FX10 机台展示，并提供报价</span></div></div></div></section>
+<section class="cta" id="contact"><div class="wrapx"><div class="cg"><div class="rv"><h2>把最不能出错的那一件，寄给我们。</h2><p>寄一个零件图档，我们可以安排测试打印与 FX10 机台展示，并提供报价。来信请附产业、零件用途、预计材料与所在地区（台湾、中国、香港、越南）。</p><div class="btns"><a class="btn k" href="mailto:brian.chen@markforged.com?subject=FX10%20%E9%A2%84%E7%BA%A6%E6%BC%94%E7%A4%BA%EF%BC%8F%E7%B4%A2%E5%8F%96%E6%8A%A5%E4%BB%B7%EF%BD%9C%E8%A1%8C%E5%8A%A8%E5%8C%BA&amp;body=%E6%82%A8%E5%A5%BD%EF%BC%8C%0A%0A%E8%A1%8C%E4%B8%9A%EF%BC%9A%0A%E9%9B%B6%E4%BB%B6%E7%94%A8%E9%80%94%EF%BC%9A%0A%E9%A2%84%E8%AE%A1%E6%9D%90%E6%96%99%EF%BC%9A%0A%E6%89%80%E5%9C%A8%E5%9C%B0%E5%8C%BA%EF%BC%88%E5%8F%B0%E6%B9%BE%EF%BC%8F%E4%B8%AD%E5%9B%BD%EF%BC%8F%E9%A6%99%E6%B8%AF%EF%BC%8F%E8%B6%8A%E5%8D%97%EF%BC%89%EF%BC%9A%0A%0A%EF%BC%88%E5%A6%82%E6%9C%89%E9%9B%B6%E4%BB%B6%E5%9B%BE%E6%A1%A3%E8%AF%B7%E4%B8%80%E5%B9%B6%E9%99%84%E4%B8%8A%EF%BC%89%0A">预约演示／索取报价</a><a class="btn ok" href="mailto:brian.chen@markforged.com?subject=FX10%20%E9%9B%B6%E4%BB%B6%E8%AF%84%E4%BC%B0%EF%BC%88%E5%8F%91%E5%9B%BE%E6%A1%A3%EF%BC%89%EF%BD%9C%E8%A1%8C%E5%8A%A8%E5%8C%BA&amp;body=%E6%82%A8%E5%A5%BD%EF%BC%8C%0A%0A%E8%A1%8C%E4%B8%9A%EF%BC%9A%0A%E9%9B%B6%E4%BB%B6%E7%94%A8%E9%80%94%EF%BC%9A%0A%E9%A2%84%E8%AE%A1%E6%9D%90%E6%96%99%EF%BC%9A%0A%E6%89%80%E5%9C%A8%E5%9C%B0%E5%8C%BA%EF%BC%88%E5%8F%B0%E6%B9%BE%EF%BC%8F%E4%B8%AD%E5%9B%BD%EF%BC%8F%E9%A6%99%E6%B8%AF%EF%BC%8F%E8%B6%8A%E5%8D%97%EF%BC%89%EF%BC%9A%0A%0A%EF%BC%88%E5%A6%82%E6%9C%89%E9%9B%B6%E4%BB%B6%E5%9B%BE%E6%A1%A3%E8%AF%B7%E4%B8%80%E5%B9%B6%E9%99%84%E4%B8%8A%EF%BC%89%0A">发零件图档</a></div><p class="eb">还在研究？<a href="https://web-objects.markforged.com/craft/common/Markforged-Automotive-E-Book.pdf">下载原厂汽车行业电子书（英文 PDF，20 页）&nbsp;→</a></p></div><div class="win rv"><img src="brian-chen.jpg" alt="陈中欣 Brian Chen"><div><small>你的窗口</small><b>陈中欣 Brian Chen</b><div class="t">Markforged 大中华区暨越南区总经理</div><div class="d">台湾、中国、香港、越南的 FX10 展示与报价，都可以直接找我。</div><a href="mailto:brian.chen@markforged.com">brian.chen@markforged.com</a></div></div></div></div></section>
+<section class="read"><div class="wrapx"><h2>延伸阅读</h2><div class="rg"><a class="rv" href="casa-additive-airworthiness-sc.html"><b>一截风管，换来亚太第一张民航增材制造批准</b><small>Plane Support 案完整报道</small></a><a class="rv" href="fx10-sinter2-bundle-sc.html"><b>一台机器，复合材料与金属都能做：FX10 Sinter-2 Bundle</b><small>主机、金属打印引擎、清洗站、烧结炉一套四件</small></a></div></div></section>
+<footer class="ftr"><div class="wrapx">Markforged 提供工业级增材制造系统与连续纤维复合材料，应用于航空航天、汽车与精密制造。本页由 Markforged 大中华区媒体中心发布；案例、视频与照片来自 Markforged 原厂，数字取自原厂案例原文。<br><br><a href="index.html">返回媒体中心</a>　·　<a href="https://www.markforged.tw/">markforged.tw</a></div></footer>
+<script>
+document.documentElement.classList.add('js');
+(function(){
+  var els=document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){io.observe(e)});
+  // 保險：捲到接近頁底時，還沒出場的一律顯示（避免頁尾前的元素永遠進不了觀察範圍）
+  window.addEventListener('scroll',function(){
+    if(window.innerHeight+window.scrollY>=document.body.scrollHeight-400){els.forEach(function(e){e.classList.add('in')});}
+  },{passive:true});
+})();
+</script>
 </body>
 </html>
