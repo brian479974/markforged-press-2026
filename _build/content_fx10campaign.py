@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-"""FX10 活動頁（If it has to work, it starts here.）— 繁中／英文內容源（唯一真相）。
+"""
+FX10 活動頁（If it has to work, it starts here.）— 繁中／英文內容源（唯一真相）。
 
 2026-11-11 建立。Brian 交辦：仿 HQ「FX Series Campaign-in-a-Box」的主題，在 news.markforged.tw
 做一頁推廣 FX10。Brian 定案：案例全放；先做繁中與英文；簡中版另外做、拿掉國防內容
@@ -29,6 +30,13 @@
   ✗ 金屬最大零件尺寸（三層口徑，活動頁不需要）
   ✗ ULTEM 9085 FAR 25.853（屬 FX20，且原廠 ULTEM 規格表無 FST 紀錄）
 """
+
+# ⛔ 2026-11-11 起本頁改由 build_fx10_landing.py（內容源 content_fx10landing.py）產出活動主視覺版。
+#    這支是第一版文章版的內容源，只留作紀錄；用 build_article.py 重建會把線上新版蓋回舊版，所以直接擋。
+import os as _os
+if _os.environ.get("ARTICLE_CONTENT", "").startswith("content_fx10campaign"):
+    raise SystemExit("⛔ fx10-it-starts-here 已改版為活動主視覺版：請跑 python3 _build/build_fx10_landing.py，不要用 build_article.py 重建")
+
 
 LANGS = ("tw", "en")
 # 簡中版另由 content_fx10campaign_sc.py 產出（拿掉國防內容，結構不同）；語言切換列與 hreflang 仍列三語
