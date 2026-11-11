@@ -170,7 +170,7 @@ def render(lang):
     A(f"<style>{STYLE}</style>")
     # 瀏覽統計 beacon（供應商可換 · 不放 cookie · 尊重 DNT）
     A('<script src="analytics.js" defer></script>')
-    A("</head>\n<body>\n<div class=\"wrap\">\n")
+    A("</head>\n<body>\n<script src=\"/globalbar.js\"></script>\n<div class=\"wrap\">\n")   # 2026-11-11 對齊線上：每頁 <body> 後第一行掛全站導覽列（globalbar.js 檔頭規定）
 
     A('  <div class="hdr">')
     A('    <a href="index.html" class="hdr-logo"><img src="images/markforged-logo-white.png" alt="Markforged"></a>')
@@ -321,7 +321,7 @@ def render(lang):
     A('  <div class="ftr">')
     A(f'    {t(FTR["about"], lang, "ftr.about")}<br><br>')
     A(f'    <a href="index.html">{t(FTR["back"], lang, "ftr.back")}</a>　·　'
-      '<a href="https://markforged.tw">markforged.tw</a>')
+      '<a href="https://www.markforged.tw/">markforged.tw</a>')   # 2026-11-11 對齊線上：不帶 www 的舊主機連不上
     A('  </div>\n\n</div>\n</body>\n</html>\n')
     return "\n".join(P)
 
