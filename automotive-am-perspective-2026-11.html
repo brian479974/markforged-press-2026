@@ -168,6 +168,9 @@ body:has(#mfg-bar) .top .logo{visibility:hidden}  /* 全站導覽列已有 logo�
 .win .t{font-size:13px;color:#ccc}
 .win .d{font-size:13.5px;color:#eee;margin-top:8px;line-height:1.6}
 .win a{color:var(--y);font-size:13.5px;font-weight:700}
+/* 2026-11-11 手機版面：窄螢幕時行動區兩欄不准被內容撐寬；聯絡卡縮小頭像、email 可斷行 */
+@media (max-width:900px){.cg>*{min-width:0}}
+@media (max-width:560px){.win{padding:22px;gap:14px}.win img{width:64px;height:64px}.win a{overflow-wrap:anywhere}}
 /* 延伸閱讀 */
 .read{padding:68px 0;background:#fff}
 .read h2{font-size:22px;font-weight:900;margin-bottom:18px}
