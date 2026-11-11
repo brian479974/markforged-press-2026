@@ -43,6 +43,7 @@
    "zh": "觀點與專訪",
    "en": "Perspectives & Interviews",
    "slugs": [
+    "automotive-am-perspective-2026-11",
     "non-red-three-checks-2026-10",
     "fleet-qualified-process-2026-10",
     "supply-chain-three-layers-2026-10",
@@ -203,6 +204,10 @@
   "fx10-it-starts-here": [
    "2026-11-09",
    "HQ FX Series Campaign-in-a-Box 交付夥伴日（Showpad 素材上傳 11-06、通知信 11-10）；本站依此做的 FX10 活動頁"
+  ],
+  "automotive-am-perspective-2026-11": [
+   "2026-11-11",
+   "本站本週專題（產業觀點）首次公開日；骨架取自 Markforged 原廠汽車產業頁"
   ]
  }
 }
