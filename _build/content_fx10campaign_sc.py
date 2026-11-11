@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-"""FX10 活動頁 — 簡中版內容源（2026-11-11）。
+"""
+FX10 活動頁 — 簡中版內容源（2026-11-11）。
 
 Brian 指示：「簡體中文需要另外做把國防內容拿掉」→ 隔一則：「繁體中文 英文 簡體中文都要做啊」。
 所以簡中版和繁英版結構不同，不能放進同一支內容源（G2 結構同形閘會擋），另檔產出：
@@ -10,6 +11,13 @@ Brian 指示：「簡體中文需要另外做把國防內容拿掉」→ 隔一�
   · 保留：汽車三案、航太三案（皆民航／商務航空）、為什麼是 FX10、規格表、延伸閱讀
   · 語言切換列仍列三語（LINK_LANGS），繁英頁也連得到簡中頁
 """
+
+# ⛔ 2026-11-11 起本頁改由 build_fx10_landing.py（內容源 content_fx10landing.py）產出活動主視覺版。
+#    這支是第一版文章版的內容源，只留作紀錄；用 build_article.py 重建會把線上新版蓋回舊版，所以直接擋。
+import os as _os
+if _os.environ.get("ARTICLE_CONTENT", "").startswith("content_fx10campaign"):
+    raise SystemExit("⛔ fx10-it-starts-here 已改版為活動主視覺版：請跑 python3 _build/build_fx10_landing.py，不要用 build_article.py 重建")
+
 import copy
 import opencc
 
