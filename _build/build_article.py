@@ -26,6 +26,9 @@ SOURCE_MD = getattr(_C, "SOURCE_MD", None)
 COVERAGE_EXEMPT = getattr(_C, "COVERAGE_EXEMPT", {})
 TAGS, BLOCKS, CTA, SRC, FTR = _C.TAGS, _C.BLOCKS, _C.CTA, _C.SRC, _C.FTR
 LANGS, APPROVED_QUOTES, DOC_TERMS = _C.LANGS, _C.APPROVED_QUOTES, _C.DOC_TERMS
+# 2026-11-11：簡中版內容與繁英不同時（例：FX10 活動頁簡中拿掉國防段，Brian 指示）另用一支內容源產出，
+# 結構不同不能放進同一個 G2。LINK_LANGS＝語言切換列與 hreflang 要列出的全部語版；沒給就等於 LANGS（既有文章不受影響）。
+LINK_LANGS = getattr(_C, "LINK_LANGS", LANGS)
 
 OUT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -146,7 +149,7 @@ def t(node, lang, path):
 
 def langbar(cur):
     links = []
-    for L in LANGS:
+    for L in LINK_LANGS:
         cls = ' class="on"' if L == cur else ""
         links.append(f'<a href="{META["file"][L]}"{cls}>{LANG_NAMES[L]}</a>')
     return (f'  <div class="langbar"><span>{t(UI["switch_label"], cur, "switch_label")}</span>'
@@ -164,7 +167,7 @@ def render(lang):
     A(f'<meta property="og:description" content="{t(META["og_desc"], lang, "og_desc")}">')
     A(f'<meta property="og:image" content="{META.get("og_image", "https://news.markforged.tw/images/hero-factory-floor.jpg")}">')
     A('<meta property="og:type" content="article">')
-    for L in LANGS:
+    for L in LINK_LANGS:
         A(f'<link rel="alternate" hreflang="{META["lang_attr"][L]}" '
           f'href="https://news.markforged.tw/{META["file"][L]}">')
     A(f"<style>{STYLE}</style>")
@@ -358,13 +361,16 @@ def main():
         for L in LANGS:
             print(f"   {L}: sec/img/hl/li/cap/qc/fs/ab/mc/end/who = {shape[L]}")
         sys.exit("✗ G2 結構同形閘：三版結構不一致")
-    print(f"  ✅ G2 結構同形：sec/img/hl/li/cap/qc/fs/ab/mc/end/who = {shape['tw']}（三版一致）")
+    print(f"  ✅ G2 結構同形：sec/img/hl/li/cap/qc/fs/ab/mc/end/who = {shape[LANGS[0]]}（{len(LANGS)} 版一致）")
 
     # G3 英文純度
-    cjk = re.findall(r"[一-鿿　-〿＀-￯]", text_of(out["en"]))
+    if "en" not in LANGS:
+        print("  ⏭  G3 英文純度：本內容源不產英文版，本閘不適用（英文版由另一支內容源產出並受檢）")
+    cjk = re.findall(r"[一-鿿　-〿＀-￯]", text_of(out["en"])) if "en" in LANGS else []
     if cjk:
         sys.exit(f"✗ G3 英文純度閘：英文版殘留 {len(cjk)} 個 CJK/全形字元：{''.join(sorted(set(cjk))[:30])}")
-    print("  ✅ G3 英文純度：英文版零 CJK／全形字元")
+    if "en" in LANGS:
+        print("  ✅ G3 英文純度：英文版零 CJK／全形字元")
 
     # G4 簡繁殘留 —— 以 OpenCC t2s 轉換後比對，有差異即代表殘留繁體
     # 2026-11-03：文章可以不出簡中版（LANGS 不含 "cn"，例：IV Day 演講 Brian「不做簡體中文版」）→ 本閘明講 SKIP，不假裝驗過
@@ -452,7 +458,7 @@ def main():
         px = list(im.getdata()); avg = sum(px) / len(px)
         return sum(1 << i for i, v in enumerate(px) if v > avg)
 
-    srcs = [m for m in re.findall(r'<img[^>]+src="([^"]+)"', out["tw"])
+    srcs = [m for m in re.findall(r'<img[^>]+src="([^"]+)"', out[LANGS[0]])
             if "logo" not in m.lower()]
     dupes = [x for x in set(srcs) if srcs.count(x) > 1]
     if dupes:
