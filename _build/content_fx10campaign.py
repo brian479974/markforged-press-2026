@@ -3,7 +3,8 @@
 
 2026-11-11 建立。Brian 交辦：仿 HQ「FX Series Campaign-in-a-Box」的主題，在 news.markforged.tw
 做一頁推廣 FX10。Brian 定案：案例全放；先做繁中與英文；簡中版另外做、拿掉國防內容
-（簡中版不在本檔，LANGS 只有 tw/en，已登記 langbar_lang_exceptions.json）。
+（簡中版另由 content_fx10campaign_sc.py 產出；2026-11-11 Brian「繁體中文 英文 簡體中文都要做啊」→ 三語齊，
+語言例外登記已撤）。
 
 素材來源（vault）：MF-GCR/85_Content/APAC-Shared/FX-Series-Campaign-in-a-Box-2026-11/
   · 影片＝原廠 MF_Floor Notes_Automotive／Aerospace Defense_Horizontal_110526.mp4，轉 1080p 自託管
@@ -30,6 +31,8 @@
 """
 
 LANGS = ("tw", "en")
+# 簡中版另由 content_fx10campaign_sc.py 產出（拿掉國防內容，結構不同）；語言切換列與 hreflang 仍列三語
+LINK_LANGS = ("tw", "cn", "en")
 SHOW_SOURCES = False   # Brian 2026-09-24：資料來源段不對外顯示（出處改掛在正文連結）
 
 S = "fx10-it-starts-here"
@@ -57,8 +60,8 @@ def _lk(key, lang):
 
 
 META = {
-    "lang_attr": {"tw": "zh-TW", "en": "en"},
-    "file": {"tw": f"{S}.html", "en": f"{S}-en.html"},
+    "lang_attr": {"tw": "zh-TW", "cn": "zh-CN", "en": "en"},
+    "file": {"tw": f"{S}.html", "cn": f"{S}-sc.html", "en": f"{S}-en.html"},
     "hero": f"images/{S}-hero.jpg",
     "og_image": f"https://news.markforged.tw/images/{S}-hero.jpg",
     "title": {
@@ -210,6 +213,50 @@ BLOCKS = [
                  {"tw": "汽車組裝線", "en": "An automotive assembly line"}],
         "cap": {"tw": "原廠影片畫格：引擎室裡的列印支架、汽車組裝線",
                 "en": "Frames from the official film: a printed bracket in an engine bay, an assembly line"},
+    },
+    # ── Onyx GF（Brian 2026-11-11「Onyx GF 應該要加上去」）────────────────────
+    # 出處：原廠 Onyx GF Material Datasheet（vault 60_Products/support/datasheets/OnyxGF-MaterialDatasheet.pdf）
+    #       「Available in six colors」「non-conductive」「Compatible with Continuous Fiber Reinforcement」
+    #       HDT 138 °C（1.8 MPa）；四種用法取自原廠汽車電子書 p.14。
+    #       ⚠️ 電子書寫 seven colors，與規格表 six colors 不符 → 以規格表為準。
+    {
+        "kind": "sec",
+        "h2": {"tw": "Onyx GF：工廠現場一眼分得清", "en": "Onyx GF: color you can read across the floor"},
+        "h3": {"tw": "六種顏色、Onyx 等級的強度，還能加連續纖維強化",
+               "en": "Six colors, Onyx-level strength, and room for continuous fiber reinforcement"},
+        "paras": [
+            {"tw": "Onyx GF 是以短切玻璃纖維強化的尼龍線材，保有 Onyx 的表面品質、尺寸精度與列印穩定性，而且不導電。"
+                   "共有紅、黃、綠、藍、灰、白六種顏色，治具與零件直接用顏色區分，不必多一道標示工序；"
+                   "需要承受更高負荷時，也能在 FX10 上加入連續纖維強化。熱變形溫度 138 °C（1.8 MPa）。"
+                   "上面 Subaru 印第安納廠的色碼治具，用的就是 Onyx GF。",
+             "en": "Onyx GF is a chopped-glass-fiber-filled nylon that keeps the surface finish, dimensional "
+                   "accuracy and print reliability of Onyx, and is non-conductive. It comes in six colors: red, "
+                   "yellow, green, blue, gray and white, so fixtures and parts are told apart by color with no "
+                   "extra labeling step. For higher loads, it can be reinforced with continuous fiber on the FX10. "
+                   "Heat deflection temperature is 138 °C (1.8 MPa). The color-coded jigs at Subaru of Indiana "
+                   "above are printed in Onyx GF."},
+        ],
+        "hl": [
+            {"b": {"tw": "工安警示", "en": "WORKPLACE SAFETY"},
+             "s": {"tw": "危險機台旁的護罩與支架用醒目的紅、黃色列印",
+                   "en": "High-visibility red and yellow guards and brackets near hazardous machinery"}},
+            {"b": {"tw": "產線區分", "en": "LINE DIFFERENTIATION"},
+             "s": {"tw": "A 線、B 線的治具用顏色分開，不會拿錯",
+                   "en": "Tools for Line A and Line B are separated by color"}},
+            {"b": {"tw": "版本控管", "en": "REVISION CONTROL"},
+             "s": {"tw": "設計改版就換一個顏色印，舊版治具一眼就能淘汰",
+                   "en": "Print a new revision in a new color, and old fixtures are phased out at a glance"}},
+            {"b": {"tw": "工具管理", "en": "TOOL ORGANIZATION"},
+             "s": {"tw": "工具板上顏色對不上，就知道少了哪一件或放錯位置",
+                   "en": "A color mismatch on the shadow board shows what is missing or misplaced"}},
+        ],
+    },
+    {
+        "kind": "img_full",
+        "img": f"images/{S}-onyxgf.jpg",
+        "alt": {"tw": "Onyx GF 六色線材與綠色列印零件", "en": "Onyx GF spools in six colors and a part printed in green"},
+        "cap": {"tw": "Onyx GF 六色線材與列印零件 ｜ Markforged 原廠圖片",
+                "en": "Onyx GF in six colors, and a printed part | official Markforged images"},
     },
     # ── 航太 ───────────────────────────────────────────────────────────────
     {
@@ -396,6 +443,9 @@ BLOCKS = [
                    "en": "4 × 800 cc spool bays, humidity controlled, automatic changeover"}},
             {"k": {"tw": "電源", "en": "Power"},
              "v": {"tw": "單相，一般插座", "en": "Single phase, wall plug"}},
+            {"k": {"tw": "複合材料", "en": "Composite materials"},
+             "v": {"tw": "Onyx、Onyx FR／FR-A、Onyx ESD、Onyx GF（六色），可加連續碳纖維強化",
+                   "en": "Onyx, Onyx FR / FR-A, Onyx ESD, Onyx GF (six colors), with continuous carbon fiber reinforcement"}},
             {"k": {"tw": "金屬材料", "en": "Metal materials"},
              "v": {"tw": "加購 Metal Kit：316L、17-4PH 不鏽鋼，H13 工具鋼", "en": "With the Metal Kit: 316L, 17-4PH stainless steel; H13 tool steel"}},
         ],
@@ -458,4 +508,4 @@ DOC_TERMS = ["FX10", "FX20", "X7", "Metal Kit", "Wash-1", "Sinter-2", "Markforge
              "McDermott Aviation", "Cabin Management Solutions", "CMS", "Hangar One Avionics", "Hangar One",
              "Fort Irwin", "Cannon", "Lamborghini Revuelto", "X-pipe", "Bell", "QR", "CAD", "Rovereto",
              "Digital Forge", "WESCAD", "If it has to work, it starts here.", "Performance Critical",
-             "Mission Critical", "News &amp; Insights", "Build Volume"]
+             "Mission Critical", "News &amp; Insights", "Build Volume", "Onyx GF", "MPa"]
