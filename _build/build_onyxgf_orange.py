@@ -306,6 +306,7 @@ CSS_EXTRA = f"""
  .ohero .tx{{padding:40px 0 8px}}
  .ohero .im{{justify-self:center;max-width:360px;order:-1;margin:8px auto -28px}}   /* 手機首屏先看到橘色零件 */
  .pal .pg2,.sp .two{{grid-template-columns:1fr}}
+ .why .g3{{grid-template-columns:1fr}}   /* 三個理由在 2 欄時第 4 格是空的灰塊（11-13 信件截圖抓到）→ 窄螢幕直接單欄 */
 }}
 @media (max-width:560px){{
  .chips{{grid-template-columns:repeat(4,1fr)}}
