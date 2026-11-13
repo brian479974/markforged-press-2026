@@ -12,7 +12,7 @@ hreflang、頁尾 www.markforged.tw。
   L2 英文純度   英文頁文字層（不含語言切換列）零 CJK／全形字元
   L3 簡中       OpenCC t2s 回驗零差異；國防字眼零；台灣用語零
   L4 引號       可見文字不得出現引號包句（網站冒名引言閘的同一條規則）
-  L5 禁用字     Metal X、PX100、65%、ULTEM、FX10 重量、七色、Onyx Pro
+  L5 禁用字     Metal X、PX100、65%、ULTEM、FX10 重量、六色（2026-11-13 起 Onyx GF 七色）、Onyx Pro
   L6 機型標籤   每張案例卡都有機型標籤；標成 FX10 的只能是 GRP 與 Plane Support
   L7 資源存在   每個 img／video／poster 檔案都在，且同一頁同一張圖不重複
   L8 網站共用件 globalbar 在 <body> 後第一行、analytics.js、www 頁尾、三語切換恰一個 on、hreflang 三條
@@ -439,7 +439,7 @@ def gates(out):
         fail(f"L4 引號：{L} 版有 {len(q)} 個") if q else None
     print("  ✅ L4 引號：三版可見文字零引號") if ok else None
     # L5
-    ban = ["Metal X", "PX100", "65%", "ULTEM", "109 kg", "122 kg", "seven colors", "七色", "七種", "Onyx Pro", "bella", "claude", "MF-GCR"]
+    ban = ["Metal X", "PX100", "65%", "ULTEM", "109 kg", "122 kg", "six colors", "six-color", "六色", "Onyx Pro", "bella", "claude", "MF-GCR"]
     for L, h in out.items():
         hit = [b for b in ban if b.lower() in h.lower()]
         fail(f"L5 禁用字：{L} 版 {hit}") if hit else None
