@@ -16,7 +16,8 @@ analytics.js、三語 langbar、hreflang、頁尾 www.markforged.tw。
   · 原廠 Onyx GF Material Datasheet V01（vault MF-GCR/60_Products/support/datasheets/）—— 只取不會讀錯欄的數字
     （抗拉強度 yield／break 兩列在 PDF 版面上容易對調，不寫）；規格表未依顏色分列，頁面照實註明
   · 2026-06 原廠上市信：印 Onyx GF 必須先換硬化塑料噴嘴，否則損壞列印系統
-  · Subaru 案沿用 FX10 活動頁已逐句對過的寫法（原文未寫機型）
+  · Subaru 案：2026-11-13 整段擴寫成完整客戶案例（原廠案例頁全文＋原廠影片；中文字幕版影片見
+    MF-GCR/85_Content/Subaru-Indiana-OnyxGF-色碼治具-中英字幕/），原文未寫機型
 
 閘（任何一道失敗 exit 1）：
   L1 覆蓋率  L2 英文純度  L3 簡中（t2s 回驗、台灣用語零）  L4 引號  L5 禁用字（含過期色數 六色／six colors）
@@ -78,7 +79,9 @@ _TERMS = [("橘色", "橙色"), ("橘", "橙"), ("工安", "安全"), ("玻纖",
 def cn(s):
     out = _cn_base(s)
     for a, b in _TERMS:
-        out = out.replace(_T2S.convert(a), b).replace(a, b)
+        ca = _T2S.convert(a)
+        # 只替換一次：舊寫法先換簡體形再換原形，當兩者相同（例「印 Onyx GF 之前」）就換兩次 → 線上出現「打打印」（11-13 抓到）
+        out = out.replace(ca, b) if ca in out else out.replace(a, b)
     for slug in _SC_LINKS:
         out = out.replace(f'href="{slug}.html"', f'href="{slug}-sc.html"').replace(f'href="{slug}.html#', f'href="{slug}-sc.html#')
     return out
@@ -187,11 +190,73 @@ PALETTE = {
     ],
     "new": {"tw": "新色", "en": "New"},
     "note": {"tw": "色塊為螢幕示意，實際顏色以線材為準。", "en": "Swatches are approximate on screen."},
-    "case": {"tw": f'實際案例：Subaru 印第安納廠把會裂的 ABS 治具改用 Onyx GF 重印，每個車型配一種顏色，作業員第一次伸手就拿對；保險桿 QR 標籤定位治具精度 0.1 mm（原文未寫機型）。<a href="{URL["subaru"]}">原廠案例（英文）&nbsp;→</a>',
-             "en": f'In practice: Subaru of Indiana reprinted cracking ABS jigs in Onyx GF and gave each model its own color, so operators grab the right tool on the first pass; the bumper QR-label placement jigs hold a 0.1 mm tolerance (printer not stated in the source). <a href="{URL["subaru"]}">Read the original&nbsp;→</a>'},
+    "case": {"tw": '實際案例：Subaru 印第安納廠用 Onyx GF 做色碼治具，每個車型一種顏色。<a href="#case-subaru">看完整案例與影片&nbsp;↓</a>',
+             "en": 'In practice: Subaru of Indiana color-codes its tooling in Onyx GF, one color per model. <a href="#case-subaru">See the full case and film&nbsp;↓</a>'},
 }
 
 # L6 規格對帳：頁面上出現的每個規格數字都要在這裡，值＝原廠 Onyx GF Material Datasheet V01
+# ── 客戶案例：Subaru of Indiana Automotive ──
+# 來源：markforged.com/resources/blog/keeping-the-line-moving-color-coded-tooling-at-subaru（全文）＋
+#       原廠影片 youtube yV77RJ1lAk0（無旁白、英文字卡；中文字幕由本站翻譯，時間取逐格 OCR）
+#       原文未寫機型 → 只寫「在廠內既有的 Markforged 系統上」，不寫 FX10／FX20
+#       Rob Cooper 的話用轉述、不加引號（網站引言閘）
+CASE = {
+    "kicker": {"tw": "客戶案例 ・ Subaru of Indiana Automotive（美國）", "en": "Customer case · Subaru of Indiana Automotive (U.S.)"},
+    "h": {"tw": "多車型同線生產，治具靠顏色一眼拿對", "en": "Many models on one line, and the right jig at a glance"},
+    "intro": {"tw": "Subaru 印第安納廠（SIA）的組裝線同時生產多個車型，不同車型的治具可能只差幾公釐，拿錯就得重工、停線。所以 SIA 決定用顏色區分治具，讓作業員一眼挑對。",
+              "cn": "Subaru 印第安纳工厂（SIA）的装配线同时生产多个车型，不同车型的夹具可能只差几毫米，拿错就要返工、停线。所以 SIA 决定用颜色区分夹具，让操作员一眼挑对。",
+              "en": "Subaru of Indiana Automotive (SIA) runs several vehicle models on one assembly line, and their tooling can differ by just a few millimeters. A mix-up means rework and downtime, so SIA turned to color coding to make the right tool obvious."},
+    "video": {"tw": "video/onyx-gf-orange-2026-11-subaru-tw.mp4?v=1", "cn": "video/onyx-gf-orange-2026-11-subaru-sc.mp4?v=1",
+              "en": "video/onyx-gf-orange-2026-11-subaru-en.mp4?v=1"},
+    "poster": f"images/{S}-subaru-poster.jpg",
+    "vcap": {"tw": "Markforged 原廠影片，中文字幕由媒體中心翻譯，英文字卡為原片內容。",
+             "cn": "Markforged 原厂视频，中文字幕由媒体中心翻译，英文字卡为原片内容。",
+             "en": "Official Markforged film."},
+    "voice": {"tw": "SIA 的 Rob Cooper 說，同時跑三個車型時，沒有多少時間判斷該拿哪個治具，可能已經落後了；那一個視覺提示，就能確保拿對治具。",
+              "cn": "SIA 的 Rob Cooper 说，同时跑三个车型时，没有多少时间判断该拿哪个夹具，可能已经落后了；那一个视觉提示，就能确保拿对夹具。",
+              "en": "Rob Cooper of SIA explains that with three different models running, there is little time to work out which jig to pull, and you may already be behind; that one visual cue makes sure you grab the right jig."},
+    "before_h": {"tw": "原本：3D 列印 ABS", "cn": "原本：3D 打印 ABS", "en": "Before: 3D-printed ABS"},
+    "before": {"tw": "ABS 能為少量客製零件做出顏色，但耐用度達不到汽車製造的要求。治具在現場每班要拿起、放下、重複使用上百次，SIA 需要更強韌的材料。",
+               "cn": "ABS 能为小批量定制零件做出颜色，但耐用度达不到汽车制造的要求。夹具在现场每班要拿起、放下、重复使用上百次，SIA 需要更强韧的材料。",
+               "en": "3D-printed ABS provided color for low-volume custom parts, but not the durability automotive manufacturing requires. On a floor where tools are picked up, set down and reused hundreds of times a shift, SIA needed a stronger solution."},
+    "before_img": f"images/{S}-subaru-abs.jpg",
+    "before_alt": {"tw": "以 ABS 列印、已經裂開的藍色治具零件（Markforged 原廠影片畫面）", "cn": "以 ABS 打印、已经裂开的蓝色夹具零件（Markforged 原厂视频画面）",
+                   "en": "A blue ABS-printed fixture part that has cracked (frame from the official Markforged film)"},
+    "after_h": {"tw": "改用：Onyx GF", "en": "After: Onyx GF"},
+    "after": {"tw": "Onyx GF 兼具需要的強度與色碼能力，直接在 SIA 廠內既有的 Markforged 系統上列印，不必另建流程。",
+              "cn": "Onyx GF 兼具所需的强度与色码能力，直接在 SIA 厂内现有的 Markforged 系统上打印，不必另建流程。",
+              "en": "Onyx GF provided the strength and the color coding, running within SIA's existing Markforged ecosystem for seamless integration."},
+    "after_img": f"images/{S}-subaru-printer.jpg",
+    "after_alt": {"tw": "Markforged 印表機裡剛印好的黃色 Onyx GF 零件（Markforged 原廠影片畫面）", "cn": "Markforged 打印机里刚打印好的黄色 Onyx GF 零件（Markforged 原厂视频画面）",
+                  "en": "Yellow Onyx GF parts fresh off a Markforged printer (frame from the official Markforged film)"},
+    "apps": [
+        {"img": f"images/{S}-subaru-hero.jpg",
+         "alt": {"tw": "Subaru 印第安納廠作業員處理保險桿（Markforged 原廠圖片）", "cn": "Subaru 印第安纳工厂操作员处理保险杠（Markforged 原厂图片）",
+                 "en": "An associate working on a bumper at Subaru of Indiana Automotive (official Markforged image)"},
+         "h": {"tw": "保險桿標籤定位治具", "cn": "保险杠标签定位夹具", "en": "Bumper check jig"},
+         "p": {"tw": "每支保險桿通過塗裝廠時，都靠手貼的 QR 標籤追蹤。保險桿本身沒有定位特徵，標籤貼的位置不一，上方固定掃描器讀不到就得停線，人工追蹤、重掃、核對完才能復工。SIA 做了一系列以保險桿外形定位的治具，標籤位置精度 0.1 mm；每個車型的前、後保險桿與每個等級各有專屬治具，用 Onyx GF 讓每個車型各有一種顏色，一眼就拿對。",
+               "cn": "每根保险杠通过涂装车间时，都靠手贴的 QR 标签追踪。保险杠本身没有定位特征，标签贴的位置不一，上方固定扫描器读不到就要停线，人工追踪、重扫、核对完才能复工。SIA 做了一系列以保险杠外形定位的夹具，标签位置精度 0.1 mm；每个车型的前、后保险杠与每个配置各有专属夹具，用 Onyx GF 让每个车型各有一种颜色，一眼就拿对。",
+               "en": "SIA tracks every bumper through the paint shop with hand-applied QR labels. Bumpers have no built-in locating features, so placement varied and fixed overhead scanners missed reads, stopping the line for manual tracking, re-scanning and reconciliation. SIA built a family of placement jigs that index off the bumper's outer geometry, putting each label within a 0.1 mm tolerance. Every model, front and rear, and every trim level has its own jig, and in Onyx GF each model variant has its own color."},
+         "m": {"tw": "標籤定位精度 0.1 mm", "cn": "标签定位精度 0.1 mm", "en": "Label placement within 0.1 mm"}},
+        {"img": f"images/{S}-subaru-yellow.jpg",
+         "alt": {"tw": "現場使用中的黃色 Onyx GF 治具（Markforged 原廠影片畫面）", "cn": "现场使用中的黄色 Onyx GF 夹具（Markforged 原厂视频画面）",
+                 "en": "A yellow Onyx GF fixture in use on the floor (frame from the official Markforged film)"},
+         "h": {"tw": "組裝托架治具", "cn": "装配托架夹具", "en": "Assembly jig"},
+         "p": {"tw": "搬運凸輪軸蓋（cam cap）的托架治具需要一個底座零件。這個零件原本用 ABS 列印，容易裂開；改用黃色 Onyx GF 列印後，在 ABS 撐不住的地方撐住了，黃色也直接標示它在現場的固定位置。",
+               "cn": "搬运凸轮轴盖（cam cap）的托架夹具需要一个底座零件。这个零件原本用 ABS 打印，容易裂开；改用黄色 Onyx GF 打印后，在 ABS 撑不住的地方撑住了，黄色也直接标示它在现场的固定位置。",
+               "en": "A cradle jig for handling cam cap carriers needed a base component. Printed in ABS, it was prone to cracking. Printed in Onyx GF Yellow, it held up where ABS had failed, and its color marks where it belongs on the floor."},
+         "m": {"tw": "ABS 會裂 → 黃色 Onyx GF 撐住", "cn": "ABS 会裂 → 黄色 Onyx GF 撑住", "en": "ABS cracked; Onyx GF Yellow held up"}},
+    ],
+    "result_h": {"tw": "結果", "cn": "结果", "en": "The result"},
+    "result": {"tw": "多車型共線，拿錯治具就是重工與停線。Onyx GF 用顏色杜絕拿錯，材料強度也撐得住現場反覆使用：作業員第一次伸手就拿對治具，產線持續運轉。",
+               "cn": "多车型共线，拿错夹具就是返工与停线。Onyx GF 用颜色杜绝拿错，材料强度也经得住现场反复使用：操作员第一次伸手就拿对夹具，产线持续运转。",
+               "en": "On a multi-model line, tool mix-ups mean rework and downtime. Onyx GF gave SIA the color differentiation to eliminate misidentification and the strength to survive repeated use: operators grab the right tool on the first pass, and the line stays moving."},
+    "note": {"tw": "原文未寫 SIA 使用的機型。", "cn": "原文未写 SIA 使用的机型。", "en": "The source does not state which printer SIA uses."},
+    "links": {"tw": f'<a href="{URL["subaru"]}">原廠案例（英文）&nbsp;→</a><a href="https://www.youtube.com/watch?v=yV77RJ1lAk0">YouTube 原片&nbsp;→</a>',
+              "cn": f'<a href="{URL["subaru"]}">原厂案例（英文）&nbsp;→</a>',
+              "en": f'<a href="{URL["subaru"]}">Read the original case&nbsp;→</a><a href="https://www.youtube.com/watch?v=yV77RJ1lAk0">Watch on YouTube&nbsp;→</a>'},
+}
+
 SPEC_LEDGER = {"3.1 GPa", "88.2 MPa", "71.8 MPa", "161 J/m", "138 °C", "1.8 MPa", "1.21 g/cm³", "125 µm", "0.1 mm"}
 
 SPEC = {
@@ -301,7 +366,36 @@ CSS_EXTRA = f"""
 .sp .warn{{margin-top:26px;padding:16px 18px;border:1px solid {OR};border-left:6px solid {OR};font-size:14.5px;line-height:1.75;color:#eee}}
 .sp .lk{{margin-top:22px;font-size:14.5px}}
 .sp .lk a{{color:var(--y);font-weight:800;text-decoration:none;display:inline-block;margin:4px 0}}
+.case{{background:var(--g1);padding:88px 0}}
+.case .sec-h{{color:#000}}
+.case h2{{font-size:clamp(30px,3.8vw,52px);font-weight:900;line-height:1.12}}
+.case p.in{{font-size:17px;color:#333;margin-top:14px;line-height:1.8;max-width:52em}}
+.case .vwrap{{margin-top:30px}}
+.case .vwrap video{{display:block;width:100%;background:#000;aspect-ratio:16/9}}
+.case .vcap{{font-size:12.5px;color:#777;margin:10px 0 0}}
+.case .voice{{margin-top:30px;padding:22px 24px;background:#000;color:#fff;font-size:17px;line-height:1.8;border-left:6px solid {OR}}}
+.case .ba{{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:30px}}
+.case .ba > div{{background:#fff;border:1px solid var(--g2)}}
+.case .ba img{{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}}
+.case .ba .t{{padding:20px 22px 22px}}
+.case .ba b{{display:block;font-size:19px;font-weight:900}}
+.case .ba .aft b{{color:{OR}}}
+.case .ba span{{display:block;font-size:15px;color:#333;line-height:1.75;margin-top:8px}}
+.case .apps{{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px}}
+.case .app{{background:#fff;border:1px solid var(--g2);display:flex;flex-direction:column}}
+.case .app img{{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}}
+.case .app .t{{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}}
+.case .app h3{{font-size:20px;font-weight:900}}
+.case .app p{{font-size:15px;color:#333;line-height:1.75;margin-top:10px;flex:1}}
+.case .app .m{{margin-top:16px;padding-top:14px;border-top:2px solid #000;font-size:clamp(19px,2vw,24px);font-weight:900}}
+.case .app .m span{{background:linear-gradient(transparent 62%,{OR}55 62%)}}
+.case .res{{margin-top:22px;background:#000;color:#fff;padding:24px 26px}}
+.case .res b{{display:block;color:{OR};font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px}}
+.case .res span{{font-size:16.5px;line-height:1.8}}
+.case .ft{{margin-top:16px;font-size:13px;color:#666;display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center}}
+.case .ft a{{color:#000;font-weight:800}}
 @media (max-width:900px){{
+ .case .ba,.case .apps{{grid-template-columns:1fr}}
  .ohero .wrapx{{grid-template-columns:1fr;min-height:0;gap:0}}
  .ohero .tx{{padding:40px 0 8px}}
  .ohero .im{{justify-self:center;max-width:360px;order:-1;margin:8px auto -28px}}   /* 手機首屏先看到橘色零件 */
@@ -365,6 +459,21 @@ def render(lang):
       f'<div class="chips">{chips}</div><p class="nt">{T(PL["note"], lang)}</p><p class="cs">{T(PL["case"], lang)}</p></div>'
       '</div></div></section>')
 
+    C = CASE
+    ba = (f'<div class="rv"><img src="{C["before_img"]}" alt="{E(T(C["before_alt"], lang))}" loading="lazy"><div class="t"><b>{T(C["before_h"], lang)}</b><span>{T(C["before"], lang)}</span></div></div>'
+          f'<div class="rv aft"><img src="{C["after_img"]}" alt="{E(T(C["after_alt"], lang))}" loading="lazy"><div class="t"><b>{T(C["after_h"], lang)}</b><span>{T(C["after"], lang)}</span></div></div>')
+    apps = "".join(f'<article class="app rv"><img src="{a["img"]}" alt="{E(T(a["alt"], lang))}" loading="lazy"><div class="t"><h3>{T(a["h"], lang)}</h3>'
+                   f'<p>{T(a["p"], lang)}</p><div class="m"><span>{T(a["m"], lang)}</span></div></div></article>' for a in C["apps"])
+    A(f'<section class="case" id="case-subaru"><div class="wrapx"><div class="rv"><div class="sec-h">{T(C["kicker"], lang)}</div><h2>{T(C["h"], lang)}</h2>'
+      f'<p class="in">{T(C["intro"], lang)}</p></div>'
+      f'<div class="vwrap rv"><video src="{C["video"][lang]}" poster="{C["poster"]}" controls playsinline preload="metadata"></video>'
+      f'<p class="vcap">{T(C["vcap"], lang)}</p></div>'
+      f'<div class="voice rv">{T(C["voice"], lang)}</div>'
+      f'<div class="ba">{ba}</div><div class="apps">{apps}</div>'
+      f'<div class="res rv"><b>{T(C["result_h"], lang)}</b><span>{T(C["result"], lang)}</span></div>'
+      f'<div class="ft"><span>{T(C["note"], lang)}</span>{C["links"][lang]}</div>'
+      '</div></section>')
+
     SP = SPEC
     mat = "".join(f'<div class="r"><span>{T(k, lang)}</span><span class="v">{v}</span><span class="m">{m}</span></div>' for k, v, m in SP["mat"])
     use = "".join(f'<div class="r"><span>{T(k, lang)}</span><span>{T(v, lang)}</span></div>' for k, v in SP["use"])
@@ -411,6 +520,8 @@ def gates(out):
     diff = [a for a, b in zip(cnt, _T2S.convert(cnt)) if a != b]
     fail(f"L3 簡中殘留繁體：{''.join(sorted(set(diff)))}") if diff else print("  ✅ L3 簡中：t2s 回驗零差異")
     tw_terms = [w for w in ["列印", "治具", "航太", "积层", "雷射", "量测", "公厘", "影片", "工安", "控管", "橘", "防呆", "洽询", "资讯"] if w in cnt]
+    dup = [w for w in ["打打", "重新重新", "橙橙", "安全安全"] if any(w in text_of(h) for h in out.values())]
+    fail(f"L3 疊字（詞替換重複套用）：{dup}") if dup else print("  ✅ L3 疊字：零")
     fail(f"L3 簡中台灣用語：{tw_terms}") if tw_terms else print("  ✅ L3 簡中：台灣用語零")
     for L, h in out.items():
         q = re.findall(r"[「」『』“”\"]", text_of(h))
@@ -434,7 +545,7 @@ def gates(out):
     print("  ✅ L6 規格對帳：三語數字＝原廠規格表帳") if ok else None
     for L, h in out.items():
         srcs = re.findall(r'(?:src|poster)="((?:images|video)/[^"]+)"', h)
-        miss = [s for s in set(srcs) if not os.path.exists(os.path.join(OUT, s))]
+        miss = [s for s in set(srcs) if not os.path.exists(os.path.join(OUT, s.split("?")[0]))]   # 影片網址帶 ?v= 版本號避快取
         if miss:
             fail(f"L7 {L} 版缺檔 {miss}")
         imgs = re.findall(r'<img[^>]+src="([^"]+)"', h)
