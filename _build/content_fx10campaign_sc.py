@@ -54,6 +54,8 @@ def cn(s):
     # 站內連結改指簡中版（有簡中版的才改）
     out = out.replace('href="casa-additive-airworthiness.html"', 'href="casa-additive-airworthiness-sc.html"')
     out = out.replace('href="fx10-sinter2-bundle.html"', 'href="fx10-sinter2-bundle-sc.html"')
+    out = out.replace('href="onyx-gf-orange-2026-11.html"', 'href="onyx-gf-orange-2026-11-sc.html"')
+    out = out.replace("橘色", "橙色").replace("白橘七色", "白橙七色")
     return out
 
 
