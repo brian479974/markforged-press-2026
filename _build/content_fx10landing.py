@@ -8,7 +8,7 @@ Brian：「這個頁面要做得更盛大一點、更有吸引力才對」「裡
 事實來源與限制同文章版（逐條對過原廠官網原文，連結即出處）：
   · 只有 GRP、Plane Support 是 FX10；Dana、CMS、Cannon 是 X7；Subaru、Hangar One 原文未寫機型；
     Fort Irwin、退伍軍人事務部標「Markforged 平台」（Fort Irwin 金屬版原文機型為已停產機種，不寫）
-  · 不寫：Metal X／PX100、Hangar One 65%、FX10 重量、ULTEM FAR 25.853；Onyx GF 依原廠規格表六色
+  · 不寫：Metal X／PX100、Hangar One 65%、FX10 重量、ULTEM FAR 25.853；Onyx GF 七色（2026-11-10 原廠新增橘色；原規格表 V01 寫六色是橘色之前的版本）
   · 簡中（cn）：tw 文字經 content_fx10campaign_sc.cn() 轉大陸用語；defense=True 的項目整個不出
   · 不用引號包句子（網站冒名引言閘）
 
@@ -177,8 +177,8 @@ CASES = {
     "subaru": {"img": f"images/{S}-case-subaru.jpg", "machine": "ns", "material": "Onyx GF",
                "alt": {"tw": "Subaru 印第安納廠組裝線", "en": "Assembly line at Subaru of Indiana Automotive"},
                "tags": {"tw": "整車組裝 ・ 美國", "en": "Vehicle assembly · U.S."},
-               "title": {"tw": "Subaru of Indiana：ABS 治具會裂，改用六色 Onyx GF",
-                         "en": "Subaru of Indiana: ABS jigs cracked, so they switched to six-color Onyx GF"},
+               "title": {"tw": "Subaru of Indiana：ABS 治具會裂，改用彩色 Onyx GF",
+                         "en": "Subaru of Indiana: ABS jigs cracked, so they switched to color-coded Onyx GF"},
                "body": {"tw": "同一條線同時組裝多個車型，治具之間只差幾公釐。改用 Onyx GF 後，每個車型配一種顏色，作業員第一次伸手就拿對；保險桿 QR 追蹤標籤的定位治具，精度做到 0.1 mm。",
                         "en": "Several models share one line and their tools differ by millimeters. Reprinted in Onyx GF, each model variant got its own color, so operators grab the right tool on the first pass; the bumper QR-label placement jigs hold a 0.1 mm tolerance."},
                "metric": {"tw": "0.1 mm", "en": "0.1 mm"}, "url": URL["subaru"]},
@@ -269,13 +269,13 @@ CH_CTA = {"tw": "你的產線也有這種零件？寄圖檔給我們&nbsp;→", 
 
 ONYX = {
     "img": f"images/{S}-onyxgf.jpg",
-    "alt": {"tw": "Onyx GF 六色線材與綠色列印零件（Markforged 原廠圖片）", "en": "Onyx GF in six colors and a printed part (official Markforged images)"},
+    "alt": {"tw": "Onyx GF 紅黃綠藍灰白線材與綠色列印零件（Markforged 原廠圖片）", "en": "Onyx GF spools in red, yellow, green, blue, gray and white, and a printed part (official Markforged images)"},
     "kicker": {"tw": "材料焦點", "en": "Material spotlight"},
     "h": {"tw": "Onyx GF：顏色就是管理", "en": "Onyx GF: color is the control system"},
-    "intro": {"tw": "六色 Onyx GF 讓治具一眼看出屬於哪條線、哪個版本、哪個危險區；Subaru 印第安納廠的色碼治具就是用它印的。",
-              "en": "Six colors show which line, which revision and which hazard zone a fixture belongs to. Subaru of Indiana's color-coded jigs are printed in it."},
-    "facts": {"tw": "短切玻璃纖維強化尼龍 ・ 不導電 ・ 紅黃綠藍灰白六色 ・ 可加連續纖維強化 ・ 熱變形溫度 138 °C（1.8 MPa）",
-              "en": "Chopped-glass-fiber nylon · Non-conductive · Red, yellow, green, blue, gray, white · Continuous fiber compatible · HDT 138 °C (1.8 MPa)"},
+    "intro": {"tw": '七色 Onyx GF 讓治具一眼看出屬於哪條線、哪個版本、哪個危險區；Subaru 印第安納廠的色碼治具就是用它印的。<a href="onyx-gf-orange-2026-11.html" style="font-weight:800;color:#000">橘色新上市&nbsp;→</a>',
+              "en": "Seven colors show which line, which revision and which hazard zone a fixture belongs to. Subaru of Indiana's color-coded jigs are printed in it. <a href=\"onyx-gf-orange-2026-11-en.html\" style=\"font-weight:800;color:#000\">Now in orange&nbsp;→</a>"},
+    "facts": {"tw": "短切玻璃纖維強化尼龍 ・ 不導電 ・ 紅黃綠藍灰白橘七色 ・ 可加連續纖維強化 ・ 熱變形溫度 138 °C（1.8 MPa）",
+              "en": "Chopped-glass-fiber nylon · Non-conductive · Red, yellow, green, blue, gray, white, orange · Continuous fiber compatible · HDT 138 °C (1.8 MPa)"},
     "uses": [
         {"b": {"tw": "工安警示", "en": "Workplace safety"}, "s": {"tw": "危險機台旁的護罩與支架用醒目的紅、黃色列印", "en": "High-visibility red and yellow guards near hazardous machinery"}},
         {"b": {"tw": "產線區分", "en": "Line differentiation"}, "s": {"tw": "A 線、B 線的治具用顏色分開，不會拿錯", "en": "Tools for Line A and Line B separated by color"}},
@@ -299,7 +299,7 @@ PRODUCT = {
         ({"tw": "列印平台", "en": "Print bed"}, {"tw": "加熱、精密研磨鋁製真空平台，自動調平", "en": "Heated, precision-ground aluminum vacuum bed, auto leveling"}),
         ({"tw": "材料倉", "en": "Material storage"}, {"tw": "4 個 800 cc 料盤位，濕度控制，自動換料", "en": "4 × 800 cc spool bays, humidity controlled, automatic changeover"}),
         ({"tw": "電源", "en": "Power"}, {"tw": "單相，一般插座", "en": "Single phase, wall plug"}),
-        ({"tw": "複合材料", "en": "Composite materials"}, {"tw": "Onyx、Onyx FR／FR-A、Onyx ESD、Onyx GF（六色），可加連續碳纖維強化", "en": "Onyx, Onyx FR / FR-A, Onyx ESD, Onyx GF (six colors), with continuous carbon fiber reinforcement"}),
+        ({"tw": "複合材料", "en": "Composite materials"}, {"tw": "Onyx、Onyx FR／FR-A、Onyx ESD、Onyx GF（七色），可加連續碳纖維強化", "en": "Onyx, Onyx FR / FR-A, Onyx ESD, Onyx GF (seven colors), with continuous carbon fiber reinforcement"}),
         ({"tw": "金屬材料", "en": "Metal materials"}, {"tw": "加購 Metal Kit：316L、17-4PH 不鏽鋼，H13 工具鋼", "en": "With the Metal Kit: 316L, 17-4PH stainless steel; H13 tool steel"}),
     ],
     "bundle": {"tw": '同時要做複材與金屬零件？<a href="fx10-sinter2-bundle.html">看 FX10 Sinter-2 Bundle&nbsp;→</a>',
