@@ -56,6 +56,7 @@
    "zh": "產品方案",
    "en": "Product Solutions",
    "slugs": [
+    "onyx-gf-orange-2026-11",
     "fx10-it-starts-here",
     "fx10-sinter2-bundle"
    ]
@@ -208,6 +209,10 @@
   "automotive-am-perspective-2026-11": [
    "2026-11-11",
    "本站本週專題（產業觀點）首次公開日；骨架取自 Markforged 原廠汽車產業頁"
+  ],
+  "onyx-gf-orange-2026-11": [
+   "2026-11-13",
+   "原廠 2026-11-10 全球發表（hello@markforged.com〈Onyx GF Orange: A new shade of strength〉）；APAC 區 2026-11-13 上市（Slack 公告，Brian 轉傳）；本站新色上市頁"
   ]
  }
 }
